@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,20 +15,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   const navLinks = [
-    { name: "About", id: "about" },
-    { name: "Services", id: "services" },
-    { name: "Work", id: "portfolio" },
-    { name: "Skills", id: "skills" },
-    { name: "Contact", id: "contact" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Work", path: "/work" },
+    { name: "Skills", path: "/skills" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -39,34 +32,35 @@ const Navigation = () => {
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <button
-              onClick={() => scrollToSection("hero")}
+            <Link
+              to="/"
               className="font-clash font-bold text-xl hover:text-primary transition-colors"
             >
               Your Name
-            </button>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                <Link
+                  key={link.path}
+                  to={link.path}
                   className="font-grotesk text-sm text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
                 >
                   {link.name}
-                </button>
+                </Link>
               ))}
             </div>
 
             <div className="hidden md:block">
-              <Button
-                onClick={() => scrollToSection("contact")}
-                size="sm"
-                className="font-grotesk bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                Let's Talk
-              </Button>
+              <Link to="/contact">
+                <Button
+                  size="sm"
+                  className="font-grotesk bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Let's Talk
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -88,22 +82,24 @@ const Navigation = () => {
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link, index) => (
-            <button
-              key={link.id}
-              onClick={() => scrollToSection(link.id)}
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsMobileMenuOpen(false)}
               className="font-clash text-3xl font-bold hover:text-primary transition-colors"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {link.name}
-            </button>
+            </Link>
           ))}
-          <Button
-            onClick={() => scrollToSection("contact")}
-            size="lg"
-            className="font-grotesk mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"
-          >
-            Let's Talk
-          </Button>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button
+              size="lg"
+              className="font-grotesk mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              Let's Talk
+            </Button>
+          </Link>
         </div>
       </div>
     </>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +16,23 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Reset scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+    // Scroll to top with smooth behavior
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navLinks = [
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Work", path: "/work" },
     { name: "Skills", path: "/skills" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact", path: "/contact-Page" },
   ];
 
   return (
@@ -34,6 +46,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-20">
             <Link
               to="/"
+              onClick={handleNavClick}
               className="font-clash font-bold text-xl hover:text-primary transition-colors"
             >
               Your Name
@@ -45,6 +58,7 @@ const Navigation = () => {
                 <Link
                   key={link.path}
                   to={link.path}
+                  onClick={handleNavClick}
                   className="font-grotesk text-sm text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
                 >
                   {link.name}
@@ -53,7 +67,7 @@ const Navigation = () => {
             </div>
 
             <div className="hidden md:block">
-              <Link to="/contact">
+              <Link to="/contact" onClick={handleNavClick}>
                 <Button
                   size="sm"
                   className="font-grotesk bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -85,14 +99,14 @@ const Navigation = () => {
             <Link
               key={link.path}
               to={link.path}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={handleNavClick}
               className="font-clash text-3xl font-bold hover:text-primary transition-colors"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link to="/contact" onClick={handleNavClick}>
             <Button
               size="lg"
               className="font-grotesk mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"

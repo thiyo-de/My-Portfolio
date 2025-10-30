@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const allSkills = [
   "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion",
@@ -11,14 +12,20 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 sm:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 animate-fade-in">
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
             Tech Stack
           </span>
           <h2 className="font-clash font-extrabold text-5xl sm:text-6xl md:text-7xl mt-2">
             Skills & Tools
           </h2>
-        </div>
+        </motion.div>
         
         {/* First Marquee - Left to Right */}
         <div className="relative mb-8 overflow-hidden">

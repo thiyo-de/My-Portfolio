@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,10 +38,13 @@ const Navigation = () => {
 
   return (
     <>
-      <header
+      <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "backdrop-blur-xl bg-background/80 border-b border-border" : "bg-transparent"
         }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -86,36 +90,59 @@ const Navigation = () => {
             </button>
           </div>
         </nav>
-      </header>
+      </motion.header>
 
       {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link, index) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={handleNavClick}
-              className="font-clash text-3xl font-bold hover:text-primary transition-colors"
-              style={{ animationDelay: `${index * 0.1}s` }}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div 
+              className="flex flex-col items-center justify-center h-full gap-8"
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              exit={{ y: 20 }}
+              transition={{ duration: 0.3 }}
             >
-              {link.name}
-            </Link>
-          ))}
-          <Link to="/contact" onClick={handleNavClick}>
-            <Button
-              size="lg"
-              className="font-grotesk mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              Let's Talk
-            </Button>
-          </Link>
-        </div>
-      </div>
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                >
+                  <Link
+                    to={link.path}
+                    onClick={handleNavClick}
+                    className="font-clash text-3xl font-bold hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+              >
+                <Link to="/contact" onClick={handleNavClick}>
+                  <Button
+                    size="lg"
+                    className="font-grotesk mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    Let's Talk
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

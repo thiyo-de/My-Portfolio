@@ -1,6 +1,8 @@
 import { ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const projects = [
   {
@@ -63,7 +65,13 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 sm:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-16 animate-fade-in">
+        <motion.div 
+          className="flex items-end justify-between mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <div>
             <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
               Portfolio
@@ -73,20 +81,24 @@ const Portfolio = () => {
             </h2>
           </div>
           <div className="hidden md:flex gap-2">
-            <button
+            <motion.button
               onClick={() => scroll('left')}
               className="p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={() => scroll('right')}
               className="p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
         
         <div 
           ref={scrollContainerRef}
@@ -94,17 +106,25 @@ const Portfolio = () => {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="group min-w-[85vw] sm:min-w-[70vw] lg:min-w-[600px] snap-start animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group min-w-[85vw] sm:min-w-[70vw] lg:min-w-[600px] snap-start"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500">
+              <motion.div 
+                className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500"
+                whileHover={{ y: -5 }}
+              >
                 <div className="relative overflow-hidden aspect-[4/3]">
-                  <img 
+                  <motion.img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.7 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
                   <div className="absolute top-6 right-6">
@@ -112,9 +132,14 @@ const Portfolio = () => {
                       {project.number}
                     </span>
                   </div>
-                  <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <motion.div 
+                    className="absolute inset-0 bg-primary/90 flex items-center justify-center"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <ExternalLink className="w-12 h-12 text-primary-foreground" />
-                  </div>
+                  </motion.div>
                 </div>
                 
                 <div className="p-8 space-y-4">
@@ -136,8 +161,8 @@ const Portfolio = () => {
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

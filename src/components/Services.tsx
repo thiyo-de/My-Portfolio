@@ -1,4 +1,6 @@
 import { Palette, Code, Smartphone, Zap, Database } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const services = [
   {
@@ -37,30 +39,48 @@ const Services = () => {
   return (
     <section id="services" className="py-20 sm:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 animate-fade-in">
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
             Services
           </span>
           <h2 className="font-clash font-extrabold text-5xl sm:text-6xl md:text-7xl mt-2">
             What I Do
           </h2>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           {services.map((service, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="group relative border-2 border-border bg-card/50 backdrop-blur-sm hover:border-primary hover:bg-card transition-all duration-500 rounded-2xl p-10 animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative border-2 border-border bg-card/50 backdrop-blur-sm hover:border-primary hover:bg-card transition-all duration-500 rounded-2xl p-10"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="absolute top-6 right-6 font-clash text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
                 {service.number}
               </div>
               
               <div className="space-y-6">
-                <div className="p-5 bg-primary/10 rounded-2xl w-fit group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                <motion.div 
+                  className="p-5 bg-primary/10 rounded-2xl w-fit"
+                  whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary) / 0.2)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   <service.icon className="w-12 h-12 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="font-clash font-bold text-3xl group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
@@ -68,9 +88,9 @@ const Services = () => {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

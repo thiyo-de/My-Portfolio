@@ -29,10 +29,10 @@ const Navigation = () => {
   };
 
   const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Work", path: "/work" },
-    { name: "Skills", path: "/skills" },
+    { name: "About", path: "/about-Page" },
+    { name: "Services", path: "/services-Page" },
+    { name: "Work", path: "/work-Page" },
+    { name: "Skills", path: "/skills-Page" },
     { name: "Contact", path: "/contact-Page" },
   ];
 

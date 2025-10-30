@@ -8,15 +8,16 @@ import {
   MapPin,
   Copy,
   Check,
+  Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [emailCopied, setEmailCopied] = useState(false);
-  const [activeForm, setActiveForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +27,7 @@ const Contact = () => {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("your.email@example.com");
+      await navigator.clipboard.writeText("hello@example.com");
       setEmailCopied(true);
       setTimeout(() => setEmailCopied(false), 2000);
     } catch (err) {
@@ -45,18 +46,15 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Form submitted:", formData);
-    // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
-    setActiveForm(false);
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
+      value: "hello@example.com",
       action: copyEmail,
     },
     {
@@ -78,133 +76,241 @@ const Contact = () => {
       icon: Linkedin,
       href: "https://linkedin.com",
       label: "LinkedIn",
-      color: "hover:text-blue-600",
     },
     {
       icon: Github,
       href: "https://github.com",
       label: "GitHub",
-      color: "hover:text-gray-700",
     },
     {
       icon: Twitter,
       href: "https://twitter.com",
       label: "Twitter",
-      color: "hover:text-blue-400",
     },
   ];
 
   return (
-    <section
-      id="contact"
-      className="py-20 sm:py-32 bg-gradient-to-b from-background to-muted/20"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 sm:py-32 bg-background relative overflow-hidden">
+      {/* Animated Background Orbs - Slower speed */}
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3
+        }}
+      />
+      <motion.div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.1, 0.3, 0.1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 6
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-20 animate-fade-in">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
               Get In Touch
             </span>
-            <h2 className="font-clash font-extrabold text-4xl sm:text-5xl md:text-7xl mt-6 mb-6 leading-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="font-clash font-extrabold text-4xl sm:text-5xl md:text-7xl mt-6 mb-6 leading-tight">
               Let's Create
               <br />
-              Something Amazing
+              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                Amazing Things
+              </span>
             </h2>
             <p className="font-satoshi text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Ready to bring your ideas to life? Whether it's a new project or
               collaboration, I'm here to help you achieve your goals.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Contact Information */}
-            <div
-              className="space-y-8 animate-fade-in"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-                <CardContent className="p-8">
-                  <h3 className="font-grotesk text-2xl font-semibold mb-6">
-                    Get in touch
-                  </h3>
-                  <div className="space-y-4">
-                    {contactInfo.map((item, index) => (
-                      <div
-                        key={item.label}
-                        className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors duration-200 cursor-pointer group"
-                        onClick={item.action || undefined}
-                        style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-                      >
-                        <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                          <item.icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-grotesk text-sm text-muted-foreground">
-                            {item.label}
-                          </p>
-                          <p className="font-satoshi text-base">{item.value}</p>
-                        </div>
-                        {item.action && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            {emailCopied ? (
-                              <Check className="w-4 h-4" />
-                            ) : (
-                              <Copy className="w-4 h-4" />
-                            )}
-                          </Button>
-                        )}
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <Card className="bg-card/80 backdrop-blur-md border-border/50 shadow-2xl relative overflow-hidden">
+                  <motion.div 
+                    className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-2xl"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  <CardContent className="p-8 relative z-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center">
+                        <Mail className="w-4 h-4 text-white" />
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                      <div>
+                        <h3 className="font-grotesk text-2xl font-semibold">
+                          Get in Touch
+                        </h3>
+                        <p className="font-satoshi text-sm text-muted-foreground">
+                          Reach out through any channel
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {contactInfo.map((item, index) => (
+                        <motion.div
+                          key={item.label}
+                          className="flex items-center gap-4 p-4 rounded-xl border border-border/50 bg-background/50 hover:bg-accent/30 transition-all duration-500 cursor-pointer group hover:scale-[1.02] hover:shadow-lg"
+                          onClick={item.action || undefined}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                          whileHover={{ y: -2, scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <motion.div 
+                            className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-all duration-500"
+                            whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--primary) / 0.2)" }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <item.icon className="w-6 h-6 text-primary" />
+                          </motion.div>
+                          <div className="flex-1">
+                            <p className="font-grotesk text-sm text-muted-foreground">
+                              {item.label}
+                            </p>
+                            <p className="font-satoshi text-base font-medium">{item.value}</p>
+                          </div>
+                          {item.action && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-primary/20"
+                            >
+                              {emailCopied ? (
+                                <Check className="w-4 h-4 text-primary" />
+                              ) : (
+                                <Copy className="w-4 h-4" />
+                              )}
+                            </Button>
+                          )}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
               {/* Social Links */}
-              {/* Social Links */}
-              <div
-                className="animate-fade-in"
-                style={{ animationDelay: "0.4s" }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <p className="font-grotesk text-sm text-muted-foreground mb-4 text-center lg:text-left">
                   Follow me on social media
                 </p>
                 <div className="flex justify-center lg:justify-start gap-4">
                   {socialLinks.map((social, index) => (
-                    <a
+                    <motion.a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-5 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                      className="p-5 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-500 hover:scale-110"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                      whileHover={{ y: -2, scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <social.icon className="w-7 h-7" />
-                    </a>
+                    </motion.a>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50 sticky top-8">
-                <CardContent className="p-8">
-                  <h3 className="font-grotesk text-2xl font-semibold mb-2">
-                    Send a message
-                  </h3>
-                  <p className="font-satoshi text-muted-foreground mb-6">
-                    Fill out the form below and I'll get back to you as soon as
-                    possible.
-                  </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="bg-card/80 backdrop-blur-md border-border/50 shadow-2xl sticky top-8 overflow-hidden">
+                <motion.div 
+                  className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-2xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.2, 0.4, 0.2],
+                  }}
+                  transition={{
+                    duration: 7,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 2
+                  }}
+                />
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center">
+                      <Send className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-grotesk text-2xl font-semibold">
+                        Send Message
+                      </h3>
+                      <p className="font-satoshi text-sm text-muted-foreground">
+                        I'll respond within 24 hours
+                      </p>
+                    </div>
+                  </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label
                           htmlFor="name"
                           className="font-grotesk text-sm font-medium"
@@ -218,10 +324,10 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your name"
                           required
-                          className="transition-all focus:ring-2 focus:ring-primary/20"
+                          className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-500"
                         />
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <label
                           htmlFor="email"
                           className="font-grotesk text-sm font-medium"
@@ -236,12 +342,12 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="your.email@example.com"
                           required
-                          className="transition-all focus:ring-2 focus:ring-primary/20"
+                          className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-500"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <label
                         htmlFor="subject"
                         className="font-grotesk text-sm font-medium"
@@ -255,11 +361,11 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="What's this about?"
                         required
-                        className="transition-all focus:ring-2 focus:ring-primary/20"
+                        className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-500"
                       />
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <label
                         htmlFor="message"
                         className="font-grotesk text-sm font-medium"
@@ -274,22 +380,28 @@ const Contact = () => {
                         placeholder="Tell me about your project..."
                         rows={5}
                         required
-                        className="resize-none transition-all focus:ring-2 focus:ring-primary/20"
+                        className="bg-background/50 border-border/50 focus:border-primary/50 resize-none transition-all duration-500"
                       />
                     </div>
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full font-grotesk text-lg py-6 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] rounded-xl group"
+                    <motion.div 
+                      whileHover={{ y: -2, scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <Mail className="mr-3 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                      Send Message
-                    </Button>
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full font-grotesk text-lg py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-xl hover:shadow-primary/30 transition-all duration-500 rounded-xl group"
+                      >
+                        <Send className="mr-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        Send Message
+                      </Button>
+                    </motion.div>
                   </form>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

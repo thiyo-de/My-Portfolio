@@ -31,8 +31,6 @@ const projects = [
     githubUrl: "#",
     featured: true,
     role: "Lead UI/UX Developer",
-    duration: "6 Months",
-    team: "8 Members",
     impact: [
       "Increased conversion rates by 35% through intuitive user flows",
       "Reduced bounce rate by 28% with optimized mobile experience",
@@ -59,8 +57,6 @@ const projects = [
     githubUrl: "#",
     featured: true,
     role: "Frontend Specialist & UX Designer",
-    duration: "4 Months",
-    team: "4 Members",
     impact: [
       "Enhanced user engagement by 65% with interactive animations",
       "Decreased page load time by 50% through performance optimization",
@@ -88,8 +84,6 @@ const projects = [
     githubUrl: "#",
     featured: false,
     role: "Full Stack Developer & UX Architect",
-    duration: "5 Months",
-    team: "6 Members",
     impact: [
       "Boosted team productivity by 45% with streamlined workflows",
       "Reduced project delivery time by 30% through efficient task tracking",
@@ -116,8 +110,6 @@ const projects = [
     githubUrl: "#",
     featured: false,
     role: "Mobile UI/UX Specialist",
-    duration: "7 Months",
-    team: "10 Members",
     impact: [
       "Enhanced app store rating from 3.8 to 4.7 stars with improved UX",
       "Increased daily active users by 55% with intuitive navigation",
@@ -145,8 +137,6 @@ const projects = [
     githubUrl: "#",
     featured: false,
     role: "Data Visualization Expert & UI Developer",
-    duration: "3 Months",
-    team: "3 Members",
     impact: [
       "Improved data comprehension by 70% with intuitive visualizations",
       "Reduced decision-making time by 50% through clear metrics display",
@@ -173,8 +163,6 @@ const projects = [
     githubUrl: "#",
     featured: true,
     role: "AI UX Specialist & Full Stack Developer",
-    duration: "8 Months",
-    team: "12 Members",
     impact: [
       "Increased user retention by 75% with personalized recommendations",
       "Improved workout consistency by 60% through motivational design",
@@ -212,11 +200,29 @@ const Portfolio = () => {
     setVisibleProjects((prev) => prev + 3);
   };
 
+  // Scroll handler for case study links
+  const handleCaseStudyClick = () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
+
   return (
     <section
       id="portfolio"
-      className="py-16 lg:py-24 bg-background relative overflow-hidden"
+      className="py-20 md:py-30 lg:py-36 bg-background relative overflow-hidden"
     >
+      {/* Enhanced Background with Center Radial Fade */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
+      </div>
+
+       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -322,7 +328,12 @@ const Portfolio = () => {
             transition={{ duration: 0.5 }}
           >
             {displayedProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onCaseStudyClick={handleCaseStudyClick}
+              />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -358,9 +369,11 @@ const Portfolio = () => {
 const ProjectCard = ({
   project,
   index,
+  onCaseStudyClick,
 }: {
   project: (typeof projects)[0];
   index: number;
+  onCaseStudyClick: () => void;
 }) => {
   return (
     <motion.div
@@ -448,22 +461,6 @@ const ProjectCard = ({
             </p>
           </div>
 
-          {/* Project Meta */}
-          <div className="flex items-center gap-4 mb-4">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-primary/70" />
-              <span className="font-satoshi text-xs text-muted-foreground">
-                {project.duration}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Users className="w-4 h-4 text-primary/70" />
-              <span className="font-satoshi text-xs text-muted-foreground">
-                {project.team}
-              </span>
-            </div>
-          </div>
-
           {/* Role */}
           <div className="mb-4">
             <p className="font-satoshi text-sm font-medium text-primary">
@@ -533,7 +530,7 @@ const ProjectCard = ({
           </div>
 
           {/* CTA Button */}
-          <Link to={`/portfolio/${project.slug}`}>
+          <Link to={`/portfolio/${project.slug}`} onClick={onCaseStudyClick}>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button className="w-full gap-2 group/btn rounded-xl py-6 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary border-0 shadow-lg shadow-primary/25">
                 <span className="font-grotesk font-medium">

@@ -1,11 +1,39 @@
-import { Mail, Linkedin, Github, Twitter, Download } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Twitter,
+  ArrowRight,
+  Download,
+  ExternalLink,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
+import profile_Pic from "../assets/Profile Pic.png";
+import { useRef, useState, useCallback } from "react";
+
+// Types for better type safety
+interface SocialLink {
+  icon: React.ComponentType<any>;
+  href: string;
+  label: string;
+}
+
+interface Stat {
+  number: string;
+  label: string;
+}
 
 const About = () => {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  const socialLinks: SocialLink[] = [
+    {
+      icon: Github,
+      href: "https://github.com/yourusername",
+      label: "GitHub",
+    },
     {
       icon: Linkedin,
       href: "https://linkedin.com/in/yourusername",
@@ -29,63 +57,85 @@ const About = () => {
     "User Research",
   ];
 
-  const stats = [
+  const stats: Stat[] = [
     { number: "3+", label: "Years Experience" },
     { number: "50+", label: "Projects Completed" },
     { number: "25+", label: "Happy Clients" },
   ];
 
-  const handleDownloadResume = () => {
-    // Replace with your actual resume file path
+  // Memoized handlers for better performance
+  const handleDownloadResume = useCallback(() => {
     const resumeUrl = "/resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Your_Name_Resume.pdf";
+    link.setAttribute("data-testid", "resume-download-link");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
+  }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
+  const scrollToContact = useCallback(() => {
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
-  };
+  }, []);
+
+  const handleImageLoad = useCallback(() => {
+    setIsImageLoaded(true);
+  }, []);
 
   return (
-    <section id="about" className="py-20 sm:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="about"
+      className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
+      aria-labelledby="about-heading"
+    >
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
-          <motion.div
-            className="text-center mb-20"
+          <motion.header
+            className="text-center mb-12 sm:mb-16 lg:mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
           >
             <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
               About Me
             </span>
-            <h2 className="font-clash font-extrabold text-5xl sm:text-6xl md:text-8xl mt-4 mb-8 leading-tight">
+            <h1
+              id="about-heading"
+              className="font-clash font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 sm:mt-6 mb-4 sm:mb-6 leading-tight"
+            >
               Crafting Digital
               <br />
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Excellence
               </span>
-            </h2>
-            <p className="font-satoshi text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            </h1>
+            <p className="font-satoshi text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
               Transforming ideas into exceptional digital solutions through
-              design and development
+              design and development.
             </p>
-          </motion.div>
+          </motion.header>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Column - Text Content */}
             <motion.div
-              className="space-y-8"
+              className="space-y-6 lg:space-y-8 order-2 lg:order-1"
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -93,7 +143,7 @@ const About = () => {
             >
               <motion.p
                 variants={staggerItem}
-                className="font-satoshi text-lg text-muted-foreground leading-relaxed"
+                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
               >
                 I'm a{" "}
                 <span className="font-semibold text-foreground">
@@ -107,7 +157,7 @@ const About = () => {
 
               <motion.p
                 variants={staggerItem}
-                className="font-satoshi text-lg text-muted-foreground leading-relaxed"
+                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
               >
                 My expertise spans{" "}
                 <span className="font-semibold text-foreground">
@@ -121,7 +171,7 @@ const About = () => {
 
               <motion.p
                 variants={staggerItem}
-                className="font-satoshi text-lg text-muted-foreground leading-relaxed"
+                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
               >
                 Based in Tiruchirappalli, Tamil Nadu, I'm ready to collaborate
                 with teams and clients globally, transforming visions into
@@ -130,34 +180,36 @@ const About = () => {
 
               {/* Skills */}
               <motion.div
-                className="flex flex-wrap gap-3 pt-4"
+                className="flex flex-wrap gap-2 lg:gap-3 pt-4"
                 variants={staggerItem}
               >
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default"
+                    className="px-3 lg:px-4 py-2 bg-muted rounded-full text-xs lg:text-sm font-medium text-foreground border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default select-none"
+                    aria-label={`Skill: ${skill}`}
                   >
                     {skill}
                   </span>
                 ))}
               </motion.div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons - Compact */}
               <motion.div
-                className="flex flex-wrap gap-4 pt-6"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6"
                 variants={staggerItem}
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  className="flex-1"
                 >
                   <Button
                     size="lg"
-                    className="font-satoshi text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full group"
+                    className="font-grotesk text-sm sm:text-base lg:text-lg w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full transition-all duration-300"
                     onClick={scrollToContact}
                   >
-                    <Mail className="mr-3 h-5 w-5" />
+                    <Mail className="mr-1 sm:mr-1 h-4 w-4 lg:h-5 lg:w-5" />
                     Get In Touch
                   </Button>
                 </motion.div>
@@ -165,34 +217,43 @@ const About = () => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  className="flex-1"
                 >
                   <Button
                     size="lg"
                     variant="outline"
-                    className="font-satoshi text-lg px-8 py-6 rounded-full border-2 border-border hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                    className="font-grotesk text-sm sm:text-base lg:text-lg w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 rounded-full border-2 border-border hover:border-primary hover:bg-primary/5 transition-all duration-300"
                     onClick={handleDownloadResume}
                   >
-                    <Download className="mr-3 h-5 w-5" />
+                    <Download className="mr-1 sm:mr-1 h-4 w-4 lg:h-5 lg:w-5" />
                     Download Resume
                   </Button>
                 </motion.div>
               </motion.div>
 
               {/* Social Links */}
-              <motion.div className="flex gap-4 pt-6" variants={staggerItem}>
+              <motion.div
+                className="flex gap-3 lg:gap-4 pt-6"
+                variants={staggerItem}
+                aria-label="Social media links"
+              >
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={index}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                    className="p-3 lg:p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 group relative"
                     variants={staggerItem}
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    aria-label={link.label}
+                    aria-label={`Visit my ${link.label} profile`}
                   >
-                    <link.icon className="w-6 h-6" />
+                    <link.icon className="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:scale-110" />
+                    {/* Tooltip effect */}
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                      {link.label}
+                    </span>
                   </motion.a>
                 ))}
               </motion.div>
@@ -200,129 +261,46 @@ const About = () => {
 
             {/* Right Column - Profile Image & Stats */}
             <motion.div
-              className="relative"
+              className="relative order-1 lg:order-2 mb-8 lg:mb-0"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              {/* Enhanced Profile Image Container */}
-              <div className="relative group">
-                {/* Animated Gradient Border */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary via-primary/50 to-primary rounded-3xl blur-xl opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500"></div>
-                
-                {/* Main Image Container */}
-                <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 bg-muted/20 backdrop-blur-sm">
-                  <div className="aspect-square w-full overflow-hidden">
-                    <img
-                      src="/profile-image.jpg"
-                      alt="Profile Picture"
-                      width={600}
-                      height={600}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={(e) => {
-                        // Fallback if image doesn't exist
-                        e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Crect width='600' height='600' fill='%23f3f4f6'/%3E%3Ccircle cx='300' cy='250' r='80' fill='%23d1d5db'/%3E%3Crect x='220' y='350' width='160' height='100' rx='20' fill='%23d1d5db'/%3E%3C/svg%3E";
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-
-                {/* Enhanced Availability Badges */}
-                <motion.div
-                  className="absolute -bottom-3 -left-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-5 py-3 rounded-xl font-satoshi font-bold text-sm shadow-lg border border-primary/20"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    Open for Work
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute -top-3 -right-3 bg-background/80 backdrop-blur-sm border border-primary/20 px-5 py-3 rounded-xl font-satoshi font-semibold text-sm text-foreground shadow-lg"
-                  initial={{ y: -20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                  whileHover={{ scale: 1.05, y: 2 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    Available Now
-                  </div>
-                </motion.div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  className="absolute -bottom-6 -right-6 w-12 h-12 bg-primary/20 rounded-full blur-md"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </div>
-
-              {/* Enhanced Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 mt-12">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="bg-muted/50 border border-border rounded-2xl p-5 text-center hover:bg-primary/5 hover:border-primary/30 transition-all duration-300 group backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    whileHover={{ y: -5, scale: 1.02 }}
-                  >
-                    <div className="font-clash font-bold text-3xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                      {stat.number}
-                    </div>
-                    <div className="font-satoshi text-xs text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors duration-300">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <TiltCard
+                stats={stats}
+                onImageLoad={handleImageLoad}
+                isImageLoaded={isImageLoaded}
+              />
             </motion.div>
           </div>
 
           {/* Enhanced Availability Banner */}
           <motion.div
-            className="mt-20 p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-2xl text-center backdrop-blur-sm relative overflow-hidden"
+            className="mt-16 lg:mt-20 p-6 lg:p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-2xl text-center backdrop-blur-sm relative overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            role="status"
+            aria-live="polite"
           >
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary rounded-full translate-x-1/2 translate-y-1/2"></div>
+            <div className="absolute inset-0 opacity-5" aria-hidden="true">
+              <div className="absolute top-0 left-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full translate-x-1/2 translate-y-1/2"></div>
             </div>
-            
-            <p className="font-satoshi text-lg text-foreground relative z-10">
+
+            <p className="font-satoshi text-base lg:text-lg text-foreground relative z-10">
               <span className="font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Currently available for new opportunities
               </span>{" "}
               - Let's discuss how we can work together to bring your ideas to
               life!
             </p>
-            
+
             <motion.div
-              className="mt-6"
+              className="mt-4 lg:mt-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -330,16 +308,231 @@ const About = () => {
             >
               <Button
                 size="lg"
-                className="font-satoshi bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
+                className="font-satoshi bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 lg:px-8 py-5 lg:py-6 text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={scrollToContact}
+                aria-label="Start a new project discussion"
               >
                 Start a Project
+                <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+};
+
+// Enhanced TiltCard Component with proper TypeScript
+interface TiltCardProps {
+  stats: Stat[];
+  onImageLoad: () => void;
+  isImageLoaded: boolean;
+}
+
+const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 15;
+    const rotateY = (centerX - x) / 15;
+
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale3d(1.02, 1.02, 1.02)
+    `;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!cardRef.current) return;
+
+    cardRef.current.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      scale3d(1, 1, 1)
+    `;
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+      }}
+      whileHover={{
+        y: -12,
+        transition: { duration: 0.4, type: "spring", stiffness: 300 },
+      }}
+      className="group relative"
+    >
+      {/* Card Container with Tilt Effect */}
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative bg-card/60 backdrop-blur-xl border border-border/50 rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 h-full flex flex-col will-change-transform"
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+        role="complementary"
+        aria-label="Profile information and statistics"
+      >
+        {/* Animated Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Subtle Pattern Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Content */}
+        <div
+          className="relative p-6 lg:p-8 flex-1 flex flex-col z-10"
+          style={{ transform: "translateZ(50px)" }}
+        >
+          {/* Profile Image Container */}
+          <div className="relative mb-8">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 bg-muted/20 backdrop-blur-sm">
+              <div className="aspect-square w-full overflow-hidden">
+                <motion.img
+                  src={profile_Pic}
+                  alt="Professional profile picture"
+                  width={600}
+                  height={600}
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${
+                    isImageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  onLoad={onImageLoad}
+                  loading="lazy"
+                />
+                {/* Loading skeleton */}
+                {!isImageLoaded && (
+                  <div className="absolute inset-0 bg-muted animate-pulse" />
+                )}
+              </div>
+            </div>
+
+            {/* Enhanced Availability Badges */}
+            <motion.div
+              className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-bold text-xs sm:text-sm shadow-lg border border-primary/20 z-10"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              role="status"
+              aria-label="Open for work"
+            >
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+                  aria-hidden="true"
+                ></div>
+                Open for Work
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-background/80 backdrop-blur-sm border border-primary/20 px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-semibold text-xs sm:text-sm text-foreground shadow-lg z-10"
+              initial={{ y: -20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 1 }}
+              whileHover={{ scale: 1.05, y: 2 }}
+              role="status"
+              aria-label="Available now"
+            >
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-2 h-2 bg-green-400 rounded-full"
+                  aria-hidden="true"
+                ></div>
+                Available Now
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Enhanced Stats Grid */}
+          <div
+            className="grid grid-cols-3 gap-3 sm:gap-4 mt-4"
+            aria-label="Professional statistics"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="bg-muted/50 border border-border rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-5 text-center hover:bg-primary/5 hover:border-primary/30 transition-all duration-300 group backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                whileHover={{ y: -3, scale: 1.02 }}
+                role="figure"
+                aria-label={`${stat.number} ${stat.label}`}
+              >
+                <div className="font-clash font-bold text-xl sm:text-2xl lg:text-3xl text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
+                  {stat.number}
+                </div>
+                <div className="font-satoshi text-xs text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors duration-300 leading-tight">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Enhanced Interactive Element */}
+          <motion.div
+            className="mt-6 pt-6 border-t border-border/30 group-hover:border-primary/20 transition-colors duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200">
+                View My Work
+              </span>
+              <motion.div
+                className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200"
+                whileHover={{ scale: 1.1, rotate: 45 }}
+                transition={{ duration: 0.2 }}
+                role="button"
+                aria-label="View portfolio work"
+                tabIndex={0}
+              >
+                <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 group-hover:scale-110 transition-transform duration-200" />
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Enhanced Hover Effects */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+
+        {/* Glow Effect */}
+        <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20" />
+      </div>
+
+      {/* Outer Glow */}
+      <div
+        className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 -z-30"
+        aria-hidden="true"
+      />
+    </motion.div>
   );
 };
 

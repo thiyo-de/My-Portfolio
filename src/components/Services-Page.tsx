@@ -28,7 +28,8 @@ const services = [
     ],
     gradient: "from-purple-500/20 to-pink-500/20",
     color: "purple",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     icon: Code,
@@ -45,7 +46,8 @@ const services = [
     ],
     gradient: "from-blue-500/20 to-cyan-500/20",
     color: "blue",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     icon: Smartphone,
@@ -56,7 +58,8 @@ const services = [
     features: ["React Native", "Flutter", "PWA", "App Store", "Performance"],
     gradient: "from-green-500/20 to-emerald-500/20",
     color: "green",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     icon: Zap,
@@ -73,7 +76,8 @@ const services = [
     ],
     gradient: "from-yellow-500/20 to-orange-500/20",
     color: "yellow",
-    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     icon: Database,
@@ -90,7 +94,8 @@ const services = [
     ],
     gradient: "from-red-500/20 to-rose-500/20",
     color: "red",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
     icon: Sparkles,
@@ -107,7 +112,8 @@ const services = [
     ],
     gradient: "from-indigo-500/20 to-violet-500/20",
     color: "indigo",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
@@ -115,8 +121,20 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 lg:py-32 bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden"
+      className="py-20 md:py-30 lg:py-36 bg-background relative overflow-hidden"
     >
+      {/* Enhanced Background with Center Radial Fade */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      </div>
+
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -146,13 +164,11 @@ const Services = () => {
             delay: 1,
           }}
         />
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Fixed Header Section */}
-        <motion.div 
+        <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -169,8 +185,9 @@ const Services = () => {
             </span>
           </h2>
           <p className="font-satoshi text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Bridging creative design with technical execution. I specialize in creating seamless digital experiences 
-            while continuously evolving with emerging technologies and AI-driven solutions.
+            Bridging creative design with technical execution. I specialize in
+            creating seamless digital experiences while continuously evolving
+            with emerging technologies and AI-driven solutions.
           </p>
         </motion.div>
 
@@ -202,7 +219,7 @@ const Services = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
         >
           <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto backdrop-blur-sm">
-            <motion.p 
+            <motion.p
               className="font-satoshi text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -212,14 +229,17 @@ const Services = () => {
               Ready to bring your vision to life? Let's collaborate to create
               something extraordinary that stands out in the digital landscape.
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   size="lg"
                   className="rounded-2xl px-8 py-6 text-lg font-grotesk font-medium bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
@@ -255,19 +275,19 @@ const ServiceCard = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
-    
+
     const card = cardRef.current;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     // Faster tilt effect with smaller divisor
     const rotateX = (y - centerY) / 15; // Changed from 25 to 15 for faster response
     const rotateY = (centerX - x) / 15; // Changed from 25 to 15 for faster response
-    
+
     card.style.transform = `
       perspective(1000px)
       rotateX(${rotateX}deg)
@@ -278,7 +298,7 @@ const ServiceCard = ({
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return;
-    
+
     cardRef.current.style.transform = `
       perspective(1000px)
       rotateX(0deg)
@@ -312,30 +332,31 @@ const ServiceCard = ({
         onMouseLeave={handleMouseLeave}
         className="relative bg-card/60 backdrop-blur-xl border border-border/50 rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-300 h-full flex flex-col will-change-transform" // Reduced duration from 700ms to 300ms
         style={{
-          transformStyle: 'preserve-3d',
+          transformStyle: "preserve-3d",
         }}
       >
         {/* Image Background Overlay with Glassmorphism Filter */}
         <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 overflow-hidden">
-          <img 
-            src={service.image} 
+          <img
+            src={service.image}
             alt={service.title}
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter blur-[1px] brightness-50 contrast-125" // Added glassmorphism blur
           />
           {/* Enhanced Glassmorphism Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-black/5 backdrop-blur-[2px]" />
         </div>
-
         {/* Animated Gradient Background */}
         <div
           className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} // Reduced duration
         />
-
         {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> {/* Reduced duration */}
-
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />{" "}
+        {/* Reduced duration */}
         {/* Content */}
-        <div className="relative p-6 lg:p-8 flex-1 flex flex-col z-10" style={{ transform: 'translateZ(50px)' }}>
+        <div
+          className="relative p-6 lg:p-8 flex-1 flex flex-col z-10"
+          style={{ transform: "translateZ(50px)" }}
+        >
           {/* Header Section */}
           <div className="flex items-start justify-between mb-8">
             <motion.div
@@ -343,12 +364,15 @@ const ServiceCard = ({
               whileHover={{ scale: 1.15, rotate: 8 }}
               transition={{ duration: 0.2, type: "spring" }} // Reduced duration
             >
-              <service.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-200" /> {/* Reduced duration */}
+              <service.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-200" />{" "}
+              {/* Reduced duration */}
             </motion.div>
 
             {/* Service Number */}
             <div className="text-right">
-              <span className="font-grotesk font-black text-5xl lg:text-6xl text-foreground/25 group-hover:text-primary/25 transition-colors duration-300"> {/* Reduced duration */}
+              <span className="font-grotesk font-black text-5xl lg:text-6xl text-foreground/25 group-hover:text-primary/25 transition-colors duration-300">
+                {" "}
+                {/* Reduced duration */}
                 {service.number}
               </span>
             </div>
@@ -356,14 +380,14 @@ const ServiceCard = ({
 
           {/* Title & Description */}
           <div className="mb-8 flex-1 space-y-4">
-            <motion.h3 
+            <motion.h3
               className="font-clash font-bold text-2xl lg:text-3xl group-hover:text-primary transition-colors duration-300 leading-tight" // Reduced duration
               whileHover={{ x: 4 }}
               transition={{ duration: 0.2 }} // Reduced duration
             >
               {service.title}
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="font-satoshi text-muted-foreground text-base lg:text-lg leading-relaxed"
               whileHover={{ x: 2 }}
               transition={{ duration: 0.2 }} // Reduced duration
@@ -405,7 +429,9 @@ const ServiceCard = ({
             whileTap={{ scale: 0.98 }}
           >
             <div className="flex items-center justify-between">
-              <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200"> {/* Reduced duration */}
+              <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200">
+                {" "}
+                {/* Reduced duration */}
                 Explore Service
               </span>
               <motion.div
@@ -413,21 +439,22 @@ const ServiceCard = ({
                 whileHover={{ scale: 1.1, rotate: 45 }}
                 transition={{ duration: 0.2 }} // Reduced duration
               >
-                <ArrowRight className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-200" /> {/* Reduced duration */}
+                <ArrowRight className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-200" />{" "}
+                {/* Reduced duration */}
               </motion.div>
             </div>
           </motion.div>
         </div>
-
         {/* Enhanced Hover Effects */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" /> {/* Reduced duration */}
-        
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />{" "}
+        {/* Reduced duration */}
         {/* Glow Effect */}
-        <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20" /> {/* Reduced duration */}
+        <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20" />{" "}
+        {/* Reduced duration */}
       </div>
-
       {/* Outer Glow */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 -z-30" /> {/* Reduced duration */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 -z-30" />{" "}
+      {/* Reduced duration */}
     </motion.div>
   );
 };

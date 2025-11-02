@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft, Search, AlertCircle } from "lucide-react";
@@ -99,22 +99,30 @@ const textGlowVariants = {
 };
 
 const NotFound = () => {
-  const location = useLocation();
-
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
-      location.pathname
+      window.location.pathname
     );
 
     // Track 404 errors for analytics
     if (typeof window.gtag !== "undefined") {
       window.gtag("event", "404_error", {
         event_category: "Error",
-        event_label: location.pathname,
+        event_label: window.location.pathname,
       });
     }
-  }, [location.pathname]);
+
+    // Scroll to top when 404 page loads
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Scroll handler for links
+  const handleLinkClick = () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
 
   // Suggested popular routes based on common paths
   const suggestedRoutes: SuggestedRoute[] = [
@@ -140,6 +148,18 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background via-background/95 to-primary/5 relative overflow-hidden px-4 pb-10">
+
+{/* Enhanced Background with Center Radial Fade */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
+      </div>
+
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+
       {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating shapes with enhanced animations */}
@@ -339,7 +359,7 @@ const NotFound = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
               >
-                {location.pathname}
+                {window.location.pathname}
               </motion.code>
               <motion.span 
                 className="text-xs text-muted-foreground"
@@ -371,7 +391,7 @@ const NotFound = () => {
                 size="lg"
                 className="rounded-2xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-grotesk font-medium bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 group transition-all duration-300 relative overflow-hidden"
               >
-                <Link to="/">
+                <Link to="/" onClick={handleLinkClick}>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                     initial={{ x: "-100%" }}
@@ -395,7 +415,12 @@ const NotFound = () => {
                 variant="outline"
                 size="lg"
                 className="rounded-2xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-grotesk font-medium border-2 border-border hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
-                onClick={() => window.history.back()}
+                onClick={() => {
+                  window.history.back();
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                  }, 100);
+                }}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent"
@@ -451,6 +476,7 @@ const NotFound = () => {
                       />
                       <Link
                         to={route.path}
+                        onClick={handleLinkClick}
                         className="block space-y-2 group-hover:text-foreground transition-colors duration-300 relative z-10"
                       >
                         <motion.div 

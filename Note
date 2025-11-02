@@ -1,0 +1,7 @@
+<section
+  id="contact"
+  className="py-24 md:py-32 lg:py-40 bg-background relative overflow-hidden"
+>
+
+{/* Enhanced Background with Textures */}
+<div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.1)_25%,rgba(68,68,68,.1)_50%,transparent_50%,transparent_75%,rgba(68,68,68,.1)_75%)] bg-[length:10px_10px] opacity-20" />

@@ -6,16 +6,18 @@ import {
   ArrowRight,
   Download,
   ExternalLink,
+  LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
-import profile_Pic from "../assets/Profile Pic.png";
+import { staggerContainer, staggerItem } from "@/lib/animations";
+import profile_Pic from "../assets/Profile Pic.jfif";
 import { useRef, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Types for better type safety
 interface SocialLink {
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   href: string;
   label: string;
 }
@@ -27,6 +29,7 @@ interface Stat {
 
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const navigate = useNavigate(); // Moved navigate hook to top level
 
   const socialLinks: SocialLink[] = [
     {
@@ -89,10 +92,18 @@ const About = () => {
     setIsImageLoaded(true);
   }, []);
 
+  const handleStartProject = useCallback(() => {
+    navigate("/contact-Page");
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
+  }, [navigate]);
+
   return (
     <section
       id="about"
-      className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
+      className="py-20 md:py-30 lg:py-36 bg-background relative overflow-hidden"
       aria-labelledby="about-heading"
     >
       {/* Enhanced Background */}
@@ -287,20 +298,22 @@ const About = () => {
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5" aria-hidden="true">
-              <div className="absolute top-0 left-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full translate-x-1/2 translate-y-1/2"></div>
+              <div className="absolute top-0 left-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-primary rounded-full translate-x-1/2 translate-y-1/2" />
             </div>
 
+            {/* Main Text */}
             <p className="font-satoshi text-base lg:text-lg text-foreground relative z-10">
               <span className="font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Currently available for new opportunities
               </span>{" "}
-              - Let's discuss how we can work together to bring your ideas to
+              — Let's discuss how we can work together to bring your ideas to
               life!
             </p>
 
+            {/* Call-to-Action Button */}
             <motion.div
-              className="mt-4 lg:mt-6"
+              className="mt-4 lg:mt-6 relative z-20"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -308,11 +321,17 @@ const About = () => {
             >
               <Button
                 size="lg"
-                className="font-satoshi bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 lg:px-8 py-5 lg:py-6 text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={scrollToContact}
-                aria-label="Start a new project discussion"
+                onClick={() => {
+                  navigate("/contact-Page");
+                  // Scroll to top after navigation
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }, 100);
+                }}
+                className="font-satoshi bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 lg:px-8 py-5 lg:py-6 text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative z-30"
+                aria-label="View my work projects"
               >
-                Start a Project
+                View My Work
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
@@ -332,6 +351,7 @@ interface TiltCardProps {
 
 const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -365,6 +385,14 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
       scale3d(1, 1, 1)
     `;
   }, []);
+
+  const handleClick = () => {
+    navigate("/work-Page");
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
+  };
 
   return (
     <motion.div
@@ -407,10 +435,12 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
           className="relative p-6 lg:p-8 flex-1 flex flex-col z-10"
           style={{ transform: "translateZ(50px)" }}
         >
-          {/* Profile Image Container */}
+          {/* Profile Image Container with Gradient Border */}
           <div className="relative mb-8">
-            <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 bg-muted/20 backdrop-blur-sm">
-              <div className="aspect-square w-full overflow-hidden">
+
+         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-green-500 via-green-400 to-gray-400 p-[2px] backdrop-blur-sm">
+              
+              <div className="aspect-square w-full overflow-hidden rounded-2xl bg-muted/20">
                 <motion.img
                   src={profile_Pic}
                   alt="Professional profile picture"
@@ -424,14 +454,14 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
                 />
                 {/* Loading skeleton */}
                 {!isImageLoaded && (
-                  <div className="absolute inset-0 bg-muted animate-pulse" />
+                  <div className="absolute inset-0 bg-muted animate-pulse rounded-2xl" />
                 )}
               </div>
             </div>
 
             {/* Enhanced Availability Badges */}
             <motion.div
-              className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-bold text-xs sm:text-sm shadow-lg border border-primary/20 z-10"
+              className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 bg-gradient-to-r from-primary to-primary text-primary-foreground px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-bold text-xs sm:text-sm shadow-lg border border-primary/20 z-10"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -450,7 +480,7 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
             </motion.div>
 
             <motion.div
-              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-background/80 backdrop-blur-sm border border-primary/20 px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-semibold text-xs sm:text-sm text-foreground shadow-lg z-10"
+              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-background backdrop-blur-sm border border-primary/20 px-4 py-2 sm:px-5 sm:py-3 rounded-xl font-satoshi font-semibold text-xs sm:text-sm text-foreground shadow-lg z-10"
               initial={{ y: -20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -496,7 +526,6 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
             ))}
           </div>
 
-          {/* Enhanced Interactive Element */}
           <motion.div
             className="mt-6 pt-6 border-t border-border/30 group-hover:border-primary/20 transition-colors duration-300"
             whileHover={{ scale: 1.02 }}
@@ -506,13 +535,15 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
               <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200">
                 View My Work
               </span>
+
               <motion.div
-                className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200"
+                className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200 cursor-pointer"
                 whileHover={{ scale: 1.1, rotate: 45 }}
                 transition={{ duration: 0.2 }}
                 role="button"
                 aria-label="View portfolio work"
                 tabIndex={0}
+                onClick={handleClick}
               >
                 <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 group-hover:scale-110 transition-transform duration-200" />
               </motion.div>

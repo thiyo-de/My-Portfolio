@@ -2,7 +2,7 @@ import {
   Mail,
   Linkedin,
   Github,
-  Twitter,
+  Instagram,
   ArrowRight,
   Download,
   ExternalLink,
@@ -34,17 +34,17 @@ const About = () => {
   const socialLinks: SocialLink[] = [
     {
       icon: Github,
-      href: "https://github.com/yourusername",
+      href: "https://github.com/thiyo-de",
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/thiyoplus-f/",
       label: "LinkedIn",
     },
     {
-      icon: Twitter,
-      href: "https://twitter.com/yourusername",
+      icon: Instagram,
+      href: "https://www.instagram.com/thiyo.de?igsh=MWN2OHI3d2ZjbTAzNQ==",
       label: "Twitter",
     },
   ];
@@ -437,9 +437,7 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
         >
           {/* Profile Image Container with Gradient Border */}
           <div className="relative mb-8">
-
-         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-green-500 via-green-400 to-gray-400 p-[2px] backdrop-blur-sm">
-              
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-green-500 via-green-400 to-gray-400 p-[2px] backdrop-blur-sm">
               <div className="aspect-square w-full overflow-hidden rounded-2xl bg-muted/20">
                 <motion.img
                   src={profile_Pic}

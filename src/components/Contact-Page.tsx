@@ -74,17 +74,17 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/thiyoplus-f/",
       label: "LinkedIn",
     },
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/thiyo-de",
       label: "GitHub",
     },
     {
       icon: Instagram,
-      href: "https://Instagram.com",
+      href: "https://www.instagram.com/thiyo.de?igsh=MWN2OHI3d2ZjbTAzNQ==",
       label: "Instagram",
     },
   ];

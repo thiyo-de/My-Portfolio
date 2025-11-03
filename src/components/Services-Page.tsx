@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -118,6 +119,13 @@ const services = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate(); // ✅ Correct: inside the component
+
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/contact-Page");
+  };
+
   return (
     <section
       id="services"
@@ -229,6 +237,7 @@ const Services = () => {
               Ready to bring your vision to life? Let's collaborate to create
               something extraordinary that stands out in the digital landscape.
             </motion.p>
+
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 20 }}
@@ -242,19 +251,13 @@ const Services = () => {
               >
                 <Button
                   size="lg"
+                  onClick={handleClick}
                   className="rounded-2xl px-8 py-6 text-lg font-grotesk font-medium bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </motion.div>
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-2xl px-8 py-6 text-lg font-grotesk font-medium border-2"
-              >
-                View Case Studies
-              </Button>
             </motion.div>
           </div>
         </motion.div>

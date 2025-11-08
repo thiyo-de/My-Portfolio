@@ -41,7 +41,7 @@ const Footer = () => {
     },
     {
       icon: Mail,
-      href: "mailto:Thiyo80203@gmail.com", // Updated with actual email
+      href: "mailto:Thiyo80203@gmail.com",
       label: "Email",
     },
   ];
@@ -62,12 +62,46 @@ const Footer = () => {
       role="contentinfo"
       className="bg-background pt-16 pb-8 relative overflow-hidden border-t border-border/50"
     >
-      {/* Enhanced Background */}
+      {/* Updated Background with Green Color Scheme */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.05)_25%,rgba(68,68,68,0.05)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.05)_75%)] bg-[length:6px_6px] opacity-60" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(120,119,198,0.1),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+        
+        {/* Green Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
       </div>
+
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
+
+      {/* Green Animated Background Orbs */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{ willChange: "transform, opacity" }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/15 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+        style={{ willChange: "transform, opacity" }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Footer Content */}
@@ -226,7 +260,7 @@ const Footer = () => {
           </motion.section>
         </motion.div>
 
-        {/* Availability Banner */}
+        {/* Availability Banner - Updated with green gradient */}
         <motion.div
           className="mb-8 p-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-2xl text-center backdrop-blur-sm relative overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}

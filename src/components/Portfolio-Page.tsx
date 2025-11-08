@@ -25,7 +25,7 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
-    slug: "modern-ecommerce-platform",
+    slug: "Modern-E-Commerce-Platform",
     category: "Full Stack",
     liveUrl: "#",
     githubUrl: "#",
@@ -51,7 +51,7 @@ const projects = [
     tags: ["Next.js", "Framer Motion", "TypeScript", "Sanity CMS", "Tailwind"],
     image:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop",
-    slug: "creative-portfolio-platform",
+    slug: "Creative-Portfolio-Platform",
     category: "Frontend",
     liveUrl: "#",
     githubUrl: "#",

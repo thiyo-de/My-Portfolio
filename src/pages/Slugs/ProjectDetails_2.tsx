@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 
 // This would typically come from an API or CMS
 const projectDetails = {
-  "modern-ecommerce-platform": {
+  "Creative-Portfolio-Platform": {
     id: "1",
     title: "Modern E-Commerce Platform",
     description: "A comprehensive e-commerce solution designed to revolutionize online shopping experiences through intuitive design and robust functionality",
@@ -25,7 +25,7 @@ const projectDetails = {
       "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop",
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop"
     ],
-    slug: "modern-ecommerce-platform",
+    slug: "Creative-Portfolio-Platform",
     category: "Full Stack",
     liveUrl: "#",
     githubUrl: "#",
@@ -149,7 +149,7 @@ const projectDetails = {
   // ... other project details
 };
 
-const ProjectDetail = () => {
+const ProjectDetail_2 = () => {
   const { slug } = useParams();
   const project = projectDetails[slug as keyof typeof projectDetails];
 
@@ -520,4 +520,4 @@ const ProjectDetail = () => {
   );
 };
 
-export default ProjectDetail;
+export default ProjectDetail_2;

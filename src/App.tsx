@@ -11,8 +11,8 @@ import Services_Page from "@/pages/Services-Page";
 import Work_Page from "@/pages/Work-Page";
 import Skills_Page from "@/pages/Skills-Page";
 import Contact_Page from "@/pages/Contact-Page";
-import ProjectDetail from "@/pages/ProjectDetails";
-import NotFound from "@/pages/NotFound";
+import ProjectDetail from "@/pages/Slugs/ProjectDetails";
+import NotFound from "@/pages/NotFound";  
 
 const queryClient = new QueryClient();
 

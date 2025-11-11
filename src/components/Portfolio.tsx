@@ -4,22 +4,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
-// Define TypeScript interfaces
-interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  number: string;
-  route: string;
-}
-
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-}
-
-const projects: Project[] = [
+const projects = [
   {
     title: "E-Commerce Platform",
     description:
@@ -79,22 +64,19 @@ const projects: Project[] = [
 
 const Portfolio = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [visibleCards, setVisibleCards] = useState<number>(1);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [visibleCards, setVisibleCards] = useState<number>(3);
 
   // Calculate visible cards based on screen size
   useEffect(() => {
     const updateVisibleCards = () => {
       const width = window.innerWidth;
-      if (width < 640) {
+      if (width < 768) {
         setVisibleCards(1);
-      } else if (width < 768) {
-        setVisibleCards(1.2);
       } else if (width < 1024) {
-        setVisibleCards(1.5);
-      } else if (width < 1280) {
         setVisibleCards(2);
       } else {
-        setVisibleCards(2.5);
+        setVisibleCards(3);
       }
     };
 
@@ -105,21 +87,33 @@ const Portfolio = () => {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const cardWidth =
-        scrollContainerRef.current.scrollWidth / projects.length;
-      const scrollAmount = cardWidth * visibleCards;
+      const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
+      const gap = 24;
+      const scrollAmount = (cardWidth + gap) * visibleCards;
 
       scrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
+
+      // Update current index
+      setCurrentIndex(prev => {
+        if (direction === "right") {
+          return Math.min(prev + visibleCards, projects.length - visibleCards);
+        } else {
+          return Math.max(prev - visibleCards, 0);
+        }
+      });
     }
   };
+
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex < projects.length - visibleCards;
 
   return (
     <section
       id="portfolio"
-      className="py-16 sm:py-24 lg:py-32 bg-background overflow-hidden"
+      className="py-20 sm:py-32 bg-background overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
@@ -130,84 +124,151 @@ const Portfolio = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex-1 max-w-4xl">
+          <div className="flex-1">
             <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
               Portfolio
             </span>
             <h2 className="font-clash text-primary font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2">
               Featured Projects
             </h2>
-            <p className="font-satoshi text-lg text-muted-foreground mt-4 max-w-lg">
-              A collection of my latest work showcasing modern design and
-              development practices
-            </p>
           </div>
-
-          <div className="flex gap-3">
+          
+          <div className="flex gap-2 self-start lg:self-auto">
             <motion.button
               onClick={() => scroll("left")}
-              className="p-3 sm:p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 bg-background/80 backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Scroll left"
+              disabled={!canScrollLeft}
+              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${
+                !canScrollLeft 
+                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed" 
+                  : "border-border hover:border-primary hover:bg-primary/10"
+              }`}
+              whileHover={!canScrollLeft ? {} : { scale: 1.1 }}
+              whileTap={!canScrollLeft ? {} : { scale: 0.95 }}
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
             <motion.button
               onClick={() => scroll("right")}
-              className="p-3 sm:p-4 rounded-full border-2 border-border hover:border-primary hover:bg-primary/10 transition-all duration-300 bg-background/80 backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Scroll right"
+              disabled={!canScrollRight}
+              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${
+                !canScrollRight
+                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed" 
+                  : "border-border hover:border-primary hover:bg-primary/10"
+              }`}
+              whileHover={!canScrollRight ? {} : { scale: 1.1 }}
+              whileTap={!canScrollRight ? {} : { scale: 0.95 }}
             >
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
         </motion.div>
 
-        {/* Projects Grid - Desktop */}
-        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        {/* Projects Container */}
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            scrollPadding: "0px 16px",
+          }}
+        >
           {projects.map((project, index) => (
             <motion.div
-              key={project.number}
+              key={index}
+              className="group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[30vw] xl:w-[28vw] 2xl:w-[400px] snap-start"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <ProjectCard project={project} index={index} />
+              <Link to={project.route} className="block h-full">
+                <motion.div
+                  className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col"
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
+                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                      <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/20">
+                        {project.number}
+                      </span>
+                    </div>
+                    <motion.div
+                      className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      <div className="text-center">
+                        <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />
+                        <span className="font-satoshi text-primary-foreground text-sm sm:text-base">
+                          View Project
+                        </span>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
+                    <h3 className="font-clash font-bold text-2xl sm:text-3xl group-hover:text-primary transition-colors line-clamp-2">
+                      {project.title}
+                    </h3>
+                    <p className="font-satoshi text-muted-foreground text-base sm:text-lg leading-relaxed flex-1 line-clamp-3">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Badge
+                          key={tagIndex}
+                          variant="secondary"
+                          className="font-grotesk text-xs sm:text-sm px-3 sm:px-4 py-1"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Horizontal Scroll - Mobile & Tablet */}
-        <div className="lg:hidden">
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-4 px-4"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {projects.map((project, index) => (
-              <div
-                key={project.number}
-                className="flex-shrink-0 snap-start"
-                style={{ width: "calc(85vw - 2rem)" }}
-              >
-                <ProjectCard project={project} index={index} />
-              </div>
+        {/* Navigation Dots */}
+        <div className="flex justify-center mt-8">
+          <div className="flex gap-2">
+            {Array.from({ 
+              length: Math.ceil(projects.length / visibleCards) 
+            }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  const newIndex = index * visibleCards;
+                  setCurrentIndex(newIndex);
+                  if (scrollContainerRef.current) {
+                    const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
+                    const gap = 24;
+                    const scrollAmount = (cardWidth + gap) * newIndex;
+                    scrollContainerRef.current.scrollTo({
+                      left: scrollAmount,
+                      behavior: "smooth"
+                    });
+                  }
+                }}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === Math.floor(currentIndex / visibleCards)
+                    ? "bg-primary"
+                    : "bg-border hover:bg-primary/50"
+                }`}
+              />
             ))}
-          </div>
-
-          {/* Mobile Pagination Dots */}
-          <div className="flex justify-center mt-8">
-            <div className="flex gap-2">
-              {projects.map((project) => (
-                <div
-                  key={project.number}
-                  className="w-2 h-2 rounded-full bg-border transition-all duration-300"
-                />
-              ))}
-            </div>
           </div>
         </div>
 
@@ -219,7 +280,7 @@ const Portfolio = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          {/* Secondary CTA - View All */}
+          {/* View All Projects Button */}
           <Link
             to="/work-Page"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-primary text-primary font-satoshi font-medium text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
@@ -261,73 +322,6 @@ const Portfolio = () => {
         }
       `}</style>
     </section>
-  );
-};
-
-// Separate Project Card Component with proper TypeScript typing
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
-  return (
-    <Link to={project.route} className="block h-full group">
-      <motion.div
-        className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500 h-full flex flex-col group-hover:shadow-2xl group-hover:shadow-primary/10"
-        whileHover={{ y: -8 }}
-      >
-        {/* Image Container */}
-        <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.7 }}
-          />
-
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
-
-          {/* Project Number */}
-          <div className="absolute top-4 right-4">
-            <span className="font-clash text-3xl sm:text-4xl font-bold text-primary/20">
-              {project.number}
-            </span>
-          </div>
-
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 text-primary-foreground mb-3 mx-auto" />
-              <span className="font-satoshi text-primary-foreground font-medium text-sm sm:text-base block">
-                View Project Details
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Content Container */}
-        <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
-          <div>
-            <h3 className="font-clash font-bold text-xl sm:text-2xl group-hover:text-primary transition-colors duration-300 line-clamp-2 mb-2">
-              {project.title}
-            </h3>
-            <p className="font-satoshi text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3">
-              {project.description}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2 pt-2 mt-auto">
-            {project.tags.map((tag: string, tagIndex: number) => (
-              <Badge
-                key={tagIndex}
-                variant="secondary"
-                className="font-grotesk text-xs px-3 py-1 border"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </Link>
   );
 };
 

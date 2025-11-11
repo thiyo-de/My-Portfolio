@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone, Github, Linkedin, Instagram } from "lucide-react";
+import {
+  ArrowRight,
+  Mail,
+  Phone,
+  Github,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import thiyo from "../assets/thiyo.avif"
+import thiyo from "../assets/thiyo.avif";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0e0e0e] text-white overflow-hidden px-4 sm:px-6">
+    <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Enhanced Background Textures */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Texture Layer */}
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
 
@@ -25,102 +32,102 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] bg-green-500/20 blur-[120px] sm:blur-[180px] rounded-full" />
+        <div className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] bg-primary/20 blur-[120px] sm:blur-[140px] lg:blur-[180px] rounded-full" />
       </motion.div>
 
-      {/* Image Container with Bottom Entrance Animation */}
+      {/* Image Container - Responsive positioning */}
       <motion.div
         className="absolute inset-0 z-5 flex items-end justify-center overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        {/* Bottom Fade Gradient Overlay */}
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#0e0e0e] to-transparent z-10" />
-        
-        {/* Image Animating from Bottom */}
+        {/* Responsive bottom fade gradient */}
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
+
+        {/* Responsive Image */}
         <motion.img
           src={thiyo}
           alt="Bruno Simon - Full Stack Developer"
-          className="h-[75vh] w-auto object-contain object-bottom"
-          style={{ 
-            mixBlendMode: 'normal',
-            filter: 'none'
+          className="h-auto max-h-[60vh] sm:max-h-[70vh] lg:max-h-[75vh] xl:max-h-[80vh] w-auto object-contain object-bottom"
+          style={{
+            mixBlendMode: "normal",
+            filter: "none",
           }}
-          initial={{ 
+          initial={{
             y: "100%",
             opacity: 0,
-            scale: 1.1
+            scale: 1.1,
           }}
-          animate={{ 
+          animate={{
             y: 0,
             opacity: 1,
-            scale: 1
+            scale: 1,
           }}
-          transition={{ 
+          transition={{
             duration: 1.5,
             ease: "easeOut",
-            delay: 0.7
+            delay: 0.7,
           }}
           whileHover={{
             scale: 1.02,
-            transition: { duration: 0.8 }
+            transition: { duration: 0.8 },
           }}
         />
       </motion.div>
 
-      {/* Glassmorphism Container */}
+      {/* Main Content Container */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-8"
+        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-4 sm:py-6 lg:py-8"
       >
         {/* Top Section */}
-        <div className="text-center sm:text-left relative z-20 mb-8 sm:mb-0">
+        <div className="text-center lg:text-left relative z-20 mb-6 sm:mb-8 lg:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-card/60 backdrop-blur-sm border border-border mb-3 sm:mb-4"
           >
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <p className="text-sm text-gray-300">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse" />
+            <p className="text-xs sm:text-sm text-muted-foreground font-satoshi">
               Hey👋, I'm a Full Stack Developer
             </p>
           </motion.div>
-          
-          <h1 className="font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+
+          <h1 className="font-grotesk font-extrabold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent px-2">
             BRUNO SIMON
           </h1>
         </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 lg:gap-8 relative z-20">
-          {/* Contact Info */}
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-4 sm:gap-6 lg:gap-2">
+        {/* Bottom Section - Improved responsive layout */}
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-4 sm:gap-6 lg:gap-8 relative z-20 mt-4 sm:mt-8 lg:mt-0">
+          {/* Contact Info - Responsive positioning */}
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:gap-2 order-2 lg:order-1 w-full lg:w-auto items-center lg:items-start">
             <motion.a
-              href="mailto:info@brunosimon.com"
-              className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              href="mailto:Thiyo80203@gmail.com"
+              className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors group font-satoshi text-sm sm:text-base"
               whileHover={{ x: 5 }}
             >
-              <Mail className="w-4 h-4 text-green-400" />
-              <span>info@brunosimon.com</span>
+              <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+              <span className="truncate">Thiyo80203@gmail.com</span>
             </motion.a>
             <motion.a
-              href="tel:+390346385302"
-              className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              href="tel:+919361339871"
+              className="flex items-center gap-2 sm:gap-3 text-muted-foreground hover:text-foreground transition-colors group font-satoshi text-sm sm:text-base"
               whileHover={{ x: 5 }}
             >
-              <Phone className="w-4 h-4 text-green-400" />
-              <span>+39 03 463 853 02</span>
+              <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+              <span>+91 9361339871</span>
             </motion.a>
           </div>
 
-          {/* About + Socials */}
-          <div className="flex-1 max-w-2xl">
-            <motion.p 
-              className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6 text-center lg:text-right"
+          {/* About + Socials - Improved responsive width */}
+          <div className="flex-1 w-full lg:max-w-2xl order-1 lg:order-2">
+            <motion.p
+              className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 text-center lg:text-right font-grotesk px-2 sm:px-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -129,39 +136,56 @@ const Hero = () => {
               modern JavaScript technologies. My main tools of choice are React
               on the frontend and Node.js on the backend.
             </motion.p>
-            
+
             {/* CTA Button */}
-            <motion.div 
-              className="flex justify-center lg:justify-end mb-6"
+            <motion.div
+              className="flex justify-center lg:justify-end mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
             >
-              <Button className="bg-green-500 hover:bg-green-600 text-white px-8 py-6 rounded-full font-semibold group">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 rounded-full font-satoshi font-semibold group text-sm sm:text-base"
+                size="lg"
+              >
                 View My Work
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
 
-            {/* Social Links with Icons */}
-            <motion.div 
-              className="flex justify-center lg:justify-end gap-6 flex-wrap"
+            {/* Social Links */}
+            <motion.div
+              className="flex justify-center lg:justify-end gap-4 sm:gap-6 flex-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
               {[
-                { platform: 'GitHub', icon: Github, href: '#' },
-                { platform: 'LinkedIn', icon: Linkedin, href: '#' },
-                { platform: 'Instagram', icon: Instagram, href: '#' }
+                {
+                  platform: "GitHub",
+                  icon: Github,
+                  href: "https://github.com/thiyo-de",
+                },
+                {
+                  platform: "LinkedIn",
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/thiyoplus-f/",
+                },
+                {
+                  platform: "Instagram",
+                  icon: Instagram,
+                  href: "https://www.instagram.com/thiyo.de?igsh=MWN2OHI3d2ZjbTAzNQ%3D%3D",
+                },
               ].map(({ platform, icon: Icon, href }) => (
                 <motion.a
                   key={platform}
                   href={href}
-                  className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm font-medium py-2"
+                  className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm font-satoshi font-medium py-1 sm:py-2"
                   whileHover={{ y: -2 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{platform}</span>
                 </motion.a>
               ))}
@@ -170,17 +194,17 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Only show on larger screens */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-border rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-3 bg-green-400 rounded-full mt-2"
-            animate={{ y: [0, 12, 0] }}
+            className="w-1 h-2 sm:h-3 bg-primary rounded-full mt-1 sm:mt-2"
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
         </div>

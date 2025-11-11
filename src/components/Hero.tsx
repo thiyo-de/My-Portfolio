@@ -1,10 +1,23 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import thiyo from "../assets/thiyo.avif"
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0e0e0e] text-white overflow-hidden px-4 sm:px-6">
+      {/* Enhanced Background Textures */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
+      </div>
+
+      {/* Grid Texture Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+
       {/* Background Glow */}
       <motion.div
         className="absolute inset-0 flex justify-center items-center"
@@ -13,6 +26,47 @@ const Hero = () => {
         transition={{ duration: 1 }}
       >
         <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] bg-green-500/20 blur-[120px] sm:blur-[180px] rounded-full" />
+      </motion.div>
+
+      {/* Image Container with Bottom Entrance Animation */}
+      <motion.div
+        className="absolute inset-0 z-5 flex items-end justify-center overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        {/* Bottom Fade Gradient Overlay */}
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#0e0e0e] to-transparent z-10" />
+        
+        {/* Image Animating from Bottom */}
+        <motion.img
+          src={thiyo}
+          alt="Bruno Simon - Full Stack Developer"
+          className="h-[75vh] w-auto object-contain object-bottom"
+          style={{ 
+            mixBlendMode: 'normal',
+            filter: 'none'
+          }}
+          initial={{ 
+            y: "100%",
+            opacity: 0,
+            scale: 1.1
+          }}
+          animate={{ 
+            y: 0,
+            opacity: 1,
+            scale: 1
+          }}
+          transition={{ 
+            duration: 1.5,
+            ease: "easeOut",
+            delay: 0.7
+          }}
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.8 }
+          }}
+        />
       </motion.div>
 
       {/* Glassmorphism Container */}
@@ -37,28 +91,8 @@ const Hero = () => {
           </motion.div>
           
           <h1 className="font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
-            BRUNO
-            <br />
-            SIMON
+            BRUNO SIMON
           </h1>
-        </div>
-
-        {/* Centered Image Container */}
-        <div className="flex justify-center items-center flex-1 my-4 sm:my-8">
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-[2rem] blur-xl -z-10" />
-            <motion.img
-              src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=800&auto=format&fit=crop"
-              alt="Bruno Simon - Full Stack Developer"
-              className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] object-cover border-2 border-white/10 shadow-2xl hover:scale-105 transition-transform duration-300"
-              whileHover={{ scale: 1.02 }}
-            />
-          </motion.div>
         </div>
 
         {/* Bottom Section */}
@@ -109,21 +143,26 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            {/* Social Links */}
+            {/* Social Links with Icons */}
             <motion.div 
               className="flex justify-center lg:justify-end gap-6 flex-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              {['Twitter', 'LinkedIn', 'GitHub', 'CodePen'].map((platform) => (
+              {[
+                { platform: 'GitHub', icon: Github, href: '#' },
+                { platform: 'LinkedIn', icon: Linkedin, href: '#' },
+                { platform: 'Instagram', icon: Instagram, href: '#' }
+              ].map(({ platform, icon: Icon, href }) => (
                 <motion.a
                   key={platform}
-                  href="#"
-                  className="text-gray-400 hover:text-green-400 transition-colors text-sm font-medium py-2"
+                  href={href}
+                  className="flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors text-sm font-medium py-2"
                   whileHover={{ y: -2 }}
                 >
-                  {platform}
+                  <Icon className="w-4 h-4" />
+                  <span>{platform}</span>
                 </motion.a>
               ))}
             </motion.div>
@@ -133,7 +172,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}

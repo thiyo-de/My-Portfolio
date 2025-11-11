@@ -1,113 +1,148 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+import { ArrowRight, Mail, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background pt-20">
-      {/* Animated gradient orbs */}
-      <motion.div 
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          className="max-w-6xl mx-auto text-center space-y-8"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.div className="inline-block" variants={staggerItem}>
-            <p className="font-grotesk text-xs sm:text-sm tracking-[0.3em] text-muted-foreground mb-6 uppercase">
-              Designer • Developer • Entrepreneur
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0e0e0e] text-white overflow-hidden px-4 sm:px-6">
+      {/* Background Glow */}
+      <motion.div
+        className="absolute inset-0 flex justify-center items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="absolute w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] bg-green-500/20 blur-[120px] sm:blur-[180px] rounded-full" />
+      </motion.div>
+
+      {/* Glassmorphism Container */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-8"
+      >
+        {/* Top Section */}
+        <div className="text-center sm:text-left relative z-20 mb-8 sm:mb-0">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-4"
+          >
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <p className="text-sm text-gray-300">
+              Hey👋, I'm a Full Stack Developer
             </p>
           </motion.div>
           
-          <motion.h1 
-            className="font-clash font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] tracking-tighter"
-            variants={staggerItem}
+          <h1 className="font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+            BRUNO
+            <br />
+            SIMON
+          </h1>
+        </div>
+
+        {/* Centered Image Container */}
+        <div className="flex justify-center items-center flex-1 my-4 sm:my-8">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
           >
-            Hi, I'm{" "}
-            <span className="block mt-4 bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-              Your Name
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="font-satoshi text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            variants={staggerItem}
-          >
-            Designing & Building Digital Experiences That Stand Out
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12"
-            variants={staggerItem}
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                onClick={() => scrollToSection("portfolio")}
-                size="lg" 
-                className="font-grotesk text-base px-10 py-7 bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl hover:shadow-2xl transition-all duration-300 group rounded-full"
-              >
-                View My Work
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                onClick={() => scrollToSection("contact")}
-                size="lg" 
-                variant="outline"
-                className="font-grotesk text-base px-10 py-7 border-2 border-muted hover:bg-muted hover:text-foreground transition-all duration-300 rounded-full"
-              >
-                Let's Talk
-              </Button>
-            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-[2rem] blur-xl -z-10" />
+            <motion.img
+              src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=800&auto=format&fit=crop"
+              alt="Bruno Simon - Full Stack Developer"
+              className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-[2rem] object-cover border-2 border-white/10 shadow-2xl hover:scale-105 transition-transform duration-300"
+              whileHover={{ scale: 1.02 }}
+            />
           </motion.div>
-        </motion.div>
-      </div>
-      
-      <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        </div>
+
+        {/* Bottom Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 lg:gap-8 relative z-20">
+          {/* Contact Info */}
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-4 sm:gap-6 lg:gap-2">
+            <motion.a
+              href="mailto:info@brunosimon.com"
+              className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              whileHover={{ x: 5 }}
+            >
+              <Mail className="w-4 h-4 text-green-400" />
+              <span>info@brunosimon.com</span>
+            </motion.a>
+            <motion.a
+              href="tel:+390346385302"
+              className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+              whileHover={{ x: 5 }}
+            >
+              <Phone className="w-4 h-4 text-green-400" />
+              <span>+39 03 463 853 02</span>
+            </motion.a>
+          </div>
+
+          {/* About + Socials */}
+          <div className="flex-1 max-w-2xl">
+            <motion.p 
+              className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6 text-center lg:text-right"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              I build fast, scalable, and user-friendly web applications using
+              modern JavaScript technologies. My main tools of choice are React
+              on the frontend and Node.js on the backend.
+            </motion.p>
+            
+            {/* CTA Button */}
+            <motion.div 
+              className="flex justify-center lg:justify-end mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+            >
+              <Button className="bg-green-500 hover:bg-green-600 text-white px-8 py-6 rounded-full font-semibold group">
+                View My Work
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div 
+              className="flex justify-center lg:justify-end gap-6 flex-wrap"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+            >
+              {['Twitter', 'LinkedIn', 'GitHub', 'CodePen'].map((platform) => (
+                <motion.a
+                  key={platform}
+                  href="#"
+                  className="text-gray-400 hover:text-green-400 transition-colors text-sm font-medium py-2"
+                  whileHover={{ y: -2 }}
+                >
+                  {platform}
+                </motion.a>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
       >
-        <div className="w-6 h-10 border-2 border-border rounded-full flex items-start justify-center p-2">
-          <motion.div 
-            className="w-1.5 h-3 bg-primary rounded-full"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <motion.div
+            className="w-1 h-3 bg-green-400 rounded-full mt-2"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
           />
         </div>
       </motion.div>

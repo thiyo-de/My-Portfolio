@@ -29,7 +29,7 @@ interface Stat {
 
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const navigate = useNavigate(); // Moved navigate hook to top level
+  const navigate = useNavigate();
 
   const socialLinks: SocialLink[] = [
     {
@@ -78,27 +78,19 @@ const About = () => {
     document.body.removeChild(link);
   }, []);
 
-  const scrollToContact = useCallback(() => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, []);
+  const handleGetInTouch = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/contact-Page");
+  }, [navigate]);
+
+  const handleViewWork = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/work-Page");
+  }, [navigate]);
 
   const handleImageLoad = useCallback(() => {
     setIsImageLoaded(true);
   }, []);
-
-  const handleStartProject = useCallback(() => {
-    navigate("/contact-Page");
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
-  }, [navigate]);
 
   return (
     <section
@@ -218,7 +210,7 @@ const About = () => {
                   <Button
                     size="lg"
                     className="font-grotesk text-sm sm:text-base lg:text-lg w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full transition-all duration-300"
-                    onClick={scrollToContact}
+                    onClick={handleGetInTouch}
                   >
                     <Mail className="mr-1 sm:mr-1 h-4 w-4 lg:h-5 lg:w-5" />
                     Get In Touch
@@ -282,6 +274,7 @@ const About = () => {
                 stats={stats}
                 onImageLoad={handleImageLoad}
                 isImageLoaded={isImageLoaded}
+                onViewWork={handleViewWork}
               />
             </motion.div>
           </div>
@@ -321,13 +314,7 @@ const About = () => {
             >
               <Button
                 size="lg"
-                onClick={() => {
-                  navigate("/contact-Page");
-                  // Scroll to top after navigation
-                  setTimeout(() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }, 100);
-                }}
+                onClick={handleViewWork}
                 className="font-satoshi bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 lg:px-8 py-5 lg:py-6 text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer relative z-30"
                 aria-label="View my work projects"
               >
@@ -347,11 +334,11 @@ interface TiltCardProps {
   stats: Stat[];
   onImageLoad: () => void;
   isImageLoaded: boolean;
+  onViewWork: () => void;
 }
 
-const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
+const TiltCard = ({ stats, onImageLoad, isImageLoaded, onViewWork }: TiltCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -385,14 +372,6 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
       scale3d(1, 1, 1)
     `;
   }, []);
-
-  const handleClick = () => {
-    navigate("/work-Page");
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
-  };
 
   return (
     <motion.div
@@ -529,7 +508,10 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="flex items-center justify-between">
+            <button
+              onClick={onViewWork}
+              className="flex items-center justify-between w-full"
+            >
               <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200">
                 View My Work
               </span>
@@ -541,11 +523,10 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded }: TiltCardProps) => {
                 role="button"
                 aria-label="View portfolio work"
                 tabIndex={0}
-                onClick={handleClick}
               >
                 <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 group-hover:scale-110 transition-transform duration-200" />
               </motion.div>
-            </div>
+            </button>
           </motion.div>
         </div>
 

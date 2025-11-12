@@ -6,6 +6,9 @@ import {
   Database,
   ArrowRight,
   Sparkles,
+  Cpu,
+  Cloud,
+  Brain,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -16,19 +19,19 @@ import { useNavigate } from "react-router-dom";
 const services = [
   {
     icon: Palette,
-    title: "UI/UX Design",
+    title: "UI/UX Design & Creative",
     description:
-      "Creating beautiful, intuitive interfaces that users love to interact with. Focus on user research, wireframing, and prototyping to deliver exceptional digital experiences.",
+      "Crafting visually stunning and user-centered designs that combine aesthetic appeal with functional excellence. From brand identity to interactive prototypes.",
     number: "01",
     features: [
-      "User Research",
-      "Wireframing",
-      "Prototyping",
+      "UI/UX Design",
+      "Brand Identity",
+      "Wireframing & Prototyping",
       "Design Systems",
-      "Usability Testing",
+      "Visual Design Tools",
     ],
-    gradient: "from-purple-500/20 to-pink-500/20",
-    color: "purple",
+    gradient: "from-orange-500/20 to-red-500/20",
+    color: "orange",
     image:
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
@@ -36,14 +39,14 @@ const services = [
     icon: Code,
     title: "Frontend Development",
     description:
-      "Building responsive, performant web applications with modern technologies. Specializing in React, Next.js, and TypeScript for scalable solutions.",
+      "Building responsive, performant, and interactive user interfaces with modern React ecosystem and cutting-edge technologies.",
     number: "02",
     features: [
-      "React/Next.js",
+      "React & Next.js",
       "TypeScript",
-      "Performance",
+      "Tailwind CSS",
+      "Framer Motion",
       "Responsive Design",
-      "Web Vitals",
     ],
     gradient: "from-blue-500/20 to-cyan-500/20",
     color: "blue",
@@ -51,77 +54,70 @@ const services = [
       "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
-    icon: Smartphone,
-    title: "Cross-Platform Apps",
-    description:
-      "Developing native-like experiences for iOS, Android, and desktop platforms. Creating seamless user journeys across all devices.",
-    number: "03",
-    features: ["React Native", "Flutter", "PWA", "App Store", "Performance"],
-    gradient: "from-green-500/20 to-emerald-500/20",
-    color: "green",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    icon: Zap,
-    title: "Interactive Experiences",
-    description:
-      "Crafting engaging animations and micro-interactions that delight users. Bringing interfaces to life with smooth, meaningful motion design.",
-    number: "04",
-    features: [
-      "Framer Motion",
-      "GSAP",
-      "Micro-interactions",
-      "WebGL",
-      "3D Graphics",
-    ],
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    color: "yellow",
-    image:
-      "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  },
-  {
     icon: Database,
-    title: "API Development",
+    title: "Backend & API Development",
     description:
-      "Building robust backend services and RESTful APIs for seamless integration. Ensuring scalability, security, and optimal performance.",
-    number: "05",
+      "Developing robust server-side solutions, RESTful APIs, and efficient data management systems for scalable applications.",
+    number: "03",
     features: [
-      "Node.js",
-      "GraphQL",
+      "Node.js & Express",
+      "MongoDB & PostgreSQL",
       "REST APIs",
       "Database Design",
-      "Cloud Services",
+      "API Integration",
     ],
-    gradient: "from-red-500/20 to-rose-500/20",
-    color: "red",
+    gradient: "from-green-500/20 to-emerald-500/20",
+    color: "green",
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
   {
-    icon: Sparkles,
-    title: "AI Integration",
+    icon: Cpu,
+    title: "Full Stack MERN Development",
     description:
-      "Implementing intelligent features and AI-driven solutions to enhance user experiences and automate complex workflows.",
-    number: "06",
+      "End-to-end web application development using the modern MERN stack, delivering complete solutions from database to deployment.",
+    number: "04",
     features: [
-      "AI APIs",
-      "Machine Learning",
-      "Automation",
-      "Smart Features",
-      "Data Analysis",
+      "MongoDB & Mongoose",
+      "Express.js Backend",
+      "React Frontend",
+      "Node.js Runtime",
+      "Full Stack Integration",
     ],
-    gradient: "from-indigo-500/20 to-violet-500/20",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    color: "purple",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    icon: Cloud,
+    title: "DevOps & Deployment",
+    description:
+      "Streamlining development workflows and ensuring smooth deployment with modern DevOps practices and cloud platforms.",
+    number: "05",
+    features: [
+      "Git Version Control",
+      "Vercel & Netlify",
+      "Docker Containers",
+      "CI/CD Pipelines",
+      "Cloud Deployment",
+    ],
+    gradient: "from-indigo-500/20 to-purple-500/20",
     color: "indigo",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
 const Services = () => {
-  const navigate = useNavigate(); // ✅ Correct: inside the component
+  const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleContactClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/contact-Page");
+  };
+
+  const handleServicesClick = () => {
     window.scrollTo({ top: 0, behavior: "auto" });
     navigate("/contact-Page");
   };
@@ -214,7 +210,12 @@ const Services = () => {
           }}
         >
           {services.map((service, index) => (
-            <ServiceCard key={service.number} service={service} index={index} />
+            <ServiceCard 
+              key={service.number} 
+              service={service} 
+              index={index}
+              onExploreClick={handleServicesClick}
+            />
           ))}
         </motion.div>
 
@@ -251,7 +252,7 @@ const Services = () => {
               >
                 <Button
                   size="lg"
-                  onClick={handleClick}
+                  onClick={handleContactClick}
                   className="rounded-2xl px-8 py-6 text-lg font-grotesk font-medium bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
                 >
                   Start Your Project
@@ -270,9 +271,11 @@ const Services = () => {
 const ServiceCard = ({
   service,
   index,
+  onExploreClick,
 }: {
   service: (typeof services)[0];
   index: number;
+  onExploreClick: () => void;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -308,6 +311,11 @@ const ServiceCard = ({
       rotateY(0deg)
       scale3d(1, 1, 1)
     `;
+  };
+
+  const handleExploreClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    onExploreClick();
   };
 
   return (
@@ -431,7 +439,10 @@ const ServiceCard = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="flex items-center justify-between">
+            <button
+              onClick={handleExploreClick}
+              className="flex items-center justify-between w-full"
+            >
               <span className="font-grotesk font-medium text-sm text-muted-foreground group-hover:text-primary transition-colors duration-200">
                 {" "}
                 {/* Reduced duration */}
@@ -445,8 +456,9 @@ const ServiceCard = ({
                 <ArrowRight className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-200" />{" "}
                 {/* Reduced duration */}
               </motion.div>
-            </div>
+            </button>
           </motion.div>
+
         </div>
         {/* Enhanced Hover Effects */}
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />{" "}

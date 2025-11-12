@@ -2,8 +2,16 @@ import { Mail, Linkedin, Github, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleEmailClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/contact-Page");
+  };
+
   const socialLinks = [
     {
       icon: Linkedin,
@@ -52,6 +60,7 @@ const Contact = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
+                onClick={handleEmailClick}
                 size="lg"
                 className="font-grotesk text-base sm:text-lg lg:text-xl px-8 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 bg-primary hover:bg-primary/90 text-primary-foreground shadow-2xl hover:shadow-primary/20 transition-all duration-300 rounded-full group"
               >

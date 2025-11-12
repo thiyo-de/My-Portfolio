@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Code,
@@ -78,7 +78,7 @@ const skillCategories = [
     title: "DevOps & Deployment",
     color: "from-indigo-500 to-purple-500",
     description: "Streamlining development and deployment processes",
-    skills: ["Git", "Vercel", "Netlify", "Heroku", "CI/CD", "Docker", "AWS"],
+    skills: ["Git", "Vercel", "Netlify","Docker","Render"],
   },
   {
     icon: Brain,
@@ -98,11 +98,12 @@ const skillCategories = [
 ];
 
 const Skills = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    // Scroll to top when navigating to contact page
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+    // Scroll to top and navigate to contact page
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/contact-Page");
   };
 
   return (
@@ -385,14 +386,13 @@ const Skills = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <Link
-              to="/contact-Page"
+            <button
               onClick={handleContactClick}
               className="inline-flex items-center gap-2 font-grotesk text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-primary/30 transition-all duration-300"
             >
               Start a Project Together
               <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
+            </button>
           </motion.div>
         </motion.div>
       </div>

@@ -8,13 +8,16 @@ import {
   Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import thiyo from "../assets/thiyo.avif";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const handleWorkClick = () => {
-    // Scroll to top when navigating to work page
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll to top and navigate to work page
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/work-Page");
   };
 
   return (
@@ -141,15 +144,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
           >
-            <Link to="/work-Page" onClick={handleWorkClick}>
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 sm:px-10 py-5 sm:py-6 rounded-full font-grotesk font-normal group text-base sm:text-lg"
-                size="lg"
-              >
-                View My Work
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            <Button
+              onClick={handleWorkClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 sm:px-10 py-5 sm:py-6 rounded-full font-grotesk font-normal group text-base sm:text-lg"
+              size="lg"
+            >
+              View My Work
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </motion.div>
 
           {/* Social Links */}
@@ -349,15 +351,14 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <Link to="/work-Page" onClick={handleWorkClick}>
-                  <Button
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 rounded-full font-grotesk font-normal group text-sm sm:text-base"
-                    size="lg"
-                  >
-                    View My Work
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={handleWorkClick}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-4 sm:py-6 rounded-full font-grotesk font-normal group text-sm sm:text-base"
+                  size="lg"
+                >
+                  View My Work
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </motion.div>
 
               {/* Social Links */}

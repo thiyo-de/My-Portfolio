@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
@@ -9,6 +9,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Throttled scroll handler for better performance
   useEffect(() => {
@@ -49,7 +50,8 @@ const Navigation = () => {
   const handleNavClick = (path = "/") => {
     setActiveLink(path);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate(path);
   };
 
   const navLinks = [
@@ -85,13 +87,12 @@ const Navigation = () => {
               whileTap={{ scale: 0.95 }}
               className="flex-shrink-0"
             >
-              <Link
-                to="/"
+              <button
                 onClick={() => handleNavClick("/")}
                 className="font-clash font-bold text-xl md:text-2xl hover:text-primary transition-colors duration-200 whitespace-nowrap"
               >
                 Thiyoplus F
-              </Link>
+              </button>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -103,8 +104,7 @@ const Navigation = () => {
                   whileHover={{ y: -1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
-                  <Link
-                    to={link.path}
+                  <button
                     onClick={() => handleNavClick(link.path)}
                     className={`font-grotesk text-sm lg:text-base transition-colors duration-200 px-3 py-2 relative whitespace-nowrap ${
                       isActiveLink(link.path)
@@ -127,7 +127,7 @@ const Navigation = () => {
                         }}
                       />
                     )}
-                  </Link>
+                  </button>
 
                   {/* Hover Line Effect */}
                   {!isActiveLink(link.path) && (
@@ -148,10 +148,8 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  to="/contact-Page"
+                <button
                   onClick={() => handleNavClick("/contact-Page")}
-                  className="block"
                 >
                   <Button
                     size="sm"
@@ -163,7 +161,7 @@ const Navigation = () => {
                   >
                     Let's Talk
                   </Button>
-                </Link>
+                </button>
               </motion.div>
             </div>
 
@@ -229,8 +227,7 @@ const Navigation = () => {
                       whileHover={{ x: 4 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Link
-                        to={link.path}
+                      <button
                         onClick={() => handleNavClick(link.path)}
                         className={`flex items-center w-full px-4 py-3 rounded-xl transition-all duration-200 group ${
                           isActiveLink(link.path)
@@ -275,7 +272,7 @@ const Navigation = () => {
                             </svg>
                           </motion.div>
                         )}
-                      </Link>
+                      </button>
                     </motion.div>
                   </motion.div>
                 ))}
@@ -292,8 +289,7 @@ const Navigation = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Link
-                    to="/contact-Page"
+                  <button
                     onClick={() => handleNavClick("/contact-Page")}
                     className="block w-full"
                   >
@@ -318,7 +314,7 @@ const Navigation = () => {
                         <path d="m9 18 6-6-6-6" />
                       </svg>
                     </Button>
-                  </Link>
+                  </button>
                 </motion.div>
 
                 {/* Contact Info */}

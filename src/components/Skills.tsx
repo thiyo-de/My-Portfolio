@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const allSkills = [
   "React",
@@ -21,6 +21,13 @@ const allSkills = [
 ];
 
 const Skills = () => {
+  const navigate = useNavigate();
+
+  const handleExploreSkills = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/skills-Page");
+  };
+
   return (
     <section
       id="skills"
@@ -83,15 +90,14 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Link to="/skills-Page">
-            <motion.button
-              className="font-satoshi px-8 sm:px-12 py-3 sm:py-4 bg-primary text-primary-foreground rounded-full border-2 border-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base sm:text-lg font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore All Skills
-            </motion.button>
-          </Link>
+          <motion.button
+            onClick={handleExploreSkills}
+            className="font-satoshi px-8 sm:px-12 py-3 sm:py-4 bg-primary text-primary-foreground rounded-full border-2 border-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-base sm:text-lg font-medium"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Explore All Skills
+          </motion.button>
         </motion.div>
       </div>
 

@@ -1,7 +1,7 @@
 import { Palette, Code, Smartphone, Zap, Database, ArrowRight } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -36,7 +36,7 @@ const services = [
   }
 ];
 
-const AnimatedServiceCard = ({ service, index }) => {
+const AnimatedServiceCard = ({ service, index, onExploreClick }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -62,6 +62,11 @@ const AnimatedServiceCard = ({ service, index }) => {
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+  };
+
+  const handleExploreClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    onExploreClick();
   };
 
   return (
@@ -123,7 +128,10 @@ const AnimatedServiceCard = ({ service, index }) => {
         
         {/* Top border and explore button - always at bottom */}
         <div className="w-full pt-4 border-t border-border/30 group-hover:border-primary/30 transition-colors duration-300 mt-auto">
-          <Link to={`/services-Page`}>
+          <button
+            onClick={handleExploreClick}
+            className="w-full"
+          >
             <motion.div 
               className="flex items-center justify-center gap-2 text-primary font-satoshi font-medium text-sm cursor-pointer"
               whileHover={{ x: 5 }}
@@ -131,7 +139,7 @@ const AnimatedServiceCard = ({ service, index }) => {
             >
               Explore <ArrowRight className="w-4 h-4" />
             </motion.div>
-          </Link>
+          </button>
         </div>
       </div>
     </motion.div>
@@ -139,6 +147,13 @@ const AnimatedServiceCard = ({ service, index }) => {
 };
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const handleServicesClick = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/services-Page");
+  };
+
   return (
     <section id="services" className="py-20 sm:py-32 bg-background relative overflow-hidden">
       {/* Background matching About section */}
@@ -183,7 +198,12 @@ const Services = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <AnimatedServiceCard key={index} service={service} index={index} />
+            <AnimatedServiceCard 
+              key={index} 
+              service={service} 
+              index={index}
+              onExploreClick={handleServicesClick}
+            />
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
@@ -66,6 +66,7 @@ const Portfolio = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [visibleCards, setVisibleCards] = useState<number>(3);
+  const navigate = useNavigate();
 
   // Calculate visible cards based on screen size
   useEffect(() => {
@@ -84,6 +85,16 @@ const Portfolio = () => {
     window.addEventListener("resize", updateVisibleCards);
     return () => window.removeEventListener("resize", updateVisibleCards);
   }, []);
+
+  const handleProjectClick = (route: string) => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate(route);
+  };
+
+  const handleViewAllProjects = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/work-Page");
+  };
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -182,7 +193,10 @@ const Portfolio = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Link to={project.route} className="block h-full">
+              <button
+                onClick={() => handleProjectClick(project.route)}
+                className="block h-full w-full text-left"
+              >
                 <motion.div
                   className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col"
                   whileHover={{ y: -4 }}
@@ -236,7 +250,7 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </motion.div>
-              </Link>
+              </button>
             </motion.div>
           ))}
         </div>
@@ -281,13 +295,13 @@ const Portfolio = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           {/* View All Projects Button */}
-          <Link
-            to="/work-Page"
+          <button
+            onClick={handleViewAllProjects}
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-primary text-primary font-satoshi font-medium text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
           >
             View All Projects
             <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-          </Link>
+          </button>
         </motion.div>
 
         {/* Additional Info Text */}

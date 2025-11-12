@@ -47,10 +47,9 @@ const Footer = () => {
   ];
 
   const handleLinkClick = (path) => {
+    // Immediate scroll to top and navigation
+    window.scrollTo({ top: 0, behavior: "auto" });
     navigate(path);
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
   };
 
   const isActiveLink = (path) => {
@@ -152,11 +151,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link
-                    to={link.path}
+                  <button
                     onClick={() => handleLinkClick(link.path)}
                     aria-current={isActiveLink(link.path) ? "page" : undefined}
-                    className={`group flex items-center gap-3 transition-all duration-300 font-grotesk text-sm ${
+                    className={`group flex items-center gap-3 transition-all duration-300 font-grotesk text-sm w-full text-left ${
                       isActiveLink(link.path)
                         ? "text-primary font-semibold"
                         : "text-muted-foreground hover:text-foreground"
@@ -171,7 +169,7 @@ const Footer = () => {
                       aria-hidden="true"
                     />
                     <span className="leading-tight">{link.name}</span>
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -302,20 +300,18 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6 text-sm">
-            <Link
-              to="/privacy-policy"
+            <button
               onClick={() => handleLinkClick("/privacy-policy")}
               className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-satoshi text-sm"
             >
               Privacy
-            </Link>
-            <Link
-              to="/terms-of-service"
+            </button>
+            <button
               onClick={() => handleLinkClick("/terms-of-service")}
               className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-satoshi text-sm"
             >
               Terms
-            </Link>
+            </button>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-satoshi text-sm"

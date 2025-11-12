@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Code2, Palette } from "lucide-react";
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const handleLearnMore = () => {
+    // Scroll to top and navigate to about page
+    window.scrollTo({ top: 0, behavior: "auto" });
+    navigate("/about-Page");
+  };
+
   return (
     <section
       id="about"
@@ -158,20 +166,19 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                <Link to="/about-Page">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    onClick={handleLearnMore}
+                    variant="outline"
+                    className="rounded-xl w-full font-grotesk font-medium border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
                   >
-                    <Button
-                      variant="outline"
-                      className="rounded-xl w-full font-grotesk font-medium border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
-                    >
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                  </motion.div>
-                </Link>
+                    Learn More
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </motion.div>
               </motion.div>
             </motion.div>
           </div>

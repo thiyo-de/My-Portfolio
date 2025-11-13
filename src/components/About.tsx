@@ -45,6 +45,7 @@ const About = () => {
           {/* Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {/* Main Description */}
+
             <motion.div
               className="lg:col-span-2 space-y-6"
               initial={{ opacity: 0, x: -20 }}
@@ -55,36 +56,39 @@ const About = () => {
               <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
                 I'm a{" "}
                 <span className="text-foreground font-medium">
-                  designer and developer
+                  designer and MERN stack developer
                 </span>{" "}
-                passionate about creating meaningful digital experiences that
-                blend aesthetics with functionality.
+                passionate about crafting digital products that balance
+                creativity, usability, and performance.
               </p>
 
               <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
-                With expertise spanning UI/UX design, frontend development, and
-                interactive experiences, I bring ideas to life through clean
-                code and thoughtful design.
-              </p>
-
-              <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
-                My entrepreneurial mindset drives me to not just build products,
-                but to
+                I love{" "}
                 <span className="text-foreground font-medium">
-                  {" "}
-                  solve real problems and create value
+                  solving complex problems and building client solutions
                 </span>{" "}
-                for users and businesses alike.
+                using the power of AI and modern web technologies — turning
+                ideas into intelligent, user-friendly experiences.
+              </p>
+
+              <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
+                Beyond my professional work, I enjoy exploring{" "}
+                <span className="text-foreground font-medium">
+                  fun side projects
+                </span>{" "}
+                that blend creativity, experimentation, and technology — fueling
+                my passion for continuous learning.
               </p>
 
               {/* Skills Pill */}
               <div className="flex flex-wrap gap-3 pt-4">
                 {[
                   "UI/UX Design",
-                  "Frontend Development",
+                  "MERN Stack",
                   "React/Next.js",
-                  "TypeScript",
-                  "Cross-Platform",
+                  "AI Integration",
+                  "Problem Solving",
+                  "Creative Projects",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -135,7 +139,7 @@ const About = () => {
                       Development
                     </h3>
                     <p className="font-satoshi text-xs text-muted-foreground">
-                      Frontend & Mobile
+                      Frontend & Backend
                     </p>
                   </div>
                 </motion.div>
@@ -193,7 +197,7 @@ const About = () => {
           >
             <div className="text-center">
               <div className="font-clash font-bold text-2xl text-primary mb-1">
-                3+
+                2+
               </div>
               <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wide">
                 Years
@@ -201,7 +205,7 @@ const About = () => {
             </div>
             <div className="text-center">
               <div className="font-clash font-bold text-2xl text-primary mb-1">
-                50+
+                10+
               </div>
               <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wide">
                 Projects

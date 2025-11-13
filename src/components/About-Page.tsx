@@ -51,19 +51,18 @@ const About = () => {
 
   const skills = [
     "UI/UX Design",
-    "Frontend Development",
+    "MERN Stack",
     "React/Next.js",
-    "TypeScript",
-    "Framer Motion",
-    "Figma",
-    "Responsive Design",
-    "User Research",
+    "Node.js",
+    "AI Problem Solving",
+    "Creative Side Projects",
+    "Interactive Experiences",
   ];
 
   const stats: Stat[] = [
-    { number: "3+", label: "Years Experience" },
-    { number: "50+", label: "Projects Completed" },
-    { number: "25+", label: "Happy Clients" },
+    { number: "2+", label: "Years Experience" },
+    { number: "10+", label: "Projects Completed" },
+    { number: "100%", label: "Satisfaction" },
   ];
 
   // Memoized handlers for better performance
@@ -137,6 +136,7 @@ const About = () => {
           {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Column - Text Content */}
+
             <motion.div
               className="space-y-6 lg:space-y-8 order-2 lg:order-1"
               variants={staggerContainer}
@@ -150,35 +150,39 @@ const About = () => {
               >
                 I'm a{" "}
                 <span className="font-semibold text-foreground">
-                  designer & developer
+                  designer & MERN stack developer
                 </span>{" "}
-                passionate about creating meaningful digital experiences that
-                blend aesthetics with functionality. Currently seeking new
-                opportunities to bring innovative ideas to life through clean
-                code and thoughtful design.
+                passionate about building digital experiences that feel clean,
+                intuitive, and beautifully crafted. I love turning ideas into
+                polished products through thoughtful design and solid
+                engineering.
               </motion.p>
 
               <motion.p
                 variants={staggerItem}
                 className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
               >
-                My expertise spans{" "}
+                Beyond development, I enjoy{" "}
                 <span className="font-semibold text-foreground">
-                  UI/UX design, frontend development, and interactive
-                  experiences
+                  solving client challenges using the power of AI
                 </span>
-                . I believe in the power of design thinking and user-centered
-                approaches to create products that not only look beautiful but
-                also solve real problems.
+                — automating workflows, debugging issues faster, and creating
+                smart solutions that deliver real value. For me, technology is
+                not just a tool but a creative problem-solving partner.
               </motion.p>
 
               <motion.p
                 variants={staggerItem}
                 className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
               >
-                Based in Tiruchirappalli, Tamil Nadu, I'm ready to collaborate
-                with teams and clients globally, transforming visions into
-                beautifully crafted digital solutions.
+                I also work on{" "}
+                <span className="font-semibold text-foreground">
+                  fun side projects
+                </span>{" "}
+                as a hobby — experiments, micro-apps, UI ideas, and quirky tools
+                that help me learn, explore, and stay curious. Based in
+                Tiruchirappalli, I’m open to collaborating with teams and
+                clients worldwide to create meaningful digital solutions.
               </motion.p>
 
               {/* Skills */}
@@ -253,7 +257,7 @@ const About = () => {
                     aria-label={`Visit my ${link.label} profile`}
                   >
                     <link.icon className="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:scale-110" />
-                    {/* Tooltip effect */}
+                    {/* Tooltip */}
                     <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
                       {link.label}
                     </span>
@@ -337,7 +341,12 @@ interface TiltCardProps {
   onViewWork: () => void;
 }
 
-const TiltCard = ({ stats, onImageLoad, isImageLoaded, onViewWork }: TiltCardProps) => {
+const TiltCard = ({
+  stats,
+  onImageLoad,
+  isImageLoaded,
+  onViewWork,
+}: TiltCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -493,7 +502,7 @@ const TiltCard = ({ stats, onImageLoad, isImageLoaded, onViewWork }: TiltCardPro
                 role="figure"
                 aria-label={`${stat.number} ${stat.label}`}
               >
-                <div className="font-clash font-bold text-xl sm:text-2xl lg:text-3xl text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
+                <div className="font-grotesk font-bold text-xl sm:text-2xl lg:text-3xl text-foreground sm:mb-1 group-hover:text-primary transition-colors duration-300">
                   {stat.number}
                 </div>
                 <div className="font-satoshi text-xs text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors duration-300 leading-tight">

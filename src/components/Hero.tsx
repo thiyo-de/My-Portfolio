@@ -133,8 +133,9 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
           >
             I build fast, scalable, and user-friendly web applications using
-            modern JavaScript technologies. My main tools of choice are React on
-            the frontend and Node.js on the backend.
+            modern JavaScript technologies — React on the frontend and Node.js
+            on the backend. I’m passionate about learning new technologies and
+            exploring how AI can enhance development and user experiences.
           </motion.p>
 
           {/* CTA Button */}
@@ -340,8 +341,10 @@ const Hero = () => {
                 transition={{ delay: 1 }}
               >
                 I build fast, scalable, and user-friendly web applications using
-                modern JavaScript technologies. My main tools of choice are
-                React on the frontend and Node.js on the backend.
+                modern JavaScript technologies — React on the frontend and
+                Node.js on the backend. I’m passionate about learning new
+                technologies and exploring how AI can enhance development and
+                user experiences.
               </motion.p>
 
               {/* CTA Button */}

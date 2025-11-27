@@ -64,6 +64,10 @@ const Navigation = () => {
   ];
 
   const isActiveLink = (path) => {
+    // If the current path is a project details page, activate the Work link
+    if (path === "/work-Page" && location.pathname.startsWith("/portfolio/")) {
+      return true;
+    }
     return activeLink === path;
   };
 

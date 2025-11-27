@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowLeft, Calendar, Users, Target, Brain, Shield, Zap, MessageCircle } from "lucide-react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // Project details for Montfort ICSE AI Chatbot
 const projectDetails = {
@@ -148,91 +148,77 @@ const projectDetails = {
   // ... other project details
 };
 
-const ProjectDetail_1 = () => {
+const ProjectDetail_2 = () => {
   const { slug } = useParams();
   const project = projectDetails[slug as keyof typeof projectDetails];
 
   if (!project) {
-    return (
-      <div className="min-h-screen bg-background pt-20 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-clash font-bold text-2xl mb-4">Project not found</h1>
-          <NavLink to="/work-Page">
-            <Button variant="ghost" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Portfolio
-            </Button>
-          </NavLink>
-        </div>
-      </div>
-    );
+    return <div>Project not found</div>;
   }
 
   return (
-    <div className="min-h-screen bg-background pt-16 md:pt-20">
+    <div className="min-h-screen bg-background pt-20">
       {/* Back Navigation */}
-      <div className="container mx-auto px-4 sm:px-6 py-6 md:py-8">
-        <NavLink to="/work-Page">
-          <Button variant="ghost" className="gap-2 mb-6 md:mb-8 text-sm md:text-base">
+      <div className="container mx-auto px-4 py-8">
+        <Link to="/work-Page">
+          <Button variant="ghost" className="gap-2 mb-8">
             <ArrowLeft className="w-4 h-4" />
             Back to Portfolio
           </Button>
-        </NavLink>
+        </Link>
       </div>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 sm:px-6 pb-16 md:pb-20">
+      <section className="container mx-auto px-4 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-12 items-center"
         >
           {/* Content */}
-          <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
-            <div className="space-y-3 md:space-y-4">
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary" className="text-xs md:text-sm">{project.category}</Badge>
-                {project.featured && (
-                  <Badge className="bg-primary/20 text-primary border-primary/30 text-xs md:text-sm">
-                    Featured Project
-                  </Badge>
-                )}
-              </div>
-              
-              <h1 className="font-clash font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-                {project.title}
-              </h1>
-              
-              <p className="font-satoshi text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <Badge variant="secondary">{project.category}</Badge>
+              {project.featured && (
+                <Badge className="bg-primary/20 text-primary border-primary/30 ml-2">
+                  Featured Project
+                </Badge>
+              )}
             </div>
+            
+            <h1 className="font-clash font-bold text-4xl lg:text-5xl">
+              {project.title}
+            </h1>
+            
+            <p className="font-satoshi text-xl text-muted-foreground leading-relaxed">
+              {project.description}
+            </p>
 
             {/* Project Meta */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 py-3 md:py-4">
+            <div className="flex flex-wrap gap-6 py-4">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="font-satoshi font-medium text-sm md:text-base">Duration: {project.duration}</span>
+                <Calendar className="w-5 h-5 text-primary" />
+                <span className="font-satoshi font-medium">Duration: {project.duration}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="font-satoshi font-medium text-sm md:text-base">Team: {project.teamSize}</span>
+                <Users className="w-5 h-5 text-primary" />
+                <span className="font-satoshi font-medium">Team: {project.teamSize}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Target className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="font-satoshi font-medium text-sm md:text-base">Role: {project.role}</span>
+                <Target className="w-5 h-5 text-primary" />
+                <span className="font-satoshi font-medium">Role: {project.role}</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-3 md:pt-4">
-              <Button size="lg" className="gap-2 text-sm md:text-base" asChild>
+            <div className="flex gap-4 pt-4">
+              <Button size="lg" className="gap-2" asChild>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" />
                   Live Demo
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="gap-2 text-sm md:text-base" asChild>
+              <Button variant="outline" size="lg" className="gap-2" asChild>
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="w-4 h-4" />
                   Source Code
@@ -246,33 +232,33 @@ const ProjectDetail_1 = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="relative rounded-xl md:rounded-2xl overflow-hidden order-1 lg:order-2"
+            className="relative rounded-2xl overflow-hidden"
           >
             <img 
               src={project.images[0]} 
               alt={project.title}
-              className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
+              className="w-full h-[400px] object-cover"
             />
           </motion.div>
         </motion.div>
       </section>
 
       {/* Impact Metrics */}
-      <section className="bg-card/50 py-12 md:py-16">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="bg-card/50 py-16">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8 md:mb-12"
+            className="text-center mb-12"
           >
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-3 md:mb-4">AI Performance Metrics</h2>
-            <p className="font-satoshi text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            <h2 className="font-clash font-bold text-3xl mb-4">AI Performance Metrics</h2>
+            <p className="font-satoshi text-muted-foreground text-lg">
               Measurable results ensuring reliable, accurate school communication
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {project.impact.map((impact, index) => (
               <motion.div
                 key={index}
@@ -280,12 +266,12 @@ const ProjectDetail_1 = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-4 md:p-6 bg-background rounded-lg md:rounded-xl border border-border"
+                className="text-center p-6 bg-background rounded-xl border border-border"
               >
-                <div className="font-clash font-bold text-2xl sm:text-3xl md:text-4xl text-primary mb-1 md:mb-2">
+                <div className="font-clash font-bold text-4xl text-primary mb-2">
                   {impact.metric}
                 </div>
-                <p className="font-satoshi text-muted-foreground text-xs sm:text-sm md:text-base">
+                <p className="font-satoshi text-muted-foreground">
                   {impact.description}
                 </p>
               </motion.div>
@@ -295,23 +281,23 @@ const ProjectDetail_1 = () => {
       </section>
 
       {/* Problem & Solution */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
             {/* Problem */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-clash font-bold text-xl sm:text-2xl mb-4 md:mb-6 text-destructive">
+              <h3 className="font-clash font-bold text-2xl mb-6 text-destructive">
                 The Communication Challenge
               </h3>
-              <p className="font-satoshi text-base md:text-lg leading-relaxed">
+              <p className="font-satoshi text-lg leading-relaxed">
                 {project.problem}
               </p>
-              <div className="mt-4 md:mt-6 p-3 md:p-4 bg-destructive/10 rounded-lg border border-destructive/20">
-                <p className="font-satoshi text-destructive font-medium text-sm md:text-base">
+              <div className="mt-6 p-4 bg-destructive/10 rounded-lg border border-destructive/20">
+                <p className="font-satoshi text-destructive font-medium">
                   Example parent queries: "canteeen in skl", "hotwaterinthehostel", "schoolt ing"
                 </p>
               </div>
@@ -323,14 +309,14 @@ const ProjectDetail_1 = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-clash font-bold text-xl sm:text-2xl mb-4 md:mb-6 text-primary">
+              <h3 className="font-clash font-bold text-2xl mb-6 text-primary">
                 AI-Powered Solution
               </h3>
-              <p className="font-satoshi text-base md:text-lg leading-relaxed">
+              <p className="font-satoshi text-lg leading-relaxed">
                 {project.solution}
               </p>
-              <div className="mt-4 md:mt-6 p-3 md:p-4 bg-primary/10 rounded-lg border border-primary/20">
-                <p className="font-satoshi text-primary font-medium text-sm md:text-base">
+              <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+                <p className="font-satoshi text-primary font-medium">
                   Safety First: "I don't have that information in my data. Please visit montforticse.in"
                 </p>
               </div>
@@ -340,21 +326,21 @@ const ProjectDetail_1 = () => {
       </section>
 
       {/* Key Features */}
-      <section className="py-12 md:py-20 bg-card/30">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20 bg-card/30">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-16"
           >
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-3 md:mb-4">Intelligent Features & UX Benefits</h2>
-            <p className="font-satoshi text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            <h2 className="font-clash font-bold text-3xl mb-4">Intelligent Features & UX Benefits</h2>
+            <p className="font-satoshi text-muted-foreground text-lg">
               Advanced AI capabilities designed specifically for educational communication
             </p>
           </motion.div>
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-8">
             {project.features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -362,28 +348,28 @@ const ProjectDetail_1 = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center"
+                className="grid lg:grid-cols-2 gap-8 items-center"
               >
-                <div className={`space-y-3 md:space-y-4 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
-                    {index === 0 && <Brain className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
-                    {index === 1 && <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
-                    {index === 2 && <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
-                    {index === 3 && <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
-                    <h3 className="font-clash font-bold text-lg sm:text-xl md:text-2xl">{feature.title}</h3>
+                <div className={`space-y-4 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="flex items-center gap-3 mb-2">
+                    {index === 0 && <Brain className="w-6 h-6 text-primary" />}
+                    {index === 1 && <Shield className="w-6 h-6 text-primary" />}
+                    {index === 2 && <Zap className="w-6 h-6 text-primary" />}
+                    {index === 3 && <MessageCircle className="w-6 h-6 text-primary" />}
+                    <h3 className="font-clash font-bold text-2xl">{feature.title}</h3>
                   </div>
-                  <p className="font-satoshi text-muted-foreground leading-relaxed text-sm md:text-base">
+                  <p className="font-satoshi text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
-                  <div className="p-3 md:p-4 bg-primary/10 rounded-lg border border-primary/20">
-                    <p className="font-satoshi font-medium text-primary text-sm md:text-base">
+                  <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
+                    <p className="font-satoshi font-medium text-primary">
                       UX Benefit: {feature.uxBenefit}
                     </p>
                   </div>
                 </div>
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="bg-muted rounded-lg md:rounded-xl h-48 sm:h-56 md:h-64 flex items-center justify-center p-4">
-                    <span className="font-satoshi text-muted-foreground text-center text-sm md:text-base">
+                  <div className="bg-muted rounded-xl h-64 flex items-center justify-center">
+                    <span className="font-satoshi text-muted-foreground">
                       {index === 0 && "Broken English → Clean Query Visualization"}
                       {index === 1 && "Zero-Hallucination Safety Protocol"}
                       {index === 2 && "Semantic Search Architecture"}
@@ -398,21 +384,21 @@ const ProjectDetail_1 = () => {
       </section>
 
       {/* Design Process */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-16"
           >
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-3 md:mb-4">AI Development Process</h2>
-            <p className="font-satoshi text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            <h2 className="font-clash font-bold text-3xl mb-4">AI Development Process</h2>
+            <p className="font-satoshi text-muted-foreground text-lg">
               Research-driven approach ensuring safety, accuracy, and user satisfaction
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.designProcess.map((phase, index) => (
               <motion.div
                 key={index}
@@ -420,17 +406,17 @@ const ProjectDetail_1 = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card border border-border rounded-lg md:rounded-xl p-4 md:p-6"
+                className="bg-card border border-border rounded-xl p-6"
               >
-                <div className="text-xl sm:text-2xl font-clash font-bold text-primary mb-1 md:mb-2">
+                <div className="text-2xl font-clash font-bold text-primary mb-2">
                   {index + 1}
                 </div>
-                <h3 className="font-clash font-bold text-base sm:text-lg md:text-lg mb-3 md:mb-4">{phase.phase}</h3>
-                <ul className="font-satoshi text-xs sm:text-sm space-y-1 md:space-y-2">
+                <h3 className="font-clash font-bold text-lg mb-4">{phase.phase}</h3>
+                <ul className="font-satoshi text-sm space-y-2">
                   {phase.activities.map((activity, i) => (
-                    <li key={i} className="flex items-start gap-1 md:gap-2">
-                      <span className="text-primary mt-1 flex-shrink-0">•</span>
-                      <span className="flex-1">{activity}</span>
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      {activity}
                     </li>
                   ))}
                 </ul>
@@ -441,38 +427,38 @@ const ProjectDetail_1 = () => {
       </section>
 
       {/* Technical Details */}
-      <section className="py-12 md:py-20 bg-card/30">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20 bg-card/30">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-8 md:gap-12"
+            className="grid lg:grid-cols-2 gap-12"
           >
             <div>
-              <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-4 md:mb-6">Technical Architecture</h2>
-              <div className="space-y-4 md:space-y-6">
+              <h2 className="font-clash font-bold text-3xl mb-6">Technical Architecture</h2>
+              <div className="space-y-6">
                 <div>
-                  <h4 className="font-clash font-bold text-base sm:text-lg mb-1 md:mb-2">Frontend</h4>
-                  <p className="font-satoshi text-muted-foreground text-sm md:text-base">
+                  <h4 className="font-clash font-bold text-lg mb-2">Frontend</h4>
+                  <p className="font-satoshi text-muted-foreground">
                     {project.technicalDetails.frontend}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-clash font-bold text-base sm:text-lg mb-1 md:mb-2">Backend & AI</h4>
-                  <p className="font-satoshi text-muted-foreground text-sm md:text-base">
+                  <h4 className="font-clash font-bold text-lg mb-2">Backend & AI</h4>
+                  <p className="font-satoshi text-muted-foreground">
                     {project.technicalDetails.backend}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-clash font-bold text-base sm:text-lg mb-1 md:mb-2">AI Integrations</h4>
-                  <p className="font-satoshi text-muted-foreground text-sm md:text-base">
+                  <h4 className="font-clash font-bold text-lg mb-2">AI Integrations</h4>
+                  <p className="font-satoshi text-muted-foreground">
                     {project.technicalDetails.integrations}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-clash font-bold text-base sm:text-lg mb-1 md:mb-2">Performance</h4>
-                  <p className="font-satoshi text-muted-foreground text-sm md:text-base">
+                  <h4 className="font-clash font-bold text-lg mb-2">Performance</h4>
+                  <p className="font-satoshi text-muted-foreground">
                     {project.technicalDetails.performance}
                   </p>
                 </div>
@@ -480,23 +466,23 @@ const ProjectDetail_1 = () => {
             </div>
 
             <div>
-              <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-4 md:mb-6">Technologies Used</h2>
-              <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12">
+              <h2 className="font-clash font-bold text-3xl mb-6">Technologies Used</h2>
+              <div className="flex flex-wrap gap-3">
                 {project.tags.map((tag, index) => (
-                  <Badge key={index} variant="secondary" className="px-3 py-1 text-xs md:text-sm">
+                  <Badge key={index} variant="secondary" className="px-4 py-2 text-sm">
                     {tag}
                   </Badge>
                 ))}
               </div>
 
               {/* Lessons Learned */}
-              <div className="mt-8 md:mt-12">
-                <h3 className="font-clash font-bold text-xl sm:text-2xl mb-3 md:mb-4">AI Development Insights</h3>
-                <ul className="font-satoshi space-y-2 md:space-y-3 text-sm md:text-base">
+              <div className="mt-12">
+                <h3 className="font-clash font-bold text-2xl mb-4">AI Development Insights</h3>
+                <ul className="font-satoshi space-y-3">
                   {project.lessons.map((lesson, index) => (
-                    <li key={index} className="flex items-start gap-2 md:gap-3">
-                      <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="flex-1">{lesson}</span>
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                      {lesson}
                     </li>
                   ))}
                 </ul>
@@ -508,20 +494,20 @@ const ProjectDetail_1 = () => {
 
       {/* Testimonial */}
       {project.testimonial && (
-        <section className="py-12 md:py-20">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section className="py-20">
+          <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center"
             >
-              <blockquote className="font-satoshi text-lg sm:text-xl md:text-2xl italic text-muted-foreground leading-relaxed mb-4 md:mb-6">
+              <blockquote className="font-satoshi text-2xl italic text-muted-foreground leading-relaxed mb-6">
                 "{project.testimonial.quote}"
               </blockquote>
               <div>
-                <p className="font-clash font-bold text-base sm:text-lg md:text-lg">{project.testimonial.author}</p>
-                <p className="font-satoshi text-muted-foreground text-sm md:text-base">{project.testimonial.position}</p>
+                <p className="font-clash font-bold text-lg">{project.testimonial.author}</p>
+                <p className="font-satoshi text-muted-foreground">{project.testimonial.position}</p>
               </div>
             </motion.div>
           </div>
@@ -529,28 +515,26 @@ const ProjectDetail_1 = () => {
       )}
 
       {/* CTA */}
-      <section className="py-12 md:py-20 bg-primary/5">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
+      <section className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-clash font-bold text-2xl sm:text-3xl mb-4 md:mb-6">Ready to Build Intelligent AI Solutions?</h2>
-            <p className="font-satoshi text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+            <h2 className="font-clash font-bold text-3xl mb-6">Ready to Build Intelligent AI Solutions?</h2>
+            <p className="font-satoshi text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's create AI systems that are not just smart, but also safe, reliable, and user-friendly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button size="lg" className="gap-2 text-sm md:text-base" asChild>
-                <NavLink to="/contact-Page">
-                  <ExternalLink className="w-4 h-4" />
-                  Start a Project
-                </NavLink>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Button size="lg" className="gap-2">
+                <ExternalLink className="w-4 h-4" />
+                Start a Project
               </Button>
-              <Button variant="outline" size="lg" className="gap-2 text-sm md:text-base" asChild>
-                <NavLink to="/work-Page">
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/work-Page">
                   View More Work
-                </NavLink>
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -560,4 +544,4 @@ const ProjectDetail_1 = () => {
   );
 };
 
-export default ProjectDetail_1;
+export default ProjectDetail_2;

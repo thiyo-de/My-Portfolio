@@ -12,7 +12,7 @@ import {
   Calendar,
   Users,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
@@ -25,7 +25,7 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
-    slug: "Modern-E-Commerce-Platform",
+    slug: "montfort-icse-ai-chatbot",
     category: "Full Stack",
     liveUrl: "#",
     githubUrl: "#",
@@ -179,6 +179,7 @@ const projects = [
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [visibleProjects, setVisibleProjects] = useState(6);
+  const navigate = useNavigate();
 
   const categories = [
     "All",
@@ -201,9 +202,13 @@ const Portfolio = () => {
   };
 
   // Scroll handler for case study links
-  const handleCaseStudyClick = () => {
+  const handleCaseStudyClick = (slug: string) => {
+    // Scroll to top first
+    window.scrollTo(0, 0);
+
+    // Then navigate after a small delay to ensure scroll completes
     setTimeout(() => {
-      window.scrollTo(0, 0);
+      navigate(`/portfolio/${slug}`);
     }, 100);
   };
 
@@ -221,7 +226,7 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
       </div>
 
-       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
 
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -373,7 +378,7 @@ const ProjectCard = ({
 }: {
   project: (typeof projects)[0];
   index: number;
-  onCaseStudyClick: () => void;
+  onCaseStudyClick: (slug: string) => void;
 }) => {
   return (
     <motion.div
@@ -530,16 +535,15 @@ const ProjectCard = ({
           </div>
 
           {/* CTA Button */}
-          <Link to={`/portfolio/${project.slug}`} onClick={onCaseStudyClick}>
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button className="w-full gap-2 group/btn rounded-xl py-6 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary border-0 shadow-lg shadow-primary/25">
-                <span className="font-grotesk font-medium">
-                  View Case Study
-                </span>
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-              </Button>
-            </motion.div>
-          </Link>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              onClick={() => onCaseStudyClick(project.slug)}
+              className="w-full gap-2 group/btn rounded-xl py-6 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary border-0 shadow-lg shadow-primary/25"
+            >
+              <span className="font-grotesk font-medium">View Case Study</span>
+              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </motion.div>
         </div>
 
         {/* Glow Effect */}

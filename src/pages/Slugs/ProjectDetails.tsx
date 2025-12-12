@@ -6,21 +6,28 @@ import { ArrowLeft, FileText, Construction } from "lucide-react";
 
 // Project detail components
 import ProjectDetail_1 from "./ProjectDetails_1";
-// Add more as you create them:
-// import ProjectDetail_2 from "./ProjectDetails_2";
+import ProjectDetail_2 from "./ProjectDetails_2";
+import ProjectDetail_3 from "./ProjectDetails_3";
+import ProjectDetail_4 from "./ProjectDetails_4";
+import ProjectDetail_5 from "./ProjectDetails_5";
 
 // Project slug types
 type ProjectSlug =
   | "montfort-icse-ai-chatbot"
-  | "creative-portfolio-platform"
-  | "taskflow-management-system"
-  | "fintech-mobile-banking"
-  | "social-analytics-dashboard"
+  | "ds-founder-birthday-wishes"
+  | "vowel-quest"
+  | "ruthram360"
+  | "vr-tour-gallery"
   | "health-fitness-tracker";
 
 // Project component mapping
 const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.FC>> = {
   "montfort-icse-ai-chatbot": ProjectDetail_1,
+  "ds-founder-birthday-wishes": ProjectDetail_2,
+  "vowel-quest": ProjectDetail_3,
+  "ruthram360": ProjectDetail_4,
+  "vr-tour-gallery": ProjectDetail_5,
+  
   // Add more mappings as components are created
 };
 

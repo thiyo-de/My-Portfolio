@@ -7,36 +7,32 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import {
   ExternalLink,
-  Github,
+  Globe,
   ArrowLeft,
   Calendar,
   Users,
   Target,
-  Brain,
-  Shield,
+  Camera,
+  Map,
+  Building,
+  Home,
+  School,
+  Hospital,
+  Hotel,
   Zap,
-  MessageCircle,
-  Cpu,
-  Database,
+  Shield,
+  Cloud,
   Code,
-  Globe,
-  Terminal,
-  Server,
-  FileCode,
-  GitBranch,
-  ChevronRight,
-  Sparkles,
-  Clock,
+  Smartphone,
+  Monitor,
+  Wifi,
   CheckCircle,
   BarChart3,
-  CpuIcon,
-  DatabaseIcon,
-  CodeIcon,
+  Database,
   Layers,
   FolderOpen,
   Key,
   Lock,
-  Cloud,
   Download,
   Play,
   Pause,
@@ -45,7 +41,6 @@ import {
   Check,
   Share2,
   Heart,
-  Camera,
   Mic,
   Video,
   Upload,
@@ -54,262 +49,440 @@ import {
   Users as UsersIcon,
   CloudUpload,
   ShieldCheck,
-  Smartphone,
-  Monitor,
-  Wifi,
   Mail,
   MessageSquare,
   Image as ImageIcon,
-  Music
+  Music,
+  Rocket,
+  GraduationCap,
+  Globe as GlobeIcon,
+  Smartphone as SmartphoneIcon,
+  School as SchoolIcon,
+  Lightbulb,
+  Layers as LayersIcon,
+  Code2,
+  Palette,
+  ServerIcon,
+  Cloud as CloudIcon,
+  Navigation,
+  MapPin,
+  Eye as EyeIcon,
+  Video as VideoIcon,
+  Satellite,
+  Scan,
+  QrCode,
+  Headphones,
+  Compass,
+  Settings,
+  Cpu,
+  GitBranch,
+  ChevronRight,
+  Sparkles,
+  Clock,
+  Brain,
+  FileCode,
+  Gamepad2,
+  GamepadIcon,
+  Target as TargetIcon,
+  BookOpen,
+  Keyboard,
+  Gamepad2 as Gamepad2Icon,
+  Terminal,
+  Github
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const projectDetails = {
-  "ds-founder-birthday-wishes": {
+  ruthram360: {
     id: "1",
-    title: "DS Founder Birthday Wishes Platform",
-    tagline: "A Digital Tribute to Visionary Leadership",
-    description: "Interactive platform for collecting and displaying birthday wishes in multiple media formats",
+    title: "Ruthram360° — Virtual Tours & Google Street View Experts",
+    tagline: "Transforming Spaces into Immersive Digital Experiences",
+    description:
+      "Cutting-edge digital media platform specializing in 360° Virtual Tours, Google Street View Blue-Line Mapping, and Digital Preservation services.",
     fullDescription: `
-      A heartfelt digital tribute platform designed to celebrate visionary leadership by collecting wishes,
-      messages, photos, audio, and video tributes from team members, partners, and the community. 
-      This platform centralizes emotional tributes into an elegant, interactive digital hub perfect for 
-      special occasions like birthdays, anniversaries, and memorials.
+      Ruthram360° is a premier digital media platform that transforms physical spaces into 
+      immersive digital experiences. We specialize in creating interactive 360° virtual tours, 
+      Google Street View blue-line mapping, and digital preservation solutions for educational 
+      institutions, industries, real estate, and heritage sites. Our platform delivers 
+      stunning HDR-quality visuals and seamless navigation, allowing global audiences to 
+      explore campuses, hospitals, hotels, and monuments from anywhere in the world.
+      
+      With our expertise in spatial imaging and digital storytelling, we help businesses 
+      showcase their spaces in the most engaging way possible, enhancing visitor engagement, 
+      improving accessibility, and preserving cultural heritage for future generations.
     `,
-    tags: ["React", "TypeScript", "Supabase", "Cloudinary", "Tailwind CSS", "Framer Motion", "Netlify", "Full Stack"],
-    images: [
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=1200&h=800&fit=crop&auto=format"
+    tags: [
+      "360° Virtual Tours",
+      "Google Street View",
+      "HDR Photography",
+      "Drone Imaging",
+      "Digital Preservation",
+      "Interactive Walkthroughs",
+      "WebGL",
+      "React",
     ],
-    slug: "ds-founder-birthday-wishes",
-    category: "Full Stack / Community Platform",
-    liveUrl: "https://ds-founder-birth-day-wish.netlify.app/",
-    adminUrl: "https://fantastic-narwhal-82b86b.netlify.app/",
-    githubUrl: "https://github.com/thiyo-de/DS_Founder_BD-Wish",
+    images: [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1507149833265-60c372daea22?w=1200&h=800&fit=crop&auto=format",
+    ],
+    slug: "ruthram360",
+    category: "Digital Media Platform / Web Application",
+    liveUrl: "https://ruthram360.netlify.app/",
+    githubUrl: "#",
     featured: true,
-    role: "Full Stack Developer & System Architect",
-    duration: "6 weeks",
-    teamSize: "Solo Developer",
-    
+    role: "Lead Developer & Digital Media Specialist",
+    duration: "6 Weeks",
+    teamSize: "3 Members",
+
     techStack: [
       { name: "React 18", icon: Code, color: "text-cyan-500" },
-      { name: "TypeScript", icon: FileCode, color: "text-blue-500" },
-      { name: "Supabase", icon: DatabaseIcon, color: "text-emerald-500" },
-      { name: "Cloudinary", icon: CloudUpload, color: "text-yellow-500" },
-      { name: "Tailwind CSS", icon: Layers, color: "text-teal-500" },
-      { name: "Framer Motion", icon: Zap, color: "text-purple-500" },
-      { name: "Netlify", icon: Cloud, color: "text-orange-500" },
-      { name: "Vite", icon: Terminal, color: "text-pink-500" }
+      { name: "TypeScript", icon: Code2, color: "text-blue-500" },
+      { name: "Vite", icon: Zap, color: "text-yellow-500" },
+      { name: "Tailwind CSS", icon: Palette, color: "text-teal-500" },
+      { name: "shadcn/ui", icon: Layers, color: "text-purple-500" },
+      { name: "Netlify", icon: Cloud, color: "text-green-500" },
+      { name: "Framer Motion", icon: Video, color: "text-pink-500" },
+      { name: "Google Maps API", icon: Map, color: "text-red-500" },
     ],
 
     metrics: [
-      { label: "Uptime", value: "99.9%", description: "Production reliability", icon: ShieldCheck },
-      { label: "Media Processing", value: "< 2s", description: "Average upload time", icon: Zap },
-      { label: "Wishes Collected", value: "500+", description: "Messages and media", icon: Heart },
-      { label: "User Satisfaction", value: "98%", description: "Positive feedback rate", icon: Sparkles },
-      { label: "Response Time", value: "< 100ms", description: "API response time", icon: Cpu },
-      { label: "Cross-Platform", value: "100%", description: "Mobile & desktop ready", icon: Smartphone }
+      {
+        label: "Project Delivery",
+        value: "6 Weeks",
+        description: "Complete development cycle",
+        icon: Clock,
+      },
+      {
+        label: "Page Load Speed",
+        value: "<1.5s",
+        description: "Optimized performance",
+        icon: Zap,
+      },
+      {
+        label: "Image Quality",
+        value: "HDR 4K",
+        description: "High dynamic range",
+        icon: Camera,
+      },
+      {
+        label: "Virtual Tours",
+        value: "50+",
+        description: "Completed projects",
+        icon: EyeIcon,
+      },
+      {
+        label: "Client Satisfaction",
+        value: "98%",
+        description: "Positive feedback",
+        icon: UsersIcon,
+      },
+      {
+        label: "Global Coverage",
+        value: "100+",
+        description: "Locations mapped",
+        icon: Globe,
+      },
     ],
 
     coreFeatures: [
       {
-        title: "Multi-Format Wishes",
-        description: "Support for text, images, audio, and video tributes with intelligent file handling",
-        icon: Upload,
+        title: "Interactive 360° Virtual Tours",
+        description:
+          "Fully immersive panoramic experiences with seamless navigation",
+        icon: EyeIcon,
         color: "bg-blue-500/10 text-blue-500",
         examples: [
-          "Text: Up to 500 words heartfelt messages",
-          "Images: JPEG, PNG, WebP up to 5MB",
-          "Audio: Record/upload up to 30 seconds",
-          "Video: Up to 60 seconds memories"
-        ]
+          "Drag-to-rotate navigation",
+          "Zoom in/out functionality",
+          "Hotspot markers for navigation",
+          "Mobile & desktop optimized",
+        ],
       },
       {
-        title: "Interactive Wishes Wall",
-        description: "Beautiful gallery view with smooth animations and filtering capabilities",
-        icon: Heart,
-        color: "bg-pink-500/10 text-pink-500",
+        title: "Google Street View Integration",
+        description:
+          "Professional blue-line mapping and Street View publishing",
+        icon: Map,
+        color: "bg-purple-500/10 text-purple-500",
         examples: [
-          "Grid layout with masonry design",
-          "Real-time updates with Supabase",
-          "Smooth Framer Motion animations",
-          "Category-based filtering"
-        ]
+          "Blue-line route mapping",
+          "Street View publishing",
+          "Location pinning",
+          "Route optimization",
+        ],
       },
       {
-        title: "Smart Onboarding",
-        description: "Context-aware popup guides to encourage participation and engagement",
-        icon: Sparkles,
-        color: "bg-yellow-500/10 text-yellow-500",
-        examples: [
-          "First-visit popup with CTAs",
-          "Step-by-step submission guide",
-          "Media format recommendations",
-          "Success confirmation flows"
-        ]
-      },
-      {
-        title: "Admin Dashboard",
-        description: "Complete moderation and management system for content control",
-        icon: Shield,
+        title: "Drone Aerial Photography",
+        description: "Bird's-eye view perspectives for comprehensive coverage",
+        icon: Satellite,
         color: "bg-green-500/10 text-green-500",
         examples: [
-          "Approve/reject submissions",
-          "Highlight special wishes",
-          "User management tools",
-          "Analytics dashboard"
-        ]
-      }
+          "High-altitude panoramic shots",
+          "Property boundary mapping",
+          "Topographic visualization",
+          "3D elevation modeling",
+        ],
+      },
+      {
+        title: "Digital Preservation",
+        description: "Heritage and institutional archiving solutions",
+        icon: Shield,
+        color: "bg-pink-500/10 text-pink-500",
+        examples: [
+          "Cultural heritage documentation",
+          "Historical site preservation",
+          "Educational institution archives",
+          "Industry facility records",
+        ],
+      },
     ],
 
     architecture: {
-      description: "Scalable serverless architecture with real-time capabilities and secure media handling",
+      description:
+        "Modern web application with real-time image processing and interactive tour capabilities",
       components: [
         {
-          name: "Frontend Layer",
-          description: "Responsive React app with TypeScript and modern UI patterns",
-          technologies: ["React 18", "TypeScript", "Tailwind CSS", "Framer Motion"],
-          icon: Monitor
+          name: "Frontend Application",
+          description:
+            "React-based SPA with interactive tour viewer and admin dashboard",
+          technologies: [
+            "React 18",
+            "TypeScript",
+            "Vite",
+            "Framer Motion",
+            "shadcn/ui",
+          ],
+          icon: Monitor,
         },
         {
-          name: "Backend Services",
-          description: "Supabase-powered backend with PostgreSQL database and real-time subscriptions",
-          technologies: ["Supabase Auth", "PostgreSQL", "Row Level Security", "Edge Functions"],
-          icon: Server
+          name: "Image Processing",
+          description:
+            "High-performance image stitching and HDR processing pipeline",
+          technologies: [
+            "WebGL",
+            "Canvas API",
+            "Image Processing",
+            "HDR Optimization",
+          ],
+          icon: Camera,
         },
         {
-          name: "Media Pipeline",
-          description: "Cloudinary integration for optimized media uploads and transformations",
-          technologies: ["Cloudinary API", "Image Optimization", "Video Compression", "CDN Delivery"],
-          icon: CloudUpload
+          name: "Mapping & Navigation",
+          description:
+            "Google Maps integration with custom routing and location services",
+          technologies: [
+            "Google Maps API",
+            "Geolocation",
+            "Route Optimization",
+            "Street View",
+          ],
+          icon: Map,
         },
         {
-          name: "Deployment Layer",
-          description: "Automated CI/CD pipeline with Netlify for seamless deployments",
-          technologies: ["Netlify", "GitHub Actions", "Environment Variables", "SSL Certificates"],
-          icon: Cloud
-        }
-      ]
+          name: "Deployment & Hosting",
+          description: "Global CDN deployment with optimized asset delivery",
+          technologies: ["Netlify", "CDN", "SSL", "Continuous Deployment"],
+          icon: Cloud,
+        },
+      ],
     },
 
     projectStructure: [
-      { 
-        path: "src/components/", 
-        icon: FileCode, 
-        items: ["Popup.tsx", "WishCard.tsx", "UploadForm.tsx", "AdminPanel.tsx"],
-        files: 12
-      },
-      { 
-        path: "src/pages/", 
-        icon: FolderOpen, 
-        items: ["Home.tsx", "Admin.tsx", "WishesWall.tsx"],
-        files: 5
-      },
-      { 
-        path: "src/integrations/", 
-        icon: Database, 
-        items: ["supabase.ts", "cloudinary.ts", "api.ts"],
-        files: 5
-      },
-      { 
-        path: "src/hooks/", 
-        icon: Code, 
-        items: ["useUpload.ts", "useWishes.ts", "useToast.ts"],
-        files: 6
-      },
-      { 
-        path: "public/assets/", 
-        icon: ImageIcon, 
-        items: ["logos/", "icons/", "default-images/"],
-        files: 20
-      }
-    ],
-
-    apiExamples: [
       {
-        endpoint: "POST /api/submit-wish",
-        description: "Submit a new wish with optional media",
-        method: "POST",
-        request: `{
-  "name": "John Doe",
-  "message": "Happy Birthday! Thank you for your leadership...",
-  "type": "text",
-  "mediaUrl": "cloudinary.com/...",
-  "mediaType": "image/jpeg"
-}`,
-        response: `{
-  "success": true,
-  "wishId": "wish_123456",
-  "message": "Wish submitted successfully",
-  "requiresApproval": true,
-  "timestamp": "2024-01-15T10:30:00Z"
-}`
+        path: "src/pages/",
+        icon: FileCode,
+        items: ["Home page", "Services", "Portfolio", "About", "Contact"],
+        files: 5,
       },
       {
-        endpoint: "GET /api/wishes",
-        description: "Fetch all approved wishes with pagination",
-        method: "GET",
-        response: `{
-  "wishes": [
-    {
-      "id": "wish_123",
-      "name": "Jane Smith",
-      "message": "Heartfelt message...",
-      "type": "video",
-      "mediaUrl": "cloudinary.com/video.mp4",
-      "createdAt": "2024-01-15T09:30:00Z",
-      "isHighlighted": true
-    }
-  ],
-  "total": 156,
-  "page": 1,
-  "hasMore": true
-}`
-      }
+        path: "src/components/",
+        icon: Layers,
+        items: ["UI Components", "Tour Viewer", "Navigation", "Forms"],
+        files: 15,
+      },
+      {
+        path: "src/assets/",
+        icon: ImageIcon,
+        items: ["Virtual tour images", "Client logos", "Background visuals"],
+        files: 100,
+      },
+      {
+        path: "public/",
+        icon: FolderOpen,
+        items: ["Static assets", "Favicons", "SEO files"],
+        files: 10,
+      },
     ],
 
-    usageExamples: {
-      submission: [
-        { input: "Text Wish", response: "500 characters heartfelt message", type: "text-submission" },
-        { input: "Photo Upload", response: "5MB max, automatic optimization", type: "media-upload" },
-        { input: "Audio Tribute", response: "30 seconds voice message", type: "audio-recording" }
+    serviceExamples: {
+      verticals: [
+        {
+          industry: "Education",
+          application: "Campus Virtual Tours",
+          benefit: "Global student recruitment",
+          icon: School,
+        },
+        {
+          industry: "Real Estate",
+          application: "Property Showcases",
+          benefit: "Increased buyer engagement",
+          icon: Home,
+        },
+        {
+          industry: "Healthcare",
+          application: "Hospital Facility Tours",
+          benefit: "Patient confidence building",
+          icon: Hospital,
+        },
+        {
+          industry: "Hospitality",
+          application: "Hotel Room Previews",
+          benefit: "Higher booking rates",
+          icon: Hotel,
+        },
       ],
-      admin: [
-        { input: "Content Moderation", action: "Approve/Reject wishes", target: "admin-panel", icon: ShieldCheck },
-        { input: "Highlight Wishes", action: "Feature special messages", target: "highlight-toggle", icon: Sparkles },
-        { input: "Analytics View", action: "View engagement metrics", target: "analytics", icon: BarChart3 }
-      ]
+      technical: [
+        {
+          feature: "360° Image Stitching",
+          challenge: "Seamless panorama creation",
+          solution: "Advanced algorithms",
+          icon: Scan,
+        },
+        {
+          feature: "Interactive Hotspots",
+          challenge: "User navigation",
+          solution: "Intuitive UI/UX",
+          icon: MapPin,
+        },
+        {
+          feature: "Mobile Optimization",
+          challenge: "Cross-device compatibility",
+          solution: "Responsive design",
+          icon: Smartphone,
+        },
+      ],
     },
 
     deployment: [
-      { platform: "Netlify", command: "netlify deploy --prod", complexity: "Easy", icon: Cloud },
-      { platform: "Vercel", command: "vercel --prod", complexity: "Easy", icon: Cloud },
-      { platform: "Docker", command: "docker build -t wishes-platform .", complexity: "Medium", icon: Download },
-      { platform: "Manual", command: "npm run build && deploy", complexity: "Advanced", icon: Terminal }
+      {
+        platform: "Netlify",
+        command: "npm run build && netlify deploy",
+        complexity: "Easy",
+        icon: Cloud,
+      },
+      {
+        platform: "Vercel",
+        command: "vercel --prod",
+        complexity: "Easy",
+        icon: CloudIcon,
+      },
+      {
+        platform: "AWS S3",
+        command: "aws s3 sync build/ s3://bucket",
+        complexity: "Medium",
+        icon: CloudUpload,
+      },
+      {
+        platform: "Custom Server",
+        command: "Manual file upload",
+        complexity: "Basic",
+        icon: Upload,
+      },
     ],
 
+    serviceFeatures: [
+      { feature: "HDR 360° Photography", icon: Camera },
+      { feature: "Interactive Navigation", icon: Compass },
+      { feature: "Mobile-First Design", icon: Smartphone },
+      { feature: "SEO Optimization", icon: BarChart3 },
+      { feature: "Analytics Integration", icon: Brain },
+      { feature: "Multi-language Support", icon: Globe },
+    ],
+
+    industrySpecs: [
+      {
+        industry: "Educational Institutions",
+        features: "Campus tours, Lab showcases",
+        pricing: "Custom",
+        icon: School,
+      },
+      {
+        industry: "Real Estate",
+        features: "Property tours, Neighborhood views",
+        pricing: "Per property",
+        icon: Home,
+      },
+      {
+        industry: "Healthcare",
+        features: "Facility tours, Department mapping",
+        pricing: "Enterprise",
+        icon: Hospital,
+      },
+      {
+        industry: "Heritage Sites",
+        features: "Preservation, Historical documentation",
+        pricing: "Project-based",
+        icon: Building,
+      },
+    ],
+
+    platformControls: {
+      admin: [
+        { control: "Tour Management", action: "Create/edit virtual tours" },
+        { control: "Image Upload", action: "Upload 360° images" },
+        { control: "Hotspot Placement", action: "Add interactive markers" },
+        { control: "Analytics Dashboard", action: "View engagement metrics" },
+      ],
+      user: [
+        { control: "Navigation Controls", action: "Drag/rotate/zoom" },
+        { control: "Hotspot Click", action: "Move between scenes" },
+        { control: "Fullscreen Mode", action: "Immersive viewing" },
+        { control: "Share Function", action: "Share tour links" },
+      ],
+    },
+
     safetyFeatures: [
-      { feature: "Content moderation before publishing", icon: Shield },
-      { feature: "Secure file upload validation", icon: Lock },
-      { feature: "GDPR compliant data handling", icon: ShieldCheck },
-      { feature: "Rate limiting on submissions", icon: Zap },
-      { feature: "CORS configured for specific domains", icon: Globe },
-      { feature: "Secure environment variables", icon: Key }
+      { feature: "Data Encryption", icon: Lock },
+      { feature: "Secure Image Hosting", icon: Shield },
+      { feature: "GDPR Compliance", icon: ShieldCheck },
+      { feature: "Access Control", icon: Key },
+      { feature: "Backup Systems", icon: Database },
+      { feature: "DDoS Protection", icon: Zap },
     ],
 
     mediaSpecs: [
-      { type: "Images", formats: "JPEG, PNG, WebP", maxSize: "5MB", features: "Auto-optimization" },
-      { type: "Audio", formats: "MP3, WAV, OGG", maxSize: "10MB", duration: "30s max" },
-      { type: "Video", formats: "MP4, WebM", maxSize: "50MB", duration: "60s max" },
-      { type: "Text", maxLength: "500 words", features: "Rich formatting" }
-    ]
-  }
+      {
+        type: "360° Panoramas",
+        formats: "JPEG, WebP, Equirectangular",
+        maxSize: "10MB",
+        features: "HDR, 8K Resolution",
+      },
+      {
+        type: "Drone Footage",
+        formats: "MP4, MOV, ProRes",
+        maxSize: "1GB",
+        features: "4K, Stabilized",
+      },
+      {
+        type: "Interactive Assets",
+        formats: "JSON, XML",
+        maxSize: "5MB",
+        features: "Hotspot data, Navigation paths",
+      },
+      {
+        type: "Audio Guides",
+        formats: "MP3, WAV",
+        maxSize: "50MB",
+        duration: "Unlimited",
+      },
+    ],
+  },
 };
 
-const ProjectDetail_2 = () => {
+const ProjectDetail_4 = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
@@ -323,7 +496,7 @@ const ProjectDetail_2 = () => {
 
   const handleContactClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate("/contact-Page");
+    navigate("/contact");
   };
 
   const copyToClipboard = (text: string, id: string) => {
@@ -344,9 +517,11 @@ const ProjectDetail_2 = () => {
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/30 pt-20 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-            <FileCode className="w-8 h-8 text-primary" />
+            <Globe className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="font-clash font-bold text-2xl md:text-3xl mb-4">Project not found</h1>
+          <h1 className="font-clash font-bold text-2xl md:text-3xl mb-4">
+            Project not found
+          </h1>
           <p className="font-satoshi text-muted-foreground mb-8">
             The project you're looking for doesn't exist or has been moved.
           </p>
@@ -355,7 +530,11 @@ const ProjectDetail_2 = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <Button size="lg" className="gap-2" onClick={() => handleNavigation("/work-Page")}>
+            <Button
+              size="lg"
+              className="gap-2"
+              onClick={() => handleNavigation("/work")}
+            >
               <ArrowLeft className="w-4 h-4" />
               Back to Portfolio
             </Button>
@@ -392,7 +571,7 @@ const ProjectDetail_2 = () => {
           size="icon"
           variant="secondary"
           className="rounded-full backdrop-blur-sm bg-background/80 border"
-          onClick={() => handleNavigation("/work-Page")}
+          onClick={() => handleNavigation("/work")}
         >
           <ArrowLeft className="w-4 h-4" />
         </Button>
@@ -400,7 +579,7 @@ const ProjectDetail_2 = () => {
 
       {/* Main Content Container */}
       <div className="relative z-10">
-        {/* Hero Section - Starts immediately under navbar */}
+        {/* Hero Section */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5" />
           
@@ -414,7 +593,7 @@ const ProjectDetail_2 = () => {
               <Button
                 variant="ghost"
                 className="gap-2 group"
-                onClick={() => handleNavigation("/work-Page")}
+                onClick={() => handleNavigation("/work")}
               >
                 <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 Back to Portfolio
@@ -487,8 +666,12 @@ const ProjectDetail_2 = () => {
                       <Calendar className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">Duration</p>
-                      <p className="font-clash font-semibold">{project.duration}</p>
+                      <p className="font-satoshi text-sm text-muted-foreground">
+                        Duration
+                      </p>
+                      <p className="font-clash font-semibold">
+                        {project.duration}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
@@ -496,8 +679,12 @@ const ProjectDetail_2 = () => {
                       <Users className="w-4 h-4 text-blue-500" />
                     </div>
                     <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">Team</p>
-                      <p className="font-clash font-semibold">{project.teamSize}</p>
+                      <p className="font-satoshi text-sm text-muted-foreground">
+                        Team
+                      </p>
+                      <p className="font-clash font-semibold">
+                        {project.teamSize}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
@@ -505,7 +692,9 @@ const ProjectDetail_2 = () => {
                       <Target className="w-4 h-4 text-green-500" />
                     </div>
                     <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">Role</p>
+                      <p className="font-satoshi text-sm text-muted-foreground">
+                        Role
+                      </p>
                       <p className="font-clash font-semibold">{project.role}</p>
                     </div>
                   </div>
@@ -523,9 +712,13 @@ const ProjectDetail_2 = () => {
                       className="w-full gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
                       asChild
                     >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <Play className="w-4 h-4" />
-                        Live Site
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Globe className="w-4 h-4" />
+                        Visit Live Site
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </a>
                     </Button>
@@ -539,12 +732,13 @@ const ProjectDetail_2 = () => {
                       variant="outline"
                       size="lg"
                       className="w-full gap-2"
-                      asChild
+                      onClick={() => {
+                        navigator.clipboard.writeText(project.githubUrl);
+                        alert("GitHub link copied to clipboard!");
+                      }}
                     >
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4" />
-                        Source Code
-                      </a>
+                      <Github className="w-4 h-4" />
+                      Source Code
                     </Button>
                   </motion.div>
                   <motion.div
@@ -558,9 +752,17 @@ const ProjectDetail_2 = () => {
                       className="w-full gap-2"
                       asChild
                     >
-                      <a href={project.adminUrl} target="_blank" rel="noopener noreferrer">
-                        <Shield className="w-4 h-4" />
-                        Admin Panel
+                      <a
+                        href="#demo"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert(
+                            "Virtual tour demo available on the live site!"
+                          );
+                        }}
+                      >
+                        <EyeIcon className="w-4 h-4" />
+                        Try Demo
                       </a>
                     </Button>
                   </motion.div>
@@ -592,8 +794,8 @@ const ProjectDetail_2 = () => {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center justify-between">
                         <Badge className="bg-background/90 backdrop-blur-sm border-0 px-3 py-1.5">
-                          <Heart className="w-3 h-3 mr-1.5" />
-                          Interactive Wishes Platform
+                          <Globe className="w-3 h-3 mr-1.5 text-primary" />
+                          Virtual Tour Platform
                         </Badge>
                         <div className="flex gap-1">
                           {project.images.map((_, idx) => (
@@ -636,16 +838,18 @@ const ProjectDetail_2 = () => {
                   ))}
                 </div>
 
-                {/* System Model Image */}
+                {/* Platform Model Image */}
                 <div className="mt-8 rounded-xl border bg-card/50 p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <Layers className="w-5 h-5 text-primary" />
-                    <h4 className="font-clash font-semibold">System Architecture Model</h4>
+                    <h4 className="font-clash font-semibold">
+                      Platform Architecture
+                    </h4>
                   </div>
                   <div className="relative rounded-lg overflow-hidden border">
-                    <img 
-                      src="https://github.com/thiyo-de/DS_Founder_BD-Wish/blob/main/Model.png?raw=true"
-                      alt="System Architecture"
+                    <img
+                      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop&auto=format"
+                      alt="Platform Architecture"
                       className="w-full h-48 object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
@@ -691,7 +895,8 @@ const ProjectDetail_2 = () => {
                       Platform Performance
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      High-performance metrics ensuring smooth user experience and reliability
+                      High-performance metrics ensuring smooth virtual tour
+                      experiences and reliability
                     </p>
                   </div>
 
@@ -714,7 +919,9 @@ const ProjectDetail_2 = () => {
                               <div className="font-clash font-bold text-2xl md:text-3xl">
                                 {metric.value}
                               </div>
-                              <h3 className="font-clash font-semibold">{metric.label}</h3>
+                              <h3 className="font-clash font-semibold">
+                                {metric.label}
+                              </h3>
                               <p className="font-satoshi text-sm text-muted-foreground">
                                 {metric.description}
                               </p>
@@ -735,10 +942,11 @@ const ProjectDetail_2 = () => {
                 >
                   <div>
                     <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Platform Capabilities
+                      Core Capabilities
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Comprehensive features for creating memorable digital tribute experiences
+                      Comprehensive features for creating immersive digital
+                      experiences
                     </p>
                   </div>
 
@@ -752,7 +960,9 @@ const ProjectDetail_2 = () => {
                         >
                           <CardContent className="p-6">
                             <div className="flex items-start gap-4">
-                              <div className={`p-3 rounded-xl ${feature.color}`}>
+                              <div
+                                className={`p-3 rounded-xl ${feature.color}`}
+                              >
                                 <Icon className="w-6 h-6" />
                               </div>
                               <div className="flex-1">
@@ -793,7 +1003,8 @@ const ProjectDetail_2 = () => {
                       Media Specifications
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Supported formats and specifications for wish submissions
+                      Supported formats and specifications for virtual tour
+                      assets
                     </p>
                   </div>
 
@@ -803,24 +1014,46 @@ const ProjectDetail_2 = () => {
                         {project.mediaSpecs.map((spec, index) => (
                           <div key={index} className="space-y-3">
                             <div className="flex items-center gap-3">
-                              {spec.type === "Images" && <ImageIcon className="w-5 h-5 text-blue-500" />}
-                              {spec.type === "Audio" && <Music className="w-5 h-5 text-purple-500" />}
-                              {spec.type === "Video" && <Video className="w-5 h-5 text-red-500" />}
-                              {spec.type === "Text" && <MessageSquare className="w-5 h-5 text-green-500" />}
-                              <h3 className="font-clash font-bold">{spec.type}</h3>
+                              {spec.type === "360° Panoramas" && (
+                                <Camera className="w-5 h-5 text-blue-500" />
+                              )}
+                              {spec.type === "Drone Footage" && (
+                                <Satellite className="w-5 h-5 text-purple-500" />
+                              )}
+                              {spec.type === "Interactive Assets" && (
+                                <Layers className="w-5 h-5 text-green-500" />
+                              )}
+                              {spec.type === "Audio Guides" && (
+                                <Headphones className="w-5 h-5 text-pink-500" />
+                              )}
+                              <h3 className="font-clash font-bold">
+                                {spec.type}
+                              </h3>
                             </div>
                             <div className="space-y-2 font-satoshi text-sm">
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Formats:</span>
-                                <span className="font-medium">{spec.formats || "Plain text"}</span>
+                                <span className="text-muted-foreground">
+                                  Formats:
+                                </span>
+                                <span className="font-medium">
+                                  {spec.formats}
+                                </span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Max Size:</span>
-                                <span className="font-medium">{spec.maxSize || spec.maxLength}</span>
+                                <span className="text-muted-foreground">
+                                  Max Size:
+                                </span>
+                                <span className="font-medium">
+                                  {spec.maxSize}
+                                </span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Key Features:</span>
-                                <span className="font-medium">{spec.features}</span>
+                                <span className="text-muted-foreground">
+                                  Key Features:
+                                </span>
+                                <span className="font-medium">
+                                  {spec.features || spec.duration}
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -839,7 +1072,7 @@ const ProjectDetail_2 = () => {
                 >
                   <div>
                     <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      System Architecture
+                      Platform Architecture
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
                       {project.architecture.description}
@@ -893,32 +1126,33 @@ const ProjectDetail_2 = () => {
                           <Terminal className="w-8 h-8 text-primary" />
                         </div>
                         <h3 className="font-clash font-bold text-xl">
-                          Request Flow Architecture
+                          Virtual Tour Pipeline
                         </h3>
                         <p className="font-satoshi text-muted-foreground">
-                          User Submission → Media Processing → Database Storage → Admin Review → Public Display
+                          Image Capture → Processing → Stitching → Interactive
+                          Layer → Deployment
                         </p>
                         <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-satoshi text-muted-foreground">
                           <div className="flex items-center gap-2">
                             <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500">
-                              User
+                              Capture
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
-                              Cloudinary
+                              Process
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
-                              Supabase
+                              Stitch
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
                           <div className="px-3 py-1 rounded-full bg-primary/10 text-primary">
-                            Display
+                            Interactive
                           </div>
                         </div>
                       </div>
@@ -926,152 +1160,173 @@ const ProjectDetail_2 = () => {
                   </Card>
                 </motion.section>
 
-                {/* Tabs Section for API, Usage, etc. */}
+                {/* Tabs Section for Services, Controls, etc. */}
                 <motion.section
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   className="space-y-6"
                 >
-                  <Tabs defaultValue="api" className="w-full">
+                  <Tabs defaultValue="services" className="w-full">
                     <TabsList className="grid grid-cols-3 mb-6">
-                      <TabsTrigger value="api">API</TabsTrigger>
-                      <TabsTrigger value="usage">Usage</TabsTrigger>
+                      <TabsTrigger value="services">Services</TabsTrigger>
+                      <TabsTrigger value="controls">Controls</TabsTrigger>
                       <TabsTrigger value="deployment">Deployment</TabsTrigger>
                     </TabsList>
 
-                    <TabsContent value="api" className="space-y-6">
-                      <div className="space-y-4">
-                        {project.apiExamples.map((api, index) => (
-                          <Card key={index}>
-                            <CardContent className="p-6">
-                              <div className="flex items-center justify-between mb-4">
-                                <div>
-                                  <Badge
-                                    className={cn(
-                                      "mb-2",
-                                      api.method === "POST"
-                                        ? "bg-green-500/10 text-green-500"
-                                        : "bg-blue-500/10 text-blue-500"
-                                    )}
-                                  >
-                                    {api.method}
-                                  </Badge>
-                                  <h3 className="font-clash font-bold">{api.endpoint}</h3>
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    {api.description}
-                                  </p>
-                                </div>
-                                <Button
-                                  size="sm"
-                                  variant="ghost"
-                                  onClick={() => copyToClipboard(api.response, api.endpoint)}
-                                  className="gap-2"
-                                >
-                                  {copied === api.endpoint ? (
-                                    <Check className="w-4 h-4" />
-                                  ) : (
-                                    <Copy className="w-4 h-4" />
-                                  )}
-                                  Copy
-                                </Button>
-                              </div>
-                              {api.request && (
-                                <div className="mb-4">
-                                  <h4 className="font-clash font-semibold text-sm mb-2">
-                                    Request Body
-                                  </h4>
-                                  <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                    {api.request}
-                                  </pre>
-                                </div>
-                              )}
-                              <div>
-                                <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Response
-                                </h4>
-                                <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                  {api.response}
-                                </pre>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
-                      </div>
-                    </TabsContent>
-
-                    <TabsContent value="usage" className="space-y-6">
+                    <TabsContent value="services" className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-4">
                           <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Upload className="w-5 h-5" />
-                            User Submission Flow
+                            <Building className="w-5 h-5 text-primary" />
+                            Industry Applications
                           </h3>
-                          {project.usageExamples.submission.map((example, index) => (
-                            <Card key={index}>
-                              <CardContent className="p-4">
-                                <div className="space-y-3">
-                                  <div>
-                                    <p className="font-satoshi text-sm text-muted-foreground">
-                                      User Action
-                                    </p>
-                                    <p className="font-satoshi font-medium">
-                                      {example.input}
-                                    </p>
-                                  </div>
-                                  <Separator />
-                                  <div>
-                                    <p className="font-satoshi text-sm text-muted-foreground">
-                                      System Response
-                                    </p>
-                                    <p className="font-satoshi">{example.response}</p>
-                                  </div>
-                                  <Badge variant="secondary" className="mt-2">
-                                    {example.type}
-                                  </Badge>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          ))}
+                          {project.serviceExamples.verticals.map(
+                            (service, index) => {
+                              const Icon = service.icon;
+                              return (
+                                <Card key={index}>
+                                  <CardContent className="p-4">
+                                    <div className="space-y-3">
+                                      <div className="flex items-center gap-3">
+                                        <div className="p-2 rounded-lg bg-primary/10">
+                                          <Icon className="w-4 h-4 text-primary" />
+                                        </div>
+                                        <div>
+                                          <h4 className="font-clash font-bold">
+                                            {service.industry}
+                                          </h4>
+                                          <p className="font-satoshi text-sm text-muted-foreground">
+                                            {service.application}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <Separator />
+                                      <div>
+                                        <p className="font-satoshi text-sm text-muted-foreground">
+                                          Business Benefit
+                                        </p>
+                                        <p className="font-satoshi font-medium">
+                                          {service.benefit}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              );
+                            }
+                          )}
                         </div>
                         <div className="space-y-4">
                           <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Shield className="w-5 h-5" />
-                            Admin Operations
+                            <Settings className="w-5 h-5 text-primary" />
+                            Technical Solutions
                           </h3>
-                          {project.usageExamples.admin.map((example, index) => {
-                            const Icon = example.icon;
-                            return (
+                          {project.serviceExamples.technical.map(
+                            (solution, index) => (
                               <Card key={index}>
                                 <CardContent className="p-4">
                                   <div className="space-y-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex items-center gap-2">
-                                        <Icon className="w-4 h-4 text-muted-foreground" />
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Admin Task
-                                        </p>
-                                      </div>
-                                      <ArrowLeft className="w-4 h-4 rotate-180 text-primary" />
-                                    </div>
-                                    <p className="font-satoshi font-medium">
-                                      {example.input}
-                                    </p>
-                                    <Separator />
                                     <div>
                                       <p className="font-satoshi text-sm text-muted-foreground">
-                                        Action
+                                        Technical Feature
                                       </p>
-                                      <p className="font-satoshi">{example.action}</p>
+                                      <p className="font-satoshi font-medium">
+                                        {solution.feature}
+                                      </p>
                                     </div>
-                                    <Badge variant="outline">
-                                      Target: {example.target}
-                                    </Badge>
+                                    <div>
+                                      <p className="font-satoshi text-sm text-muted-foreground">
+                                        Challenge
+                                      </p>
+                                      <p className="font-satoshi">
+                                        {solution.challenge}
+                                      </p>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <div>
+                                        <p className="font-satoshi text-sm text-muted-foreground">
+                                          Solution
+                                        </p>
+                                        <Badge className="bg-green-500/10 text-green-500">
+                                          {solution.solution}
+                                        </Badge>
+                                      </div>
+                                      <div className="flex items-center gap-2">
+                                        {solution.icon && (
+                                          <solution.icon className="w-4 h-4 text-primary" />
+                                        )}
+                                      </div>
+                                    </div>
                                   </div>
                                 </CardContent>
                               </Card>
-                            );
-                          })}
+                            )
+                          )}
+                        </div>
+                      </div>
+                    </TabsContent>
+
+                    <TabsContent value="controls" className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
+                            <Settings className="w-5 h-5 text-primary" />
+                            Admin Controls
+                          </h3>
+                          <Card>
+                            <CardContent className="p-6">
+                              <div className="space-y-3">
+                                {project.platformControls.admin.map(
+                                  (control, index) => (
+                                    <div
+                                      key={index}
+                                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
+                                    >
+                                      <div className="flex items-center gap-3">
+                                        <div className="p-2 rounded bg-primary/10">
+                                          <Settings className="w-3 h-3 text-primary" />
+                                        </div>
+                                        <span className="font-satoshi text-sm">
+                                          {control.control}
+                                        </span>
+                                      </div>
+                                      <span className="font-satoshi text-xs text-muted-foreground">
+                                        {control.action}
+                                      </span>
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                        <div className="space-y-4">
+                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
+                            <Users className="w-5 h-5 text-primary" />
+                            User Experience
+                          </h3>
+                          <Card>
+                            <CardContent className="p-6">
+                              <div className="space-y-3">
+                                {project.platformControls.user.map(
+                                  (control, index) => (
+                                    <div
+                                      key={index}
+                                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
+                                    >
+                                      <span className="font-satoshi text-sm">
+                                        {control.control}
+                                      </span>
+                                      <span className="font-satoshi text-xs text-muted-foreground">
+                                        {control.action}
+                                      </span>
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </TabsContent>
@@ -1115,7 +1370,12 @@ const ProjectDetail_2 = () => {
                                       size="sm"
                                       variant="ghost"
                                       className="absolute right-2 top-2 h-6 w-6 p-0"
-                                      onClick={() => copyToClipboard(option.command, option.platform)}
+                                      onClick={() =>
+                                        copyToClipboard(
+                                          option.command,
+                                          option.platform
+                                        )
+                                      }
                                     >
                                       {copied === option.platform ? (
                                         <Check className="w-3 h-3" />
@@ -1144,7 +1404,9 @@ const ProjectDetail_2 = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   className="space-y-6"
                 >
-                  <h3 className="font-clash font-bold text-xl">Project Structure</h3>
+                  <h3 className="font-clash font-bold text-xl">
+                    Project Structure
+                  </h3>
                   <Card>
                     <CardContent className="p-4">
                       <div className="space-y-2">
@@ -1196,14 +1458,16 @@ const ProjectDetail_2 = () => {
                           className="flex items-center gap-3 p-3 rounded-lg border bg-card/50"
                         >
                           <Icon className="w-4 h-4 text-primary" />
-                          <span className="font-satoshi text-sm">{item.feature}</span>
+                          <span className="font-satoshi text-sm">
+                            {item.feature}
+                          </span>
                         </div>
                       );
                     })}
                   </div>
                 </motion.div>
 
-                {/* Quick Stats */}
+                {/* Industry Specifications */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -1211,30 +1475,36 @@ const ProjectDetail_2 = () => {
                   transition={{ delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h3 className="font-clash font-bold text-xl">Quick Stats</h3>
+                  <h3 className="font-clash font-bold text-xl">
+                    Industry Focus
+                  </h3>
                   <Card>
                     <CardContent className="p-6">
                       <div className="space-y-4">
-                        {[
-                          { label: "Project Duration", value: project.duration },
-                          { label: "Team Size", value: project.teamSize },
-                          { label: "Frontend Components", value: "25+" },
-                          { label: "API Endpoints", value: "12+" },
-                          { label: "Media Types", value: "4" },
-                          { label: "Deployment Targets", value: "2" }
-                        ].map((stat, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between py-2 border-b last:border-0"
-                          >
-                            <span className="font-satoshi text-sm text-muted-foreground">
-                              {stat.label}
-                            </span>
-                            <span className="font-clash font-semibold">
-                              {stat.value}
-                            </span>
-                          </div>
-                        ))}
+                        {project.industrySpecs.map((industry, index) => {
+                          const Icon = industry.icon;
+                          return (
+                            <div
+                              key={index}
+                              className="flex items-center justify-between py-2 border-b last:border-0"
+                            >
+                              <div className="flex items-center gap-3">
+                                <Icon className="w-4 h-4 text-primary" />
+                                <div>
+                                  <span className="font-clash font-semibold text-sm">
+                                    {industry.industry}
+                                  </span>
+                                  <p className="font-satoshi text-xs text-muted-foreground">
+                                    {industry.features}
+                                  </p>
+                                </div>
+                              </div>
+                              <Badge variant="outline" className="text-xs">
+                                {industry.pricing}
+                              </Badge>
+                            </div>
+                          );
+                        })}
                       </div>
                     </CardContent>
                   </Card>
@@ -1254,12 +1524,12 @@ const ProjectDetail_2 = () => {
                     onClick={handleContactClick}
                   >
                     <ExternalLink className="w-4 h-4" />
-                    Start Similar Project
+                    Start Virtual Tour Project
                   </Button>
                   <Button
                     variant="ghost"
                     className="w-full gap-2"
-                    onClick={() => handleNavigation("/work-Page")}
+                    onClick={() => handleNavigation("/work")}
                   >
                     <ArrowLeft className="w-4 h-4" />
                     View All Projects
@@ -1271,7 +1541,11 @@ const ProjectDetail_2 = () => {
                       className="gap-2"
                       asChild
                     >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Globe className="w-3 h-3" />
                         Live Site
                       </a>
@@ -1280,12 +1554,13 @@ const ProjectDetail_2 = () => {
                       variant="secondary"
                       size="sm"
                       className="gap-2"
-                      asChild
+                      onClick={() => {
+                        navigator.clipboard.writeText(project.githubUrl);
+                        alert("GitHub link copied to clipboard!");
+                      }}
                     >
-                      <a href={project.adminUrl} target="_blank" rel="noopener noreferrer">
-                        <Shield className="w-3 h-3" />
-                        Admin Panel
-                      </a>
+                      <Github className="w-3 h-3" />
+                      Source Code
                     </Button>
                   </div>
                 </motion.div>
@@ -1306,16 +1581,21 @@ const ProjectDetail_2 = () => {
               <CardContent className="p-8 md:p-12 text-center">
                 <div className="max-w-2xl mx-auto space-y-6">
                   <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                    <Heart className="w-8 h-8 text-primary" />
+                    <Globe className="w-8 h-8 text-primary" />
                   </div>
                   <h2 className="font-clash font-bold text-2xl md:text-3xl">
-                    Ready to Create a Digital Tribute Platform?
+                    Ready to Transform Your Space Digitally?
                   </h2>
                   <p className="font-satoshi text-muted-foreground">
-                    Let's build meaningful digital experiences that bring communities together and celebrate special moments.
+                    Let's create immersive virtual experiences that showcase
+                    your space to the world. From educational campuses to
+                    heritage sites, we bring spaces to life digitally.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Button
                         size="lg"
                         className="gap-2"
@@ -1325,12 +1605,15 @@ const ProjectDetail_2 = () => {
                         Start a Project
                       </Button>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Button
                         variant="outline"
                         size="lg"
                         className="gap-2"
-                        onClick={() => handleNavigation("/work-Page")}
+                        onClick={() => handleNavigation("/work")}
                       >
                         View More Work
                       </Button>
@@ -1346,4 +1629,4 @@ const ProjectDetail_2 = () => {
   );
 };
 
-export default ProjectDetail_2;
+export default ProjectDetail_4;

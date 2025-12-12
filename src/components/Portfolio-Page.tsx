@@ -17,29 +17,36 @@ import { useNavigate } from "react-router-dom";
 const projects = [
   {
     id: "1",
-    title: "Modern E-Commerce Platform",
+    title: "Montfort ICSE AI Chatbot",
     description:
-      "A full-stack online marketplace with advanced cart functionality, secure payment integration, and admin dashboard",
+      "Advanced Gemini-Powered, Zero-Hallucination School Information Assistant with 3D Navigation",
     shortDescription:
-      "Revolutionizing online shopping with seamless user experience",
-    tags: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind", "TypeScript"],
-    image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
-    slug: "montfort-icse-ai-chatbot",
-    category: "Full Stack",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    role: "Lead UI/UX Developer",
-    impact: [
-      "Increased conversion rates by 35% through intuitive user flows",
-      "Reduced bounce rate by 28% with optimized mobile experience",
-      "Improved checkout completion by 42% with streamlined payment process",
+      "Revolutionizing school communication with intelligent AI assistance",
+    tags: [
+      "AI/ML",
+      "Gemini API",
+      "RAG",
+      "Node.js",
+      "3D Vista",
+      "Semantic Search",
+      "Vector Embeddings",
+      "Express.js",
     ],
+    image:
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
+    slug: "montfort-icse-ai-chatbot",
+    category: "AI / Full Stack",
+    liveUrl: "https://montfort-chatbot.netlify.app/",
+    githubUrl: "https://github.com/thiyo-de/Chatbot",
+    featured: true,
+    role: "Lead AI Architect & Full-Stack Developer",
     stats: [
-      { value: "35%", label: "Conversion Increase" },
-      { value: "28%", label: "Bounce Rate Reduction" },
-      { value: "42%", label: "Checkout Completion" },
+      { value: "0%", label: "Hallucination Rate" },
+      { value: "< 800ms", label: "Response Time" },
+      { value: "97.2%", label: "FAQ Accuracy" },
+      { value: "99.98%", label: "Uptime" },
+      { value: "10K+", label: "Queries Processed" },
+      { value: "94%", label: "User Satisfaction" },
     ],
   },
   {
@@ -51,7 +58,7 @@ const projects = [
     tags: ["Next.js", "Framer Motion", "TypeScript", "Sanity CMS", "Tailwind"],
     image:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop",
-    slug: "Creative-Portfolio-Platform",
+    slug: "ds-founder-birthday-wishes",
     category: "Frontend",
     liveUrl: "#",
     githubUrl: "#",
@@ -78,7 +85,7 @@ const projects = [
     tags: ["React", "Firebase", "Tailwind", "Chart.js", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
-    slug: "taskflow-management-system",
+    slug: "vowel-quest",
     category: "Full Stack",
     liveUrl: "#",
     githubUrl: "#",
@@ -104,7 +111,7 @@ const projects = [
     tags: ["React Native", "Redux", "Node.js", "PostgreSQL", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop",
-    slug: "fintech-mobile-banking",
+    slug: "ruthram360",
     category: "Mobile",
     liveUrl: "#",
     githubUrl: "#",
@@ -131,7 +138,7 @@ const projects = [
     tags: ["Vue.js", "Chart.js", "Express", "D3.js", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-    slug: "social-analytics-dashboard",
+    slug: "vr-tour-gallery",
     category: "Dashboard",
     liveUrl: "#",
     githubUrl: "#",

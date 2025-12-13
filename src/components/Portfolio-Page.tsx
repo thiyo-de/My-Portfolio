@@ -164,7 +164,111 @@ const projects = [
     tags: ["React", "GraphQL", "MongoDB", "AI Integration", "TypeScript"],
     image:
       "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
-    slug: "health-fitness-tracker",
+    slug: "gamify-menu",
+    category: "AI/ML",
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    role: "AI UX Specialist & Full Stack Developer",
+    impact: [
+      "Increased user retention by 75% with personalized recommendations",
+      "Improved workout consistency by 60% through motivational design",
+      "Enhanced user satisfaction by 80% with intuitive progress tracking",
+    ],
+    stats: [
+      { value: "75%", label: "User Retention" },
+      { value: "60%", label: "Workout Consistency" },
+      { value: "80%", label: "User Satisfaction" },
+    ],
+  },
+  {
+    id: "7",
+    title: "Health & Fitness Tracker",
+    description:
+      "AI-powered fitness companion with workout tracking, nutrition planning, and progress analytics",
+    shortDescription: "Personalizing fitness journeys with AI-driven insights",
+    tags: ["React", "GraphQL", "MongoDB", "AI Integration", "TypeScript"],
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
+    slug: "qr-code-generator",
+    category: "AI/ML",
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    role: "AI UX Specialist & Full Stack Developer",
+    impact: [
+      "Increased user retention by 75% with personalized recommendations",
+      "Improved workout consistency by 60% through motivational design",
+      "Enhanced user satisfaction by 80% with intuitive progress tracking",
+    ],
+    stats: [
+      { value: "75%", label: "User Retention" },
+      { value: "60%", label: "Workout Consistency" },
+      { value: "80%", label: "User Satisfaction" },
+    ],
+  },
+  {
+    id: "8",
+    title: "Health & Fitness Tracker",
+    description:
+      "AI-powered fitness companion with workout tracking, nutrition planning, and progress analytics",
+    shortDescription: "Personalizing fitness journeys with AI-driven insights",
+    tags: ["React", "GraphQL", "MongoDB", "AI Integration", "TypeScript"],
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
+    slug: "gamify-menu",
+    category: "AI/ML",
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    role: "AI UX Specialist & Full Stack Developer",
+    impact: [
+      "Increased user retention by 75% with personalized recommendations",
+      "Improved workout consistency by 60% through motivational design",
+      "Enhanced user satisfaction by 80% with intuitive progress tracking",
+    ],
+    stats: [
+      { value: "75%", label: "User Retention" },
+      { value: "60%", label: "Workout Consistency" },
+      { value: "80%", label: "User Satisfaction" },
+    ],
+  },
+  {
+    id: "9",
+    title: "Health & Fitness Tracker",
+    description:
+      "AI-powered fitness companion with workout tracking, nutrition planning, and progress analytics",
+    shortDescription: "Personalizing fitness journeys with AI-driven insights",
+    tags: ["React", "GraphQL", "MongoDB", "AI Integration", "TypeScript"],
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
+    slug: "gamify-menu",
+    category: "AI/ML",
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    role: "AI UX Specialist & Full Stack Developer",
+    impact: [
+      "Increased user retention by 75% with personalized recommendations",
+      "Improved workout consistency by 60% through motivational design",
+      "Enhanced user satisfaction by 80% with intuitive progress tracking",
+    ],
+    stats: [
+      { value: "75%", label: "User Retention" },
+      { value: "60%", label: "Workout Consistency" },
+      { value: "80%", label: "User Satisfaction" },
+    ],
+  },
+  {
+    id: "6",
+    title: "Health & Fitness Tracker",
+    description:
+      "AI-powered fitness companion with workout tracking, nutrition planning, and progress analytics",
+    shortDescription: "Personalizing fitness journeys with AI-driven insights",
+    tags: ["React", "GraphQL", "MongoDB", "AI Integration", "TypeScript"],
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
+    slug: "gamify-menu",
     category: "AI/ML",
     liveUrl: "#",
     githubUrl: "#",

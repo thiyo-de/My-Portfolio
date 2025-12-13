@@ -10,6 +10,8 @@ import ProjectDetail_2 from "./ProjectDetails_2";
 import ProjectDetail_3 from "./ProjectDetails_3";
 import ProjectDetail_4 from "./ProjectDetails_4";
 import ProjectDetail_5 from "./ProjectDetails_5";
+import ProjectDetail_6 from "./ProjectDetails_6";
+import ProjectDetail_7 from "./ProjectDetails_7";
 
 // Project slug types
 type ProjectSlug =
@@ -18,55 +20,60 @@ type ProjectSlug =
   | "vowel-quest"
   | "ruthram360"
   | "vr-tour-gallery"
-  | "health-fitness-tracker";
+  | "gamify-menu"
+  | "qr-code-generator";
 
 // Project component mapping
 const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.FC>> = {
   "montfort-icse-ai-chatbot": ProjectDetail_1,
   "ds-founder-birthday-wishes": ProjectDetail_2,
   "vowel-quest": ProjectDetail_3,
-  "ruthram360": ProjectDetail_4,
+  ruthram360: ProjectDetail_4,
   "vr-tour-gallery": ProjectDetail_5,
-  
+  "gamify-menu": ProjectDetail_6,
+  "qr-code-generator": ProjectDetail_7,
+
   // Add more mappings as components are created
 };
 
 // Constants
 const ROUTES = {
   WORK: "/work-Page",
-  CONTACT: "/contact-Page"
+  CONTACT: "/contact-Page",
 } as const;
 
 const ANIMATION_CONFIG = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 } as const;
 
 // Responsive container component
-const ResponsiveContainer: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
-  children, 
-  className = "" 
-}) => (
+const ResponsiveContainer: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className = "" }) => (
   <div className={`container mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
     {children}
   </div>
 );
 
 // Responsive grid component
-const ResponsiveGrid: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
-  children, 
-  className = "" 
-}) => (
-  <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${className}`}>
+const ResponsiveGrid: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className = "" }) => (
+  <div
+    className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${className}`}
+  >
     {children}
   </div>
 );
 
 // Reusable Back Button Component
 const BackButton: React.FC = () => (
-  <Button 
-    variant="ghost" 
+  <Button
+    variant="ghost"
     className="gap-2 mb-6 sm:mb-8 w-full sm:w-auto justify-center sm:justify-start"
     asChild
   >
@@ -81,8 +88,8 @@ const BackButton: React.FC = () => (
 const MissingSlugState: React.FC = () => (
   <div className="min-h-screen bg-background pt-16 sm:pt-20 flex items-center justify-center px-4 sm:px-6">
     <ResponsiveContainer>
-      <motion.div 
-        {...ANIMATION_CONFIG} 
+      <motion.div
+        {...ANIMATION_CONFIG}
         className="text-center max-w-md mx-auto w-full"
       >
         <div className="w-16 h-16 sm:w-20 sm:h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
@@ -92,7 +99,8 @@ const MissingSlugState: React.FC = () => (
           Project Not Specified
         </h2>
         <p className="font-satoshi text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-          Please select a project from the portfolio to view its detailed case study.
+          Please select a project from the portfolio to view its detailed case
+          study.
         </p>
         <Button asChild className="gap-2 w-full sm:w-auto">
           <Link to={ROUTES.WORK}>
@@ -106,18 +114,23 @@ const MissingSlugState: React.FC = () => (
 );
 
 // Progress Indicator Component
-const ProgressIndicator: React.FC<{ 
-  items: Array<{ label: string; status: "completed" | "in-progress" | "pending" }> 
+const ProgressIndicator: React.FC<{
+  items: Array<{
+    label: string;
+    status: "completed" | "in-progress" | "pending";
+  }>;
 }> = ({ items }) => (
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-12">
     {items.map((item) => (
       <div key={item.label} className="text-center">
-        <div 
+        <div
           className={`w-3 h-3 rounded-full mx-auto mb-2 ${
-            item.status === "completed" ? "bg-green-500" :
-            item.status === "in-progress" ? "bg-yellow-500 animate-pulse" :
-            "bg-gray-300"
-          }`} 
+            item.status === "completed"
+              ? "bg-green-500"
+              : item.status === "in-progress"
+              ? "bg-yellow-500 animate-pulse"
+              : "bg-gray-300"
+          }`}
         />
         <span className="font-satoshi text-xs sm:text-sm text-muted-foreground">
           {item.label}
@@ -132,7 +145,7 @@ const ConstructionState: React.FC<{ slug: string }> = ({ slug }) => {
   const progressItems = [
     { label: "Research", status: "completed" as const },
     { label: "Development", status: "in-progress" as const },
-    { label: "Documentation", status: "pending" as const }
+    { label: "Documentation", status: "pending" as const },
   ];
 
   return (
@@ -187,9 +200,9 @@ const ConstructionState: React.FC<{ slug: string }> = ({ slug }) => {
             transition={{ delay: 0.5 }}
             className="font-grotesk text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0"
           >
-            The detailed case study for this project is currently being crafted. 
-            I'm working hard to bring you a comprehensive breakdown of the process, 
-            challenges, and solutions.
+            The detailed case study for this project is currently being crafted.
+            I'm working hard to bring you a comprehensive breakdown of the
+            process, challenges, and solutions.
           </motion.p>
 
           {/* Progress Indicators */}
@@ -215,10 +228,13 @@ const ConstructionState: React.FC<{ slug: string }> = ({ slug }) => {
                 Explore Other Projects
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
-              <Link to={ROUTES.CONTACT}>
-                Get in Touch
-              </Link>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto"
+              asChild
+            >
+              <Link to={ROUTES.CONTACT}>Get in Touch</Link>
             </Button>
           </motion.div>
 
@@ -230,8 +246,9 @@ const ConstructionState: React.FC<{ slug: string }> = ({ slug }) => {
             className="mt-8 sm:mt-12 p-4 sm:p-6 bg-card/50 rounded-xl border border-border mx-4 sm:mx-0"
           >
             <p className="font-satoshi text-xs sm:text-sm text-muted-foreground">
-              In the meantime, feel free to check out my other completed case studies 
-              or reach out if you'd like to discuss this specific project.
+              In the meantime, feel free to check out my other completed case
+              studies or reach out if you'd like to discuss this specific
+              project.
             </p>
           </motion.div>
         </motion.div>

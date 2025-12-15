@@ -4,7 +4,7 @@ import About from "@/components/About-Page";
 const About_Page = () => {
   return (
     <motion.div
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background pt-20"
     >
       <About />
     </motion.div>

@@ -12,6 +12,7 @@ import ProjectDetail_4 from "./ProjectDetails_4";
 import ProjectDetail_5 from "./ProjectDetails_5";
 import ProjectDetail_6 from "./ProjectDetails_6";
 import ProjectDetail_7 from "./ProjectDetails_7";
+import ProjectDetail_8 from "./ProjectDetails_8";
 
 // Project slug types
 type ProjectSlug =
@@ -21,7 +22,8 @@ type ProjectSlug =
   | "ruthram360"
   | "vr-tour-gallery"
   | "gamify-menu"
-  | "qr-code-generator";
+  | "qr-code-generator"
+  | "remote-access-app"
 
 // Project component mapping
 const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.FC>> = {
@@ -32,6 +34,7 @@ const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.FC>> = {
   "vr-tour-gallery": ProjectDetail_5,
   "gamify-menu": ProjectDetail_6,
   "qr-code-generator": ProjectDetail_7,
+  "remote-access-app": ProjectDetail_8,
 
   // Add more mappings as components are created
 };

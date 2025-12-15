@@ -21,7 +21,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen pt-14 md:pt-24 lg:pt-36 flex items-center justify-center bg-background text-foreground overflow-hidden px-4 sm:px-6 lg:px-8">
+
       {/* Enhanced Background Textures */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Texture Layer */}

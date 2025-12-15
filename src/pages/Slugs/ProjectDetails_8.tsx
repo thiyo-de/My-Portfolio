@@ -12,12 +12,12 @@ import {
   Calendar,
   Users,
   Target,
-  Brain,
   Shield,
   Zap,
   MessageCircle,
   Cpu,
   Database,
+  Palette,
   Code,
   Globe,
   Terminal,
@@ -28,7 +28,6 @@ import {
   Sparkles,
   Clock,
   CheckCircle,
-  BarChart3,
   CpuIcon,
   DatabaseIcon,
   CodeIcon,
@@ -43,8 +42,6 @@ import {
   Maximize2,
   Copy,
   Check,
-  Share2,
-  Heart,
   Camera,
   Mic,
   Video,
@@ -63,154 +60,62 @@ import {
   Music,
   Volume2,
   Gamepad2,
-  Target as TargetIcon,
   Smartphone as SmartphoneIcon,
   MousePointer,
   Zap as ZapIcon,
-  Headphones,
-  Sparkles as SparklesIcon,
-  Palette,
   Shield as ShieldIcon,
   TrendingUp,
-  MousePointerClick,
-  Touchpad,
-  Smartphone as PhoneIcon,
-  GitCommit,
-  Crosshair,
-  VolumeX,
   Settings,
   ArrowRight,
-  Gamepad,
-  Swords,
   Award,
-  Trophy,
   Bolt,
-  Crosshair as CrosshairIcon,
-  SkipForward,
-  SkipBack,
-  FastForward,
-  Rewind,
-  Volume1,
-  Music2,
   Headphones as HeadphonesIcon,
-  Move,
   RotateCw,
-  RotateCcw,
-  Navigation,
-  Compass,
-  Wind,
-  Feather,
-  Sword,
   ShieldOff,
   ShieldAlert,
   ArrowUpRight,
-  ArrowDownRight,
-  ArrowLeftRight,
-  ArrowUpDown,
-  Target as TargetIcon2,
-  Hexagon,
-  Pentagon,
-  Octagon,
   Circle,
   Square,
-  Triangle,
   Star,
-  Heart as HeartIcon,
-  Shield as ShieldIcon2,
-  Zap as ZapIcon2,
   Cloud as CloudIcon,
   Download as DownloadIcon,
   Upload as UploadIcon,
   RefreshCw,
-  RefreshCcw,
-  Rotate3d,
-  Box,
-  Package,
-  Archive,
   Folder,
-  FolderTree,
-  Keyboard,
+  Package,
   File,
   FileText,
   FileCode as FileCodeIcon,
   FileJson,
   FileImage,
-  FileAudio,
-  FileVideo,
-  FileArchive,
-  FileSpreadsheet,
-  FileSearch,
-  FilePlus,
-  FileMinus,
-  FileX,
-  FileCheck,
-  FileWarning,
-  FileQuestion,
-  FileInput,
-  FileOutput,
-  FolderPlus,
-  FolderMinus,
-  FolderX,
-  FolderCheck,
-  FolderSearch,
-  FolderGit,
-  FolderGit2,
-  FolderOpen as FolderOpenIcon,
-  FolderTree as FolderTreeIcon,
   QrCode,
-  SmartphoneNfc,
-  SmartphoneCharging,
   Save,
   Trash2,
   HardDrive,
-  Smartphone as Smartphone2,
   Laptop,
   Tablet,
   Printer,
   Scan,
   Camera as CameraIcon,
-  ImagePlus,
-  FileImage as FileImageIcon,
   Share,
   Link2,
   Copy as CopyIcon,
-  CheckSquare,
   WifiOff,
   DownloadCloud,
   UploadCloud,
   Database as DatabaseIcon2,
-  HardDrive as HardDriveIcon,
   Server as ServerIcon,
-  Cloud as Cloud2,
   Globe as Globe2,
   Network,
   Wifi as WifiIcon,
   Bluetooth,
-  Radio,
-  Satellite,
-  Waves,
-  Signal,
-  SignalHigh,
-  SignalLow,
-  SignalZero,
-  SmartphoneCharging as SmartphoneChargingIcon,
   Battery,
   BatteryCharging,
   BatteryFull,
-  BatteryLow,
-  BatteryMedium,
   Power,
-  PowerOff,
-  Plug,
-  ZapOff,
-  Cpu as Cpu2,
-  MemoryStick,
   Microchip,
   CircuitBoard,
-  Cpu as Cpu3,
   ServerCog,
-  DatabaseZap,
-  Cctv,
   Fingerprint,
   KeyRound,
   Lock as LockIcon,
@@ -221,374 +126,594 @@ import {
   ShieldOff as ShieldOffIcon,
   ShieldQuestion,
   ShieldX,
+  Smartphone as Smartphone2,
+  Tablet as TabletIcon,
+  Laptop as LaptopIcon,
+  Server as ServerIcon2,
+  CloudLightning,
+  Cctv,
+  Phone,
+  PhoneCall,
+  PhoneForwarded,
+  PhoneIncoming,
+  PhoneOutgoing,
+  PhoneMissed,
+  Video as VideoIcon,
+  Mic as MicIcon,
+  MicOff,
+  CameraOff,
+  FileSearch,
+  FilePlus,
+  FileMinus,
+  FileCheck,
+  FileWarning,
+  FolderPlus,
+  FolderMinus,
+  FolderCheck,
+  FolderGit,
+  SmartphoneCharging,
+  Radio,
+  Satellite,
+  Signal,
+  SignalHigh,
+  SignalLow,
+  Plug,
+  Cpu as Cpu2,
+  MemoryStick,
+  DatabaseZap,
   QrCode as QrCodeIcon,
+  GitPullRequest,
+  GitCommit,
+  GitBranch as GitBranchIcon,
+  TerminalSquare,
+  Command,
+  Workflow,
+  Network as NetworkIcon,
+  ShieldPlus,
+  ShieldMinus,
+  EyeOff,
+  Bell,
+  BellOff,
+  AlertCircle,
+  CheckSquare,
+  XCircle,
+  PlayCircle,
+  StopCircle,
+  PauseCircle,
+  SkipForward,
+  SkipBack,
+  FastForward,
+  Rewind,
+  Volume1,
+  Move,
+  Navigation,
+  Compass,
+  Wind,
+  Feather,
+  Hexagon,
+  Pentagon,
+  Octagon,
+  Triangle,
+  Heart as HeartIcon,
+  Zap as ZapIcon2,
+  Box,
+  Archive,
+  FolderTree,
+  Keyboard,
+  FileAudio,
+  FileVideo,
+  FileArchive,
+  FileSpreadsheet,
+  FileQuestion,
+  FileInput,
+  FileOutput,
+  FolderOpen as FolderOpenIcon,
+  FolderTree as FolderTreeIcon,
+  SmartphoneNfc,
+  SmartphoneCharging as SmartphoneChargingIcon,
+  Scan as ScanIcon,
+  ImagePlus,
+  FileImage as FileImageIcon,
+  Link as LinkIcon,
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const projectDetails = {
-  "qr-code-generator": {
-    id: "7",
-    title: "QR Code Generator",
-    tagline: "A Simple & Modern QR Code Generator Web Application",
-    description: "Generate, save, and manage QR codes with ease",
+  "remote-access-app": {
+    id: "8",
+    title: "RemoteAccessApp",
+    tagline: "Consent-first Android Remote Assistance Framework",
+    description:
+      "24/7 Foreground Service with Persistent Notification & Explicit User Approvals",
     fullDescription: `
-      A modern, responsive QR Code Generator built with vanilla JavaScript, HTML, and CSS. 
-      This application allows users to quickly generate QR codes from any text or URL, 
-      save them locally for future use, and download them as images. With its clean, 
-      intuitive interface and robust functionality, it simplifies the process of creating 
-      and managing QR codes for various use cases.
+      RemoteAccessApp is a professional-grade Android remote assistance framework designed with 
+      transparency and user consent as its core principles. Built as a 24/7 foreground service 
+      with persistent notifications, it ensures users are always aware of active remote sessions. 
+      The framework requires explicit user approvals for all capabilities and operates with 
+      complete visibility—no hidden behaviors or silent background access. Ideal for legitimate 
+      remote support scenarios where device owners have explicitly consented to enabled capabilities.
     `,
     tags: [
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "QR Codes",
-      "Local Storage",
-      "Responsive Design",
-      "Modern UI",
-      "Web App",
+      "Android",
+      "Kotlin",
+      "Foreground Service",
+      "WebSocket",
+      "Security",
+      "Consent-first",
+      "Remote Assistance",
+      "24/7 Operation",
     ],
     images: [
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&auto=format",
     ],
-    slug: "qr-code-generator",
-    category: "Web Application",
-    liveUrl: "https://thiyo-de.github.io/QR-Code-Generator/",
-    githubUrl: "https://github.com/thiyo-de/QR-Code-Generator",
+    slug: "remote-access-app",
+    category: "Android Framework",
+    liveUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
+    githubUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
     featured: true,
-    role: "Full Stack Developer",
-    duration: "1 month",
+    role: "Lead Android Developer",
+    duration: "3 months",
     teamSize: "Solo Developer",
 
     techStack: [
-      { name: "HTML5", icon: FileCode, color: "text-orange-500" },
-      { name: "CSS3", icon: Palette, color: "text-blue-500" },
-      { name: "JavaScript", icon: CodeIcon, color: "text-yellow-500" },
-      {
-        name: "Local Storage API",
-        icon: DatabaseIcon,
-        color: "text-green-500",
-      },
-      { name: "QR Code API", icon: QrCode, color: "text-purple-500" },
-      {
-        name: "Responsive Design",
-        icon: SmartphoneIcon,
-        color: "text-pink-500",
-      },
-      { name: "Canvas API", icon: ImageIcon, color: "text-red-500" },
-      { name: "GitHub Pages", icon: Github, color: "text-gray-500" },
+      { name: "Kotlin 1.9.0", icon: CodeIcon, color: "text-purple-500" },
+      { name: "Android SDK 34", icon: SmartphoneIcon, color: "text-green-500" },
+      { name: "Foreground Service", icon: ServerIcon, color: "text-blue-500" },
+      { name: "WebSocket", icon: Globe2, color: "text-yellow-500" },
+      { name: "Jetpack Security", icon: ShieldCheck, color: "text-red-500" },
+      { name: "Coroutines", icon: Zap, color: "text-orange-500" },
+      { name: "Room Database", icon: Database, color: "text-indigo-500" },
+      { name: "Material Design 3", icon: Palette, color: "text-pink-500" },
     ],
 
     metrics: [
       {
-        label: "Generation Speed",
-        value: "< 0.5s",
-        description: "Near-instant QR code generation",
+        label: "Service Uptime",
+        value: "99.9%",
+        description: "Auto-restart + boot receiver",
+        icon: BatteryCharging,
+      },
+      {
+        label: "Memory Usage",
+        value: "< 50MB",
+        description: "Efficient managers + cleanup",
+        icon: MemoryStick,
+      },
+      {
+        label: "Battery Impact",
+        value: "< 2%/day",
+        description: "Foreground optimization",
+        icon: Battery,
+      },
+      {
+        label: "Response Time",
+        value: "< 500ms",
+        description: "Async operations + caching",
         icon: Zap,
       },
       {
-        label: "Storage Capacity",
-        value: "Unlimited",
-        description: "Local storage for saved QR codes",
-        icon: Database,
-      },
-      {
-        label: "Accuracy",
-        value: "100%",
-        description: "Perfect QR code generation",
-        icon: CheckCircle,
-      },
-      {
-        label: "Image Quality",
-        value: "High",
-        description: "Crisp, clear QR codes",
-        icon: Camera,
-      },
-      {
-        label: "Device Support",
-        value: "All",
-        description: "Mobile, Tablet, Desktop",
+        label: "Android Support",
+        value: "9 → 15",
+        description: "API 28-35 compatibility",
         icon: Smartphone,
       },
       {
-        label: "User Satisfaction",
-        value: "98%",
-        description: "Positive user feedback",
-        icon: Heart,
+        label: "Reconnection Delay",
+        value: "< 30s",
+        description: "Exponential backoff",
+        icon: RefreshCw,
       },
     ],
 
     coreFeatures: [
       {
-        title: "Real-time Generation",
-        description: "Instant QR code generation as you type",
-        icon: Zap,
-        color: "bg-primary/10 text-primary",
+        title: "Consent-First Architecture",
+        description:
+          "Explicit user approvals for every capability with persistent notifications",
+        icon: ShieldCheck,
+        color: "bg-green-500/10 text-green-500",
         examples: [
-          "Live preview updates",
-          "Instant validation",
-          "Error detection",
+          "One-time permission flow",
+          "Runtime permission validation",
+          "User kill-switch accessible",
         ],
       },
       {
-        title: "Local Storage",
-        description: "Automatically save QR codes to browser storage",
-        icon: HardDrive,
+        title: "24/7 Foreground Service",
+        description:
+          "Always runs with visible notification and real-time status indicators",
+        icon: Server,
         color: "bg-blue-500/10 text-blue-500",
         examples: [
-          "Persistent storage",
-          "Quick retrieval",
-          "Storage management",
+          "Boot auto-start",
+          "Battery optimization exempt",
+          "OEM-specific optimizations",
         ],
       },
       {
-        title: "Download Options",
-        description: "Save QR codes as high-quality PNG images",
-        icon: Download,
-        color: "bg-green-500/10 text-green-500",
-        examples: ["PNG format", "Custom naming", "Multiple sizes"],
-      },
-      {
-        title: "Smart Management",
-        description: "Organize and manage all your QR codes easily",
-        icon: Settings,
+        title: "Secure Communication",
+        description:
+          "WSS-only with TLS 1.3, certificate pinning, and token-based auth",
+        icon: Lock,
         color: "bg-purple-500/10 text-purple-500",
         examples: [
-          "Delete individual codes",
-          "Clear all option",
-          "Search functionality",
+          "Encrypted preferences",
+          "MITM protection",
+          "Session-based tokens",
+        ],
+      },
+      {
+        title: "Modular Action Managers",
+        description:
+          "Independent managers for files, mic, camera, calls, and shell access",
+        icon: Package,
+        color: "bg-orange-500/10 text-orange-500",
+        examples: [
+          "Sandboxed shell commands",
+          "Real-time streaming",
+          "File transfer resume",
         ],
       },
     ],
 
     architecture: {
       description:
-        "Client-side architecture with modular JavaScript, responsive CSS, and persistent local storage",
+        "Modular Android architecture with foreground service foundation, permission gate system, and secure WebSocket communication",
       components: [
         {
-          name: "QR Generator Engine",
+          name: "RemoteService",
           description:
-            "Handles QR code generation using external API with error handling",
-          technologies: ["QR Code API", "Fetch API", "Error Handling"],
-          icon: Cpu,
-        },
-        {
-          name: "Storage Manager",
-          description:
-            "Manages local storage operations for saving and retrieving QR codes",
+            "24/7 foreground service with notification and status management",
           technologies: [
-            "LocalStorage API",
-            "JSON Serialization",
-            "Data Validation",
+            "Foreground Service",
+            "Notification Channel",
+            "Lifecycle",
           ],
-          icon: Database,
+          icon: Server,
         },
         {
-          name: "UI Controller",
+          name: "Permission Gate",
           description:
-            "Manages user interactions and updates the interface in real-time",
+            "Validates user consent and Android permissions for each action",
           technologies: [
-            "DOM Manipulation",
-            "Event Listeners",
-            "State Management",
+            "Runtime Permissions",
+            "Consent Storage",
+            "Validation Logic",
           ],
-          icon: MousePointer,
+          icon: Shield,
         },
         {
-          name: "Image Processor",
-          description:
-            "Handles QR code image generation and download functionality",
-          technologies: ["Canvas API", "Blob URLs", "Download Attributes"],
-          icon: Camera,
+          name: "WebSocket Manager",
+          description: "Manages secure WSS connections with reconnection logic",
+          technologies: ["WebSocket", "TLS 1.3", "Certificate Pinning"],
+          icon: Globe,
+        },
+        {
+          name: "Action Managers",
+          description: "Specialized managers for different remote capabilities",
+          technologies: ["CameraX", "AudioRecord", "File API", "Telephony"],
+          icon: Package,
         },
       ],
     },
 
     projectStructure: [
       {
-        path: "assets/",
+        path: "app/src/main/java/com/remoteaccess/",
         icon: FolderOpenIcon,
-        items: ["screenshot.png", "favicon.ico", "readme-banner.png"],
-        files: 3,
+        items: [
+          "App.kt",
+          "SetupActivity.kt",
+          "RemoteService.kt",
+          "BootReceiver.kt",
+        ],
+        files: 12,
       },
       {
-        path: "css/",
-        icon: Palette,
-        items: ["styles.css", "responsive.css", "animations.css"],
-        files: 3,
+        path: "network/",
+        icon: NetworkIcon,
+        items: ["WebSocketManager.kt", "MessageRouter.kt", "CommandParser.kt"],
+        files: 5,
       },
       {
-        path: "js/",
-        icon: FileCodeIcon,
-        items: ["app.js", "storage.js", "ui.js", "qrcode.js"],
+        path: "managers/",
+        icon: Package,
+        items: [
+          "FileManager.kt",
+          "MicManager.kt",
+          "CameraManager.kt",
+          "ShellManager.kt",
+        ],
+        files: 8,
+      },
+      {
+        path: "security/",
+        icon: Shield,
+        items: ["CryptoStore.kt", "CertPinning.kt", "PermissionGate.kt"],
         files: 4,
       },
       {
-        path: "config/",
-        icon: Settings,
-        items: ["constants.js", "settings.js"],
-        files: 2,
-      },
-      {
-        path: "docs/",
-        icon: FileText,
-        items: ["README.md", "LICENSE"],
-        files: 2,
+        path: "res/xml/",
+        icon: FileCodeIcon,
+        items: ["network_security_config.xml", "permission_rules.xml"],
+        files: 3,
       },
     ],
 
     apiExamples: [
       {
-        endpoint: "generateQRCode(text)",
-        description: "Generate QR code from input text",
-        method: "JavaScript",
+        endpoint: "get_device_info",
+        description: "Retrieve detailed device information",
+        method: "WebSocket",
         request: `{
-  text: "https://github.com/thiyo-de",
-  size: "300x300",
-  format: "png"
+  "command": "get_device_info",
+  "request_id": "uuid-1234",
+  "timestamp": "2024-01-15T10:30:00Z",
+  "auth_token": "encrypted-token"
 }`,
         response: `{
-  success: true,
-  qrCode: "data:image/png;base64,...",
-  timestamp: "2024-01-15T10:30:00Z"
+  "device": "Pixel 7",
+  "android_version": "14",
+  "battery_level": "85%",
+  "storage_free": "64.2GB",
+  "connection_status": "stable"
 }`,
       },
       {
-        endpoint: "saveToStorage(qrData)",
-        description: "Save QR code data to local storage",
-        method: "JavaScript",
+        endpoint: "file_upload",
+        description: "Upload file to device storage",
+        method: "WebSocket",
         request: `{
-  id: "qr_123456",
-  text: "Hello World",
-  timestamp: "2024-01-15T10:30:00Z",
-  image: "data:image/png;base64,..."
+  "command": "file_upload",
+  "request_id": "uuid-5678",
+  "path": "/sdcard/Documents/report.pdf",
+  "data": "Base64EncodedData...",
+  "auth_token": "encrypted-token"
 }`,
         response: `{
-  saved: true,
-  count: 15,
-  storageUsed: "45KB"
+  "success": true,
+  "file_size": "2.4MB",
+  "saved_path": "/sdcard/Documents/report.pdf",
+  "timestamp": "2024-01-15T10:32:00Z"
 }`,
       },
     ],
 
-    difficultyModes: [
+    permissionLevels: [
       {
         level: "Basic",
         icon: Shield,
         color: "text-green-500",
-        description: "Simple text to QR code conversion",
-        speed: "Instant",
-        features: ["Basic generation", "Simple download", "Clear interface"],
+        description: "Device info & file management",
+        features: [
+          "Get device info",
+          "List files",
+          "File transfer",
+          "Basic logs",
+        ],
       },
       {
-        level: "Advanced",
-        icon: Settings,
+        level: "Enhanced",
+        icon: Mic,
         color: "text-yellow-500",
-        description: "Full feature set with storage",
-        speed: "Fast",
-        features: ["Local storage", "Multiple codes", "Management tools"],
+        description: "Adds audio & camera access",
+        features: [
+          "Microphone streaming",
+          "Camera preview",
+          "Photo capture",
+          "Call logs",
+        ],
       },
       {
-        level: "Pro",
-        icon: Zap,
+        level: "Full",
+        icon: TerminalSquare,
         color: "text-red-500",
-        description: "Maximum functionality",
-        speed: "Ultra-fast",
-        features: ["Batch operations", "Advanced settings", "Export options"],
+        description: "Complete remote assistance",
+        features: [
+          "Shell access",
+          "Call dialing",
+          "All files access",
+          "Boot auto-start",
+        ],
       },
     ],
 
     usageExamples: {
-      desktop: [
+      setup: [
         {
-          input: "Enter URL/text",
-          action: "Auto-generates QR code",
-          icon: Keyboard,
+          step: "1. Launch App",
+          action: "Transparent setup screen appears",
+          icon: PlayCircle,
         },
-        { input: "Click Save", action: "Store to local storage", icon: Save },
         {
-          input: "Click Download",
-          action: "Save as PNG image",
-          icon: Download,
+          step: "2. Grant Permissions",
+          action: "Sequential Android permission dialogs",
+          icon: ShieldCheck,
+        },
+        {
+          step: "3. System Settings",
+          action: "Guided access to battery & file settings",
+          icon: Settings,
+        },
+        {
+          step: "4. Service Starts",
+          action: "Foreground service with persistent notification",
+          icon: Server,
         },
       ],
-      mobile: [
-        { input: "Type in field", action: "Live QR preview", icon: Smartphone },
-        { input: "Tap Save", action: "Add to saved codes", icon: Save },
-        { input: "Tap Download", action: "Save to gallery", icon: Download },
+      remote: [
+        {
+          step: "Server Command",
+          action: "Secure WebSocket command sent",
+          icon: Cloud,
+        },
+        {
+          step: "Permission Gate",
+          action: "Validates user consent & permissions",
+          icon: Shield,
+        },
+        {
+          step: "Execute Action",
+          action: "Corresponding manager processes request",
+          icon: Zap,
+        },
+        {
+          step: "Send Response",
+          action: "Result returned via WebSocket",
+          icon: UploadCloud,
+        },
       ],
     },
 
     deployment: [
       {
-        platform: "GitHub Pages",
-        command: "gh-pages -d .",
+        platform: "Sideload APK",
+        command: "./gradlew assembleDebug && adb install app-debug.apk",
         complexity: "Easy",
-        icon: Github,
+        icon: Download,
+        note: "Supports All Files Access permission",
       },
       {
-        platform: "Netlify",
-        command: "netlify deploy --prod",
-        complexity: "Easy",
-        icon: Cloud,
+        platform: "Play Store",
+        command: "./gradlew bundleRelease",
+        complexity: "Medium",
+        icon: Play,
+        note: "Replace with SAF folder picker",
       },
       {
-        platform: "Vercel",
-        command: "vercel --prod",
-        complexity: "Easy",
-        icon: CloudIcon,
-      },
-      {
-        platform: "Static Hosting",
-        command: "Upload all files",
-        complexity: "Easy",
-        icon: UploadCloud,
+        platform: "MDM/Enterprise",
+        command: "Distribute via MDM console",
+        complexity: "Advanced",
+        icon: ServerIcon2,
+        note: "Silent installation + pre-configuration",
       },
     ],
 
     compatibility: [
-      { browser: "Chrome", version: "60+", status: "Full", icon: Globe },
-      { browser: "Firefox", version: "55+", status: "Full", icon: Globe },
-      { browser: "Safari", version: "11+", status: "Full", icon: Globe },
-      { browser: "Edge", version: "79+", status: "Full", icon: Globe },
-    ],
-
-    mediaSpecs: [
       {
-        type: "QR Code Images",
-        formats: "PNG",
-        maxSize: "50KB",
-        features: "Scalable vector",
-        icon: ImageIcon,
+        device: "Pixel",
+        version: "Android 9+",
+        status: "Full",
+        icon: Smartphone,
       },
       {
-        type: "Storage Format",
-        formats: "JSON",
-        maxSize: "5MB",
-        features: "Local persistence",
-        icon: Database,
+        device: "Samsung",
+        version: "One UI 4+",
+        status: "Full",
+        icon: Smartphone2,
       },
       {
-        type: "UI Animations",
-        formats: "CSS",
-        fps: "60",
-        features: "Smooth transitions",
-        icon: Zap,
+        device: "Xiaomi",
+        version: "MIUI 12+",
+        status: "Optimized",
+        icon: Smartphone,
       },
       {
-        type: "Responsive Breakpoints",
-        count: "3",
-        features: "Mobile-first design",
+        device: "Oppo/Vivo",
+        version: "ColorOS 11+",
+        status: "Optimized",
         icon: Smartphone,
       },
     ],
+
+    securitySpecs: [
+      {
+        type: "Network Security",
+        details: "TLS 1.3 + Certificate Pinning",
+        level: "High",
+        icon: ShieldCheck,
+      },
+      {
+        type: "Data Storage",
+        details: "Encrypted SharedPreferences",
+        level: "High",
+        icon: Database,
+      },
+      {
+        type: "Authentication",
+        details: "Token-based per session",
+        level: "High",
+        icon: KeyRound,
+      },
+      {
+        type: "Shell Access",
+        details: "Sandboxed + Allow-listed",
+        level: "Medium",
+        icon: TerminalSquare,
+      },
+    ],
+
+    // New data from README
+    supportedActions: [
+      { action: "Device info / ping / logs", status: "✅ Active", icon: Cpu },
+      { action: "File management", status: "✅ Active", icon: Folder },
+      { action: "Microphone streaming", status: "✅ Active", icon: Mic },
+      { action: "Camera preview / capture", status: "✅ Active", icon: Camera },
+      { action: "Call logs (read)", status: "✅ Active", icon: PhoneCall },
+      {
+        action: "Dial outgoing calls",
+        status: "✅ Active",
+        icon: PhoneOutgoing,
+      },
+      { action: "Remote shell", status: "✅ Active", icon: TerminalSquare },
+      { action: "Boot auto-start", status: "✅ Active", icon: Power },
+      {
+        action: "Battery optimization exemption",
+        status: "✅ Active",
+        icon: BatteryCharging,
+      },
+    ],
+
+    distributionPaths: [
+      {
+        path: "Sideload APK",
+        recommendation: "✅ Recommended",
+        note: "Easiest path, supports All Files Access",
+      },
+      {
+        path: "Play Store",
+        recommendation: "⚠️ Limited",
+        note: "Replace All Files Access with SAF folder pick",
+      },
+      {
+        path: "MDM / Enterprise",
+        recommendation: "✅ Yes",
+        note: "Best for managed fleets",
+      },
+    ],
+
+    testingChecklist: {
+      compatibility: [
+        "Android 9 → 15 (API 28-35)",
+        "Pixel (Stock Android)",
+        "Samsung (One UI customizations)",
+        "Xiaomi (MIUI aggressive battery)",
+        "Oppo/Vivo (ColorOS/Funtouch OS)",
+        "OnePlus (OxygenOS)",
+      ],
+      reliability: [
+        "Reboot auto-start verification",
+        "Long-running mic/camera sessions (24h+)",
+        "Permission revoke & recovery flow",
+        "Network drop & automatic reconnect",
+        "Large file transfer with resume",
+        "Battery optimization exemption persistence",
+      ],
+      edgeCases: [
+        "Low memory scenarios",
+        "Airplane mode transitions",
+        "Multiple permission revocations",
+        "Service killed by system",
+        "Storage full conditions",
+      ],
+    },
   },
 };
 
-const ProjectDetails_7 = () => {
+const ProjectDetails_8 = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
@@ -623,7 +748,7 @@ const ProjectDetails_7 = () => {
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/30 pt-20 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-            <FileCode className="w-8 h-8 text-primary" />
+            <Smartphone className="w-8 h-8 text-primary" />
           </div>
           <h1 className="font-clash font-bold text-2xl md:text-3xl mb-4">
             Project not found
@@ -652,25 +777,25 @@ const ProjectDetails_7 = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Enhanced Background with Radial Pattern */}
+      {/* Enhanced Background with Security Pattern */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        {/* QR Code-like Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
+        {/* Security Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
 
-        {/* Animated QR Particles */}
-        <div className="absolute inset-0 opacity-5">
-          {[...Array(50)].map((_, i) => (
+        {/* Animated Security Particles */}
+        <div className="absolute inset-0 opacity-10">
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-primary rounded-sm animate-pulse"
+              className="absolute w-1 h-1 bg-primary rounded-full animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${1 + Math.random() * 2}s`,
+                animationDuration: `${2 + Math.random() * 3}s`,
               }}
             />
           ))}
@@ -697,7 +822,7 @@ const ProjectDetails_7 = () => {
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="relative pt-14 md:pt-24 lg:pt-36 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10" />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16 relative">
             {/* Back Button - Desktop */}
@@ -737,6 +862,13 @@ const ProjectDetails_7 = () => {
                     <Badge variant="outline" className="font-satoshi">
                       {project.duration}
                     </Badge>
+                    <Badge
+                      variant="default"
+                      className="bg-red-500/10 text-red-500 border-0"
+                    >
+                      <Shield className="w-3 h-3 mr-1" />
+                      Security-Focused
+                    </Badge>
                   </div>
 
                   <div>
@@ -747,6 +879,29 @@ const ProjectDetails_7 = () => {
                       {project.tagline}
                     </p>
                   </div>
+
+                  {/* Important Notice Card */}
+                  <Card className="border-red-500/20 bg-red-500/5">
+                    <CardContent className="p-4">
+                      <div className="flex items-start gap-3">
+                        <ShieldAlert className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                        <div className="space-y-2">
+                          <h3 className="font-clash font-semibold text-sm uppercase tracking-wider text-red-500">
+                            Important Notice
+                          </h3>
+                          <p className="font-satoshi text-sm">
+                            RemoteAccessApp is designed <strong>only</strong>{" "}
+                            for scenarios where the device owner has explicitly
+                            consented to all enabled capabilities and can see
+                            and control the service at all times. Always runs as
+                            a Foreground Service with visible notification. You
+                            are responsible for legal compliance, user consent,
+                            and ethical usage in your jurisdiction.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
 
                   <p className="font-satoshi text-base md:text-lg leading-relaxed">
                     {project.fullDescription}
@@ -829,12 +984,12 @@ const ProjectDetails_7 = () => {
                       asChild
                     >
                       <a
-                        href={project.liveUrl}
+                        href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Play className="w-4 h-4" />
-                        Live Demo
+                        <Github className="w-4 h-4" />
+                        View on GitHub
                         <ExternalLink className="w-3 h-3 ml-1" />
                       </a>
                     </Button>
@@ -848,16 +1003,10 @@ const ProjectDetails_7 = () => {
                       variant="outline"
                       size="lg"
                       className="w-full gap-2"
-                      asChild
+                      onClick={handleContactClick}
                     >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4" />
-                        Source Code
-                      </a>
+                      <Mail className="w-4 h-4" />
+                      Enterprise Inquiry
                     </Button>
                   </motion.div>
                 </div>
@@ -884,12 +1033,12 @@ const ProjectDetails_7 = () => {
                         className="absolute inset-0 w-full h-full object-cover"
                       />
                     </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center justify-between">
                         <Badge className="bg-background/90 backdrop-blur-sm border-0 px-3 py-1.5">
-                          <QrCode className="w-3 h-3 mr-1.5" />
-                          QR Code Generator Demo
+                          <Shield className="w-3 h-3 mr-1.5" />
+                          Android Remote Assistance Framework
                         </Badge>
                         <div className="flex gap-1">
                           {project.images.map((_, idx) => (
@@ -936,32 +1085,32 @@ const ProjectDetails_7 = () => {
                 <div className="mt-8 rounded-xl border bg-card/50 p-4">
                   <div className="flex items-center gap-3 mb-3">
                     <Zap className="w-5 h-5 text-primary" />
-                    <h4 className="font-clash font-semibold">Key Features</h4>
+                    <h4 className="font-clash font-semibold">
+                      Core Principles
+                    </h4>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="text-center p-2 rounded-lg border">
-                      <Save className="w-4 h-4 mx-auto mb-1 text-blue-500" />
+                      <Eye className="w-4 h-4 mx-auto mb-1 text-blue-500" />
                       <p className="font-satoshi text-xs font-medium">
-                        Save Codes
+                        Transparency
                       </p>
                     </div>
                     <div className="text-center p-2 rounded-lg border">
-                      <Download className="w-4 h-4 mx-auto mb-1 text-green-500" />
+                      <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-green-500" />
                       <p className="font-satoshi text-xs font-medium">
-                        Download
+                        Consent-First
                       </p>
                     </div>
                     <div className="text-center p-2 rounded-lg border">
-                      <Smartphone className="w-4 h-4 mx-auto mb-1 text-purple-500" />
+                      <Bell className="w-4 h-4 mx-auto mb-1 text-purple-500" />
                       <p className="font-satoshi text-xs font-medium">
-                        Responsive
+                        24/7 Service
                       </p>
                     </div>
                     <div className="text-center p-2 rounded-lg border">
-                      <Database className="w-4 h-4 mx-auto mb-1 text-orange-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Local Storage
-                      </p>
+                      <Lock className="w-4 h-4 mx-auto mb-1 text-red-500" />
+                      <p className="font-satoshi text-xs font-medium">Secure</p>
                     </div>
                   </div>
                 </div>
@@ -974,17 +1123,112 @@ const ProjectDetails_7 = () => {
         <section className="relative py-12 md:py-20 bg-background">
           {/* Background Pattern */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.05)_25%,rgba(68,68,68,0.05)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.05)_75%)] bg-[length:10px_10px] opacity-100" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)]" />
           </div>
 
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
 
           {/* Content Container */}
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
               {/* Left Column - Main Content */}
               <div className="lg:col-span-2 space-y-12 lg:space-y-16">
+                {/* Supported Actions Table */}
+                {/* Supported Actions Table - Corrected Badge components */}
+                <motion.section
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
+                >
+                  <div>
+                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
+                      Supported Actions
+                    </h2>
+                    <p className="font-satoshi text-muted-foreground">
+                      Unlimited actions available after first approval with
+                      clear indicators
+                    </p>
+                  </div>
+
+                  <Card>
+                    <CardContent className="p-0">
+                      <div className="overflow-x-auto">
+                        <table className="w-full">
+                          <thead>
+                            <tr className="border-b bg-muted/50">
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Feature
+                              </th>
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Status
+                              </th>
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Indicators
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {project.supportedActions.map((action, index) => {
+                              const Icon = action.icon;
+                              return (
+                                <tr
+                                  key={index}
+                                  className="border-b hover:bg-muted/30 transition-colors"
+                                >
+                                  <td className="p-4">
+                                    <div className="flex items-center gap-3">
+                                      <Icon className="w-4 h-4 text-muted-foreground" />
+                                      <span className="font-satoshi">
+                                        {action.action}
+                                      </span>
+                                    </div>
+                                  </td>
+                                  <td className="p-4">
+                                    <Badge
+                                      variant="outline"
+                                      className="border-green-500/20 text-green-500"
+                                    >
+                                      {action.status}
+                                    </Badge>
+                                  </td>
+                                  <td className="p-4">
+                                    <div className="flex gap-1">
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-satoshi text-xs px-2 py-0.5"
+                                      >
+                                        Foreground Service
+                                      </Badge>
+                                      {action.action.includes("Mic") && (
+                                        <Badge
+                                          variant="secondary"
+                                          className="font-satoshi text-xs px-2 py-0.5"
+                                        >
+                                          Mic Indicator
+                                        </Badge>
+                                      )}
+                                      {action.action.includes("Camera") && (
+                                        <Badge
+                                          variant="secondary"
+                                          className="font-satoshi text-xs px-2 py-0.5"
+                                        >
+                                          Camera Indicator
+                                        </Badge>
+                                      )}
+                                    </div>
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.section>
+
                 {/* Performance Metrics */}
                 <motion.section
                   initial={{ opacity: 0, y: 30 }}
@@ -997,7 +1241,7 @@ const ProjectDetails_7 = () => {
                       Performance Metrics
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Optimized for speed and reliability across all devices
+                      Optimized for reliability and minimal resource consumption
                     </p>
                   </div>
 
@@ -1034,7 +1278,7 @@ const ProjectDetails_7 = () => {
                   </div>
                 </motion.section>
 
-                {/* Feature Modes */}
+                {/* Permission Levels */}
                 <motion.section
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1043,15 +1287,16 @@ const ProjectDetails_7 = () => {
                 >
                   <div>
                     <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Feature Levels
+                      Permission Levels
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Different feature sets for various user needs
+                      Granular control over remote capabilities based on user
+                      consent
                     </p>
                   </div>
 
                   <div className="grid md:grid-cols-3 gap-4">
-                    {project.difficultyModes.map((mode, index) => {
+                    {project.permissionLevels.map((mode, index) => {
                       const Icon = mode.icon;
                       return (
                         <Card
@@ -1075,9 +1320,6 @@ const ProjectDetails_7 = () => {
                                 <p className="font-satoshi text-sm text-muted-foreground mb-3">
                                   {mode.description}
                                 </p>
-                                <Badge variant="outline" className="mb-4">
-                                  Speed: {mode.speed}
-                                </Badge>
                               </div>
                               <div className="w-full space-y-2">
                                 {mode.features.map((feature, idx) => (
@@ -1112,7 +1354,8 @@ const ProjectDetails_7 = () => {
                       Core Features
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Everything you need for efficient QR code management
+                      Everything needed for ethical and transparent remote
+                      assistance
                     </p>
                   </div>
 
@@ -1157,7 +1400,7 @@ const ProjectDetails_7 = () => {
                   </div>
                 </motion.section>
 
-                {/* Media Specifications */}
+                {/* Security Specifications */}
                 <motion.section
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1166,17 +1409,18 @@ const ProjectDetails_7 = () => {
                 >
                   <div>
                     <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Technical Specifications
+                      Security Baseline
                     </h2>
                     <p className="font-satoshi text-muted-foreground">
-                      Technical details and supported formats
+                      Enterprise-grade security features for safe remote
+                      operations
                     </p>
                   </div>
 
                   <Card>
                     <CardContent className="p-6">
                       <div className="grid md:grid-cols-2 gap-6">
-                        {project.mediaSpecs.map((spec, index) => {
+                        {project.securitySpecs.map((spec, index) => {
                           const Icon = spec.icon;
                           return (
                             <div key={index} className="space-y-3">
@@ -1185,30 +1429,25 @@ const ProjectDetails_7 = () => {
                                 <h3 className="font-clash font-bold">
                                   {spec.type}
                                 </h3>
+                                <Badge
+                                  variant={
+                                    spec.level === "High"
+                                      ? "default"
+                                      : spec.level === "Medium"
+                                      ? "secondary"
+                                      : "outline"
+                                  }
+                                >
+                                  {spec.level}
+                                </Badge>
                               </div>
                               <div className="space-y-2 font-satoshi text-sm">
                                 <div className="flex justify-between">
                                   <span className="text-muted-foreground">
-                                    Formats:
+                                    Implementation:
                                   </span>
                                   <span className="font-medium">
-                                    {spec.formats || spec.count}
-                                  </span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Max Size:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.maxSize || "Unlimited"}
-                                  </span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Features:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.features}
+                                    {spec.details}
                                   </span>
                                 </div>
                               </div>
@@ -1280,36 +1519,36 @@ const ProjectDetails_7 = () => {
                     <CardContent className="p-6">
                       <div className="text-center space-y-4">
                         <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                          <QrCode className="w-8 h-8 text-primary" />
+                          <Workflow className="w-8 h-8 text-primary" />
                         </div>
                         <h3 className="font-clash font-bold text-xl">
-                          QR Code Generation Flow
+                          Remote Access Flow
                         </h3>
                         <p className="font-satoshi text-muted-foreground">
-                          User Input → QR Generation → Storage Management →
-                          Image Download
+                          User Consent → Permission Gate → Action Manager →
+                          Secure Response
                         </p>
                         <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-satoshi text-muted-foreground">
                           <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-primary/10 text-primary">
-                              Input
+                            <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
+                              Consent
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500">
-                              Generate
+                              Validate
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
-                              Store
+                            <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
+                              Execute
                             </span>
                             <ChevronRight className="w-4 h-4" />
                           </div>
-                          <div className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
-                            Download
+                          <div className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-500">
+                            Respond
                           </div>
                         </div>
                       </div>
@@ -1324,58 +1563,56 @@ const ProjectDetails_7 = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   className="space-y-6"
                 >
-                  <Tabs defaultValue="controls" className="w-full">
+                  <Tabs defaultValue="workflow" className="w-full">
                     <TabsList className="grid grid-cols-3 mb-6">
-                      <TabsTrigger value="controls">Controls</TabsTrigger>
-                      <TabsTrigger value="api">API</TabsTrigger>
+                      <TabsTrigger value="workflow">Workflow</TabsTrigger>
+                      <TabsTrigger value="api">Command API</TabsTrigger>
                       <TabsTrigger value="deployment">Deployment</TabsTrigger>
                     </TabsList>
 
-                    <TabsContent value="controls" className="space-y-6">
+                    <TabsContent value="workflow" className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-4">
                           <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <MousePointer className="w-5 h-5" />
-                            Desktop Controls
+                            <Settings className="w-5 h-5" />
+                            Setup Workflow
                           </h3>
-                          {project.usageExamples.desktop.map(
-                            (example, index) => {
-                              const Icon = example.icon;
-                              return (
-                                <Card key={index}>
-                                  <CardContent className="p-4">
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-2">
-                                        <Icon className="w-4 h-4 text-muted-foreground" />
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Input
-                                        </p>
-                                      </div>
-                                      <p className="font-satoshi font-medium">
-                                        {example.input}
+                          {project.usageExamples.setup.map((example, index) => {
+                            const Icon = example.icon;
+                            return (
+                              <Card key={index}>
+                                <CardContent className="p-4">
+                                  <div className="space-y-3">
+                                    <div className="flex items-center gap-2">
+                                      <Icon className="w-4 h-4 text-muted-foreground" />
+                                      <p className="font-satoshi text-sm text-muted-foreground">
+                                        Step
                                       </p>
-                                      <Separator />
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Action
-                                        </p>
-                                        <p className="font-satoshi">
-                                          {example.action}
-                                        </p>
-                                      </div>
                                     </div>
-                                  </CardContent>
-                                </Card>
-                              );
-                            }
-                          )}
+                                    <p className="font-satoshi font-medium">
+                                      {example.step}
+                                    </p>
+                                    <Separator />
+                                    <div>
+                                      <p className="font-satoshi text-sm text-muted-foreground">
+                                        Action
+                                      </p>
+                                      <p className="font-satoshi">
+                                        {example.action}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            );
+                          })}
                         </div>
                         <div className="space-y-4">
                           <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <PhoneIcon className="w-5 h-5" />
-                            Mobile Controls
+                            <Cloud className="w-5 h-5" />
+                            Remote Operations
                           </h3>
-                          {project.usageExamples.mobile.map(
+                          {project.usageExamples.remote.map(
                             (example, index) => {
                               const Icon = example.icon;
                               return (
@@ -1385,11 +1622,11 @@ const ProjectDetails_7 = () => {
                                       <div className="flex items-center gap-2">
                                         <Icon className="w-4 h-4 text-muted-foreground" />
                                         <p className="font-satoshi text-sm text-muted-foreground">
-                                          Input
+                                          Step
                                         </p>
                                       </div>
                                       <p className="font-satoshi font-medium">
-                                        {example.input}
+                                        {example.step}
                                       </p>
                                       <Separator />
                                       <div>
@@ -1417,7 +1654,7 @@ const ProjectDetails_7 = () => {
                             <CardContent className="p-6">
                               <div className="flex items-center justify-between mb-4">
                                 <div>
-                                  <Badge className="bg-green-500/10 text-green-500 mb-2">
+                                  <Badge className="bg-blue-500/10 text-blue-500 mb-2">
                                     {api.method}
                                   </Badge>
                                   <h3 className="font-clash font-bold">
@@ -1445,7 +1682,7 @@ const ProjectDetails_7 = () => {
                               </div>
                               <div className="mb-4">
                                 <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Configuration
+                                  Request
                                 </h4>
                                 <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
                                   {api.request}
@@ -1466,7 +1703,7 @@ const ProjectDetails_7 = () => {
                     </TabsContent>
 
                     <TabsContent value="deployment" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-3 gap-4">
                         {project.deployment.map((option, index) => {
                           const Icon = option.icon;
                           return (
@@ -1485,31 +1722,36 @@ const ProjectDetails_7 = () => {
                                     </Badge>
                                   </div>
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-3">
                                   <p className="font-satoshi text-sm text-muted-foreground">
-                                    Deployment Command
+                                    {option.note}
                                   </p>
-                                  <div className="relative">
-                                    <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto font-mono">
-                                      {option.command}
-                                    </pre>
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="absolute right-2 top-2 h-6 w-6 p-0"
-                                      onClick={() =>
-                                        copyToClipboard(
-                                          option.command,
-                                          option.platform
-                                        )
-                                      }
-                                    >
-                                      {copied === option.platform ? (
-                                        <Check className="w-3 h-3" />
-                                      ) : (
-                                        <Copy className="w-3 h-3" />
-                                      )}
-                                    </Button>
+                                  <div>
+                                    <p className="font-satoshi text-sm text-muted-foreground mb-2">
+                                      Command
+                                    </p>
+                                    <div className="relative">
+                                      <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto font-mono">
+                                        {option.command}
+                                      </pre>
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        className="absolute right-2 top-2 h-6 w-6 p-0"
+                                        onClick={() =>
+                                          copyToClipboard(
+                                            option.command,
+                                            option.platform
+                                          )
+                                        }
+                                      >
+                                        {copied === option.platform ? (
+                                          <Check className="w-3 h-3" />
+                                        ) : (
+                                          <Copy className="w-3 h-3" />
+                                        )}
+                                      </Button>
+                                    </div>
                                   </div>
                                 </div>
                               </CardContent>
@@ -1519,6 +1761,73 @@ const ProjectDetails_7 = () => {
                       </div>
                     </TabsContent>
                   </Tabs>
+                </motion.section>
+
+                {/* Distribution Paths */}
+                <motion.section
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
+                >
+                  <div>
+                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
+                      Distribution Paths
+                    </h2>
+                    <p className="font-satoshi text-muted-foreground">
+                      Multiple deployment options for different use cases
+                    </p>
+                  </div>
+
+                  <Card>
+                    <CardContent className="p-0">
+                      <div className="overflow-x-auto">
+                        <table className="w-full">
+                          <thead>
+                            <tr className="border-b bg-muted/50">
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Path
+                              </th>
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Recommended
+                              </th>
+                              <th className="text-left p-4 font-clash font-semibold">
+                                Notes
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {project.distributionPaths.map((path, index) => (
+                              <tr
+                                key={index}
+                                className="border-b hover:bg-muted/30 transition-colors"
+                              >
+                                <td className="p-4 font-satoshi font-medium">
+                                  {path.path}
+                                </td>
+                                <td className="p-4">
+                                  <Badge
+                                    variant={
+                                      path.recommendation.includes("✅")
+                                        ? "default"
+                                        : path.recommendation.includes("⚠️")
+                                        ? "secondary"
+                                        : "outline"
+                                    }
+                                  >
+                                    {path.recommendation}
+                                  </Badge>
+                                </td>
+                                <td className="p-4 font-satoshi text-sm text-muted-foreground">
+                                  {path.note}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.section>
               </div>
 
@@ -1564,7 +1873,7 @@ const ProjectDetails_7 = () => {
                   </Card>
                 </motion.div>
 
-                {/* Browser Compatibility */}
+                {/* Device Compatibility */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -1573,39 +1882,39 @@ const ProjectDetails_7 = () => {
                   className="space-y-6"
                 >
                   <h3 className="font-clash font-bold text-xl flex items-center gap-2">
-                    <Globe className="w-5 h-5 text-blue-500" />
-                    Browser Compatibility
+                    <Smartphone className="w-5 h-5 text-blue-500" />
+                    Device Compatibility
                   </h3>
                   <div className="space-y-3">
-                    {project.compatibility.map((browser, index) => (
+                    {project.compatibility.map((device, index) => (
                       <div
                         key={index}
                         className="flex items-center justify-between p-3 rounded-lg border bg-card/50"
                       >
                         <div className="flex items-center gap-3">
-                          <Globe className="w-4 h-4 text-muted-foreground" />
+                          <Smartphone className="w-4 h-4 text-muted-foreground" />
                           <div>
                             <span className="font-satoshi font-medium">
-                              {browser.browser}
+                              {device.device}
                             </span>
                             <p className="font-satoshi text-xs text-muted-foreground">
-                              v{browser.version}+
+                              {device.version}
                             </p>
                           </div>
                         </div>
                         <Badge
                           variant={
-                            browser.status === "Full" ? "default" : "secondary"
+                            device.status === "Full" ? "default" : "secondary"
                           }
                         >
-                          {browser.status}
+                          {device.status}
                         </Badge>
                       </div>
                     ))}
                   </div>
                 </motion.div>
 
-                {/* Quick Stats */}
+                {/* Testing Checklist */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -1613,33 +1922,74 @@ const ProjectDetails_7 = () => {
                   transition={{ delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h3 className="font-clash font-bold text-xl">Quick Stats</h3>
+                  <h3 className="font-clash font-bold text-xl">
+                    Testing Checklist
+                  </h3>
                   <Card>
                     <CardContent className="p-6">
                       <div className="space-y-4">
-                        {[
-                          {
-                            label: "Project Duration",
-                            value: project.duration,
-                          },
-                          { label: "Team Size", value: project.teamSize },
-                          { label: "File Count", value: "14" },
-                          { label: "Code Lines", value: "800+" },
-                          { label: "Storage Used", value: "5MB Max" },
-                          { label: "GitHub Stars", value: "10+" },
-                        ].map((stat, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between py-2 border-b last:border-0"
-                          >
-                            <span className="font-satoshi text-sm text-muted-foreground">
-                              {stat.label}
-                            </span>
-                            <span className="font-clash font-semibold">
-                              {stat.value}
-                            </span>
+                        <div>
+                          <h4 className="font-clash font-semibold text-sm mb-2">
+                            Compatibility
+                          </h4>
+                          <div className="space-y-1">
+                            {project.testingChecklist.compatibility.map(
+                              (item, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-center gap-2"
+                                >
+                                  <CheckCircle className="w-3 h-3 text-green-500" />
+                                  <span className="font-satoshi text-xs">
+                                    {item}
+                                  </span>
+                                </div>
+                              )
+                            )}
                           </div>
-                        ))}
+                        </div>
+                        <Separator />
+                        <div>
+                          <h4 className="font-clash font-semibold text-sm mb-2">
+                            Reliability
+                          </h4>
+                          <div className="space-y-1">
+                            {project.testingChecklist.reliability.map(
+                              (item, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-center gap-2"
+                                >
+                                  <CheckCircle className="w-3 h-3 text-blue-500" />
+                                  <span className="font-satoshi text-xs">
+                                    {item}
+                                  </span>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </div>
+                        <Separator />
+                        <div>
+                          <h4 className="font-clash font-semibold text-sm mb-2">
+                            Edge Cases
+                          </h4>
+                          <div className="space-y-1">
+                            {project.testingChecklist.edgeCases.map(
+                              (item, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-center gap-2"
+                                >
+                                  <AlertCircle className="w-3 h-3 text-yellow-500" />
+                                  <span className="font-satoshi text-xs">
+                                    {item}
+                                  </span>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -1659,7 +2009,7 @@ const ProjectDetails_7 = () => {
                     onClick={handleContactClick}
                   >
                     <ExternalLink className="w-4 h-4" />
-                    Start Similar Project
+                    Enterprise Deployment
                   </Button>
                   <Button
                     variant="ghost"
@@ -1677,28 +2027,22 @@ const ProjectDetails_7 = () => {
                       asChild
                     >
                       <a
-                        href={project.liveUrl}
+                        href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Globe className="w-3 h-3" />
-                        Live Demo
+                        <Github className="w-3 h-3" />
+                        GitHub
                       </a>
                     </Button>
                     <Button
                       variant="secondary"
                       size="sm"
                       className="gap-2"
-                      asChild
+                      onClick={handleContactClick}
                     >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-3 h-3" />
-                        Source Code
-                      </a>
+                      <Mail className="w-3 h-3" />
+                      Contact
                     </Button>
                   </div>
                 </motion.div>
@@ -1719,14 +2063,16 @@ const ProjectDetails_7 = () => {
               <CardContent className="p-8 md:p-12 text-center">
                 <div className="max-w-2xl mx-auto space-y-6">
                   <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                    <QrCode className="w-8 h-8 text-primary" />
+                    <ShieldCheck className="w-8 h-8 text-primary" />
                   </div>
                   <h2 className="font-clash font-bold text-2xl md:text-3xl">
-                    Need QR Codes for Your Project?
+                    Need Ethical Remote Access Solutions?
                   </h2>
                   <p className="font-satoshi text-muted-foreground">
-                    Generate, manage, and download QR codes seamlessly with this
-                    modern web application.
+                    Build secure, transparent, and consent-first remote
+                    assistance applications for legitimate support scenarios.
+                    Perfect for IT support, device management, and enterprise
+                    remote access.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                     <motion.div
@@ -1739,7 +2085,7 @@ const ProjectDetails_7 = () => {
                         onClick={handleContactClick}
                       >
                         <ExternalLink className="w-4 h-4" />
-                        Start a Project
+                        Discuss Your Project
                       </Button>
                     </motion.div>
                     <motion.div
@@ -1766,4 +2112,4 @@ const ProjectDetails_7 = () => {
   );
 };
 
-export default ProjectDetails_7;
+export default ProjectDetails_8;

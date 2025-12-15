@@ -49,7 +49,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-4 sm:py-6 lg:py-8 pt-24"
+        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-4 sm:py-6 lg:py-8 pt-28 sm:pt-32"
       >
         {/* Mobile & Tablet Layout */}
         <div className="lg:hidden flex flex-col items-center justify-center text-center min-h-[85vh] w-full">

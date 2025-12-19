@@ -6,59 +6,73 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Montfort ICSE AI Chatbot",
+    description: "Advanced Gemini-Powered AI with 3D Navigation",
+    tags: ["AI/ML", "Gemini API", "RAG"],
+    image:
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
+    slug: "montfort-icse-ai-chatbot",
+  },
+  {
+    title: "DS Founder Birthday Wishes",
     description:
-      "A full-featured online store with cart functionality and payment integration",
-    tags: ["React", "Node.js", "Stripe"],
+      "Interactive platform for collecting and displaying birthday wishes",
+    tags: ["React", "Supabase", "Cloudinary"],
     image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
-    number: "01",
-    route: "/projects/ecommerce-platform",
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=800&fit=crop&auto=format",
+    slug: "ds-founder-birthday-wishes",
   },
   {
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates",
-    tags: ["React", "Firebase", "Tailwind"],
+    title: "Vowel Quest – Space Shooter",
+    description:
+      "Educational space shooter game for vowel recognition learning",
+    tags: ["HTML5 Canvas", "JavaScript", "Game Dev"],
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
-    number: "02",
-    route: "/projects/task-management",
+      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&h=800&fit=crop&auto=format",
+    slug: "vowel-quest",
   },
   {
-    title: "Portfolio Website",
-    description: "Creative portfolio showcasing design and development work",
-    tags: ["Next.js", "Framer Motion", "TypeScript"],
+    title: "Ruthram360°",
+    description: "Transforming Spaces into Immersive Digital Experiences",
+    tags: ["React 18", "360° Virtual Tours", "Google Street View"],
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=800&fit=crop",
-    number: "03",
-    route: "/projects/portfolio-website",
+      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/1.png",
+    slug: "ruthram360",
   },
   {
-    title: "Mobile Banking App",
-    description: "Intuitive banking application with modern UI/UX",
-    tags: ["React Native", "Redux", "Node.js"],
+    title: "VR Tour Gallery Uploader",
+    description:
+      "Interactive user photo upload feature for immersive VR experiences",
+    tags: ["VR Integration", "Flask", "React"],
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop",
-    number: "04",
-    route: "/projects/banking-app",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
+    slug: "vr-tour-gallery",
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management",
-    tags: ["Vue.js", "Chart.js", "Express"],
+    title: "Gamified Menu",
+    description:
+      "Dynamic, gamified navigation menu with sound effects",
+    tags: ["UI/UX Design", "Sound Design", "React"],
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-    number: "05",
-    route: "/projects/social-dashboard",
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&auto=format",
+    slug: "gamify-menu",
   },
   {
-    title: "Fitness Tracking App",
-    description: "Health and fitness companion with workout tracking",
-    tags: ["React", "GraphQL", "MongoDB"],
+    title: "QR Code Generator",
+    description: "Generate, save, and manage QR codes with ease",
+    tags: ["JavaScript", "QR Codes", "Local Storage"],
     image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
-    number: "06",
-    route: "/projects/fitness-app",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
+    slug: "qr-code-generator",
+  },
+  {
+    title: "RemoteAccessApp",
+    description:
+      "24/7 Foreground Service with Persistent Notification",
+    tags: ["Android", "Kotlin", "Foreground Service"],
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
+    slug: "remote-access-app",
   },
 ];
 
@@ -184,75 +198,80 @@ const Portfolio = () => {
             scrollPadding: "0px 16px",
           }}
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[30vw] xl:w-[28vw] 2xl:w-[400px] snap-start"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-            >
-              <button
-                onClick={() => handleProjectClick(project.route)}
-                className="block h-full w-full text-left"
+          {projects.map((project, index) => {
+            const number = (index + 1).toString().padStart(2, "0");
+            const route = `/work/${project.slug}`;
+
+            return (
+              <motion.div
+                key={index}
+                className="group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[30vw] xl:w-[28vw] 2xl:w-[400px] snap-start"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <motion.div
-                  className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col"
-                  whileHover={{ y: -4 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
+                  onClick={() => handleProjectClick(route)}
+                  className="block h-full w-full text-left"
                 >
-                  <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
-                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                      <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/20">
-                        {project.number}
-                      </span>
-                    </div>
-                    <motion.div
-                      className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 1 }}
-                    >
-                      <div className="text-center">
-                        <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />
-                        <span className="font-satoshi text-primary-foreground text-sm sm:text-base">
-                          View Project
+                  <motion.div
+                    className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col"
+                    whileHover={{ y: -4 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.4 }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
+                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                        <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/20">
+                          {number}
                         </span>
                       </div>
-                    </motion.div>
-                  </div>
-
-                  <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
-                    <h3 className="font-clash font-bold text-2xl sm:text-3xl group-hover:text-primary transition-colors line-clamp-2">
-                      {project.title}
-                    </h3>
-                    <p className="font-satoshi text-muted-foreground text-base sm:text-lg leading-relaxed flex-1 line-clamp-3">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <Badge
-                          key={tagIndex}
-                          variant="secondary"
-                          className="font-grotesk text-xs sm:text-sm px-3 sm:px-4 py-1"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+                      <motion.div
+                        className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                      >
+                        <div className="text-center">
+                          <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />
+                          <span className="font-satoshi text-primary-foreground text-sm sm:text-base">
+                            View Project
+                          </span>
+                        </div>
+                      </motion.div>
                     </div>
-                  </div>
-                </motion.div>
-              </button>
-            </motion.div>
-          ))}
+
+                    <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
+                      <h3 className="font-clash font-bold text-2xl sm:text-3xl group-hover:text-primary transition-colors line-clamp-2">
+                        {project.title}
+                      </h3>
+                      <p className="font-satoshi text-muted-foreground text-base sm:text-lg leading-relaxed flex-1 line-clamp-3">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                          <Badge
+                            key={tagIndex}
+                            variant="secondary"
+                            className="font-grotesk text-xs sm:text-sm px-3 sm:px-4 py-1"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Navigation Dots */}
@@ -260,16 +279,39 @@ const Portfolio = () => {
           <div className="flex gap-2">
             {Array.from({ 
               length: Math.ceil(projects.length / visibleCards) 
-            }).map((_, index) => (
+            }).map((_, index) => {
+              const totalPages = Math.ceil(projects.length / visibleCards);
+              // Calculate effective max index for scrolling
+              const maxScrollIndex = Math.max(0, projects.length - visibleCards);
+              
+              // Determine active dot
+              // If we are at the end (or past it), activate the last dot
+              const activeDotIndex = currentIndex >= maxScrollIndex 
+                ? totalPages - 1 
+                : Math.floor(currentIndex / visibleCards);
+
+              const isActive = index === activeDotIndex;
+
+              return (
               <button
                 key={index}
                 onClick={() => {
-                  const newIndex = index * visibleCards;
+                  // Clamp the new index to valid bounds to prevent whitespace
+                  const newIndex = Math.min(
+                    index * visibleCards, 
+                    maxScrollIndex
+                  );
+                  
                   setCurrentIndex(newIndex);
+                  
                   if (scrollContainerRef.current) {
                     const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
                     const gap = 24;
+                    // We need to calculate scroll position based on the new index
+                    // However, we should be careful about the "clamped" index vs visual calculation
+                    // Using the same logic as the scroll function helps consistency
                     const scrollAmount = (cardWidth + gap) * newIndex;
+                    
                     scrollContainerRef.current.scrollTo({
                       left: scrollAmount,
                       behavior: "smooth"
@@ -277,12 +319,13 @@ const Portfolio = () => {
                   }
                 }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === Math.floor(currentIndex / visibleCards)
-                    ? "bg-primary"
+                  isActive
+                    ? "bg-primary w-8"
                     : "bg-border hover:bg-primary/50"
                 }`}
               />
-            ))}
+            );
+            })}
           </div>
         </div>
 

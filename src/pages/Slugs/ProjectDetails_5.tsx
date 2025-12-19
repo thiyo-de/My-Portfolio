@@ -7,32 +7,36 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import {
   ExternalLink,
-  Globe,
+  Github,
   ArrowLeft,
   Calendar,
   Users,
   Target,
-  Camera,
-  Map,
-  Building,
-  Home,
-  School,
-  Hospital,
-  Hotel,
-  Zap,
+  Brain,
   Shield,
-  Cloud,
+  Zap,
+  MessageCircle,
+  Cpu,
+  Database,
   Code,
-  Smartphone,
-  Monitor,
-  Wifi,
+  Globe,
+  Terminal,
+  Server,
+  FileCode,
+  GitBranch,
+  ChevronRight,
+  Sparkles,
+  Clock,
   CheckCircle,
   BarChart3,
-  Database,
+  CpuIcon,
+  DatabaseIcon,
+  CodeIcon,
   Layers,
   FolderOpen,
   Key,
   Lock,
+  Cloud,
   Download,
   Play,
   Pause,
@@ -41,6 +45,7 @@ import {
   Check,
   Share2,
   Heart,
+  Camera,
   Mic,
   Video,
   Upload,
@@ -49,20 +54,18 @@ import {
   Users as UsersIcon,
   CloudUpload,
   ShieldCheck,
+  Smartphone,
+  Monitor,
+  Wifi,
   Mail,
   MessageSquare,
   Image as ImageIcon,
   Music,
-  Rocket,
-  GraduationCap,
-  Globe as GlobeIcon,
-  Smartphone as SmartphoneIcon,
   School as SchoolIcon,
   Lightbulb,
   Layers as LayersIcon,
   Code2,
   Palette,
-  ServerIcon,
   Cloud as CloudIcon,
   Navigation,
   MapPin,
@@ -74,26 +77,16 @@ import {
   Headphones,
   Compass,
   Settings,
-  Cpu,
-  GitBranch,
-  ChevronRight,
-  Sparkles,
-  Clock,
-  Brain,
-  FileCode,
   Gamepad2,
   GamepadIcon,
   Target as TargetIcon,
   BookOpen,
   Keyboard,
   Gamepad2 as Gamepad2Icon,
-  Terminal,
-  Github,
   UploadCloud,
   FolderTree,
   FileJson,
   Folder,
-  Code as CodeIcon,
   File,
   Network,
   EyeOff,
@@ -104,16 +97,19 @@ import {
   FolderInput,
   Upload as UploadIcon,
   DownloadCloud,
-  Database as DatabaseIcon,
   FolderUp,
   FolderSync,
-  // Add these alternative icons since Flask, Python, VirtualReality don't exist in lucide-react
-  Beaker, // Alternative for Flask
-  Terminal as TerminalIcon, // Alternative for Python
-  Glasses, // Alternative for VirtualReality
+  Beaker,
+  Terminal as TerminalIcon,
+  Glasses,
   Palette as PaletteIcon,
-  RefreshCw // Add RefreshCw icon
+  RefreshCw,
+  Map,
+  Home,
+  ArrowUpRight,
+  ZoomIn,
 } from "lucide-react";
+import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -162,12 +158,12 @@ const projectDetails = {
     teamSize: "2 Members",
 
     techStack: [
-      { name: "Flask", icon: Beaker, color: "text-gray-800" }, // Changed from Flask to Beaker
-      { name: "Python", icon: TerminalIcon, color: "text-blue-500" }, // Changed from Python to TerminalIcon
+      { name: "Flask", icon: Beaker, color: "text-gray-800" },
+      { name: "Python", icon: TerminalIcon, color: "text-blue-500" },
       { name: "HTML/CSS", icon: Code, color: "text-orange-500" },
       { name: "JavaScript", icon: Code2, color: "text-yellow-500" },
       { name: "Netlify", icon: Cloud, color: "text-green-500" },
-      { name: "Render", icon: ServerIcon, color: "text-purple-500" }, // Changed from Server to ServerIcon
+      { name: "Render", icon: Server, color: "text-purple-500" },
       { name: "Responsive Design", icon: Smartphone, color: "text-pink-500" },
       { name: "File Processing", icon: UploadCloud, color: "text-cyan-500" },
     ],
@@ -229,7 +225,7 @@ const projectDetails = {
         title: "VR Gallery Integration",
         description:
           "Seamless integration of uploaded photos into existing VR tour environments",
-        icon: Glasses, // Changed from VirtualReality to Glasses
+        icon: Glasses,
         color: "bg-purple-500/10 text-purple-500",
         examples: [
           "Real-time gallery updates",
@@ -241,7 +237,7 @@ const projectDetails = {
       {
         title: "Backend Processing",
         description: "Robust server-side handling for image processing and storage",
-        icon: ServerIcon, // Changed from Server to ServerIcon
+        icon: Server,
         color: "bg-green-500/10 text-green-500",
         examples: [
           "Image compression & optimization",
@@ -253,7 +249,7 @@ const projectDetails = {
       {
         title: "Gallery Management",
         description: "Tools for organizing and moderating user-generated content",
-        icon: Images, // Changed from GalleryVertical to Images
+        icon: Images,
         color: "bg-pink-500/10 text-pink-500",
         examples: [
           "Content moderation panel",
@@ -279,7 +275,7 @@ const projectDetails = {
             "Werkzeug",
             "Render Deployment",
           ],
-          icon: ServerIcon, // Changed from Server to ServerIcon
+          icon: Server,
         },
         {
           name: "Frontend Interface",
@@ -316,7 +312,7 @@ const projectDetails = {
             "Real-time Sync",
             "Cross-platform Support",
           ],
-          icon: Glasses, // Changed from VirtualReality to Glasses
+          icon: Glasses,
         },
       ],
     },
@@ -360,7 +356,7 @@ const projectDetails = {
           industry: "Education",
           application: "Student project galleries",
           benefit: "Interactive learning experiences",
-          icon: School,
+          icon: SchoolIcon,
         },
         {
           industry: "Real Estate",
@@ -392,7 +388,7 @@ const projectDetails = {
           feature: "Real-time Updates",
           challenge: "Sync across VR and web",
           solution: "WebSocket integration",
-          icon: RefreshCw, // Fixed: Added RefreshCw import
+          icon: RefreshCw,
         },
       ],
     },
@@ -402,7 +398,7 @@ const projectDetails = {
         platform: "Render.com",
         command: "pip install -r requirements.txt && python app.py",
         complexity: "Easy",
-        icon: ServerIcon, // Changed from Server to ServerIcon
+        icon: Server,
       },
       {
         platform: "Netlify",
@@ -428,87 +424,9 @@ const projectDetails = {
       { feature: "Drag & Drop Upload", icon: UploadCloud },
       { feature: "Real-time Preview", icon: EyeIcon },
       { feature: "Multi-format Support", icon: FileJson },
-      { feature: "Responsive Gallery", icon: Images }, // Changed from GalleryVertical to Images
+      { feature: "Responsive Gallery", icon: Images },
       { feature: "User Authentication", icon: Key },
       { feature: "Moderation Tools", icon: Shield },
-    ],
-
-    industrySpecs: [
-      {
-        industry: "Cultural Institutions",
-        features: "Visitor galleries, Educational content",
-        pricing: "Per institution",
-        icon: Building,
-      },
-      {
-        industry: "Tourism Businesses",
-        features: "Tour photo sharing, Marketing galleries",
-        pricing: "Monthly subscription",
-        icon: Map,
-      },
-      {
-        industry: "Educational",
-        features: "Class projects, Campus tours",
-        pricing: "Academic discount",
-        icon: GraduationCap,
-      },
-      {
-        industry: "Corporate Events",
-        features: "Event galleries, Team building",
-        pricing: "Per event",
-        icon: Users,
-      },
-    ],
-
-    platformControls: {
-      admin: [
-        { control: "Content Moderation", action: "Approve/reject uploads" },
-        { control: "User Management", action: "Manage user permissions" },
-        { control: "Gallery Organization", action: "Arrange photo displays" },
-        { control: "Analytics Dashboard", action: "View usage statistics" },
-      ],
-      user: [
-        { control: "Photo Upload", action: "Drag & drop or browse" },
-        { control: "Gallery Browsing", action: "Scroll through images" },
-        { control: "VR Navigation", action: "View photos in VR space" },
-        { control: "Share Features", action: "Share galleries externally" },
-      ],
-    },
-
-    safetyFeatures: [
-      { feature: "File Type Validation", icon: ShieldCheck },
-      { feature: "Size Limits", icon: File },
-      { feature: "Virus Scanning", icon: Shield },
-      { feature: "User Rate Limiting", icon: Wifi }, // Changed from Cctv to Wifi
-      { feature: "Secure Storage", icon: Lock },
-      { feature: "Data Encryption", icon: Key },
-    ],
-
-    mediaSpecs: [
-      {
-        type: "Uploaded Photos",
-        formats: "JPG, PNG, WebP, GIF",
-        maxSize: "10MB",
-        features: "Auto-resizing, Compression",
-      },
-      {
-        type: "Processed Images",
-        formats: "JPG, WebP",
-        maxSize: "2MB",
-        features: "Optimized for web & VR",
-      },
-      {
-        type: "Thumbnails",
-        formats: "JPG, WebP",
-        maxSize: "200KB",
-        features: "Multiple sizes generated",
-      },
-      {
-        type: "Metadata",
-        formats: "JSON",
-        maxSize: "50KB",
-        features: "User info, Timestamps, Location",
-      },
     ],
 
     folderStructure: [
@@ -531,7 +449,7 @@ const projectDetails = {
             type: "directory",
             children: [
               { name: "index.html", type: "file", icon: Code },
-              { name: "Gallery.html", type: "file", icon: Images }, // Changed from GalleryVertical to Images
+              { name: "Gallery.html", type: "file", icon: Images },
               { name: "style.css", type: "file", icon: Palette },
               { name: "script.js", type: "file", icon: Code2 },
             ],
@@ -572,14 +490,18 @@ const ProjectDetail_5 = () => {
   ]);
   const project = projectDetails["vr-tour-gallery"];
 
+  // Lightbox State
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const openLightbox = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setLightboxOpen(true);
+  };
+
   const handleNavigation = (path: string) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     navigate(path);
-  };
-
-  const handleContactClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate("/contact");
   };
 
   const copyToClipboard = (text: string, id: string) => {
@@ -596,13 +518,6 @@ const ProjectDetail_5 = () => {
     );
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % project.images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [project.images.length]);
-
   // Define a type for folder structure items to fix the TypeScript error
   interface FolderItem {
     name: string;
@@ -618,1129 +533,493 @@ const ProjectDetail_5 = () => {
       return (
         <div key={index} className="font-mono text-sm">
           <div
-            className={`flex items-center gap-2 py-1 px-2 hover:bg-muted/50 rounded cursor-pointer ${
-              depth > 0 ? `ml-${depth * 4}` : ""
-            }`}
+            className={cn(
+               "flex items-center gap-2 py-1.5 px-2 hover:bg-white/5 rounded-lg cursor-pointer transition-colors duration-200",
+               depth > 0 && "ml-4"
+            )}
+            style={{ marginLeft: `${depth * 1.5}rem` }}
             onClick={() => item.type === "directory" && toggleFolder(item.name)}
           >
             {item.type === "directory" ? (
               <>
                 <ChevronRight
-                  className={`w-3 h-3 transition-transform ${
+                  className={`w-3 h-3 text-muted-foreground transition-transform duration-200 ${
                     isExpanded ? "rotate-90" : ""
                   }`}
                 />
-                <Folder className="w-4 h-4 text-blue-500" />
-                <span className="text-blue-500">{item.name}</span>
+                <Folder className="w-4 h-4 text-blue-400" />
+                <span className="text-blue-200 font-medium">{item.name}</span>
               </>
             ) : (
               <>
-                <div className="w-6" /> {/* Spacer for alignment */}
+                <div className="w-3" /> {/* Alignment spacer matching chevron width */}
                 {item.icon ? (
-                  <item.icon className="w-4 h-4 text-green-500" />
+                  <item.icon className="w-4 h-4 text-green-400" />
                 ) : (
-                  <File className="w-4 h-4 text-gray-500" />
+                  <File className="w-4 h-4 text-muted-foreground" />
                 )}
-                <span className="text-foreground">{item.name}</span>
+                <span className="text-muted-foreground">{item.name}</span>
               </>
             )}
           </div>
-          {item.type === "directory" && item.children && isExpanded && (
-            <div className="ml-4">
-              {renderFolderStructure(item.children, depth + 1)}
-            </div>
+          {item.type === "directory" && item.children && (
+             <AnimatePresence>
+                {isExpanded && (
+                   <motion.div
+                     initial={{ opacity: 0, height: 0 }}
+                     animate={{ opacity: 1, height: "auto" }}
+                     exit={{ opacity: 0, height: 0 }}
+                     transition={{ duration: 0.2 }}
+                     className="overflow-hidden"
+                   >
+                     {renderFolderStructure(item.children as FolderItem[], depth + 1)}
+                   </motion.div>
+                )}
+             </AnimatePresence>
           )}
         </div>
       );
     });
   };
 
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center space-y-4">
+          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
+            <FileCode className="w-8 h-8 text-muted-foreground" />
+          </div>
+          <h1 className="font-clash font-bold text-2xl">Project not found</h1>
+          <Button onClick={() => handleNavigation("/work-Page")}>
+            <ArrowLeft className="mr-2 w-4 h-4" /> Back to Work
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen">
-      {/* Enhanced Background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="relative min-h-screen text-foreground overflow-x-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        {/* Texture Layer */}
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+
+        {/* Radial Fade Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
 
-      {/* Floating Back Button */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 left-4 z-50 md:hidden"
-      >
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full backdrop-blur-sm bg-background/80 border"
-          onClick={() => handleNavigation("/work")}
-        >
-          <ArrowLeft className="w-4 h-4" />
-        </Button>
-      </motion.div>
+      <div className="fixed inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      
+      {/* Scroll Progress Bar */}
+      <motion.div 
+        className="fixed top-0 left-0 h-1 bg-primary z-50 origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.5 }}
+        style={{ scaleX: 0.5 }} // Should be connected to actual scroll progress
+      />
 
-      {/* Main Content */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative pt-14 md:pt-24 lg:pt-36 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5" />
-          
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16 relative">
-            {/* Back Button */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="hidden md:block mb-8"
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-[85vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Button
+              variant="ghost" 
+              className="gap-2 text-muted-foreground hover:text-foreground mb-8 pl-0 hover:bg-transparent"
+              onClick={() => handleNavigation("/work-Page")}
             >
-              <Button
-                variant="ghost"
-                className="gap-2 group"
-                onClick={() => handleNavigation("/work")}
-              >
-                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                Back to Portfolio
-              </Button>
-            </motion.div>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </Button>
+          </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Content */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Hero Text */}
+            <div className="space-y-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-6 lg:space-y-8"
+                transition={{ delay: 0.2 }}
               >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary" className="font-satoshi">
-                      {project.category}
-                    </Badge>
-                    {project.featured && (
-                      <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white border-0">
-                        <Sparkles className="w-3 h-3 mr-1" />
-                        Featured
-                      </Badge>
-                    )}
-                    <Badge variant="outline" className="font-satoshi">
-                      {project.duration}
-                    </Badge>
-                  </div>
-
-                  <div>
-                    <h1 className="font-clash font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-                      {project.title}
-                    </h1>
-                    <p className="font-satoshi text-lg md:text-xl text-muted-foreground mt-3">
-                      {project.tagline}
-                    </p>
-                  </div>
-
-                  <p className="font-satoshi text-base md:text-lg leading-relaxed">
-                    {project.fullDescription}
-                  </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <Badge variant="outline" className="font-grotesk text-sm py-1 px-3 border-primary/20 bg-primary/5 text-primary">
+                    {project.category}
+                  </Badge>
+                  {project.featured && (
+                     <Badge variant="default" className="font-grotesk text-sm py-1 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0">
+                       <Sparkles className="w-3 h-3 mr-1" /> Featured Project
+                     </Badge>
+                  )}
                 </div>
-
-                {/* Tech Stack Tags */}
-                <div>
-                  <h3 className="font-clash font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3">
-                    Tech Stack
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, index) => {
-                      const Icon = tech.icon;
-                      return (
-                        <Badge
-                          key={index}
-                          variant="outline"
-                          className="gap-2 px-3 py-2 backdrop-blur-sm bg-white/5 border-border/50"
-                        >
-                          <Icon className={`w-3.5 h-3.5 ${tech.color}`} />
-                          <span className="font-satoshi">{tech.name}</span>
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Project Meta */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Calendar className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Duration
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.duration}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-blue-500/10">
-                      <Users className="w-4 h-4 text-blue-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Team
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.teamSize}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-green-500/10">
-                      <Target className="w-4 h-4 text-green-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Role
-                      </p>
-                      <p className="font-clash font-semibold">{project.role}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      size="lg"
-                      className="w-full gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Globe className="w-4 h-4" />
-                        Visit Live Site
-                        <ExternalLink className="w-3 h-3 ml-1" />
-                      </a>
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4" />
-                        Source Code
-                      </a>
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="sm:flex-1"
-                  >
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="w-full gap-2"
-                      onClick={() => {
-                        alert(
-                          "Try uploading your own photos on the live site!"
-                        );
-                      }}
-                    >
-                      <UploadCloud className="w-4 h-4" />
-                      Try Upload Demo
-                    </Button>
-                  </motion.div>
-                </div>
+                
+                <h1 className="font-clash font-black text-5xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6">
+                  {project.title}
+                </h1>
+                
+                <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  {project.tagline}
+                </p>
               </motion.div>
 
-              {/* Hero Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
-                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4"
               >
-                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10">
-                  <div className="aspect-[4/3] relative">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={activeImage}
-                        src={project.images[activeImage]}
-                        alt={project.title}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center justify-between">
-                        <Badge className="bg-background/90 backdrop-blur-sm border-0 px-3 py-1.5">
-                          <Glasses className="w-3 h-3 mr-1.5 text-primary" /> {/* Changed from VirtualReality to Glasses */}
-                          VR Gallery Platform
-                        </Badge>
-                        <div className="flex gap-1">
-                          {project.images.map((_, idx) => (
-                            <button
-                              key={idx}
-                              onClick={() => setActiveImage(idx)}
-                              className={cn(
-                                "w-2 h-2 rounded-full transition-all",
-                                idx === activeImage
-                                  ? "bg-primary w-6"
-                                  : "bg-white/50 hover:bg-white"
-                              )}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Live Demo 
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-14 px-8 text-base border-border bg-background/50 backdrop-blur-sm" asChild>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 w-5 h-5" />
+                    Source Code
+                  </a>
+                </Button>
+              </motion.div>
 
-                {/* Image Thumbnails */}
-                <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
-                  {project.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      className={cn(
-                        "relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all",
-                        idx === activeImage
-                          ? "border-primary ring-2 ring-primary/20"
-                          : "border-transparent hover:border-border"
-                      )}
-                    >
-                      <img
-                        src={img}
-                        alt={`Preview ${idx + 1}`}
-                        className="w-20 h-14 object-cover"
-                      />
-                    </button>
-                  ))}
+              {/* Quick Stats Grid */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-border/40"
+              >
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Role</div>
+                  <div className="font-satoshi font-medium">{project.role}</div>
                 </div>
-
-                {/* Upload Flow Diagram */}
-                <div className="mt-8 rounded-xl border bg-card/50 p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <UploadCloud className="w-5 h-5 text-primary" />
-                    <h4 className="font-clash font-semibold">
-                      Upload Flow Process
-                    </h4>
-                  </div>
-                  <div className="relative rounded-lg overflow-hidden border">
-                    <div className="p-4 bg-gradient-to-r from-primary/5 to-cyan-500/5">
-                      <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10">
-                          <UserPlus className="w-4 h-4" />
-                          <span>User Upload</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/10">
-                          <ServerIcon className="w-4 h-4" /> {/* Changed from Server to ServerIcon */}
-                          <span>Flask Processing</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500/10">
-                          <Images className="w-4 h-4" /> {/* Changed from GalleryVertical to Images */}
-                          <span>Gallery Update</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-500/10">
-                          <Glasses className="w-4 h-4" /> {/* Changed from VirtualReality to Glasses */}
-                          <span>VR Integration</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Timeline</div>
+                  <div className="font-satoshi font-medium">{project.duration}</div>
+                </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Team</div>
+                  <div className="font-satoshi font-medium">{project.teamSize}</div>
                 </div>
               </motion.div>
             </div>
+
+            {/* Hero Visual */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
+              className="relative"
+            >
+               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
+               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
+                 <img 
+                   src={project.images[0]} 
+                   alt={project.title}
+                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                 />
+                 {/* Glass overlay */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="flex gap-2">
+                       {project.techStack.slice(0, 3).map((tech, i) => (
+                         <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
+                           <tech.icon className="w-3 h-3" /> {tech.name}
+                         </div>
+                       ))}
+                       <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
+                    </div>
+                 </div>
+               </div>
+               
+               {/* Floating elements */}
+               <motion.div 
+                 animate={{ y: [0, -10, 0] }}
+                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                 className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
+               >
+                 <div className="flex items-center gap-3">
+                   <div className="p-2 bg-green-500/20 rounded-lg">
+                     <ShieldCheck className="w-6 h-6 text-green-500" />
+                   </div>
+                   <div>
+                     <div className="text-xs text-muted-foreground font-grotesk uppercase">Security</div>
+                     <div className="font-bold font-clash">Auth Protected</div>
+                   </div>
+                 </div>
+               </motion.div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Main Content */}
-        <section className="relative py-12 md:py-20 bg-background">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
-          </div>
-
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-              {/* Left Column */}
-              <div className="lg:col-span-2 space-y-12 lg:space-y-16">
-                {/* Performance Metrics */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      System Performance
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Optimized for fast uploads and seamless gallery experiences
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.metrics.map((metric, index) => {
-                      const Icon = metric.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
-                        >
-                          <CardContent className="p-5">
-                            <div className="flex items-start justify-between mb-4">
-                              <div className="p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                                <Icon className="w-5 h-5 text-primary" />
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                            <div className="space-y-1">
-                              <div className="font-clash font-bold text-2xl md:text-3xl">
-                                {metric.value}
-                              </div>
-                              <h3 className="font-clash font-semibold">
-                                {metric.label}
-                              </h3>
-                              <p className="font-satoshi text-sm text-muted-foreground">
-                                {metric.description}
-                              </p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Core Features */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Core Features
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Complete solution for user-generated content in VR environments
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {project.coreFeatures.map((feature, index) => {
-                      const Icon = feature.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:shadow-lg transition-all duration-300"
-                        >
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <div
-                                className={`p-3 rounded-xl ${feature.color}`}
-                              >
-                                <Icon className="w-6 h-6" />
-                              </div>
-                              <div className="flex-1">
-                                <h3 className="font-clash font-bold text-lg mb-2">
-                                  {feature.title}
-                                </h3>
-                                <p className="font-satoshi text-muted-foreground mb-4">
-                                  {feature.description}
-                                </p>
-                                <div className="space-y-2">
-                                  {feature.examples.map((example, idx) => (
-                                    <div
-                                      key={idx}
-                                      className="flex items-center gap-2 p-2 rounded-lg bg-muted font-satoshi text-sm"
-                                    >
-                                      <CheckCircle2 className="w-3 h-3 text-green-500" />
-                                      {example}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Folder Structure */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Project Structure
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Organized codebase following clean architecture principles
-                    </p>
-                  </div>
-
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          <FolderTree className="w-5 h-5 text-primary" />
-                          <h3 className="font-clash font-semibold">
-                            Directory Tree
-                          </h3>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setExpandedFolders(
-                            expandedFolders.length > 0 ? [] : ["VR-Tour_Gallery/", "Backend/", "Frontend/"]
-                          )}
-                        >
-                          {expandedFolders.length > 0 ? "Collapse All" : "Expand All"}
-                        </Button>
-                      </div>
-                      <div className="border rounded-lg p-4 bg-muted/30">
-                        {renderFolderStructure(project.folderStructure as FolderItem[])}
-                      </div>
-                      <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Folder className="w-4 h-4 text-blue-500" />
-                          <span className="text-muted-foreground">Directory</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <File className="w-4 h-4 text-green-500" />
-                          <span className="text-muted-foreground">File</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-
-                {/* System Architecture */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      System Architecture
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      {project.architecture.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    {project.architecture.components.map((component, index) => {
-                      const Icon = component.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-xl border bg-card/50 hover:bg-card transition-colors"
-                        >
-                          <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10">
-                            <Icon className="w-5 h-5 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-clash font-bold text-lg mb-2">
-                              {component.name}
-                            </h3>
-                            <p className="font-satoshi text-muted-foreground mb-3">
-                              {component.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {component.technologies.map((tech, idx) => (
-                                <Badge
-                                  key={idx}
-                                  variant="secondary"
-                                  className="font-satoshi"
-                                >
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Architecture Visualization */}
-                  <Card className="mt-8">
-                    <CardContent className="p-6">
-                      <div className="text-center space-y-4">
-                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-cyan-500/20">
-                          <Network className="w-8 h-8 text-primary" />
-                        </div>
-                        <h3 className="font-clash font-bold text-xl">
-                          Upload Pipeline
-                        </h3>
-                        <p className="font-satoshi text-muted-foreground">
-                          User Upload → Flask Processing → Storage → Gallery Update → VR Integration
-                        </p>
-                        <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-satoshi text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500">
-                              Upload
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
-                              Process
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
-                              Store
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="px-3 py-1 rounded-full bg-primary/10 text-primary">
-                            Display
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-
-                {/* Tabs Section */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <Tabs defaultValue="services" className="w-full">
-                    <TabsList className="grid grid-cols-3 mb-6">
-                      <TabsTrigger value="services">Use Cases</TabsTrigger>
-                      <TabsTrigger value="controls">Controls</TabsTrigger>
-                      <TabsTrigger value="deployment">Deployment</TabsTrigger>
-                    </TabsList>
-
-                    <TabsContent value="services" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Building className="w-5 h-5 text-primary" />
-                            Industry Applications
-                          </h3>
-                          {project.serviceExamples.verticals.map(
-                            (service, index) => {
-                              const Icon = service.icon;
-                              return (
-                                <Card key={index}>
-                                  <CardContent className="p-4">
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-3">
-                                        <div className="p-2 rounded-lg bg-primary/10">
-                                          <Icon className="w-4 h-4 text-primary" />
-                                        </div>
-                                        <div>
-                                          <h4 className="font-clash font-bold">
-                                            {service.industry}
-                                          </h4>
-                                          <p className="font-satoshi text-sm text-muted-foreground">
-                                            {service.application}
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <Separator />
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Business Benefit
-                                        </p>
-                                        <p className="font-satoshi font-medium">
-                                          {service.benefit}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </CardContent>
-                                </Card>
-                              );
-                            }
-                          )}
-                        </div>
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Settings className="w-5 h-5 text-primary" />
-                            Technical Solutions
-                          </h3>
-                          {project.serviceExamples.technical.map(
-                            (solution, index) => (
-                              <Card key={index}>
-                                <CardContent className="p-4">
-                                  <div className="space-y-3">
-                                    <div>
-                                      <p className="font-satoshi text-sm text-muted-foreground">
-                                        Technical Feature
-                                      </p>
-                                      <p className="font-satoshi font-medium">
-                                        {solution.feature}
-                                      </p>
-                                    </div>
-                                    <div>
-                                      <p className="font-satoshi text-sm text-muted-foreground">
-                                        Challenge
-                                      </p>
-                                      <p className="font-satoshi">
-                                        {solution.challenge}
-                                      </p>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-2">
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Solution
-                                        </p>
-                                        <Badge className="bg-green-500/10 text-green-500">
-                                          {solution.solution}
-                                        </Badge>
-                                      </div>
-                                      <div className="flex items-center gap-2">
-                                        {solution.icon && (
-                                          <solution.icon className="w-4 h-4 text-primary" />
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    <TabsContent value="controls" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Settings className="w-5 h-5 text-primary" />
-                            Admin Controls
-                          </h3>
-                          <Card>
-                            <CardContent className="p-6">
-                              <div className="space-y-3">
-                                {project.platformControls.admin.map(
-                                  (control, index) => (
-                                    <div
-                                      key={index}
-                                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-                                    >
-                                      <div className="flex items-center gap-3">
-                                        <div className="p-2 rounded bg-primary/10">
-                                          <Settings className="w-3 h-3 text-primary" />
-                                        </div>
-                                        <span className="font-satoshi text-sm">
-                                          {control.control}
-                                        </span>
-                                      </div>
-                                      <span className="font-satoshi text-xs text-muted-foreground">
-                                        {control.action}
-                                      </span>
-                                    </div>
-                                  )
-                                )}
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </div>
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Users className="w-5 h-5 text-primary" />
-                            User Experience
-                          </h3>
-                          <Card>
-                            <CardContent className="p-6">
-                              <div className="space-y-3">
-                                {project.platformControls.user.map(
-                                  (control, index) => (
-                                    <div
-                                      key={index}
-                                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-                                    >
-                                      <span className="font-satoshi text-sm">
-                                        {control.control}
-                                      </span>
-                                      <span className="font-satoshi text-xs text-muted-foreground">
-                                        {control.action}
-                                      </span>
-                                    </div>
-                                  )
-                                )}
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    <TabsContent value="deployment" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {project.deployment.map((option, index) => {
-                          const Icon = option.icon;
-                          return (
-                            <Card key={index}>
-                              <CardContent className="p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                  <div className="p-2 rounded-lg bg-blue-500/10">
-                                    <Icon className="w-5 h-5 text-blue-500" />
-                                  </div>
-                                  <div>
-                                    <h3 className="font-clash font-bold">
-                                      {option.platform}
-                                    </h3>
-                                    <Badge
-                                      variant={
-                                        option.complexity === "Easy"
-                                          ? "default"
-                                          : option.complexity === "Medium"
-                                          ? "secondary"
-                                          : "outline"
-                                      }
-                                      className="mt-1"
-                                    >
-                                      {option.complexity}
-                                    </Badge>
-                                  </div>
-                                </div>
-                                <div className="space-y-2">
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    Deployment Command
-                                  </p>
-                                  <div className="relative">
-                                    <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto font-mono">
-                                      {option.command}
-                                    </pre>
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="absolute right-2 top-2 h-6 w-6 p-0"
-                                      onClick={() =>
-                                        copyToClipboard(
-                                          option.command,
-                                          option.platform
-                                        )
-                                      }
-                                    >
-                                      {copied === option.platform ? (
-                                        <Check className="w-3 h-3" />
-                                      ) : (
-                                        <Copy className="w-3 h-3" />
-                                      )}
-                                    </Button>
-                                  </div>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          );
-                        })}
-                      </div>
-                    </TabsContent>
-                  </Tabs>
-                </motion.section>
+      {/* Metrics Section (Full width strip) */}
+      <section className="border-y border-border/40 bg-card/30 backdrop-blur-sm relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-border/40">
+            {project.metrics.map((metric, i) => (
+              <div key={i} className="px-4 py-6 sm:py-8 text-center group hover:bg-primary/5 transition-colors">
+                 <metric.icon className="w-5 h-5 mx-auto mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                 <div className="font-clash font-bold text-2xl sm:text-3xl mb-1">{metric.value}</div>
+                 <div className="font-satoshi text-xs text-muted-foreground">{metric.label}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Right Column - Sidebar */}
-              <div className="space-y-8">
-                {/* Media Specifications */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">
-                    Media Specifications
-                  </h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="space-y-4">
-                        {project.mediaSpecs.map((spec, index) => (
-                          <div key={index} className="space-y-3">
-                            <div className="flex items-center gap-3">
-                              {spec.type === "Uploaded Photos" && (
-                                <UploadCloud className="w-5 h-5 text-blue-500" />
-                              )}
-                              {spec.type === "Processed Images" && (
-                                <ImageIcon className="w-5 h-5 text-purple-500" />
-                              )}
-                              {spec.type === "Thumbnails" && (
-                                <EyeIcon className="w-5 h-5 text-green-500" />
-                              )}
-                              {spec.type === "Metadata" && (
-                                <FileJson className="w-5 h-5 text-pink-500" />
-                              )}
-                              <h3 className="font-clash font-bold">
-                                {spec.type}
-                              </h3>
+      {/* Main Content Layout */}
+      <section className="relative z-10 py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid lg:grid-cols-12 gap-12">
+             
+             {/* Sticky Sidebar (Table of Contents / Navigation) */}
+             <div className="hidden lg:block lg:col-span-3">
+               <div className="sticky top-24 space-y-8">
+                 <div>
+                   <h3 className="font-clash font-bold text-lg mb-4">Project Overview</h3>
+                   <nav className="space-y-3">
+                     <a href="#about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About the Project</a>
+                     <a href="#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Core Features</a>
+                     <a href="#tech" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Technology Stack</a>
+                      <a href="#structure" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Project Structure</a>
+                     <a href="#gallery" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Live Gallery</a>
+                     <a href="#deployment" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Deployment</a>
+                   </nav>
+                 </div>
+                 
+                 <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
+                   <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                     <Download className="w-4 h-4" /> Download Package
+                   </h4>
+                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
+                   <Button size="sm" variant="outline" className="w-full" asChild>
+                     <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                   </Button>
+                 </div>
+               </div>
+             </div>
+
+             {/* Main Content Area */}
+             <div className="lg:col-span-9 space-y-20 lg:space-y-32">
+               
+               {/* About / description */}
+               <div id="about" className="space-y-6">
+                 <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Context</span>
+                 <h2 className="font-clash font-bold text-3xl sm:text-4xl">The Challenge</h2>
+                 <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
+                   {project.fullDescription}
+                 </p>
+                 <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                   {project.coreFeatures.slice(0,2).map((feature, i) => (
+                     <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
+                       <h4 className="font-bold mb-2 flex items-center gap-2">
+                         <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
+                       </h4>
+                       <p className="text-sm text-muted-foreground">{feature.description}</p>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+
+               {/* Bento Grid Features */}
+               <div id="features" className="space-y-8">
+                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                   <div>
+                     <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Innovation</span>
+                     <h2 className="font-clash font-bold text-3xl sm:text-4xl mt-2">Core Capabilities</h2>
+                   </div>
+                   <p className="max-w-md text-muted-foreground text-sm sm:text-right">
+                     Seamlessly bridging the gap between physical spaces and digital experiences.
+                   </p>
+                 </div>
+                 
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                   {project.coreFeatures.map((feature, i) => (
+                     <motion.div
+                       key={i}
+                       whileHover={{ y: -5 }}
+                       className={cn(
+                         "p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-colors shadow-sm",
+                         i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"
+                       )}
+                     >
+                        <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-6", feature.color)}>
+                          <feature.icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="font-clash font-bold text-xl mb-3">{feature.title}</h3>
+                        <p className="text-muted-foreground font-satoshi leading-relaxed mb-6">
+                          {feature.description}
+                        </p>
+                        
+                        <div className="space-y-2">
+                          {feature.examples.map((ex, j) => (
+                             <div key={j} className="flex items-center gap-2 text-xs font-mono bg-background/50 p-2 rounded border border-border/30">
+                               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                               {ex}
+                             </div>
+                          ))}
+                        </div>
+                     </motion.div>
+                   ))}
+                 </div>
+               </div>
+
+               {/* Tech Stack Marquee / Grid */}
+               <div id="tech" className="space-y-8">
+                  <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Under the hood</span>
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Technical Architecture</h2>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                     {project.techStack.map((tech, i) => (
+                       <Card key={i} className="border-border/50 bg-card/30 hover:bg-card/80 transition-all hover:scale-105 duration-300">
+                         <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full gap-4">
+                            <tech.icon className={cn("w-10 h-10", tech.color)} />
+                            <span className="font-satoshi font-medium">{tech.name}</span>
+                         </CardContent>
+                       </Card>
+                     ))}
+                  </div>
+
+                  {/* Architecture Diagram */}
+                  <div className="mt-12 p-8 rounded-3xl bg-secondary/20 border border-border relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+                     <div className="relative z-10 grid gap-8 md:grid-cols-2">
+                        {project.architecture.components.map((comp, i) => (
+                          <div key={i} className="flex gap-4">
+                            <div className="p-3 bg-background rounded-xl h-fit border border-border">
+                              <comp.icon className="w-5 h-5 text-primary" />
                             </div>
-                            <div className="space-y-2 font-satoshi text-sm">
-                              <div className="flex justify-between">
-                                <span className="text-muted-foreground">
-                                  Formats:
-                                </span>
-                                <span className="font-medium">
-                                  {spec.formats}
-                                </span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-muted-foreground">
-                                  Max Size:
-                                </span>
-                                <span className="font-medium">
-                                  {spec.maxSize}
-                                </span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-muted-foreground">
-                                  Features:
-                                </span>
-                                <span className="font-medium">
-                                  {spec.features}
-                                </span>
+                            <div>
+                              <h4 className="font-bold font-clash mb-1">{comp.name}</h4>
+                              <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {comp.technologies.map((t, k) => (
+                                  <span key={k} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">{t}</span>
+                                ))}
                               </div>
                             </div>
                           </div>
                         ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Safety & Compliance */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.1 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl flex items-center gap-2">
-                    <Shield className="w-5 h-5 text-primary" />
-                    Security Features
-                  </h3>
-                  <div className="space-y-3">
-                    {project.safetyFeatures.map((item, index) => {
-                      const Icon = item.icon;
-                      return (
-                        <div
-                          key={index}
-                          className="flex items-center gap-3 p-3 rounded-lg border bg-card/50"
-                        >
-                          <Icon className="w-4 h-4 text-primary" />
-                          <span className="font-satoshi text-sm">
-                            {item.feature}
-                          </span>
-                        </div>
-                      );
-                    })}
+                     </div>
                   </div>
-                </motion.div>
+               </div>
 
-                {/* Industry Specifications */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.2 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">
-                    Industry Focus
-                  </h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="space-y-4">
-                        {project.industrySpecs.map((industry, index) => {
-                          const Icon = industry.icon;
-                          return (
-                            <div
-                              key={index}
-                              className="flex items-center justify-between py-2 border-b last:border-0"
-                            >
-                              <div className="flex items-center gap-3">
-                                <Icon className="w-4 h-4 text-primary" />
-                                <div>
-                                  <span className="font-clash font-semibold text-sm">
-                                    {industry.industry}
-                                  </span>
-                                  <p className="font-satoshi text-xs text-muted-foreground">
-                                    {industry.features}
-                                  </p>
-                                </div>
-                              </div>
-                              <Badge variant="outline" className="text-xs">
-                                {industry.pricing}
-                              </Badge>
+                {/* Folder Structure Section */}
+                <div id="structure" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Project Structure</h2>
+                   <div className="rounded-3xl border border-border bg-card/50 overflow-hidden shadow-sm">
+                      <div className="border-b border-border bg-muted/30 px-6 py-4 flex items-center justify-between">
+                         <div className="flex gap-2">
+                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                         </div>
+                         <span className="text-xs font-mono text-muted-foreground">file-explorer</span>
+                      </div>
+                      <div className="p-6">
+                         {renderFolderStructure(project.folderStructure as FolderItem[])}
+                      </div>
+                   </div>
+                </div>
+
+                {/* Gallery Slider */}
+                <div id="gallery" className="space-y-8">
+                  <div className="flex items-center justify-between">
+                     <h2 className="font-clash font-bold text-3xl sm:text-4xl">Interface Gallery</h2>
+                     <div className="flex gap-2">
+                        <Button size="icon" variant="outline" onClick={() => setActiveImage((prev) => (prev - 1 + project.images.length) % project.images.length)}>
+                          <ArrowLeft className="w-4 h-4" />
+                        </Button>
+                        <Button size="icon" variant="outline" onClick={() => setActiveImage((prev) => (prev + 1) % project.images.length)}>
+                          <ArrowLeft className="w-4 h-4 rotate-180" />
+                        </Button>
+                     </div>
+                  </div>
+
+                  <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-2xl cursor-zoom-in group" onClick={() => openLightbox(project.images[activeImage])}>
+                        <div className="absolute inset-0 z-20 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                            <div className="bg-background/80 backdrop-blur-md px-4 py-2 rounded-full border border-border/50 flex items-center gap-2 font-satoshi font-medium">
+                                <ZoomIn className="w-4 h-4" /> View Fullscreen
                             </div>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Quick Links */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-4"
-                >
-                  <Button
-                    variant="outline"
-                    className="w-full gap-2"
-                    onClick={handleContactClick}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Start VR Gallery Project
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full gap-2"
-                    onClick={() => handleNavigation("/work")}
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    View All Projects
-                  </Button>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Globe className="w-3 h-3" />
-                        Live Site
-                      </a>
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-3 h-3" />
-                        Source Code
-                      </a>
-                    </Button>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="py-12 md:py-20 relative"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-gradient-to-r from-primary/5 via-transparent to-cyan-500/5 border-primary/20">
-              <CardContent className="p-8 md:p-12 text-center">
-                <div className="max-w-2xl mx-auto space-y-6">
-                  <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-cyan-500/20">
-                    <Glasses className="w-8 h-8 text-primary" /> {/* Changed from VirtualReality to Glasses */}
-                  </div>
-                  <h2 className="font-clash font-bold text-2xl md:text-3xl">
-                    Ready to Enhance Your VR Experience?
-                  </h2>
-                  <p className="font-satoshi text-muted-foreground">
-                    Transform your VR tours into interactive, community-driven experiences. 
-                    Let users contribute their memories and create dynamic virtual galleries 
-                    that evolve with every visit.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        size="lg"
-                        className="gap-2"
-                        onClick={handleContactClick}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Start Your VR Gallery Project
-                      </Button>
-                    </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="gap-2"
-                        onClick={() => handleNavigation("/work")}
-                      >
-                        View More Projects
-                      </Button>
-                    </motion.div>
+                        </div>
+                     <AnimatePresence mode="wait">
+                       <motion.img 
+                         key={activeImage}
+                         src={project.images[activeImage]}
+                         initial={{ opacity: 0, scale: 1.05 }}
+                         animate={{ opacity: 1, scale: 1 }}
+                         exit={{ opacity: 0 }}
+                         transition={{ duration: 0.5 }}
+                         className="absolute inset-0 w-full h-full object-cover"
+                         alt="Project screenshot"
+                       />
+                     </AnimatePresence>
+                     <div className="absolute bottom-6 left-6 right-6 flex justify-center gap-2">
+                        {project.images.map((_, i) => (
+                          <div 
+                            key={i} 
+                            onClick={() => setActiveImage(i)}
+                            className={cn(
+                              "w-2 h-2 rounded-full cursor-pointer transition-all",
+                              i === activeImage ? "bg-white w-8" : "bg-white/50 hover:bg-white"
+                            )}
+                          />
+                        ))}
+                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </motion.section>
-      </div>
+
+                {/* Deployment Section */}
+                <div id="deployment" className="space-y-8">
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
+                   <div className="grid md:grid-cols-2 gap-4">
+                      {project.deployment.map((deploy, i) => (
+                        <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-muted/20 border border-border/50">
+                           <div className="p-2 bg-background rounded-lg border border-border">
+                              <deploy.icon className="w-6 h-6 text-primary" />
+                           </div>
+                           <div>
+                              <h4 className="font-bold font-clash">{deploy.platform}</h4>
+                              <code className="text-xs bg-muted px-1 py-0.5 rounded text-primary">{deploy.command}</code>
+                              <div className="flex gap-2 mt-2">
+                                <Badge variant="outline" className="text-[10px] h-5">{deploy.complexity}</Badge>
+                              </div>
+                           </div>
+                        </div>
+                      ))}
+                   </div>
+                </div>
+
+             </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Next Project CTA */}
+      <section className="relative z-10 py-20 border-t border-border/40 bg-background">
+         <div className="container mx-auto px-4 text-center">
+            <h3 className="font-clash font-bold text-3xl mb-6">Ready to see more?</h3>
+            <div className="flex justify-center gap-4">
+              <Button size="lg" onClick={() => handleNavigation("/work-Page")}>
+                 Browse Portfolio
+              </Button>
+              <Button size="lg" variant="outline" onClick={() => handleNavigation("/contact-Page")}>
+                 Get in Touch
+              </Button>
+            </div>
+         </div>
+      </section>
+      <ImageViewer 
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        imageSrc={selectedImage}
+        alt="Project Gallery Image"
+      />
     </div>
   );
 };

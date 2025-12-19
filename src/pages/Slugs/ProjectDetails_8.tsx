@@ -12,12 +12,12 @@ import {
   Calendar,
   Users,
   Target,
+  Brain,
   Shield,
   Zap,
   MessageCircle,
   Cpu,
   Database,
-  Palette,
   Code,
   Globe,
   Terminal,
@@ -28,6 +28,7 @@ import {
   Sparkles,
   Clock,
   CheckCircle,
+  BarChart3,
   CpuIcon,
   DatabaseIcon,
   CodeIcon,
@@ -42,6 +43,8 @@ import {
   Maximize2,
   Copy,
   Check,
+  Share2,
+  Heart,
   Camera,
   Mic,
   Video,
@@ -58,163 +61,66 @@ import {
   MessageSquare,
   Image as ImageIcon,
   Music,
-  Volume2,
-  Gamepad2,
-  Smartphone as SmartphoneIcon,
-  MousePointer,
-  Zap as ZapIcon,
-  Shield as ShieldIcon,
-  TrendingUp,
-  Settings,
-  ArrowRight,
-  Award,
-  Bolt,
-  Headphones as HeadphonesIcon,
-  RotateCw,
-  ShieldOff,
-  ShieldAlert,
-  ArrowUpRight,
-  Circle,
-  Square,
-  Star,
+  School as SchoolIcon,
+  Lightbulb,
+  Layers as LayersIcon,
+  Code2,
+  Palette,
   Cloud as CloudIcon,
-  Download as DownloadIcon,
-  Upload as UploadIcon,
-  RefreshCw,
-  Folder,
-  Package,
-  File,
-  FileText,
-  FileCode as FileCodeIcon,
-  FileJson,
-  FileImage,
-  QrCode,
-  Save,
-  Trash2,
-  HardDrive,
-  Laptop,
-  Tablet,
-  Printer,
-  Scan,
-  Camera as CameraIcon,
-  Share,
-  Link2,
-  Copy as CopyIcon,
-  WifiOff,
-  DownloadCloud,
-  UploadCloud,
-  Database as DatabaseIcon2,
-  Server as ServerIcon,
-  Globe as Globe2,
-  Network,
-  Wifi as WifiIcon,
-  Bluetooth,
-  Battery,
-  BatteryCharging,
-  BatteryFull,
-  Power,
-  Microchip,
-  CircuitBoard,
-  ServerCog,
-  Fingerprint,
-  KeyRound,
-  Lock as LockIcon,
-  Unlock,
-  Shield as ShieldIcon3,
-  ShieldCheck as ShieldCheckIcon,
-  ShieldAlert as ShieldAlertIcon,
-  ShieldOff as ShieldOffIcon,
-  ShieldQuestion,
-  ShieldX,
-  Smartphone as Smartphone2,
-  Tablet as TabletIcon,
-  Laptop as LaptopIcon,
-  Server as ServerIcon2,
-  CloudLightning,
-  Cctv,
-  Phone,
-  PhoneCall,
-  PhoneForwarded,
-  PhoneIncoming,
-  PhoneOutgoing,
-  PhoneMissed,
-  Video as VideoIcon,
-  Mic as MicIcon,
-  MicOff,
-  CameraOff,
-  FileSearch,
-  FilePlus,
-  FileMinus,
-  FileCheck,
-  FileWarning,
-  FolderPlus,
-  FolderMinus,
-  FolderCheck,
-  FolderGit,
-  SmartphoneCharging,
-  Radio,
-  Satellite,
-  Signal,
-  SignalHigh,
-  SignalLow,
-  Plug,
-  Cpu as Cpu2,
-  MemoryStick,
-  DatabaseZap,
-  QrCode as QrCodeIcon,
-  GitPullRequest,
-  GitCommit,
-  GitBranch as GitBranchIcon,
-  TerminalSquare,
-  Command,
-  Workflow,
-  Network as NetworkIcon,
-  ShieldPlus,
-  ShieldMinus,
-  EyeOff,
-  Bell,
-  BellOff,
-  AlertCircle,
-  CheckSquare,
-  XCircle,
-  PlayCircle,
-  StopCircle,
-  PauseCircle,
-  SkipForward,
-  SkipBack,
-  FastForward,
-  Rewind,
-  Volume1,
-  Move,
   Navigation,
+  MapPin,
+  Eye as EyeIcon,
+  Video as VideoIcon,
+  Satellite,
+  Scan,
+  QrCode,
+  Headphones,
   Compass,
-  Wind,
-  Feather,
-  Hexagon,
-  Pentagon,
-  Octagon,
-  Triangle,
-  Heart as HeartIcon,
-  Zap as ZapIcon2,
-  Box,
-  Archive,
-  FolderTree,
+  Settings,
+  Gamepad2,
+  GamepadIcon,
+  Target as TargetIcon,
+  BookOpen,
   Keyboard,
-  FileAudio,
-  FileVideo,
-  FileArchive,
-  FileSpreadsheet,
-  FileQuestion,
-  FileInput,
-  FileOutput,
-  FolderOpen as FolderOpenIcon,
-  FolderTree as FolderTreeIcon,
-  SmartphoneNfc,
-  SmartphoneCharging as SmartphoneChargingIcon,
-  Scan as ScanIcon,
+  Gamepad2 as Gamepad2Icon,
+  UploadCloud,
+  FolderTree,
+  FileJson,
+  Folder,
+  File,
+  Network,
+  EyeOff,
+  Eye as EyeOnIcon,
+  UserPlus,
   ImagePlus,
-  FileImage as FileImageIcon,
-  Link as LinkIcon,
+  Images,
+  FolderInput,
+  Upload as UploadIcon,
+  DownloadCloud,
+  FolderUp,
+  FolderSync,
+  Beaker,
+  Terminal as TerminalIcon,
+  Glasses,
+  Palette as PaletteIcon,
+  RefreshCw,
+  Map,
+  Home,
+  ArrowUpRight,
+  Globe2,
+  BatteryCharging,
+  MemoryStick,
+  Battery,
+  Package,
+  TerminalSquare,
+  PhoneCall,
+  PhoneOutgoing,
+  PlayCircle,
+  ServerCog,
+  KeyRound,
+  LockIcon,
+  CheckSquare,
+  Power
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -260,8 +166,8 @@ const projectDetails = {
 
     techStack: [
       { name: "Kotlin 1.9.0", icon: CodeIcon, color: "text-purple-500" },
-      { name: "Android SDK 34", icon: SmartphoneIcon, color: "text-green-500" },
-      { name: "Foreground Service", icon: ServerIcon, color: "text-blue-500" },
+      { name: "Android SDK 34", icon: Smartphone, color: "text-green-500" },
+      { name: "Foreground Service", icon: Server, color: "text-blue-500" },
       { name: "WebSocket", icon: Globe2, color: "text-yellow-500" },
       { name: "Jetpack Security", icon: ShieldCheck, color: "text-red-500" },
       { name: "Coroutines", icon: Zap, color: "text-orange-500" },
@@ -403,7 +309,7 @@ const projectDetails = {
     projectStructure: [
       {
         path: "app/src/main/java/com/remoteaccess/",
-        icon: FolderOpenIcon,
+        icon: FolderOpen,
         items: [
           "App.kt",
           "SetupActivity.kt",
@@ -414,7 +320,7 @@ const projectDetails = {
       },
       {
         path: "network/",
-        icon: NetworkIcon,
+        icon: Network,
         items: ["WebSocketManager.kt", "MessageRouter.kt", "CommandParser.kt"],
         files: 5,
       },
@@ -437,48 +343,9 @@ const projectDetails = {
       },
       {
         path: "res/xml/",
-        icon: FileCodeIcon,
+        icon: FileCode,
         items: ["network_security_config.xml", "permission_rules.xml"],
         files: 3,
-      },
-    ],
-
-    apiExamples: [
-      {
-        endpoint: "get_device_info",
-        description: "Retrieve detailed device information",
-        method: "WebSocket",
-        request: `{
-  "command": "get_device_info",
-  "request_id": "uuid-1234",
-  "timestamp": "2024-01-15T10:30:00Z",
-  "auth_token": "encrypted-token"
-}`,
-        response: `{
-  "device": "Pixel 7",
-  "android_version": "14",
-  "battery_level": "85%",
-  "storage_free": "64.2GB",
-  "connection_status": "stable"
-}`,
-      },
-      {
-        endpoint: "file_upload",
-        description: "Upload file to device storage",
-        method: "WebSocket",
-        request: `{
-  "command": "file_upload",
-  "request_id": "uuid-5678",
-  "path": "/sdcard/Documents/report.pdf",
-  "data": "Base64EncodedData...",
-  "auth_token": "encrypted-token"
-}`,
-        response: `{
-  "success": true,
-  "file_size": "2.4MB",
-  "saved_path": "/sdcard/Documents/report.pdf",
-  "timestamp": "2024-01-15T10:32:00Z"
-}`,
       },
     ],
 
@@ -571,7 +438,7 @@ const projectDetails = {
     deployment: [
       {
         platform: "Sideload APK",
-        command: "./gradlew assembleDebug && adb install app-debug.apk",
+        command: "./gradlew assembleDebug",
         complexity: "Easy",
         icon: Download,
         note: "Supports All Files Access permission",
@@ -587,35 +454,8 @@ const projectDetails = {
         platform: "MDM/Enterprise",
         command: "Distribute via MDM console",
         complexity: "Advanced",
-        icon: ServerIcon2,
+        icon: ServerCog,
         note: "Silent installation + pre-configuration",
-      },
-    ],
-
-    compatibility: [
-      {
-        device: "Pixel",
-        version: "Android 9+",
-        status: "Full",
-        icon: Smartphone,
-      },
-      {
-        device: "Samsung",
-        version: "One UI 4+",
-        status: "Full",
-        icon: Smartphone2,
-      },
-      {
-        device: "Xiaomi",
-        version: "MIUI 12+",
-        status: "Optimized",
-        icon: Smartphone,
-      },
-      {
-        device: "Oppo/Vivo",
-        version: "ColorOS 11+",
-        status: "Optimized",
-        icon: Smartphone,
       },
     ],
 
@@ -646,1470 +486,476 @@ const projectDetails = {
       },
     ],
 
-    // New data from README
     supportedActions: [
-      { action: "Device info / ping / logs", status: "✅ Active", icon: Cpu },
-      { action: "File management", status: "✅ Active", icon: Folder },
-      { action: "Microphone streaming", status: "✅ Active", icon: Mic },
-      { action: "Camera preview / capture", status: "✅ Active", icon: Camera },
-      { action: "Call logs (read)", status: "✅ Active", icon: PhoneCall },
+      { action: "Device info / ping / logs", status: "Active", icon: Cpu },
+      { action: "File management", status: "Active", icon: Folder },
+      { action: "Microphone streaming", status: "Active", icon: Mic },
+      { action: "Camera preview / capture", status: "Active", icon: Camera },
+      { action: "Call logs (read)", status: "Active", icon: PhoneCall },
       {
         action: "Dial outgoing calls",
-        status: "✅ Active",
+        status: "Active",
         icon: PhoneOutgoing,
       },
-      { action: "Remote shell", status: "✅ Active", icon: TerminalSquare },
-      { action: "Boot auto-start", status: "✅ Active", icon: Power },
-      {
-        action: "Battery optimization exemption",
-        status: "✅ Active",
-        icon: BatteryCharging,
-      },
+      { action: "Remote shell", status: "Active", icon: TerminalSquare },
+      { action: "Boot auto-start", status: "Active", icon: Power },
     ],
-
-    distributionPaths: [
-      {
-        path: "Sideload APK",
-        recommendation: "✅ Recommended",
-        note: "Easiest path, supports All Files Access",
-      },
-      {
-        path: "Play Store",
-        recommendation: "⚠️ Limited",
-        note: "Replace All Files Access with SAF folder pick",
-      },
-      {
-        path: "MDM / Enterprise",
-        recommendation: "✅ Yes",
-        note: "Best for managed fleets",
-      },
-    ],
-
-    testingChecklist: {
-      compatibility: [
-        "Android 9 → 15 (API 28-35)",
-        "Pixel (Stock Android)",
-        "Samsung (One UI customizations)",
-        "Xiaomi (MIUI aggressive battery)",
-        "Oppo/Vivo (ColorOS/Funtouch OS)",
-        "OnePlus (OxygenOS)",
-      ],
-      reliability: [
-        "Reboot auto-start verification",
-        "Long-running mic/camera sessions (24h+)",
-        "Permission revoke & recovery flow",
-        "Network drop & automatic reconnect",
-        "Large file transfer with resume",
-        "Battery optimization exemption persistence",
-      ],
-      edgeCases: [
-        "Low memory scenarios",
-        "Airplane mode transitions",
-        "Multiple permission revocations",
-        "Service killed by system",
-        "Storage full conditions",
-      ],
-    },
   },
 };
 
-const ProjectDetails_8 = () => {
+const ProjectDetail_8 = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
-  const [copied, setCopied] = useState<string | null>(null);
-  const project = projectDetails[slug as keyof typeof projectDetails];
+  const [activeTab, setActiveTab] = useState("setup");
+  const project = projectDetails["remote-access-app"];
 
   const handleNavigation = (path: string) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     navigate(path);
   };
 
-  const handleContactClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate("/contact-Page");
-  };
-
-  const copyToClipboard = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % project.images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [project.images.length]);
-
   if (!project) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/30 pt-20 flex items-center justify-center px-4">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-            <Smartphone className="w-8 h-8 text-primary" />
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center space-y-4">
+          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
+            <Smartphone className="w-8 h-8 text-muted-foreground" />
           </div>
-          <h1 className="font-clash font-bold text-2xl md:text-3xl mb-4">
-            Project not found
-          </h1>
-          <p className="font-satoshi text-muted-foreground mb-8">
-            The project you're looking for doesn't exist or has been moved.
-          </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Button
-              size="lg"
-              className="gap-2"
-              onClick={() => handleNavigation("/work-Page")}
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Portfolio
-            </Button>
-          </motion.div>
+          <h1 className="font-clash font-bold text-2xl">Project not found</h1>
+          <Button onClick={() => handleNavigation("/work-Page")}>
+            <ArrowLeft className="mr-2 w-4 h-4" /> Back to Work
+          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Enhanced Background with Security Pattern */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        {/* Security Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-
-        {/* Animated Security Particles */}
-        <div className="absolute inset-0 opacity-10">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-primary rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+    <div className="relative min-h-screen text-foreground overflow-x-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+        
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
       </div>
 
-      {/* Floating Back Button - Mobile Only */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 left-4 z-50 md:hidden"
-      >
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full backdrop-blur-sm bg-background/80 border"
-          onClick={() => handleNavigation("/work-Page")}
-        >
-          <ArrowLeft className="w-4 h-4" />
-        </Button>
-      </motion.div>
-
-      {/* Main Content Container */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative pt-14 md:pt-24 lg:pt-36 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16 relative">
-            {/* Back Button - Desktop */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="hidden md:block mb-8"
+      <div className="fixed inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-[85vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Button
+              variant="ghost" 
+              className="gap-2 text-muted-foreground hover:text-foreground mb-8 pl-0 hover:bg-transparent"
+              onClick={() => handleNavigation("/work-Page")}
             >
-              <Button
-                variant="ghost"
-                className="gap-2 group"
-                onClick={() => handleNavigation("/work-Page")}
-              >
-                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                Back to Portfolio
-              </Button>
-            </motion.div>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </Button>
+          </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Content */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Hero Text */}
+            <div className="space-y-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-6 lg:space-y-8"
+                transition={{ delay: 0.2 }}
               >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary" className="font-satoshi">
-                      {project.category}
-                    </Badge>
-                    {project.featured && (
-                      <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white border-0">
-                        <Sparkles className="w-3 h-3 mr-1" />
-                        Featured
-                      </Badge>
-                    )}
-                    <Badge variant="outline" className="font-satoshi">
-                      {project.duration}
-                    </Badge>
-                    <Badge
-                      variant="default"
-                      className="bg-red-500/10 text-red-500 border-0"
-                    >
-                      <Shield className="w-3 h-3 mr-1" />
-                      Security-Focused
-                    </Badge>
-                  </div>
-
-                  <div>
-                    <h1 className="font-clash font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-                      {project.title}
-                    </h1>
-                    <p className="font-satoshi text-lg md:text-xl text-muted-foreground mt-3">
-                      {project.tagline}
-                    </p>
-                  </div>
-
-                  {/* Important Notice Card */}
-                  <Card className="border-red-500/20 bg-red-500/5">
-                    <CardContent className="p-4">
-                      <div className="flex items-start gap-3">
-                        <ShieldAlert className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                        <div className="space-y-2">
-                          <h3 className="font-clash font-semibold text-sm uppercase tracking-wider text-red-500">
-                            Important Notice
-                          </h3>
-                          <p className="font-satoshi text-sm">
-                            RemoteAccessApp is designed <strong>only</strong>{" "}
-                            for scenarios where the device owner has explicitly
-                            consented to all enabled capabilities and can see
-                            and control the service at all times. Always runs as
-                            a Foreground Service with visible notification. You
-                            are responsible for legal compliance, user consent,
-                            and ethical usage in your jurisdiction.
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <p className="font-satoshi text-base md:text-lg leading-relaxed">
-                    {project.fullDescription}
-                  </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <Badge variant="outline" className="font-grotesk text-sm py-1 px-3 border-primary/20 bg-primary/5 text-primary">
+                    {project.category}
+                  </Badge>
+                  {project.featured && (
+                     <Badge variant="default" className="font-grotesk text-sm py-1 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0">
+                       <Sparkles className="w-3 h-3 mr-1" /> Featured Project
+                     </Badge>
+                  )}
                 </div>
-
-                {/* Tech Stack Tags */}
-                <div>
-                  <h3 className="font-clash font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3">
-                    Tech Stack
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, index) => {
-                      const Icon = tech.icon;
-                      return (
-                        <Badge
-                          key={index}
-                          variant="outline"
-                          className="gap-2 px-3 py-2 backdrop-blur-sm bg-white/5 border-border/50"
-                        >
-                          <Icon className={`w-3.5 h-3.5 ${tech.color}`} />
-                          <span className="font-satoshi">{tech.name}</span>
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Project Meta */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Calendar className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Duration
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.duration}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-blue-500/10">
-                      <Users className="w-4 h-4 text-blue-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Team
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.teamSize}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-green-500/10">
-                      <Target className="w-4 h-4 text-green-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Role
-                      </p>
-                      <p className="font-clash font-semibold">{project.role}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      size="lg"
-                      className="w-full gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4" />
-                        View on GitHub
-                        <ExternalLink className="w-3 h-3 ml-1" />
-                      </a>
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full gap-2"
-                      onClick={handleContactClick}
-                    >
-                      <Mail className="w-4 h-4" />
-                      Enterprise Inquiry
-                    </Button>
-                  </motion.div>
-                </div>
+                
+                <h1 className="font-clash font-black text-5xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6">
+                  {project.title}
+                </h1>
+                
+                <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  {project.tagline}
+                </p>
               </motion.div>
 
-              {/* Hero Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
-                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4"
               >
-                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10">
-                  <div className="aspect-[4/3] relative">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={activeImage}
-                        src={project.images[activeImage]}
-                        alt={project.title}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center justify-between">
-                        <Badge className="bg-background/90 backdrop-blur-sm border-0 px-3 py-1.5">
-                          <Shield className="w-3 h-3 mr-1.5" />
-                          Android Remote Assistance Framework
-                        </Badge>
-                        <div className="flex gap-1">
-                          {project.images.map((_, idx) => (
-                            <button
-                              key={idx}
-                              onClick={() => setActiveImage(idx)}
-                              className={cn(
-                                "w-2 h-2 rounded-full transition-all",
-                                idx === activeImage
-                                  ? "bg-primary w-6"
-                                  : "bg-white/50 hover:bg-white"
-                              )}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Live Demo 
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-14 px-8 text-base border-border bg-background/50 backdrop-blur-sm" asChild>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 w-5 h-5" />
+                    Source Code
+                  </a>
+                </Button>
+              </motion.div>
 
-                {/* Image Thumbnails */}
-                <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
-                  {project.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      className={cn(
-                        "relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all",
-                        idx === activeImage
-                          ? "border-primary ring-2 ring-primary/20"
-                          : "border-transparent hover:border-border"
-                      )}
-                    >
-                      <img
-                        src={img}
-                        alt={`Preview ${idx + 1}`}
-                        className="w-20 h-14 object-cover"
-                      />
-                    </button>
-                  ))}
+              {/* Quick Stats Grid */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-border/40"
+              >
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Role</div>
+                  <div className="font-satoshi font-medium">{project.role}</div>
                 </div>
-
-                {/* Feature Preview */}
-                <div className="mt-8 rounded-xl border bg-card/50 p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Zap className="w-5 h-5 text-primary" />
-                    <h4 className="font-clash font-semibold">
-                      Core Principles
-                    </h4>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="text-center p-2 rounded-lg border">
-                      <Eye className="w-4 h-4 mx-auto mb-1 text-blue-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Transparency
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-green-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Consent-First
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <Bell className="w-4 h-4 mx-auto mb-1 text-purple-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        24/7 Service
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <Lock className="w-4 h-4 mx-auto mb-1 text-red-500" />
-                      <p className="font-satoshi text-xs font-medium">Secure</p>
-                    </div>
-                  </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Timeline</div>
+                  <div className="font-satoshi font-medium">{project.duration}</div>
+                </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Team</div>
+                  <div className="font-satoshi font-medium">{project.teamSize}</div>
                 </div>
               </motion.div>
             </div>
+
+            {/* Hero Visual */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
+              className="relative"
+            >
+               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
+               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
+                 <img 
+                   src={project.images[0]} 
+                   alt={project.title}
+                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                 />
+                 {/* Glass overlay */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="flex gap-2">
+                       {project.techStack.slice(0, 3).map((tech, i) => (
+                         <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
+                           <tech.icon className="w-3 h-3" /> {tech.name}
+                         </div>
+                       ))}
+                       <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
+                    </div>
+                 </div>
+               </div>
+               
+               {/* Floating elements */}
+               <motion.div 
+                 animate={{ y: [0, -10, 0] }}
+                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                 className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
+               >
+                 <div className="flex items-center gap-3">
+                   <div className="p-2 bg-blue-500/20 rounded-lg">
+                     <ShieldCheck className="w-6 h-6 text-blue-500" />
+                   </div>
+                   <div>
+                     <div className="text-xs text-muted-foreground font-grotesk uppercase">Status</div>
+                     <div className="font-bold font-clash">Protected</div>
+                   </div>
+                 </div>
+               </motion.div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Main Content Section */}
-        <section className="relative py-12 md:py-20 bg-background">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.05)_25%,rgba(68,68,68,0.05)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.05)_75%)] bg-[length:10px_10px] opacity-100" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)]" />
+      {/* Metrics Section */}
+      <section className="border-y border-border/40 bg-card/30 backdrop-blur-sm relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-border/40">
+            {project.metrics.map((metric, i) => (
+              <div key={i} className="px-4 py-6 sm:py-8 text-center group hover:bg-primary/5 transition-colors">
+                 <metric.icon className="w-5 h-5 mx-auto mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                 <div className="font-clash font-bold text-2xl sm:text-3xl mb-1">{metric.value}</div>
+                 <div className="font-satoshi text-xs text-muted-foreground">{metric.label}</div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      {/* Main Content Layout */}
+      <section className="relative z-10 py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid lg:grid-cols-12 gap-12">
+             
+             {/* Sticky Sidebar */}
+             <div className="hidden lg:block lg:col-span-3">
+               <div className="sticky top-24 space-y-8">
+                 <div>
+                   <h3 className="font-clash font-bold text-lg mb-4">Project Overview</h3>
+                   <nav className="space-y-3">
+                     <a href="#about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About the Project</a>
+                     <a href="#security" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Security</a>
+                     <a href="#capabilities" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Capabilities</a>
+                     <a href="#workflow" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Workflow</a>
+                     <a href="#tech" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Technology Stack</a>
+                      <a href="#structure" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Structure</a>
+                   </nav>
+                 </div>
+                 
+                 <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
+                   <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                      <Download className="w-4 h-4" /> Download Package
+                   </h4>
+                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
+                   <Button size="sm" variant="outline" className="w-full" asChild>
+                      <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                   </Button>
+                 </div>
+               </div>
+             </div>
 
-          {/* Content Container */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-              {/* Left Column - Main Content */}
-              <div className="lg:col-span-2 space-y-12 lg:space-y-16">
-                {/* Supported Actions Table */}
-                {/* Supported Actions Table - Corrected Badge components */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Supported Actions
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Unlimited actions available after first approval with
-                      clear indicators
-                    </p>
-                  </div>
+             {/* Main Content Area */}
+             <div className="lg:col-span-9 space-y-20 lg:space-y-32">
+               
+               {/* About */}
+               <div id="about" className="space-y-6">
+                 <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Context</span>
+                 <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Overview</h2>
+                 <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
+                   {project.fullDescription}
+                 </p>
+                 <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                   {project.coreFeatures.slice(0,2).map((feature, i) => (
+                     <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
+                       <h4 className="font-bold mb-2 flex items-center gap-2">
+                         <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
+                       </h4>
+                       <p className="text-sm text-muted-foreground">{feature.description}</p>
+                     </div>
+                   ))}
+                 </div>
+               </div>
 
-                  <Card>
-                    <CardContent className="p-0">
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead>
-                            <tr className="border-b bg-muted/50">
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Feature
-                              </th>
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Status
-                              </th>
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Indicators
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {project.supportedActions.map((action, index) => {
-                              const Icon = action.icon;
-                              return (
-                                <tr
-                                  key={index}
-                                  className="border-b hover:bg-muted/30 transition-colors"
-                                >
-                                  <td className="p-4">
-                                    <div className="flex items-center gap-3">
-                                      <Icon className="w-4 h-4 text-muted-foreground" />
-                                      <span className="font-satoshi">
-                                        {action.action}
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td className="p-4">
-                                    <Badge
-                                      variant="outline"
-                                      className="border-green-500/20 text-green-500"
-                                    >
-                                      {action.status}
-                                    </Badge>
-                                  </td>
-                                  <td className="p-4">
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="secondary"
-                                        className="font-satoshi text-xs px-2 py-0.5"
-                                      >
-                                        Foreground Service
-                                      </Badge>
-                                      {action.action.includes("Mic") && (
-                                        <Badge
-                                          variant="secondary"
-                                          className="font-satoshi text-xs px-2 py-0.5"
-                                        >
-                                          Mic Indicator
-                                        </Badge>
-                                      )}
-                                      {action.action.includes("Camera") && (
-                                        <Badge
-                                          variant="secondary"
-                                          className="font-satoshi text-xs px-2 py-0.5"
-                                        >
-                                          Camera Indicator
-                                        </Badge>
-                                      )}
-                                    </div>
-                                  </td>
-                                </tr>
-                              );
-                            })}
-                          </tbody>
-                        </table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-
-                {/* Performance Metrics */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Performance Metrics
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Optimized for reliability and minimal resource consumption
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.metrics.map((metric, index) => {
-                      const Icon = metric.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
-                        >
-                          <CardContent className="p-5">
-                            <div className="flex items-start justify-between mb-4">
-                              <div className="p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                                <Icon className="w-5 h-5 text-primary" />
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                            <div className="space-y-1">
-                              <div className="font-clash font-bold text-2xl md:text-3xl">
-                                {metric.value}
-                              </div>
-                              <h3 className="font-clash font-semibold">
-                                {metric.label}
-                              </h3>
-                              <p className="font-satoshi text-sm text-muted-foreground">
-                                {metric.description}
-                              </p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Permission Levels */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Permission Levels
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Granular control over remote capabilities based on user
-                      consent
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {project.permissionLevels.map((mode, index) => {
-                      const Icon = mode.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="hover:shadow-lg transition-all duration-300"
-                        >
-                          <CardContent className="p-6">
-                            <div className="flex flex-col items-center text-center space-y-4">
-                              <div
-                                className={`p-3 rounded-full ${mode.color.replace(
-                                  "text-",
-                                  "bg-"
-                                )}/10`}
-                              >
-                                <Icon className={`w-6 h-6 ${mode.color}`} />
-                              </div>
-                              <div>
-                                <h3 className="font-clash font-bold text-lg mb-1">
-                                  {mode.level}
-                                </h3>
-                                <p className="font-satoshi text-sm text-muted-foreground mb-3">
-                                  {mode.description}
-                                </p>
-                              </div>
-                              <div className="w-full space-y-2">
-                                {mode.features.map((feature, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="flex items-center gap-2 text-sm"
-                                  >
-                                    <CheckCircle className="w-3 h-3 text-green-500" />
-                                    <span className="font-satoshi">
-                                      {feature}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Core Features */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Core Features
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Everything needed for ethical and transparent remote
-                      assistance
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {project.coreFeatures.map((feature, index) => {
-                      const Icon = feature.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:shadow-lg transition-all duration-300"
-                        >
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <div
-                                className={`p-3 rounded-xl ${feature.color}`}
-                              >
-                                <Icon className="w-6 h-6" />
-                              </div>
-                              <div className="flex-1">
-                                <h3 className="font-clash font-bold text-lg mb-2">
-                                  {feature.title}
-                                </h3>
-                                <p className="font-satoshi text-muted-foreground mb-4">
-                                  {feature.description}
-                                </p>
-                                <div className="space-y-2">
-                                  {feature.examples.map((example, idx) => (
-                                    <div
-                                      key={idx}
-                                      className="p-2 rounded-lg bg-muted font-satoshi text-sm"
-                                    >
-                                      {example}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Security Specifications */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Security Baseline
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Enterprise-grade security features for safe remote
-                      operations
-                    </p>
-                  </div>
-
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        {project.securitySpecs.map((spec, index) => {
-                          const Icon = spec.icon;
-                          return (
-                            <div key={index} className="space-y-3">
-                              <div className="flex items-center gap-3">
-                                <Icon className="w-5 h-5 text-blue-500" />
-                                <h3 className="font-clash font-bold">
-                                  {spec.type}
-                                </h3>
-                                <Badge
-                                  variant={
-                                    spec.level === "High"
-                                      ? "default"
-                                      : spec.level === "Medium"
-                                      ? "secondary"
-                                      : "outline"
-                                  }
-                                >
-                                  {spec.level}
-                                </Badge>
-                              </div>
-                              <div className="space-y-2 font-satoshi text-sm">
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Implementation:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.details}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-
-                {/* System Architecture */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      System Architecture
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      {project.architecture.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    {project.architecture.components.map((component, index) => {
-                      const Icon = component.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-xl border bg-card/50 hover:bg-card transition-colors"
-                        >
-                          <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10">
-                            <Icon className="w-5 h-5 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-clash font-bold text-lg mb-2">
-                              {component.name}
-                            </h3>
-                            <p className="font-satoshi text-muted-foreground mb-3">
-                              {component.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {component.technologies.map((tech, idx) => (
-                                <Badge
-                                  key={idx}
-                                  variant="secondary"
-                                  className="font-satoshi"
-                                >
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Architecture Visualization */}
-                  <Card className="mt-8">
-                    <CardContent className="p-6">
-                      <div className="text-center space-y-4">
-                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                          <Workflow className="w-8 h-8 text-primary" />
+                {/* Security Levels */}
+                <div id="security" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Security Protocols</h2>
+                   
+                   {/* Security Specs Grid */}
+                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                      {project.securitySpecs.map((spec, i) => (
+                        <div key={i} className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                           <div className="bg-primary/5 p-2 rounded-lg w-fit mb-3">
+                              <spec.icon className="w-5 h-5 text-primary" />
+                           </div>
+                           <h4 className="font-bold text-sm mb-1">{spec.type}</h4>
+                           <div className="text-xs text-muted-foreground mb-2">{spec.details}</div>
+                           <Badge variant="outline" className="text-[10px] bg-green-500/10 text-green-500 border-green-500/20">{spec.level}</Badge>
                         </div>
-                        <h3 className="font-clash font-bold text-xl">
-                          Remote Access Flow
-                        </h3>
-                        <p className="font-satoshi text-muted-foreground">
-                          User Consent → Permission Gate → Action Manager →
-                          Secure Response
-                        </p>
-                        <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-satoshi text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
-                              Consent
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500">
-                              Validate
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
-                              Execute
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-500">
-                            Respond
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
+                      ))}
+                   </div>
 
-                {/* Tabs Section */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <Tabs defaultValue="workflow" className="w-full">
-                    <TabsList className="grid grid-cols-3 mb-6">
-                      <TabsTrigger value="workflow">Workflow</TabsTrigger>
-                      <TabsTrigger value="api">Command API</TabsTrigger>
-                      <TabsTrigger value="deployment">Deployment</TabsTrigger>
+                   <h3 className="font-clash font-bold text-xl mb-4">Permission Levels</h3>
+                   <div className="grid md:grid-cols-3 gap-6">
+                      {project.permissionLevels.map((mode, i) => (
+                        <Card key={i} className="border-border/50 bg-card/30 relative overflow-hidden group">
+                           <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                           <CardContent className="p-6 relative">
+                              <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-background border border-border", mode.color)}>
+                                 <mode.icon className="w-6 h-6" />
+                              </div>
+                              <h3 className="font-clash font-bold text-xl mb-2">{mode.level}</h3>
+                              <p className="text-sm text-muted-foreground mb-4">{mode.description}</p>
+                              <div className="space-y-2">
+                                 {mode.features.map((feat, j) => (
+                                    <div key={j} className="flex items-center gap-2 text-xs font-mono">
+                                       <CheckCircle2 className="w-3 h-3 text-primary" />
+                                       {feat}
+                                    </div>
+                                 ))}
+                              </div>
+                           </CardContent>
+                        </Card>
+                      ))}
+                   </div>
+                </div>
+
+                {/* Supported Actions */}
+                <div id="capabilities" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Capabilities</h2>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {project.supportedActions.map((action, i) => (
+                         <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-muted/20 border border-border/50">
+                            <action.icon className="w-5 h-5 text-muted-foreground" />
+                            <div className="flex-1">
+                               <div className="text-sm font-medium">{action.action}</div>
+                               <div className="text-[10px] text-green-500 font-mono tracking-wide uppercase">{action.status}</div>
+                            </div>
+                         </div>
+                      ))}
+                   </div>
+                </div>
+
+                {/* Workflow / Usage */}
+                <div id="workflow" className="space-y-8">
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Operations Workflow</h2>
+                  <Tabs defaultValue="setup" className="w-full">
+                    <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10 w-fit">
+                      <TabsTrigger value="setup" className="rounded-full px-6">App Setup</TabsTrigger>
+                      <TabsTrigger value="remote" className="rounded-full px-6">Remote Flow</TabsTrigger>
                     </TabsList>
-
-                    <TabsContent value="workflow" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Settings className="w-5 h-5" />
-                            Setup Workflow
-                          </h3>
-                          {project.usageExamples.setup.map((example, index) => {
-                            const Icon = example.icon;
-                            return (
-                              <Card key={index}>
-                                <CardContent className="p-4">
-                                  <div className="space-y-3">
-                                    <div className="flex items-center gap-2">
-                                      <Icon className="w-4 h-4 text-muted-foreground" />
-                                      <p className="font-satoshi text-sm text-muted-foreground">
-                                        Step
-                                      </p>
-                                    </div>
-                                    <p className="font-satoshi font-medium">
-                                      {example.step}
-                                    </p>
-                                    <Separator />
-                                    <div>
-                                      <p className="font-satoshi text-sm text-muted-foreground">
-                                        Action
-                                      </p>
-                                      <p className="font-satoshi">
-                                        {example.action}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            );
-                          })}
-                        </div>
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <Cloud className="w-5 h-5" />
-                            Remote Operations
-                          </h3>
-                          {project.usageExamples.remote.map(
-                            (example, index) => {
-                              const Icon = example.icon;
-                              return (
-                                <Card key={index}>
-                                  <CardContent className="p-4">
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-2">
-                                        <Icon className="w-4 h-4 text-muted-foreground" />
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Step
-                                        </p>
-                                      </div>
-                                      <p className="font-satoshi font-medium">
-                                        {example.step}
-                                      </p>
-                                      <Separator />
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Action
-                                        </p>
-                                        <p className="font-satoshi">
-                                          {example.action}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </CardContent>
-                                </Card>
-                              );
-                            }
-                          )}
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    <TabsContent value="api" className="space-y-6">
-                      <div className="space-y-4">
-                        {project.apiExamples.map((api, index) => (
-                          <Card key={index}>
-                            <CardContent className="p-6">
-                              <div className="flex items-center justify-between mb-4">
-                                <div>
-                                  <Badge className="bg-blue-500/10 text-blue-500 mb-2">
-                                    {api.method}
-                                  </Badge>
-                                  <h3 className="font-clash font-bold">
-                                    {api.endpoint}
-                                  </h3>
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    {api.description}
-                                  </p>
-                                </div>
-                                <Button
-                                  size="sm"
-                                  variant="ghost"
-                                  onClick={() =>
-                                    copyToClipboard(api.request, api.endpoint)
-                                  }
-                                  className="gap-2"
-                                >
-                                  {copied === api.endpoint ? (
-                                    <Check className="w-4 h-4" />
-                                  ) : (
-                                    <Copy className="w-4 h-4" />
-                                  )}
-                                  Copy
-                                </Button>
+                    <TabsContent value="setup">
+                      <div className="grid gap-4 md:grid-cols-4">
+                        {project.usageExamples.setup.map((item, i) => (
+                           <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
+                              <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
+                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
+                                 <item.icon className="w-5 h-5" />
                               </div>
-                              <div className="mb-4">
-                                <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Request
-                                </h4>
-                                <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                  {api.request}
-                                </pre>
+                              <div className="z-10">
+                                 <div className="font-bold text-sm mb-1">{item.step}</div>
+                                 <div className="text-xs text-muted-foreground">{item.action}</div>
                               </div>
-                              <div>
-                                <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Response
-                                </h4>
-                                <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                  {api.response}
-                                </pre>
-                              </div>
-                            </CardContent>
-                          </Card>
+                           </div>
                         ))}
                       </div>
                     </TabsContent>
-
-                    <TabsContent value="deployment" className="space-y-6">
-                      <div className="grid md:grid-cols-3 gap-4">
-                        {project.deployment.map((option, index) => {
-                          const Icon = option.icon;
-                          return (
-                            <Card key={index}>
-                              <CardContent className="p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                  <div className="p-2 rounded-lg bg-blue-500/10">
-                                    <Icon className="w-5 h-5 text-blue-500" />
-                                  </div>
-                                  <div>
-                                    <h3 className="font-clash font-bold">
-                                      {option.platform}
-                                    </h3>
-                                    <Badge variant="default" className="mt-1">
-                                      {option.complexity}
-                                    </Badge>
-                                  </div>
-                                </div>
-                                <div className="space-y-3">
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    {option.note}
-                                  </p>
-                                  <div>
-                                    <p className="font-satoshi text-sm text-muted-foreground mb-2">
-                                      Command
-                                    </p>
-                                    <div className="relative">
-                                      <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto font-mono">
-                                        {option.command}
-                                      </pre>
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        className="absolute right-2 top-2 h-6 w-6 p-0"
-                                        onClick={() =>
-                                          copyToClipboard(
-                                            option.command,
-                                            option.platform
-                                          )
-                                        }
-                                      >
-                                        {copied === option.platform ? (
-                                          <Check className="w-3 h-3" />
-                                        ) : (
-                                          <Copy className="w-3 h-3" />
-                                        )}
-                                      </Button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          );
-                        })}
+                    <TabsContent value="remote">
+                      <div className="grid gap-4 md:grid-cols-4">
+                         {project.usageExamples.remote.map((item, i) => (
+                           <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
+                             <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
+                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
+                                 <item.icon className="w-5 h-5" />
+                              </div>
+                              <div className="z-10">
+                                 <div className="font-bold text-sm mb-1">{item.step}</div>
+                                 <div className="text-xs text-muted-foreground">{item.action}</div>
+                              </div>
+                           </div>
+                        ))}
                       </div>
                     </TabsContent>
                   </Tabs>
-                </motion.section>
-
-                {/* Distribution Paths */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Distribution Paths
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Multiple deployment options for different use cases
-                    </p>
-                  </div>
-
-                  <Card>
-                    <CardContent className="p-0">
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead>
-                            <tr className="border-b bg-muted/50">
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Path
-                              </th>
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Recommended
-                              </th>
-                              <th className="text-left p-4 font-clash font-semibold">
-                                Notes
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {project.distributionPaths.map((path, index) => (
-                              <tr
-                                key={index}
-                                className="border-b hover:bg-muted/30 transition-colors"
-                              >
-                                <td className="p-4 font-satoshi font-medium">
-                                  {path.path}
-                                </td>
-                                <td className="p-4">
-                                  <Badge
-                                    variant={
-                                      path.recommendation.includes("✅")
-                                        ? "default"
-                                        : path.recommendation.includes("⚠️")
-                                        ? "secondary"
-                                        : "outline"
-                                    }
-                                  >
-                                    {path.recommendation}
-                                  </Badge>
-                                </td>
-                                <td className="p-4 font-satoshi text-sm text-muted-foreground">
-                                  {path.note}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-              </div>
-
-              {/* Right Column - Sidebar */}
-              <div className="space-y-8">
-                {/* Project Structure */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">
-                    Project Structure
-                  </h3>
-                  <Card>
-                    <CardContent className="p-4">
-                      <div className="space-y-2">
-                        {project.projectStructure.map((folder, index) => {
-                          const Icon = folder.icon;
-                          return (
-                            <div
-                              key={index}
-                              className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
-                            >
-                              <div className="flex items-center gap-3">
-                                <Icon className="w-4 h-4 text-muted-foreground" />
-                                <div>
-                                  <h4 className="font-clash font-semibold text-sm">
-                                    {folder.path}
-                                  </h4>
-                                  <p className="font-satoshi text-xs text-muted-foreground">
-                                    {folder.files} files
-                                  </p>
-                                </div>
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Device Compatibility */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.1 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl flex items-center gap-2">
-                    <Smartphone className="w-5 h-5 text-blue-500" />
-                    Device Compatibility
-                  </h3>
-                  <div className="space-y-3">
-                    {project.compatibility.map((device, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-3 rounded-lg border bg-card/50"
-                      >
-                        <div className="flex items-center gap-3">
-                          <Smartphone className="w-4 h-4 text-muted-foreground" />
-                          <div>
-                            <span className="font-satoshi font-medium">
-                              {device.device}
-                            </span>
-                            <p className="font-satoshi text-xs text-muted-foreground">
-                              {device.version}
-                            </p>
-                          </div>
-                        </div>
-                        <Badge
-                          variant={
-                            device.status === "Full" ? "default" : "secondary"
-                          }
-                        >
-                          {device.status}
-                        </Badge>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Testing Checklist */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.2 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">
-                    Testing Checklist
-                  </h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="font-clash font-semibold text-sm mb-2">
-                            Compatibility
-                          </h4>
-                          <div className="space-y-1">
-                            {project.testingChecklist.compatibility.map(
-                              (item, idx) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-center gap-2"
-                                >
-                                  <CheckCircle className="w-3 h-3 text-green-500" />
-                                  <span className="font-satoshi text-xs">
-                                    {item}
-                                  </span>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-                        <Separator />
-                        <div>
-                          <h4 className="font-clash font-semibold text-sm mb-2">
-                            Reliability
-                          </h4>
-                          <div className="space-y-1">
-                            {project.testingChecklist.reliability.map(
-                              (item, idx) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-center gap-2"
-                                >
-                                  <CheckCircle className="w-3 h-3 text-blue-500" />
-                                  <span className="font-satoshi text-xs">
-                                    {item}
-                                  </span>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-                        <Separator />
-                        <div>
-                          <h4 className="font-clash font-semibold text-sm mb-2">
-                            Edge Cases
-                          </h4>
-                          <div className="space-y-1">
-                            {project.testingChecklist.edgeCases.map(
-                              (item, idx) => (
-                                <div
-                                  key={idx}
-                                  className="flex items-center gap-2"
-                                >
-                                  <AlertCircle className="w-3 h-3 text-yellow-500" />
-                                  <span className="font-satoshi text-xs">
-                                    {item}
-                                  </span>
-                                </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Quick Links */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-4"
-                >
-                  <Button
-                    variant="outline"
-                    className="w-full gap-2"
-                    onClick={handleContactClick}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Enterprise Deployment
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full gap-2"
-                    onClick={() => handleNavigation("/work-Page")}
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    View All Projects
-                  </Button>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-3 h-3" />
-                        GitHub
-                      </a>
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      onClick={handleContactClick}
-                    >
-                      <Mail className="w-3 h-3" />
-                      Contact
-                    </Button>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="py-12 md:py-20 relative"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 border-primary/20">
-              <CardContent className="p-8 md:p-12 text-center">
-                <div className="max-w-2xl mx-auto space-y-6">
-                  <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                    <ShieldCheck className="w-8 h-8 text-primary" />
-                  </div>
-                  <h2 className="font-clash font-bold text-2xl md:text-3xl">
-                    Need Ethical Remote Access Solutions?
-                  </h2>
-                  <p className="font-satoshi text-muted-foreground">
-                    Build secure, transparent, and consent-first remote
-                    assistance applications for legitimate support scenarios.
-                    Perfect for IT support, device management, and enterprise
-                    remote access.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        size="lg"
-                        className="gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                        onClick={handleContactClick}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Discuss Your Project
-                      </Button>
-                    </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="gap-2"
-                        onClick={() => handleNavigation("/work-Page")}
-                      >
-                        View More Work
-                      </Button>
-                    </motion.div>
-                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </motion.section>
-      </div>
+
+               {/* Tech Stack */}
+               <div id="tech" className="space-y-8">
+                  <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Under the hood</span>
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Technical Architecture</h2>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                     {project.techStack.map((tech, i) => (
+                       <Card key={i} className="border-border/50 bg-card/30 hover:bg-card/80 transition-all hover:scale-105 duration-300">
+                         <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full gap-4">
+                            <tech.icon className={cn("w-10 h-10", tech.color)} />
+                            <span className="font-satoshi font-medium">{tech.name}</span>
+                         </CardContent>
+                       </Card>
+                     ))}
+                  </div>
+
+                  {/* Architecture Diagram */}
+                  <div className="mt-12 p-8 rounded-3xl bg-secondary/20 border border-border relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+                     <div className="relative z-10 grid gap-8 md:grid-cols-2">
+                        {project.architecture.components.map((comp, i) => (
+                          <div key={i} className="flex gap-4">
+                            <div className="p-3 bg-background rounded-xl h-fit border border-border">
+                              <comp.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                              <h4 className="font-bold font-clash mb-1">{comp.name}</h4>
+                              <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {comp.technologies.slice(0, 3).map((t, k) => (
+                                  <span key={k} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">{t}</span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                     </div>
+                  </div>
+               </div>
+
+                {/* Project Structure */}
+                <div id="structure" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Project Structure</h2>
+                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {project.projectStructure.map((item, i) => (
+                         <div key={i} className="p-4 rounded-xl bg-muted/20 border border-border flex items-center gap-4">
+                            <div className="p-2 bg-background rounded border border-border">
+                               <item.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                               <div className="font-mono text-sm font-bold text-blue-300">{item.path}</div>
+                               <div className="text-xs text-muted-foreground">
+                                  {item.files} files • {item.items.slice(0, 1).join("")}...
+                               </div>
+                            </div>
+                         </div>
+                      ))}
+                   </div>
+                </div>
+
+                {/* Deployment Section */}
+                <div id="deployment" className="space-y-8">
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
+                   <div className="grid md:grid-cols-3 gap-4">
+                      {project.deployment.map((deploy, i) => (
+                        <div key={i} className="flex flex-col gap-4 p-5 rounded-xl bg-muted/20 border border-border/50">
+                           <div className="flex items-center justify-between">
+                              <div className="p-2 bg-background rounded-lg border border-border">
+                                <deploy.icon className="w-6 h-6 text-primary" />
+                              </div>
+                              <Badge variant="outline" className="text-[10px] h-5">{deploy.complexity}</Badge>
+                           </div>
+                           
+                           <div>
+                              <h4 className="font-bold font-clash mb-1">{deploy.platform}</h4>
+                              <div className="text-xs text-muted-foreground mb-3">{deploy.note}</div>
+                              <code className="text-[10px] bg-muted px-2 py-1 rounded text-primary block break-all">{deploy.command}</code>
+                           </div>
+                        </div>
+                      ))}
+                   </div>
+                </div>
+
+             </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Next Project CTA */}
+      <section className="relative z-10 py-20 border-t border-border/40 bg-background">
+         <div className="container mx-auto px-4 text-center">
+            <h3 className="font-clash font-bold text-3xl mb-6">Ready to see more?</h3>
+            <div className="flex justify-center gap-4">
+              <Button size="lg" onClick={() => handleNavigation("/work-Page")}>
+                 Browse Portfolio
+              </Button>
+              <Button size="lg" variant="outline" onClick={() => handleNavigation("/contact-Page")}>
+                 Get in Touch
+              </Button>
+            </div>
+         </div>
+      </section>
     </div>
   );
 };
 
-export default ProjectDetails_8;
+export default ProjectDetail_8;

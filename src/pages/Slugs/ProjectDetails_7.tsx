@@ -61,167 +61,55 @@ import {
   MessageSquare,
   Image as ImageIcon,
   Music,
-  Volume2,
-  Gamepad2,
-  Target as TargetIcon,
-  Smartphone as SmartphoneIcon,
-  MousePointer,
-  Zap as ZapIcon,
-  Headphones,
-  Sparkles as SparklesIcon,
+  School as SchoolIcon,
+  Lightbulb,
+  Layers as LayersIcon,
+  Code2,
   Palette,
-  Shield as ShieldIcon,
-  TrendingUp,
-  MousePointerClick,
-  Touchpad,
-  Smartphone as PhoneIcon,
-  GitCommit,
-  Crosshair,
-  VolumeX,
-  Settings,
-  ArrowRight,
-  Gamepad,
-  Swords,
-  Award,
-  Trophy,
-  Bolt,
-  Crosshair as CrosshairIcon,
-  SkipForward,
-  SkipBack,
-  FastForward,
-  Rewind,
-  Volume1,
-  Music2,
-  Headphones as HeadphonesIcon,
-  Move,
-  RotateCw,
-  RotateCcw,
-  Navigation,
-  Compass,
-  Wind,
-  Feather,
-  Sword,
-  ShieldOff,
-  ShieldAlert,
-  ArrowUpRight,
-  ArrowDownRight,
-  ArrowLeftRight,
-  ArrowUpDown,
-  Target as TargetIcon2,
-  Hexagon,
-  Pentagon,
-  Octagon,
-  Circle,
-  Square,
-  Triangle,
-  Star,
-  Heart as HeartIcon,
-  Shield as ShieldIcon2,
-  Zap as ZapIcon2,
   Cloud as CloudIcon,
-  Download as DownloadIcon,
-  Upload as UploadIcon,
-  RefreshCw,
-  RefreshCcw,
-  Rotate3d,
-  Box,
-  Package,
-  Archive,
-  Folder,
-  FolderTree,
-  Keyboard,
-  File,
-  FileText,
-  FileCode as FileCodeIcon,
-  FileJson,
-  FileImage,
-  FileAudio,
-  FileVideo,
-  FileArchive,
-  FileSpreadsheet,
-  FileSearch,
-  FilePlus,
-  FileMinus,
-  FileX,
-  FileCheck,
-  FileWarning,
-  FileQuestion,
-  FileInput,
-  FileOutput,
-  FolderPlus,
-  FolderMinus,
-  FolderX,
-  FolderCheck,
-  FolderSearch,
-  FolderGit,
-  FolderGit2,
-  FolderOpen as FolderOpenIcon,
-  FolderTree as FolderTreeIcon,
-  QrCode,
-  SmartphoneNfc,
-  SmartphoneCharging,
-  Save,
-  Trash2,
-  HardDrive,
-  Smartphone as Smartphone2,
-  Laptop,
-  Tablet,
-  Printer,
-  Scan,
-  Camera as CameraIcon,
-  ImagePlus,
-  FileImage as FileImageIcon,
-  Share,
-  Link2,
-  Copy as CopyIcon,
-  CheckSquare,
-  WifiOff,
-  DownloadCloud,
-  UploadCloud,
-  Database as DatabaseIcon2,
-  HardDrive as HardDriveIcon,
-  Server as ServerIcon,
-  Cloud as Cloud2,
-  Globe as Globe2,
-  Network,
-  Wifi as WifiIcon,
-  Bluetooth,
-  Radio,
+  Navigation,
+  MapPin,
+  Eye as EyeIcon,
+  Video as VideoIcon,
   Satellite,
-  Waves,
-  Signal,
-  SignalHigh,
-  SignalLow,
-  SignalZero,
-  SmartphoneCharging as SmartphoneChargingIcon,
-  Battery,
-  BatteryCharging,
-  BatteryFull,
-  BatteryLow,
-  BatteryMedium,
-  Power,
-  PowerOff,
-  Plug,
-  ZapOff,
-  Cpu as Cpu2,
-  MemoryStick,
-  Microchip,
-  CircuitBoard,
-  Cpu as Cpu3,
-  ServerCog,
-  DatabaseZap,
-  Cctv,
-  Fingerprint,
-  KeyRound,
-  Lock as LockIcon,
-  Unlock,
-  Shield as ShieldIcon3,
-  ShieldCheck as ShieldCheckIcon,
-  ShieldAlert as ShieldAlertIcon,
-  ShieldOff as ShieldOffIcon,
-  ShieldQuestion,
-  ShieldX,
-  QrCode as QrCodeIcon,
+  Scan,
+  QrCode,
+  Headphones,
+  Compass,
+  Settings,
+  Gamepad2,
+  GamepadIcon,
+  Target as TargetIcon,
+  BookOpen,
+  Keyboard,
+  Gamepad2 as Gamepad2Icon,
+  UploadCloud,
+  FolderTree,
+  FileJson,
+  Folder,
+  File,
+  Network,
+  EyeOff,
+  Eye as EyeOnIcon,
+  UserPlus,
+  ImagePlus,
+  Images,
+  FolderInput,
+  Upload as UploadIcon,
+  DownloadCloud,
+  FolderUp,
+  FolderSync,
+  Beaker,
+  Terminal as TerminalIcon,
+  Glasses,
+  Palette as PaletteIcon,
+  RefreshCw,
+  Map,
+  Home,
+  ArrowUpRight,
+  HardDrive,
+  Save,
+  MousePointer
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -275,7 +163,7 @@ const projectDetails = {
       { name: "QR Code API", icon: QrCode, color: "text-purple-500" },
       {
         name: "Responsive Design",
-        icon: SmartphoneIcon,
+        icon: Smartphone,
         color: "text-pink-500",
       },
       { name: "Canvas API", icon: ImageIcon, color: "text-red-500" },
@@ -410,7 +298,7 @@ const projectDetails = {
     projectStructure: [
       {
         path: "assets/",
-        icon: FolderOpenIcon,
+        icon: FolderOpen,
         items: ["screenshot.png", "favicon.ico", "readme-banner.png"],
         files: 3,
       },
@@ -422,7 +310,7 @@ const projectDetails = {
       },
       {
         path: "js/",
-        icon: FileCodeIcon,
+        icon: FileCode,
         items: ["app.js", "storage.js", "ui.js", "qrcode.js"],
         files: 4,
       },
@@ -434,43 +322,9 @@ const projectDetails = {
       },
       {
         path: "docs/",
-        icon: FileText,
+        icon: FileCode,
         items: ["README.md", "LICENSE"],
         files: 2,
-      },
-    ],
-
-    apiExamples: [
-      {
-        endpoint: "generateQRCode(text)",
-        description: "Generate QR code from input text",
-        method: "JavaScript",
-        request: `{
-  text: "https://github.com/thiyo-de",
-  size: "300x300",
-  format: "png"
-}`,
-        response: `{
-  success: true,
-  qrCode: "data:image/png;base64,...",
-  timestamp: "2024-01-15T10:30:00Z"
-}`,
-      },
-      {
-        endpoint: "saveToStorage(qrData)",
-        description: "Save QR code data to local storage",
-        method: "JavaScript",
-        request: `{
-  id: "qr_123456",
-  text: "Hello World",
-  timestamp: "2024-01-15T10:30:00Z",
-  image: "data:image/png;base64,..."
-}`,
-        response: `{
-  saved: true,
-  count: 15,
-  storageUsed: "45KB"
-}`,
       },
     ],
 
@@ -548,1222 +402,471 @@ const projectDetails = {
         icon: UploadCloud,
       },
     ],
-
-    compatibility: [
-      { browser: "Chrome", version: "60+", status: "Full", icon: Globe },
-      { browser: "Firefox", version: "55+", status: "Full", icon: Globe },
-      { browser: "Safari", version: "11+", status: "Full", icon: Globe },
-      { browser: "Edge", version: "79+", status: "Full", icon: Globe },
-    ],
-
-    mediaSpecs: [
-      {
-        type: "QR Code Images",
-        formats: "PNG",
-        maxSize: "50KB",
-        features: "Scalable vector",
-        icon: ImageIcon,
-      },
-      {
-        type: "Storage Format",
-        formats: "JSON",
-        maxSize: "5MB",
-        features: "Local persistence",
-        icon: Database,
-      },
-      {
-        type: "UI Animations",
-        formats: "CSS",
-        fps: "60",
-        features: "Smooth transitions",
-        icon: Zap,
-      },
-      {
-        type: "Responsive Breakpoints",
-        count: "3",
-        features: "Mobile-first design",
-        icon: Smartphone,
-      },
-    ],
   },
 };
 
-const ProjectDetails_7 = () => {
+const ProjectDetail_7 = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
-  const [copied, setCopied] = useState<string | null>(null);
-  const project = projectDetails[slug as keyof typeof projectDetails];
+  const [activeTab, setActiveTab] = useState("desktop");
+  const project = projectDetails["qr-code-generator"];
 
   const handleNavigation = (path: string) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     navigate(path);
   };
 
-  const handleContactClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate("/contact-Page");
-  };
-
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
+    // setCopied(id); // Using local state but simplified for brevity
   };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % project.images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [project.images.length]);
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/30 pt-20 flex items-center justify-center px-4">
-        <div className="text-center max-w-md">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-            <FileCode className="w-8 h-8 text-primary" />
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center space-y-4">
+          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
+            <FileCode className="w-8 h-8 text-muted-foreground" />
           </div>
-          <h1 className="font-clash font-bold text-2xl md:text-3xl mb-4">
-            Project not found
-          </h1>
-          <p className="font-satoshi text-muted-foreground mb-8">
-            The project you're looking for doesn't exist or has been moved.
-          </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Button
-              size="lg"
-              className="gap-2"
-              onClick={() => handleNavigation("/work-Page")}
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Portfolio
-            </Button>
-          </motion.div>
+          <h1 className="font-clash font-bold text-2xl">Project not found</h1>
+          <Button onClick={() => handleNavigation("/work-Page")}>
+            <ArrowLeft className="mr-2 w-4 h-4" /> Back to Work
+          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Enhanced Background with Radial Pattern */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        {/* QR Code-like Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)]" />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-
-        {/* Animated QR Particles */}
-        <div className="absolute inset-0 opacity-5">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-primary rounded-sm animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${1 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
+    <div className="relative min-h-screen text-foreground overflow-x-hidden">
+      {/* Background Elements */}
+      <div className="fixed inset-0 z-0 overflow-hidden">
+        {/* Texture Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
+        
+        {/* Radial Fade Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
       </div>
 
-      {/* Floating Back Button - Mobile Only */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 left-4 z-50 md:hidden"
-      >
-        <Button
-          size="icon"
-          variant="secondary"
-          className="rounded-full backdrop-blur-sm bg-background/80 border"
-          onClick={() => handleNavigation("/work-Page")}
-        >
-          <ArrowLeft className="w-4 h-4" />
-        </Button>
-      </motion.div>
-
-      {/* Main Content Container */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative pt-14 md:pt-24 lg:pt-36 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16 relative">
-            {/* Back Button - Desktop */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="hidden md:block mb-8"
+      <div className="fixed inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-[85vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Button
+              variant="ghost" 
+              className="gap-2 text-muted-foreground hover:text-foreground mb-8 pl-0 hover:bg-transparent"
+              onClick={() => handleNavigation("/work-Page")}
             >
-              <Button
-                variant="ghost"
-                className="gap-2 group"
-                onClick={() => handleNavigation("/work-Page")}
-              >
-                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                Back to Portfolio
-              </Button>
-            </motion.div>
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </Button>
+          </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Content */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Hero Text */}
+            <div className="space-y-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-6 lg:space-y-8"
+                transition={{ delay: 0.2 }}
               >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary" className="font-satoshi">
-                      {project.category}
-                    </Badge>
-                    {project.featured && (
-                      <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white border-0">
-                        <Sparkles className="w-3 h-3 mr-1" />
-                        Featured
-                      </Badge>
-                    )}
-                    <Badge variant="outline" className="font-satoshi">
-                      {project.duration}
-                    </Badge>
-                  </div>
-
-                  <div>
-                    <h1 className="font-clash font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight">
-                      {project.title}
-                    </h1>
-                    <p className="font-satoshi text-lg md:text-xl text-muted-foreground mt-3">
-                      {project.tagline}
-                    </p>
-                  </div>
-
-                  <p className="font-satoshi text-base md:text-lg leading-relaxed">
-                    {project.fullDescription}
-                  </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <Badge variant="outline" className="font-grotesk text-sm py-1 px-3 border-primary/20 bg-primary/5 text-primary">
+                    {project.category}
+                  </Badge>
+                  {project.featured && (
+                     <Badge variant="default" className="font-grotesk text-sm py-1 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0">
+                       <Sparkles className="w-3 h-3 mr-1" /> Featured Project
+                     </Badge>
+                  )}
                 </div>
-
-                {/* Tech Stack Tags */}
-                <div>
-                  <h3 className="font-clash font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3">
-                    Tech Stack
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, index) => {
-                      const Icon = tech.icon;
-                      return (
-                        <Badge
-                          key={index}
-                          variant="outline"
-                          className="gap-2 px-3 py-2 backdrop-blur-sm bg-white/5 border-border/50"
-                        >
-                          <Icon className={`w-3.5 h-3.5 ${tech.color}`} />
-                          <span className="font-satoshi">{tech.name}</span>
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Project Meta */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Calendar className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Duration
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.duration}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-blue-500/10">
-                      <Users className="w-4 h-4 text-blue-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Team
-                      </p>
-                      <p className="font-clash font-semibold">
-                        {project.teamSize}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-card/50 border">
-                    <div className="p-2 rounded-lg bg-green-500/10">
-                      <Target className="w-4 h-4 text-green-500" />
-                    </div>
-                    <div>
-                      <p className="font-satoshi text-sm text-muted-foreground">
-                        Role
-                      </p>
-                      <p className="font-clash font-semibold">{project.role}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      size="lg"
-                      className="w-full gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Play className="w-4 h-4" />
-                        Live Demo
-                        <ExternalLink className="w-3 h-3 ml-1" />
-                      </a>
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1"
-                  >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-4 h-4" />
-                        Source Code
-                      </a>
-                    </Button>
-                  </motion.div>
-                </div>
+                
+                <h1 className="font-clash font-black text-5xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6">
+                  {project.title}
+                </h1>
+                
+                <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                  {project.tagline}
+                </p>
               </motion.div>
 
-              {/* Hero Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
-                animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4"
               >
-                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10">
-                  <div className="aspect-[4/3] relative">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={activeImage}
-                        src={project.images[activeImage]}
-                        alt={project.title}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center justify-between">
-                        <Badge className="bg-background/90 backdrop-blur-sm border-0 px-3 py-1.5">
-                          <QrCode className="w-3 h-3 mr-1.5" />
-                          QR Code Generator Demo
-                        </Badge>
-                        <div className="flex gap-1">
-                          {project.images.map((_, idx) => (
-                            <button
-                              key={idx}
-                              onClick={() => setActiveImage(idx)}
-                              className={cn(
-                                "w-2 h-2 rounded-full transition-all",
-                                idx === activeImage
-                                  ? "bg-primary w-6"
-                                  : "bg-white/50 hover:bg-white"
-                              )}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Live Demo 
+                    <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-14 px-8 text-base border-border bg-background/50 backdrop-blur-sm" asChild>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 w-5 h-5" />
+                    Source Code
+                  </a>
+                </Button>
+              </motion.div>
 
-                {/* Image Thumbnails */}
-                <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
-                  {project.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      className={cn(
-                        "relative flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all",
-                        idx === activeImage
-                          ? "border-primary ring-2 ring-primary/20"
-                          : "border-transparent hover:border-border"
-                      )}
-                    >
-                      <img
-                        src={img}
-                        alt={`Preview ${idx + 1}`}
-                        className="w-20 h-14 object-cover"
-                      />
-                    </button>
-                  ))}
+              {/* Quick Stats Grid */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-border/40"
+              >
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Role</div>
+                  <div className="font-satoshi font-medium">{project.role}</div>
                 </div>
-
-                {/* Feature Preview */}
-                <div className="mt-8 rounded-xl border bg-card/50 p-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Zap className="w-5 h-5 text-primary" />
-                    <h4 className="font-clash font-semibold">Key Features</h4>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="text-center p-2 rounded-lg border">
-                      <Save className="w-4 h-4 mx-auto mb-1 text-blue-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Save Codes
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <Download className="w-4 h-4 mx-auto mb-1 text-green-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Download
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <Smartphone className="w-4 h-4 mx-auto mb-1 text-purple-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Responsive
-                      </p>
-                    </div>
-                    <div className="text-center p-2 rounded-lg border">
-                      <Database className="w-4 h-4 mx-auto mb-1 text-orange-500" />
-                      <p className="font-satoshi text-xs font-medium">
-                        Local Storage
-                      </p>
-                    </div>
-                  </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Timeline</div>
+                  <div className="font-satoshi font-medium">{project.duration}</div>
+                </div>
+                <div>
+                  <div className="font-grotesk text-xs text-muted-foreground uppercase tracking-wider mb-1">Team</div>
+                  <div className="font-satoshi font-medium">{project.teamSize}</div>
                 </div>
               </motion.div>
             </div>
+
+            {/* Hero Visual */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
+              className="relative"
+            >
+               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
+               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
+                 <img 
+                   src={project.images[0]} 
+                   alt={project.title}
+                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                 />
+                 {/* Glass overlay */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="flex gap-2">
+                       {project.techStack.slice(0, 3).map((tech, i) => (
+                         <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
+                           <tech.icon className="w-3 h-3" /> {tech.name}
+                         </div>
+                       ))}
+                       <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
+                    </div>
+                 </div>
+               </div>
+               
+               {/* Floating elements */}
+               <motion.div 
+                 animate={{ y: [0, -10, 0] }}
+                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                 className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
+               >
+                 <div className="flex items-center gap-3">
+                   <div className="p-2 bg-purple-500/20 rounded-lg">
+                     <QrCode className="w-6 h-6 text-purple-500" />
+                   </div>
+                   <div>
+                     <div className="text-xs text-muted-foreground font-grotesk uppercase">Generated</div>
+                     <div className="font-bold font-clash">High Res PNG</div>
+                   </div>
+                 </div>
+               </motion.div>
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Main Content Section */}
-        <section className="relative py-12 md:py-20 bg-background">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)]" />
+      {/* Metrics Section */}
+      <section className="border-y border-border/40 bg-card/30 backdrop-blur-sm relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-border/40">
+            {project.metrics.map((metric, i) => (
+              <div key={i} className="px-4 py-6 sm:py-8 text-center group hover:bg-primary/5 transition-colors">
+                 <metric.icon className="w-5 h-5 mx-auto mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                 <div className="font-clash font-bold text-2xl sm:text-3xl mb-1">{metric.value}</div>
+                 <div className="font-satoshi text-xs text-muted-foreground">{metric.label}</div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+      {/* Main Content Layout */}
+      <section className="relative z-10 py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid lg:grid-cols-12 gap-12">
+             
+             {/* Sticky Sidebar */}
+             <div className="hidden lg:block lg:col-span-3">
+               <div className="sticky top-24 space-y-8">
+                 <div>
+                   <h3 className="font-clash font-bold text-lg mb-4">Project Overview</h3>
+                   <nav className="space-y-3">
+                     <a href="#about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About the Project</a>
+                     <a href="#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Core Features</a>
+                     <a href="#tiers" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Feature Tiers</a>
+                     <a href="#usage" className="block text-sm text-muted-foreground hover:text-primary transition-colors">How to Use</a>
+                     <a href="#tech" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Technology Stack</a>
+                      <a href="#structure" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Structure</a>
+                   </nav>
+                 </div>
+                 
+                 <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
+                   <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                      <Download className="w-4 h-4" /> Download Package
+                   </h4>
+                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
+                   <Button size="sm" variant="outline" className="w-full" asChild>
+                      <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                   </Button>
+                 </div>
+               </div>
+             </div>
 
-          {/* Content Container */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-              {/* Left Column - Main Content */}
-              <div className="lg:col-span-2 space-y-12 lg:space-y-16">
-                {/* Performance Metrics */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Performance Metrics
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Optimized for speed and reliability across all devices
-                    </p>
-                  </div>
+             {/* Main Content Area */}
+             <div className="lg:col-span-9 space-y-20 lg:space-y-32">
+               
+               {/* About */}
+               <div id="about" className="space-y-6">
+                 <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Context</span>
+                 <h2 className="font-clash font-bold text-3xl sm:text-4xl">The Solution</h2>
+                 <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
+                   {project.fullDescription}
+                 </p>
+                 <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                   {project.coreFeatures.slice(0,2).map((feature, i) => (
+                     <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
+                       <h4 className="font-bold mb-2 flex items-center gap-2">
+                         <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
+                       </h4>
+                       <p className="text-sm text-muted-foreground">{feature.description}</p>
+                     </div>
+                   ))}
+                 </div>
+               </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.metrics.map((metric, index) => {
-                      const Icon = metric.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
-                        >
-                          <CardContent className="p-5">
-                            <div className="flex items-start justify-between mb-4">
-                              <div className="p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                                <Icon className="w-5 h-5 text-primary" />
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                            <div className="space-y-1">
-                              <div className="font-clash font-bold text-2xl md:text-3xl">
-                                {metric.value}
-                              </div>
-                              <h3 className="font-clash font-semibold">
-                                {metric.label}
-                              </h3>
-                              <p className="font-satoshi text-sm text-muted-foreground">
-                                {metric.description}
-                              </p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Feature Modes */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Feature Levels
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Different feature sets for various user needs
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {project.difficultyModes.map((mode, index) => {
-                      const Icon = mode.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="hover:shadow-lg transition-all duration-300"
-                        >
-                          <CardContent className="p-6">
-                            <div className="flex flex-col items-center text-center space-y-4">
-                              <div
-                                className={`p-3 rounded-full ${mode.color.replace(
-                                  "text-",
-                                  "bg-"
-                                )}/10`}
-                              >
-                                <Icon className={`w-6 h-6 ${mode.color}`} />
-                              </div>
-                              <div>
-                                <h3 className="font-clash font-bold text-lg mb-1">
-                                  {mode.level}
-                                </h3>
-                                <p className="font-satoshi text-sm text-muted-foreground mb-3">
-                                  {mode.description}
-                                </p>
-                                <Badge variant="outline" className="mb-4">
-                                  Speed: {mode.speed}
-                                </Badge>
-                              </div>
-                              <div className="w-full space-y-2">
-                                {mode.features.map((feature, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="flex items-center gap-2 text-sm"
-                                  >
-                                    <CheckCircle className="w-3 h-3 text-green-500" />
-                                    <span className="font-satoshi">
-                                      {feature}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Core Features */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Core Features
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Everything you need for efficient QR code management
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {project.coreFeatures.map((feature, index) => {
-                      const Icon = feature.icon;
-                      return (
-                        <Card
-                          key={index}
-                          className="group hover:shadow-lg transition-all duration-300"
-                        >
-                          <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
-                              <div
-                                className={`p-3 rounded-xl ${feature.color}`}
-                              >
-                                <Icon className="w-6 h-6" />
-                              </div>
-                              <div className="flex-1">
-                                <h3 className="font-clash font-bold text-lg mb-2">
-                                  {feature.title}
-                                </h3>
-                                <p className="font-satoshi text-muted-foreground mb-4">
-                                  {feature.description}
-                                </p>
-                                <div className="space-y-2">
-                                  {feature.examples.map((example, idx) => (
-                                    <div
-                                      key={idx}
-                                      className="p-2 rounded-lg bg-muted font-satoshi text-sm"
-                                    >
-                                      {example}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </motion.section>
-
-                {/* Media Specifications */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      Technical Specifications
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      Technical details and supported formats
-                    </p>
-                  </div>
-
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        {project.mediaSpecs.map((spec, index) => {
-                          const Icon = spec.icon;
-                          return (
-                            <div key={index} className="space-y-3">
-                              <div className="flex items-center gap-3">
-                                <Icon className="w-5 h-5 text-blue-500" />
-                                <h3 className="font-clash font-bold">
-                                  {spec.type}
-                                </h3>
-                              </div>
-                              <div className="space-y-2 font-satoshi text-sm">
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Formats:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.formats || spec.count}
-                                  </span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Max Size:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.maxSize || "Unlimited"}
-                                  </span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-muted-foreground">
-                                    Features:
-                                  </span>
-                                  <span className="font-medium">
-                                    {spec.features}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
-
-                {/* System Architecture */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <h2 className="font-clash font-bold text-2xl md:text-3xl mb-2">
-                      System Architecture
-                    </h2>
-                    <p className="font-satoshi text-muted-foreground">
-                      {project.architecture.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    {project.architecture.components.map((component, index) => {
-                      const Icon = component.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-xl border bg-card/50 hover:bg-card transition-colors"
-                        >
-                          <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10">
-                            <Icon className="w-5 h-5 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="font-clash font-bold text-lg mb-2">
-                              {component.name}
-                            </h3>
-                            <p className="font-satoshi text-muted-foreground mb-3">
-                              {component.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                              {component.technologies.map((tech, idx) => (
-                                <Badge
-                                  key={idx}
-                                  variant="secondary"
-                                  className="font-satoshi"
-                                >
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Architecture Visualization */}
-                  <Card className="mt-8">
-                    <CardContent className="p-6">
-                      <div className="text-center space-y-4">
-                        <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                          <QrCode className="w-8 h-8 text-primary" />
+               {/* Bento Grid Features */}
+               <div id="features" className="space-y-8">
+                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                   <div>
+                     <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Functionality</span>
+                     <h2 className="font-clash font-bold text-3xl sm:text-4xl mt-2">Key Features</h2>
+                   </div>
+                 </div>
+                 
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                   {project.coreFeatures.map((feature, i) => (
+                     <motion.div
+                       key={i}
+                       whileHover={{ y: -5 }}
+                       className={cn(
+                         "p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-colors shadow-sm",
+                         i === 0 || i === 3 ? "md:col-span-2" : "md:col-span-1"
+                       )}
+                     >
+                        <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-6", feature.color)}>
+                          <feature.icon className="w-6 h-6" />
                         </div>
-                        <h3 className="font-clash font-bold text-xl">
-                          QR Code Generation Flow
-                        </h3>
-                        <p className="font-satoshi text-muted-foreground">
-                          User Input → QR Generation → Storage Management →
-                          Image Download
+                        <h3 className="font-clash font-bold text-xl mb-3">{feature.title}</h3>
+                        <p className="text-muted-foreground font-satoshi leading-relaxed mb-6">
+                          {feature.description}
                         </p>
-                        <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-satoshi text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-primary/10 text-primary">
-                              Input
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-500">
-                              Generate
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500">
-                              Store
-                            </span>
-                            <ChevronRight className="w-4 h-4" />
-                          </div>
-                          <div className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-500">
-                            Download
-                          </div>
+                        
+                        <div className="space-y-2">
+                          {feature.examples.map((ex, j) => (
+                             <div key={j} className="flex items-center gap-2 text-xs font-mono bg-background/50 p-2 rounded border border-border/30">
+                               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                               {ex}
+                             </div>
+                          ))}
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.section>
+                     </motion.div>
+                   ))}
+                 </div>
+               </div>
 
-                {/* Tabs Section */}
-                <motion.section
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <Tabs defaultValue="controls" className="w-full">
-                    <TabsList className="grid grid-cols-3 mb-6">
-                      <TabsTrigger value="controls">Controls</TabsTrigger>
-                      <TabsTrigger value="api">API</TabsTrigger>
-                      <TabsTrigger value="deployment">Deployment</TabsTrigger>
-                    </TabsList>
-
-                    <TabsContent value="controls" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <MousePointer className="w-5 h-5" />
-                            Desktop Controls
-                          </h3>
-                          {project.usageExamples.desktop.map(
-                            (example, index) => {
-                              const Icon = example.icon;
-                              return (
-                                <Card key={index}>
-                                  <CardContent className="p-4">
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-2">
-                                        <Icon className="w-4 h-4 text-muted-foreground" />
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Input
-                                        </p>
-                                      </div>
-                                      <p className="font-satoshi font-medium">
-                                        {example.input}
-                                      </p>
-                                      <Separator />
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Action
-                                        </p>
-                                        <p className="font-satoshi">
-                                          {example.action}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </CardContent>
-                                </Card>
-                              );
-                            }
-                          )}
-                        </div>
-                        <div className="space-y-4">
-                          <h3 className="font-clash font-bold text-lg flex items-center gap-2">
-                            <PhoneIcon className="w-5 h-5" />
-                            Mobile Controls
-                          </h3>
-                          {project.usageExamples.mobile.map(
-                            (example, index) => {
-                              const Icon = example.icon;
-                              return (
-                                <Card key={index}>
-                                  <CardContent className="p-4">
-                                    <div className="space-y-3">
-                                      <div className="flex items-center gap-2">
-                                        <Icon className="w-4 h-4 text-muted-foreground" />
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Input
-                                        </p>
-                                      </div>
-                                      <p className="font-satoshi font-medium">
-                                        {example.input}
-                                      </p>
-                                      <Separator />
-                                      <div>
-                                        <p className="font-satoshi text-sm text-muted-foreground">
-                                          Action
-                                        </p>
-                                        <p className="font-satoshi">
-                                          {example.action}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </CardContent>
-                                </Card>
-                              );
-                            }
-                          )}
-                        </div>
-                      </div>
-                    </TabsContent>
-
-                    <TabsContent value="api" className="space-y-6">
-                      <div className="space-y-4">
-                        {project.apiExamples.map((api, index) => (
-                          <Card key={index}>
-                            <CardContent className="p-6">
-                              <div className="flex items-center justify-between mb-4">
-                                <div>
-                                  <Badge className="bg-green-500/10 text-green-500 mb-2">
-                                    {api.method}
-                                  </Badge>
-                                  <h3 className="font-clash font-bold">
-                                    {api.endpoint}
-                                  </h3>
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    {api.description}
-                                  </p>
-                                </div>
-                                <Button
-                                  size="sm"
-                                  variant="ghost"
-                                  onClick={() =>
-                                    copyToClipboard(api.request, api.endpoint)
-                                  }
-                                  className="gap-2"
-                                >
-                                  {copied === api.endpoint ? (
-                                    <Check className="w-4 h-4" />
-                                  ) : (
-                                    <Copy className="w-4 h-4" />
-                                  )}
-                                  Copy
-                                </Button>
+                {/* Feature Tiers (Mapped from difficultyModes) */}
+                <div id="tiers" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Feature Tiers</h2>
+                   <div className="grid md:grid-cols-3 gap-6">
+                      {project.difficultyModes.map((mode, i) => (
+                        <Card key={i} className="border-border/50 bg-card/30 relative overflow-hidden group">
+                           <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                           <CardContent className="p-6 relative">
+                              <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-background border border-border", mode.color)}>
+                                 <mode.icon className="w-6 h-6" />
                               </div>
-                              <div className="mb-4">
-                                <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Configuration
-                                </h4>
-                                <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                  {api.request}
-                                </pre>
+                              <h3 className="font-clash font-bold text-xl mb-2">{mode.level}</h3>
+                              <p className="text-sm text-muted-foreground mb-4">{mode.description}</p>
+                              <div className="space-y-2">
+                                 {mode.features.map((feat, j) => (
+                                    <div key={j} className="flex items-center gap-2 text-xs font-mono">
+                                       <CheckCircle2 className="w-3 h-3 text-primary" />
+                                       {feat}
+                                    </div>
+                                 ))}
+                              </div>
+                           </CardContent>
+                        </Card>
+                      ))}
+                   </div>
+                </div>
+
+                {/* Usage Examples */}
+                <div id="usage" className="space-y-8">
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">How to Use</h2>
+                  <Tabs defaultValue="desktop" className="w-full">
+                    <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10">
+                      <TabsTrigger value="desktop" className="rounded-full px-6">Desktop</TabsTrigger>
+                      <TabsTrigger value="mobile" className="rounded-full px-6">Mobile</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="desktop">
+                      <div className="grid gap-4 md:grid-cols-3">
+                        {project.usageExamples.desktop.map((item, i) => (
+                           <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                 <item.icon className="w-5 h-5" />
                               </div>
                               <div>
-                                <h4 className="font-clash font-semibold text-sm mb-2">
-                                  Response
-                                </h4>
-                                <pre className="bg-muted p-4 rounded-lg text-xs overflow-x-auto font-mono">
-                                  {api.response}
-                                </pre>
+                                 <div className="font-bold text-sm">{item.input}</div>
+                                 <div className="text-xs text-muted-foreground">{item.action}</div>
                               </div>
-                            </CardContent>
-                          </Card>
+                           </div>
                         ))}
                       </div>
                     </TabsContent>
-
-                    <TabsContent value="deployment" className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {project.deployment.map((option, index) => {
-                          const Icon = option.icon;
-                          return (
-                            <Card key={index}>
-                              <CardContent className="p-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                  <div className="p-2 rounded-lg bg-blue-500/10">
-                                    <Icon className="w-5 h-5 text-blue-500" />
-                                  </div>
-                                  <div>
-                                    <h3 className="font-clash font-bold">
-                                      {option.platform}
-                                    </h3>
-                                    <Badge variant="default" className="mt-1">
-                                      {option.complexity}
-                                    </Badge>
-                                  </div>
-                                </div>
-                                <div className="space-y-2">
-                                  <p className="font-satoshi text-sm text-muted-foreground">
-                                    Deployment Command
-                                  </p>
-                                  <div className="relative">
-                                    <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto font-mono">
-                                      {option.command}
-                                    </pre>
-                                    <Button
-                                      size="sm"
-                                      variant="ghost"
-                                      className="absolute right-2 top-2 h-6 w-6 p-0"
-                                      onClick={() =>
-                                        copyToClipboard(
-                                          option.command,
-                                          option.platform
-                                        )
-                                      }
-                                    >
-                                      {copied === option.platform ? (
-                                        <Check className="w-3 h-3" />
-                                      ) : (
-                                        <Copy className="w-3 h-3" />
-                                      )}
-                                    </Button>
-                                  </div>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          );
-                        })}
+                    <TabsContent value="mobile">
+                      <div className="grid gap-4 md:grid-cols-3">
+                         {project.usageExamples.mobile.map((item, i) => (
+                           <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                 <item.icon className="w-5 h-5" />
+                              </div>
+                              <div>
+                                 <div className="font-bold text-sm">{item.input}</div>
+                                 <div className="text-xs text-muted-foreground">{item.action}</div>
+                              </div>
+                           </div>
+                        ))}
                       </div>
                     </TabsContent>
                   </Tabs>
-                </motion.section>
-              </div>
+                </div>
 
-              {/* Right Column - Sidebar */}
-              <div className="space-y-8">
-                {/* Project Structure */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">
-                    Project Structure
-                  </h3>
-                  <Card>
-                    <CardContent className="p-4">
-                      <div className="space-y-2">
-                        {project.projectStructure.map((folder, index) => {
-                          const Icon = folder.icon;
-                          return (
-                            <div
-                              key={index}
-                              className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
-                            >
-                              <div className="flex items-center gap-3">
-                                <Icon className="w-4 h-4 text-muted-foreground" />
-                                <div>
-                                  <h4 className="font-clash font-semibold text-sm">
-                                    {folder.path}
-                                  </h4>
-                                  <p className="font-satoshi text-xs text-muted-foreground">
-                                    {folder.files} files
-                                  </p>
-                                </div>
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Browser Compatibility */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.1 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl flex items-center gap-2">
-                    <Globe className="w-5 h-5 text-blue-500" />
-                    Browser Compatibility
-                  </h3>
-                  <div className="space-y-3">
-                    {project.compatibility.map((browser, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-3 rounded-lg border bg-card/50"
-                      >
-                        <div className="flex items-center gap-3">
-                          <Globe className="w-4 h-4 text-muted-foreground" />
-                          <div>
-                            <span className="font-satoshi font-medium">
-                              {browser.browser}
-                            </span>
-                            <p className="font-satoshi text-xs text-muted-foreground">
-                              v{browser.version}+
-                            </p>
-                          </div>
-                        </div>
-                        <Badge
-                          variant={
-                            browser.status === "Full" ? "default" : "secondary"
-                          }
-                        >
-                          {browser.status}
-                        </Badge>
-                      </div>
-                    ))}
+               {/* Tech Stack */}
+               <div id="tech" className="space-y-8">
+                  <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Under the hood</span>
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Technical Architecture</h2>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                     {project.techStack.map((tech, i) => (
+                       <Card key={i} className="border-border/50 bg-card/30 hover:bg-card/80 transition-all hover:scale-105 duration-300">
+                         <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full gap-4">
+                            <tech.icon className={cn("w-10 h-10", tech.color)} />
+                            <span className="font-satoshi font-medium">{tech.name}</span>
+                         </CardContent>
+                       </Card>
+                     ))}
                   </div>
-                </motion.div>
 
-                {/* Quick Stats */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.2 }}
-                  className="space-y-6"
-                >
-                  <h3 className="font-clash font-bold text-xl">Quick Stats</h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="space-y-4">
-                        {[
-                          {
-                            label: "Project Duration",
-                            value: project.duration,
-                          },
-                          { label: "Team Size", value: project.teamSize },
-                          { label: "File Count", value: "14" },
-                          { label: "Code Lines", value: "800+" },
-                          { label: "Storage Used", value: "5MB Max" },
-                          { label: "GitHub Stars", value: "10+" },
-                        ].map((stat, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between py-2 border-b last:border-0"
-                          >
-                            <span className="font-satoshi text-sm text-muted-foreground">
-                              {stat.label}
-                            </span>
-                            <span className="font-clash font-semibold">
-                              {stat.value}
-                            </span>
+                  {/* Architecture Diagram */}
+                  <div className="mt-12 p-8 rounded-3xl bg-secondary/20 border border-border relative overflow-hidden">
+                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+                     <div className="relative z-10 grid gap-8 md:grid-cols-2">
+                        {project.architecture.components.map((comp, i) => (
+                          <div key={i} className="flex gap-4">
+                            <div className="p-3 bg-background rounded-xl h-fit border border-border">
+                              <comp.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                              <h4 className="font-bold font-clash mb-1">{comp.name}</h4>
+                              <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {comp.technologies.slice(0, 3).map((t, k) => (
+                                  <span key={k} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">{t}</span>
+                                ))}
+                              </div>
+                            </div>
                           </div>
                         ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                     </div>
+                  </div>
+               </div>
 
-                {/* Quick Links */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-4"
-                >
-                  <Button
-                    variant="outline"
-                    className="w-full gap-2"
-                    onClick={handleContactClick}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Start Similar Project
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full gap-2"
-                    onClick={() => handleNavigation("/work-Page")}
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    View All Projects
-                  </Button>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Globe className="w-3 h-3" />
-                        Live Demo
-                      </a>
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="gap-2"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="w-3 h-3" />
-                        Source Code
-                      </a>
-                    </Button>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="py-12 md:py-20 relative"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 border-primary/20">
-              <CardContent className="p-8 md:p-12 text-center">
-                <div className="max-w-2xl mx-auto space-y-6">
-                  <div className="inline-flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20">
-                    <QrCode className="w-8 h-8 text-primary" />
-                  </div>
-                  <h2 className="font-clash font-bold text-2xl md:text-3xl">
-                    Need QR Codes for Your Project?
-                  </h2>
-                  <p className="font-satoshi text-muted-foreground">
-                    Generate, manage, and download QR codes seamlessly with this
-                    modern web application.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        size="lg"
-                        className="gap-2 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                        onClick={handleContactClick}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Start a Project
-                      </Button>
-                    </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="gap-2"
-                        onClick={() => handleNavigation("/work-Page")}
-                      >
-                        View More Work
-                      </Button>
-                    </motion.div>
-                  </div>
+                {/* Project Structure */}
+                <div id="structure" className="space-y-8">
+                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Project Structure</h2>
+                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {project.projectStructure.map((item, i) => (
+                         <div key={i} className="p-4 rounded-xl bg-muted/20 border border-border flex items-center gap-4">
+                            <div className="p-2 bg-background rounded border border-border">
+                               <item.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <div>
+                               <div className="font-mono text-sm font-bold text-blue-300">{item.path}</div>
+                               <div className="text-xs text-muted-foreground">
+                                  {item.files} files • {item.items.slice(0, 2).join(", ")}
+                               </div>
+                            </div>
+                         </div>
+                      ))}
+                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </motion.section>
-      </div>
+
+                {/* Deployment Section */}
+                <div id="deployment" className="space-y-8">
+                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
+                   <div className="grid md:grid-cols-2 gap-4">
+                      {project.deployment.map((deploy, i) => (
+                        <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-muted/20 border border-border/50">
+                           <div className="p-2 bg-background rounded-lg border border-border">
+                              <deploy.icon className="w-6 h-6 text-primary" />
+                           </div>
+                           <div>
+                              <h4 className="font-bold font-clash">{deploy.platform}</h4>
+                              <code className="text-xs bg-muted px-1 py-0.5 rounded text-primary">{deploy.command}</code>
+                              <div className="flex gap-2 mt-2">
+                                <Badge variant="outline" className="text-[10px] h-5">{deploy.complexity}</Badge>
+                              </div>
+                           </div>
+                        </div>
+                      ))}
+                   </div>
+                </div>
+
+             </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Next Project CTA */}
+      <section className="relative z-10 py-20 border-t border-border/40 bg-background">
+         <div className="container mx-auto px-4 text-center">
+            <h3 className="font-clash font-bold text-3xl mb-6">Ready to see more?</h3>
+            <div className="flex justify-center gap-4">
+              <Button size="lg" onClick={() => handleNavigation("/work-Page")}>
+                 Browse Portfolio
+              </Button>
+              <Button size="lg" variant="outline" onClick={() => handleNavigation("/contact-Page")}>
+                 Get in Touch
+              </Button>
+            </div>
+         </div>
+      </section>
     </div>
   );
 };
 
-export default ProjectDetails_7;
+export default ProjectDetail_7;

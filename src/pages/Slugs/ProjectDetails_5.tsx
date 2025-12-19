@@ -548,7 +548,7 @@ const ProjectDetail_5 = () => {
                   }`}
                 />
                 <Folder className="w-4 h-4 text-blue-400" />
-                <span className="text-blue-200 font-medium">{item.name}</span>
+                <span className="text-blue-200 font-medium truncate">{item.name}</span>
               </>
             ) : (
               <>
@@ -558,7 +558,7 @@ const ProjectDetail_5 = () => {
                 ) : (
                   <File className="w-4 h-4 text-muted-foreground" />
                 )}
-                <span className="text-muted-foreground">{item.name}</span>
+                <span className="text-muted-foreground truncate">{item.name}</span>
               </>
             )}
           </div>

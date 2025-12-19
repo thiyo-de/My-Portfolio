@@ -582,7 +582,7 @@ const ProjectDetail_8 = () => {
                   )}
                 </div>
                 
-                <h1 className="font-clash font-black text-5xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6">
+                <h1 className="font-clash font-black text-4xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 break-words">
                   {project.title}
                 </h1>
                 
@@ -769,7 +769,7 @@ const ProjectDetail_8 = () => {
                    </div>
 
                    <h3 className="font-clash font-bold text-xl mb-4">Permission Levels</h3>
-                   <div className="grid md:grid-cols-3 gap-6">
+                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                       {project.permissionLevels.map((mode, i) => (
                         <Card key={i} className="border-border/50 bg-card/30 relative overflow-hidden group">
                            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -813,12 +813,12 @@ const ProjectDetail_8 = () => {
                 <div id="workflow" className="space-y-8">
                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Operations Workflow</h2>
                   <Tabs defaultValue="setup" className="w-full">
-                    <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10 w-fit">
+                    <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10 w-full sm:w-fit grid grid-cols-2 sm:flex">
                       <TabsTrigger value="setup" className="rounded-full px-6">App Setup</TabsTrigger>
                       <TabsTrigger value="remote" className="rounded-full px-6">Remote Flow</TabsTrigger>
                     </TabsList>
                     <TabsContent value="setup">
-                      <div className="grid gap-4 md:grid-cols-4">
+                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {project.usageExamples.setup.map((item, i) => (
                            <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
                               <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
@@ -834,7 +834,7 @@ const ProjectDetail_8 = () => {
                       </div>
                     </TabsContent>
                     <TabsContent value="remote">
-                      <div className="grid gap-4 md:grid-cols-4">
+                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                          {project.usageExamples.remote.map((item, i) => (
                            <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
                              <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
@@ -915,7 +915,7 @@ const ProjectDetail_8 = () => {
                 {/* Deployment Section */}
                 <div id="deployment" className="space-y-8">
                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
-                   <div className="grid md:grid-cols-3 gap-4">
+                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                       {project.deployment.map((deploy, i) => (
                         <div key={i} className="flex flex-col gap-4 p-5 rounded-xl bg-muted/20 border border-border/50">
                            <div className="flex items-center justify-between">

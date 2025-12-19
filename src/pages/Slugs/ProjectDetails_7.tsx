@@ -814,9 +814,9 @@ const ProjectDetail_7 = () => {
                             <div className="p-2 bg-background rounded border border-border">
                                <item.icon className="w-5 h-5 text-primary" />
                             </div>
-                            <div>
-                               <div className="font-mono text-sm font-bold text-blue-300">{item.path}</div>
-                               <div className="text-xs text-muted-foreground">
+                            <div className="min-w-0 flex-1">
+                               <div className="font-mono text-sm font-bold text-blue-300 truncate" title={item.path}>{item.path}</div>
+                               <div className="text-xs text-muted-foreground truncate">
                                   {item.files} files • {item.items.slice(0, 2).join(", ")}
                                </div>
                             </div>

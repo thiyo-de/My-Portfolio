@@ -435,11 +435,11 @@ const ProjectDetail_9 = () => {
                  
                  <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
                    <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
-                     <Download className="w-4 h-4" /> Resources
+                     <Download className="w-4 h-4" /> Download Package
                    </h4>
-                   <p className="text-xs text-muted-foreground mb-4">Access usage guides and deployment assets.</p>
+                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
                    <Button size="sm" variant="outline" className="w-full" asChild>
-                     <a href="#">Documentation</a>
+                     <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
                    </Button>
                  </div>
                </div>

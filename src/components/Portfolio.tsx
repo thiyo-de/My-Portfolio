@@ -233,6 +233,7 @@ const Portfolio = () => {
                       <motion.img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.4 }}

@@ -16,6 +16,36 @@ import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
+    id: "9",
+    title: "Montfort AI Admin Dashboard",
+    description: "A powerful, no-code admin interface for managing the Montfort AI Chatbot's knowledge base.",
+    shortDescription: "Centralized Control Center for School AI Interactions",
+    tags: [
+      "Admin Panel",
+      "Dashboard",
+      "CMS",
+      "Supabase",
+      "React",
+      "Analytics"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+    slug: "montfort-school-ai-chatbot-system",
+    category: "Admin System / SaaS",
+    liveUrl: "https://montfort-chatbot-admin-panel.netlify.app/",
+    githubUrl: "#",
+    featured: true,
+    role: "Lead Architect & Developer",
+    stats: [
+      { value: "No-Code", label: "Control" },
+      { value: "Real-Time", label: "Analytics" },
+      { value: "RBAC", label: "Security" },
+      { value: "Production", label: "Status" },
+      { value: "Supabase", label: "Database" },
+      { value: "9-Q Rule", label: "Validation" },
+    ],
+  },
+  {
     id: "1",
     title: "Montfort ICSE AI Chatbot",
     description: "Advanced Gemini-Powered AI with 3D Navigation",

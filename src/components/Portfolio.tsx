@@ -6,6 +6,15 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Montfort AI Admin Dashboard",
+    description:
+      "A powerful, no-code admin interface for managing the Montfort AI Chatbot's knowledge base.",
+    tags: ["Admin Panel", "Dashboard", "CMS"],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+    slug: "montfort-school-ai-chatbot-system",
+  },
+  {
     title: "Montfort ICSE AI Chatbot",
     description: "Advanced Gemini-Powered AI with 3D Navigation",
     tags: ["AI/ML", "Gemini API", "RAG"],
@@ -200,7 +209,7 @@ const Portfolio = () => {
         >
           {projects.map((project, index) => {
             const number = (index + 1).toString().padStart(2, "0");
-            const route = `/work/${project.slug}`;
+            const route = `/portfolio/${project.slug}`;
 
             return (
               <motion.div

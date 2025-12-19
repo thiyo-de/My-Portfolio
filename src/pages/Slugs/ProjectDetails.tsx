@@ -12,6 +12,7 @@ const ProjectDetail_5 = React.lazy(() => import("./ProjectDetails_5"));
 const ProjectDetail_6 = React.lazy(() => import("./ProjectDetails_6"));
 const ProjectDetail_7 = React.lazy(() => import("./ProjectDetails_7"));
 const ProjectDetail_8 = React.lazy(() => import("./ProjectDetails_8"));
+const ProjectDetail_9 = React.lazy(() => import("./ProjectDetails_9"));
 
 type ProjectSlug = 
   | "montfort-icse-ai-chatbot"
@@ -21,7 +22,8 @@ type ProjectSlug =
   | "vr-tour-gallery"
   | "gamify-menu"
   | "qr-code-generator"
-  | "remote-access-app";
+  | "remote-access-app"
+  | "montfort-school-ai-chatbot-system";
 
 const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.LazyExoticComponent<React.FC>>> = {
   "montfort-icse-ai-chatbot": ProjectDetail_1,
@@ -32,6 +34,7 @@ const PROJECT_COMPONENTS: Partial<Record<ProjectSlug, React.LazyExoticComponent<
   "gamify-menu": ProjectDetail_6,
   "qr-code-generator": ProjectDetail_7,
   "remote-access-app": ProjectDetail_8,
+  "montfort-school-ai-chatbot-system": ProjectDetail_9,
 };
 
 const LoadingState = () => (

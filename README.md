@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Thiyoplus F - Professional Portfolio
 
-## Project info
+<div align="center">
+  <img src="public/og-image.png" alt="Thiyoplus F Portfolio" width="100%" />
+  
+  <h3>A High-Performance, Interactive Portfolio Website</h3>
+  
+  <p>
+    <a href="https://thiyoplus-f.netlify.app/"><strong>View Live Site »</strong></a>
+    <br />
+    <br />
+    <a href="#features">Features</a>
+    ·
+    <a href="#tech-stack">Tech Stack</a>
+    ·
+    <a href="#getting-started">Getting Started</a>
+  </p>
+</div>
 
-**URL**: https://lovable.dev/projects/d3de398a-1e32-4384-8743-75ff709904bb
+## 🚀 Overview
 
-## How can I edit this code?
+**Thiyoplus F** is a modern, responsive portfolio website designed to showcase professional projects with an immersive user experience. Built with high-performance metrics in mind, it features smooth animations, lazy loading, and a seamless navigation flow. Each project detail page is crafted to provide deep insights into technical architectures, core features, and live demonstrations.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **🎨 Modern Design**: Sleek, glassmorphism-inspired UI with a polished dark mode aesthetic.
+- **⚡ High Performance**: Optimized with lazy loading, code splitting, and responsive assets.
+- **📱 Fully Responsive**: Flawless experience across mobile, tablet, and desktop devices.
+- **🏃‍♂️ Low Latency Animations**: Powered by **Framer Motion** for butter-smooth transitions.
+- **📂 Downloadable Resources**: Direct access to project source codes via responsive "Download Package" sections.
+- **🔍 SEO Optimized**: Semantic HTML and metadata for better search engine visibility.
+- **🧩 Component-Based Architecture**: Modular and reusable components ensuring maintainability.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d3de398a-1e32-4384-8743-75ff709904bb) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built using the latest web technologies to ensure scalability and performance:
 
-**Use your preferred IDE**
+- **Frontend Framework**: [React](https://reactjs.org/) (v18)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/) - Super fast HMR and build optimization.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework.
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/) - Accessible, unstyled primitives.
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) - Production-ready animation library.
+- **Icons**: [Lucide React](https://lucide.dev/) - Beautiful & consistent icon pack.
+- **Deployment**: [Netlify](https://www.netlify.com/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🏗️ Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+A quick look at the top-level directory structure:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/        # Shared UI components (Portfolio, Header, etc.)
+│   ├── ui/           # Radix/Shadcn primitives (Buttons, Cards, Dialogs)
+├── hooks/            # Custom React hooks (use-toast, use-mobile)
+├── lib/              # Utilities (utils.ts)
+├── pages/            # Page Views
+│   ├── Slugs/        # Dynamic Project Detail Pages (ProjectDetails_1 to 9)
+│   ├── Index.tsx     # Home Page
+├── App.tsx           # Main Application Entry & Routing
+└── main.tsx          # DOM Mounting
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Follow these instructions to set up the project locally on your machine.
 
-**Use GitHub Codespaces**
+### Prerequisites
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Node.js** (v18 or higher recommended)
+- **npm** or **yarn**
 
-## What technologies are used for this project?
+### Installation
 
-This project is built with:
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/thiyo-de/My-Portfolio.git
+    cd My-Portfolio
+    ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-## How can I deploy this project?
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
 
-Simply open [Lovable](https://lovable.dev/projects/d3de398a-1e32-4384-8743-75ff709904bb) and click on Share -> Publish.
+4.  **Open in browser**
+    Navigate to `http://localhost:8080` (or the port shown in your terminal).
 
-## Can I connect a custom domain to my Lovable project?
+## 📦 Deployment
 
-Yes, you can!
+This project is optimized for deployment on platforms like Netlify, Vercel, or GitHub Pages.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+To build for production:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+npm run build
+```
+
+This will generate a `dist` folder containing the optimized production build.
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📬 Contact
+
+**Thiyow** - [Portfolio](https://thiyoplus-f.netlify.app/)
+
+Project Link: [https://github.com/thiyo-de/My-Portfolio](https://github.com/thiyo-de/My-Portfolio)

@@ -128,7 +128,7 @@ import { cn } from "@/lib/utils";
 const projectDetails = {
   "remote-access-app": {
     id: "8",
-    title: "RemoteAccessApp",
+    title: "Remote Access App",
     tagline: "Consent-first Android Remote Assistance Framework",
     description:
       "24/7 Foreground Service with Persistent Notification & Explicit User Approvals",

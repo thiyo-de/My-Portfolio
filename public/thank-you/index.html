@@ -84,9 +84,16 @@
 
     <!-- Auto Redirect Script -->
     <script>
-        setTimeout(function () {
-            window.location.href = "/";
-        }, 5000); // Redirect after 5 seconds
+        let timeLeft = 10;
+        const timer = setInterval(function () {
+            timeLeft--;
+            const el = document.getElementById('countdown');
+            if (el) el.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = "/";
+            }
+        }, 1000);
     </script>
 </head>
 
@@ -144,7 +151,8 @@
                     </p>
 
                     <p class="text-xs text-gray-600 font-grotesk mt-4">
-                        Redirecting to home in 5 seconds...
+                        Redirecting to home in <span id="countdown"
+                            class="font-bold text-green-500 transition-all duration-300">10</span> seconds...
                     </p>
                 </div>
 

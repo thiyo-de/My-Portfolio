@@ -12,7 +12,8 @@ import Work_Page from "@/pages/Work-Page";
 import Skills_Page from "@/pages/Skills-Page";
 import Contact_Page from "@/pages/Contact-Page";
 import ProjectDetail from "@/pages/Slugs/ProjectDetails";
-import NotFound from "@/pages/NotFound";  
+import NotFound from "@/pages/NotFound";
+import ThankYou from "@/components/ThankYou";  
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="/skills-Page" element={<Skills_Page />} />
               <Route path="/contact-Page" element={<Contact_Page />} />
               <Route path="/portfolio/:slug" element={<ProjectDetail />} />
+              <Route path="/thank-you" element={<ThankYou />} />
             </Route>
 
             {/* Catch-all for undefined routes */}

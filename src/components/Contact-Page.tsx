@@ -27,7 +27,7 @@ const Contact = () => {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("hello@example.com");
+      await navigator.clipboard.writeText("thiyo80203@gmail.com");
       setEmailCopied(true);
       setTimeout(() => setEmailCopied(false), 2000);
     } catch (err) {
@@ -44,11 +44,7 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+
 
   const contactInfo = [
     {
@@ -336,9 +332,19 @@ const Contact = () => {
                   </div>
 
                   <form
-                    onSubmit={handleSubmit}
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    action="/thank-you"
                     className="space-y-4 sm:space-y-6"
                   >
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p className="hidden">
+                      <label>
+                        Don’t fill this out: <input name="bot-field" />
+                      </label>
+                    </p>
                     <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                       <div className="space-y-2 sm:space-y-3">
                         <label

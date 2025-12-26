@@ -87,7 +87,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="font-grotesk font-black leading-tight text-4xl sm:text-5xl md:text-6xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6 sm:mb-8"
+            className="font-clash font-black leading-tight text-4xl sm:text-5xl md:text-6xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6 sm:mb-8"
           >
             THIYOPLUS F
           </motion.h1>
@@ -255,7 +255,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="font-grotesk font-black leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent px-2"
+              className="font-clash font-black leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl tracking-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent px-2"
             >
               THIYOPLUS F
             </motion.h1>

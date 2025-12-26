@@ -9,15 +9,22 @@ import {
   Copy,
   Check,
   Send,
+  Loader2, // Added Loader2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
+
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [emailCopied, setEmailCopied] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -332,19 +339,51 @@ const Contact = () => {
                   </div>
 
                   <form
-                    name="contact"
-                    method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    action="/thank-you"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      
+                      // Start sending process
+                      setIsSending(true);
+
+                      const templateParams = {
+                        from_name: formData.name,
+                        from_email: formData.email,
+                        subject: formData.subject,
+                        message: formData.message,
+                        to_name: "Thiyo",
+                      };
+
+                      emailjs
+                        .send(
+                          "service_6q5e6bh",
+                          "template_xcsz92o",
+                          templateParams,
+                          "1HJAmXEI-BouR9vmO"
+                        )
+                        .then(
+                          () => {
+                            toast.success("Message sent successfully!");
+                            setFormData({
+                                name: "",
+                                email: "",
+                                subject: "",
+                                message: "",
+                            });
+                            // Small delay before redirect
+                            setTimeout(() => {
+                                setIsSending(false);
+                                navigate("/thank-you");
+                            }, 500);
+                          },
+                          (error) => {
+                            console.error("FAILED...", error);
+                            setIsSending(false);
+                            toast.error("Failed to send message. Please try again.");
+                          }
+                        );
+                    }}
                     className="space-y-4 sm:space-y-6"
                   >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
-                      <label>
-                        Don’t fill this out: <input name="bot-field" />
-                      </label>
-                    </p>
                     <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                       <div className="space-y-2 sm:space-y-3">
                         <label
@@ -360,6 +399,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your name"
                           required
+                          disabled={isSending}
                           className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 text-sm sm:text-base"
                         />
                       </div>
@@ -378,6 +418,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="your.email@example.com"
                           required
+                          disabled={isSending}
                           className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 text-sm sm:text-base"
                         />
                       </div>
@@ -397,6 +438,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="What's this about?"
                         required
+                        disabled={isSending}
                         className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 text-sm sm:text-base"
                       />
                     </div>
@@ -416,22 +458,33 @@ const Contact = () => {
                         placeholder="Tell me about your project..."
                         rows={5}
                         required
+                        disabled={isSending}
                         className="bg-background/50 border-border/50 focus:border-primary/50 resize-none transition-all duration-300 text-sm sm:text-base min-h-[120px]"
                       />
                     </div>
 
                     <motion.div
-                      whileHover={{ y: -2 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={!isSending ? { y: -2 } : {}}
+                      whileTap={!isSending ? { scale: 0.98 } : {}}
                       transition={{ duration: 0.2 }}
                     >
                       <Button
                         type="submit"
                         size="lg"
+                        disabled={isSending}
                         className="w-full font-grotesk text-base sm:text-lg py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-lg hover:shadow-primary/25 transition-all duration-300 rounded-xl group"
                       >
-                        <Send className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                        Send Message
+                        {isSending ? (
+                          <>
+                            <Loader2 className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                            Send Message
+                          </>
+                        )}
                       </Button>
                     </motion.div>
                   </form>

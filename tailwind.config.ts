@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        clash: ['Epilogue', 'sans-serif'],
-        satoshi: ['Inter', 'sans-serif'],
+        clash: ['Clash Display', 'sans-serif'],
+        satoshi: ['Satoshi', 'sans-serif'],
         grotesk: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
@@ -141,6 +141,14 @@ export default {
             boxShadow: "0 0 40px hsl(var(--primary) / 0.6)",
           },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.3", transform: "scale(1)" },
+          "50%": { opacity: "0.5", transform: "scale(1.1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -151,6 +159,8 @@ export default {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "marquee": "marquee 30s linear infinite",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
       },
     },
   },

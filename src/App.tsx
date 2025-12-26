@@ -13,6 +13,7 @@ import Skills_Page from "@/pages/Skills-Page";
 import Contact_Page from "@/pages/Contact-Page";
 import ProjectDetail from "@/pages/Slugs/ProjectDetails";
 import NotFound from "@/pages/NotFound";
+import ThankYou from "@/pages/ThankYou";
   
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => {
             </Route>
 
             {/* Catch-all for undefined routes */}
+            <Route path="/thank-you" element={<ThankYou />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

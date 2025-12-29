@@ -157,8 +157,8 @@ const projectDetails = {
     ],
     slug: "remote-access-app",
     category: "Android Framework",
-    liveUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
-    githubUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
+    liveUrl: "https://github.com/thiyo-de/remote-app.git",
+    githubUrl: "https://github.com/thiyo-de/remote-app.git",
     featured: true,
     role: "Lead Android Developer",
     duration: "3 months",
@@ -537,13 +537,13 @@ const ProjectDetail_8 = () => {
       <div className="fixed inset-0 z-0 overflow-hidden">
         {/* Texture Layer */}
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,0.08)_25%,rgba(68,68,68,0.08)_50%,transparent_50%,transparent_75%,rgba(68,68,68,0.08)_75%)] bg-[length:7px_7px] opacity-100" />
-        
+
         {/* Radial Fade Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(12,14,18,0.9)_85%,rgba(12,14,18,1)_100%)] pointer-events-none" />
       </div>
 
       <div className="fixed inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
-      
+
       {/* Hero Section */}
       <section className="relative z-10 min-h-[85vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -554,7 +554,7 @@ const ProjectDetail_8 = () => {
             className="mb-8"
           >
             <Button
-              variant="ghost" 
+              variant="ghost"
               className="gap-2 text-muted-foreground hover:text-foreground mb-8 pl-0 hover:bg-transparent"
               onClick={() => handleNavigation("/work-Page")}
             >
@@ -576,16 +576,16 @@ const ProjectDetail_8 = () => {
                     {project.category}
                   </Badge>
                   {project.featured && (
-                     <Badge variant="default" className="font-grotesk text-sm py-1 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0">
-                       <Sparkles className="w-3 h-3 mr-1" /> Featured Project
-                     </Badge>
+                    <Badge variant="default" className="font-grotesk text-sm py-1 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0">
+                      <Sparkles className="w-3 h-3 mr-1" /> Featured Project
+                    </Badge>
                   )}
                 </div>
-                
+
                 <h1 className="font-clash font-black text-4xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 break-words">
                   {project.title}
                 </h1>
-                
+
                 <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl">
                   {project.tagline}
                 </p>
@@ -599,7 +599,7 @@ const ProjectDetail_8 = () => {
               >
                 <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    Live Demo 
+                    Live Demo
                     <ArrowUpRight className="ml-2 w-5 h-5" />
                   </a>
                 </Button>
@@ -612,7 +612,7 @@ const ProjectDetail_8 = () => {
               </motion.div>
 
               {/* Quick Stats Grid */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
@@ -640,42 +640,42 @@ const ProjectDetail_8 = () => {
               transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
               className="relative"
             >
-               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
-               <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
-                 <img 
-                   src={project.images[0]} 
-                   alt={project.title}
-                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                 />
-                 {/* Glass overlay */}
-                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <div className="flex gap-2">
-                       {project.techStack.slice(0, 3).map((tech, i) => (
-                         <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
-                           <tech.icon className="w-3 h-3" /> {tech.name}
-                         </div>
-                       ))}
-                       <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
-                    </div>
-                 </div>
-               </div>
-               
-               {/* Floating elements */}
-               <motion.div 
-                 animate={{ y: [0, -10, 0] }}
-                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                 className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
-               >
-                 <div className="flex items-center gap-3">
-                   <div className="p-2 bg-blue-500/20 rounded-lg">
-                     <ShieldCheck className="w-6 h-6 text-blue-500" />
-                   </div>
-                   <div>
-                     <div className="text-xs text-muted-foreground font-grotesk uppercase">Status</div>
-                     <div className="font-bold font-clash">Protected</div>
-                   </div>
-                 </div>
-               </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
+              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
+                <img
+                  src={project.images[0]}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Glass overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="flex gap-2">
+                    {project.techStack.slice(0, 3).map((tech, i) => (
+                      <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
+                        <tech.icon className="w-3 h-3" /> {tech.name}
+                      </div>
+                    ))}
+                    <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating elements */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-blue-500/20 rounded-lg">
+                    <ShieldCheck className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground font-grotesk uppercase">Status</div>
+                    <div className="font-bold font-clash">Protected</div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -687,9 +687,9 @@ const ProjectDetail_8 = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-border/40">
             {project.metrics.map((metric, i) => (
               <div key={i} className="px-4 py-6 sm:py-8 text-center group hover:bg-primary/5 transition-colors">
-                 <metric.icon className="w-5 h-5 mx-auto mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
-                 <div className="font-clash font-bold text-2xl sm:text-3xl mb-1">{metric.value}</div>
-                 <div className="font-satoshi text-xs text-muted-foreground">{metric.label}</div>
+                <metric.icon className="w-5 h-5 mx-auto mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                <div className="font-clash font-bold text-2xl sm:text-3xl mb-1">{metric.value}</div>
+                <div className="font-satoshi text-xs text-muted-foreground">{metric.label}</div>
               </div>
             ))}
           </div>
@@ -699,271 +699,271 @@ const ProjectDetail_8 = () => {
       {/* Main Content Layout */}
       <section className="relative z-10 py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="grid lg:grid-cols-12 gap-12">
-             
-             {/* Sticky Sidebar */}
-             <div className="hidden lg:block lg:col-span-3">
-               <div className="sticky top-24 space-y-8">
-                 <div>
-                   <h3 className="font-clash font-bold text-lg mb-4">Project Overview</h3>
-                   <nav className="space-y-3">
-                     <a href="#about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About the Project</a>
-                     <a href="#security" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Security</a>
-                     <a href="#capabilities" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Capabilities</a>
-                     <a href="#workflow" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Workflow</a>
-                     <a href="#tech" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Technology Stack</a>
-                      <a href="#structure" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Structure</a>
-                   </nav>
-                 </div>
-                 
-                 <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
-                   <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
-                      <Download className="w-4 h-4" /> Download Package
-                   </h4>
-                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
-                   <Button size="sm" variant="outline" className="w-full" asChild>
-                      <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
-                   </Button>
-                 </div>
-               </div>
-             </div>
+          <div className="grid lg:grid-cols-12 gap-12">
 
-             {/* Main Content Area */}
-             <div className="lg:col-span-9 space-y-20 lg:space-y-32">
-               
-               {/* Mobile Download Package (Visible on < lg screens) */}
-               <div className="lg:hidden p-6 rounded-2xl bg-secondary/30 border border-border mb-8">
-                 <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
-                   <Download className="w-4 h-4" /> Download Package
-                 </h4>
-                 <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
-                 <Button size="sm" variant="outline" className="w-full" asChild>
-                   <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
-                 </Button>
-               </div>
-               
-               {/* About */}
-               <div id="about" className="space-y-6">
-                 <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Context</span>
-                 <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Overview</h2>
-                 <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
-                   {project.fullDescription}
-                 </p>
-                 <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                   {project.coreFeatures.slice(0,2).map((feature, i) => (
-                     <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
-                       <h4 className="font-bold mb-2 flex items-center gap-2">
-                         <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
-                       </h4>
-                       <p className="text-sm text-muted-foreground">{feature.description}</p>
-                     </div>
-                   ))}
-                 </div>
-               </div>
+            {/* Sticky Sidebar */}
+            <div className="hidden lg:block lg:col-span-3">
+              <div className="sticky top-24 space-y-8">
+                <div>
+                  <h3 className="font-clash font-bold text-lg mb-4">Project Overview</h3>
+                  <nav className="space-y-3">
+                    <a href="#about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About the Project</a>
+                    <a href="#security" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Security</a>
+                    <a href="#capabilities" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Capabilities</a>
+                    <a href="#workflow" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Workflow</a>
+                    <a href="#tech" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Technology Stack</a>
+                    <a href="#structure" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Structure</a>
+                  </nav>
+                </div>
 
-                {/* Security Levels */}
-                <div id="security" className="space-y-8">
-                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Security Protocols</h2>
-                   
-                   {/* Security Specs Grid */}
-                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                      {project.securitySpecs.map((spec, i) => (
-                        <div key={i} className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors">
-                           <div className="bg-primary/5 p-2 rounded-lg w-fit mb-3">
-                              <spec.icon className="w-5 h-5 text-primary" />
-                           </div>
-                           <h4 className="font-bold text-sm mb-1">{spec.type}</h4>
-                           <div className="text-xs text-muted-foreground mb-2">{spec.details}</div>
-                           <Badge variant="outline" className="text-[10px] bg-green-500/10 text-green-500 border-green-500/20">{spec.level}</Badge>
+                <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
+                  <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                    <Download className="w-4 h-4" /> Download Package
+                  </h4>
+                  <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
+                  <Button size="sm" variant="outline" className="w-full" asChild>
+                    <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Content Area */}
+            <div className="lg:col-span-9 space-y-20 lg:space-y-32">
+
+              {/* Mobile Download Package (Visible on < lg screens) */}
+              <div className="lg:hidden p-6 rounded-2xl bg-secondary/30 border border-border mb-8">
+                <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                  <Download className="w-4 h-4" /> Download Package
+                </h4>
+                <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
+                <Button size="sm" variant="outline" className="w-full" asChild>
+                  <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                </Button>
+              </div>
+
+              {/* About */}
+              <div id="about" className="space-y-6">
+                <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Context</span>
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Overview</h2>
+                <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
+                  {project.fullDescription}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                  {project.coreFeatures.slice(0, 2).map((feature, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
+                      <h4 className="font-bold mb-2 flex items-center gap-2">
+                        <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Security Levels */}
+              <div id="security" className="space-y-8">
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">Security Protocols</h2>
+
+                {/* Security Specs Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                  {project.securitySpecs.map((spec, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors">
+                      <div className="bg-primary/5 p-2 rounded-lg w-fit mb-3">
+                        <spec.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h4 className="font-bold text-sm mb-1">{spec.type}</h4>
+                      <div className="text-xs text-muted-foreground mb-2">{spec.details}</div>
+                      <Badge variant="outline" className="text-[10px] bg-green-500/10 text-green-500 border-green-500/20">{spec.level}</Badge>
+                    </div>
+                  ))}
+                </div>
+
+                <h3 className="font-clash font-bold text-xl mb-4">Permission Levels</h3>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  {project.permissionLevels.map((mode, i) => (
+                    <Card key={i} className="border-border/50 bg-card/30 relative overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CardContent className="p-6 relative">
+                        <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-background border border-border", mode.color)}>
+                          <mode.icon className="w-6 h-6" />
                         </div>
-                      ))}
-                   </div>
-
-                   <h3 className="font-clash font-bold text-xl mb-4">Permission Levels</h3>
-                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                      {project.permissionLevels.map((mode, i) => (
-                        <Card key={i} className="border-border/50 bg-card/30 relative overflow-hidden group">
-                           <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                           <CardContent className="p-6 relative">
-                              <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-background border border-border", mode.color)}>
-                                 <mode.icon className="w-6 h-6" />
-                              </div>
-                              <h3 className="font-clash font-bold text-xl mb-2">{mode.level}</h3>
-                              <p className="text-sm text-muted-foreground mb-4">{mode.description}</p>
-                              <div className="space-y-2">
-                                 {mode.features.map((feat, j) => (
-                                    <div key={j} className="flex items-center gap-2 text-xs font-mono">
-                                       <CheckCircle2 className="w-3 h-3 text-primary" />
-                                       {feat}
-                                    </div>
-                                 ))}
-                              </div>
-                           </CardContent>
-                        </Card>
-                      ))}
-                   </div>
-                </div>
-
-                {/* Supported Actions */}
-                <div id="capabilities" className="space-y-8">
-                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Capabilities</h2>
-                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                      {project.supportedActions.map((action, i) => (
-                         <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-muted/20 border border-border/50">
-                            <action.icon className="w-5 h-5 text-muted-foreground" />
-                            <div className="flex-1">
-                               <div className="text-sm font-medium">{action.action}</div>
-                               <div className="text-[10px] text-green-500 font-mono tracking-wide uppercase">{action.status}</div>
+                        <h3 className="font-clash font-bold text-xl mb-2">{mode.level}</h3>
+                        <p className="text-sm text-muted-foreground mb-4">{mode.description}</p>
+                        <div className="space-y-2">
+                          {mode.features.map((feat, j) => (
+                            <div key={j} className="flex items-center gap-2 text-xs font-mono">
+                              <CheckCircle2 className="w-3 h-3 text-primary" />
+                              {feat}
                             </div>
-                         </div>
-                      ))}
-                   </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
+              </div>
 
-                {/* Workflow / Usage */}
-                <div id="workflow" className="space-y-8">
-                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Operations Workflow</h2>
-                  <Tabs defaultValue="setup" className="w-full">
-                    <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10 w-full sm:w-fit grid grid-cols-2 sm:flex">
-                      <TabsTrigger value="setup" className="rounded-full px-6">App Setup</TabsTrigger>
-                      <TabsTrigger value="remote" className="rounded-full px-6">Remote Flow</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="setup">
-                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                        {project.usageExamples.setup.map((item, i) => (
-                           <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
-                              <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
-                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
-                                 <item.icon className="w-5 h-5" />
-                              </div>
-                              <div className="z-10">
-                                 <div className="font-bold text-sm mb-1">{item.step}</div>
-                                 <div className="text-xs text-muted-foreground">{item.action}</div>
-                              </div>
-                           </div>
-                        ))}
+              {/* Supported Actions */}
+              <div id="capabilities" className="space-y-8">
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">System Capabilities</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {project.supportedActions.map((action, i) => (
+                    <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-muted/20 border border-border/50">
+                      <action.icon className="w-5 h-5 text-muted-foreground" />
+                      <div className="flex-1">
+                        <div className="text-sm font-medium">{action.action}</div>
+                        <div className="text-[10px] text-green-500 font-mono tracking-wide uppercase">{action.status}</div>
                       </div>
-                    </TabsContent>
-                    <TabsContent value="remote">
-                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                         {project.usageExamples.remote.map((item, i) => (
-                           <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
-                             <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
-                              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
-                                 <item.icon className="w-5 h-5" />
-                              </div>
-                              <div className="z-10">
-                                 <div className="font-bold text-sm mb-1">{item.step}</div>
-                                 <div className="text-xs text-muted-foreground">{item.action}</div>
-                              </div>
-                           </div>
-                        ))}
-                      </div>
-                    </TabsContent>
-                  </Tabs>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-               {/* Tech Stack */}
-               <div id="tech" className="space-y-8">
-                  <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Under the hood</span>
-                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Technical Architecture</h2>
-                  
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                     {project.techStack.map((tech, i) => (
-                       <Card key={i} className="border-border/50 bg-card/30 hover:bg-card/80 transition-all hover:scale-105 duration-300">
-                         <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full gap-4">
-                            <tech.icon className={cn("w-10 h-10", tech.color)} />
-                            <span className="font-satoshi font-medium">{tech.name}</span>
-                         </CardContent>
-                       </Card>
-                     ))}
-                  </div>
-
-                  {/* Architecture Diagram */}
-                  <div className="mt-12 p-8 rounded-3xl bg-secondary/20 border border-border relative overflow-hidden">
-                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
-                     <div className="relative z-10 grid gap-8 md:grid-cols-2">
-                        {project.architecture.components.map((comp, i) => (
-                          <div key={i} className="flex gap-4">
-                            <div className="p-3 bg-background rounded-xl h-fit border border-border">
-                              <comp.icon className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                              <h4 className="font-bold font-clash mb-1">{comp.name}</h4>
-                              <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
-                              <div className="flex flex-wrap gap-2">
-                                {comp.technologies.slice(0, 3).map((t, k) => (
-                                  <span key={k} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">{t}</span>
-                                ))}
-                              </div>
-                            </div>
+              {/* Workflow / Usage */}
+              <div id="workflow" className="space-y-8">
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">Operations Workflow</h2>
+                <Tabs defaultValue="setup" className="w-full">
+                  <TabsList className="bg-muted/50 p-1 rounded-full mb-6 relative z-10 w-full sm:w-fit grid grid-cols-2 sm:flex">
+                    <TabsTrigger value="setup" className="rounded-full px-6">App Setup</TabsTrigger>
+                    <TabsTrigger value="remote" className="rounded-full px-6">Remote Flow</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="setup">
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      {project.usageExamples.setup.map((item, i) => (
+                        <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
+                          <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
+                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
+                            <item.icon className="w-5 h-5" />
                           </div>
-                        ))}
-                     </div>
-                  </div>
-               </div>
-
-                {/* Project Structure */}
-                <div id="structure" className="space-y-8">
-                   <h2 className="font-clash font-bold text-3xl sm:text-4xl">Project Structure</h2>
-                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {project.projectStructure.map((item, i) => (
-                         <div key={i} className="p-4 rounded-xl bg-muted/20 border border-border flex items-center gap-4">
-                            <div className="p-2 bg-background rounded border border-border">
-                               <item.icon className="w-5 h-5 text-primary" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                               <div className="font-mono text-sm font-bold text-blue-300 truncate" title={item.path}>{item.path}</div>
-                               <div className="text-xs text-muted-foreground truncate">
-                                  {item.files} files • {item.items.slice(0, 1).join("")}...
-                               </div>
-                            </div>
-                         </div>
-                      ))}
-                   </div>
-                </div>
-
-                {/* Deployment Section */}
-                <div id="deployment" className="space-y-8">
-                  <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
-                   <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                      {project.deployment.map((deploy, i) => (
-                        <div key={i} className="flex flex-col gap-4 p-5 rounded-xl bg-muted/20 border border-border/50">
-                           <div className="flex items-center justify-between">
-                              <div className="p-2 bg-background rounded-lg border border-border">
-                                <deploy.icon className="w-6 h-6 text-primary" />
-                              </div>
-                              <Badge variant="outline" className="text-[10px] h-5">{deploy.complexity}</Badge>
-                           </div>
-                           
-                           <div>
-                              <h4 className="font-bold font-clash mb-1">{deploy.platform}</h4>
-                              <div className="text-xs text-muted-foreground mb-3">{deploy.note}</div>
-                              <code className="text-[10px] bg-muted px-2 py-1 rounded text-primary block break-all">{deploy.command}</code>
-                           </div>
+                          <div className="z-10">
+                            <div className="font-bold text-sm mb-1">{item.step}</div>
+                            <div className="text-xs text-muted-foreground">{item.action}</div>
+                          </div>
                         </div>
                       ))}
-                   </div>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="remote">
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      {project.usageExamples.remote.map((item, i) => (
+                        <div key={i} className="flex flex-col gap-4 p-4 rounded-xl bg-card border border-border/50 h-full relative">
+                          <div className="absolute top-4 right-4 text-[40px] font-black opacity-5 text-primary">{i + 1}</div>
+                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary z-10">
+                            <item.icon className="w-5 h-5" />
+                          </div>
+                          <div className="z-10">
+                            <div className="font-bold text-sm mb-1">{item.step}</div>
+                            <div className="text-xs text-muted-foreground">{item.action}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </div>
+
+              {/* Tech Stack */}
+              <div id="tech" className="space-y-8">
+                <span className="font-grotesk text-xs tracking-[0.3em] text-primary uppercase">Under the hood</span>
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">Technical Architecture</h2>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {project.techStack.map((tech, i) => (
+                    <Card key={i} className="border-border/50 bg-card/30 hover:bg-card/80 transition-all hover:scale-105 duration-300">
+                      <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full gap-4">
+                        <tech.icon className={cn("w-10 h-10", tech.color)} />
+                        <span className="font-satoshi font-medium">{tech.name}</span>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
 
-             </div>
-           </div>
+                {/* Architecture Diagram */}
+                <div className="mt-12 p-8 rounded-3xl bg-secondary/20 border border-border relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+                  <div className="relative z-10 grid gap-8 md:grid-cols-2">
+                    {project.architecture.components.map((comp, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="p-3 bg-background rounded-xl h-fit border border-border">
+                          <comp.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold font-clash mb-1">{comp.name}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {comp.technologies.slice(0, 3).map((t, k) => (
+                              <span key={k} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">{t}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Structure */}
+              <div id="structure" className="space-y-8">
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">Project Structure</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {project.projectStructure.map((item, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-muted/20 border border-border flex items-center gap-4">
+                      <div className="p-2 bg-background rounded border border-border">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-mono text-sm font-bold text-blue-300 truncate" title={item.path}>{item.path}</div>
+                        <div className="text-xs text-muted-foreground truncate">
+                          {item.files} files • {item.items.slice(0, 1).join("")}...
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Deployment Section */}
+              <div id="deployment" className="space-y-8">
+                <h2 className="font-clash font-bold text-3xl sm:text-4xl">Deployment Options</h2>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {project.deployment.map((deploy, i) => (
+                    <div key={i} className="flex flex-col gap-4 p-5 rounded-xl bg-muted/20 border border-border/50">
+                      <div className="flex items-center justify-between">
+                        <div className="p-2 bg-background rounded-lg border border-border">
+                          <deploy.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <Badge variant="outline" className="text-[10px] h-5">{deploy.complexity}</Badge>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold font-clash mb-1">{deploy.platform}</h4>
+                        <div className="text-xs text-muted-foreground mb-3">{deploy.note}</div>
+                        <code className="text-[10px] bg-muted px-2 py-1 rounded text-primary block break-all">{deploy.command}</code>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Next Project CTA */}
       <section className="relative z-10 py-20 border-t border-border/40 bg-background">
-         <div className="container mx-auto px-4 text-center">
-            <h3 className="font-clash font-bold text-3xl mb-6">Ready to see more?</h3>
-            <div className="flex justify-center gap-4">
-              <Button size="lg" onClick={() => handleNavigation("/work-Page")}>
-                 Browse Portfolio
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => handleNavigation("/contact-Page")}>
-                 Get in Touch
-              </Button>
-            </div>
-         </div>
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="font-clash font-bold text-3xl mb-6">Ready to see more?</h3>
+          <div className="flex justify-center gap-4">
+            <Button size="lg" onClick={() => handleNavigation("/work-Page")}>
+              Browse Portfolio
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => handleNavigation("/contact-Page")}>
+              Get in Touch
+            </Button>
+          </div>
+        </div>
       </section>
     </div>
   );

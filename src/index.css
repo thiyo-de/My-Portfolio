@@ -146,3 +146,38 @@ html {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--muted-foreground) / 0.5) hsl(var(--background));
 }
+
+/* Content Protection */
+html,
+body {
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+  /* Prevents right-click on image directly, allows click-through to parent */
+}
+
+/* Allow selection in inputs and textareas */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

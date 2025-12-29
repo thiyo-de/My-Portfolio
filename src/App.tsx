@@ -14,11 +14,52 @@ import Contact_Page from "@/pages/Contact-Page";
 import ProjectDetail from "@/pages/Slugs/ProjectDetails";
 import NotFound from "@/pages/NotFound";
 import ThankYou from "@/pages/ThankYou";
-  
+
+
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  useEffect(() => {
+    // Disable right-click
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    // Disable keyboard shortcuts (F12, Ctrl+U, Ctrl+S, Ctrl+P, Ctrl+C, etc.)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.shiftKey && e.key === "J") ||
+        (e.ctrlKey && e.key === "U") ||
+        (e.ctrlKey && e.key === "S") ||
+        (e.ctrlKey && e.key === "H") ||
+        (e.ctrlKey && e.key === "A") ||
+        (e.ctrlKey && e.key === "P") ||
+        (e.ctrlKey && e.key === "C") // Copy
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    // Disable drag start events globally (extra layer)
+    const handleDragStart = (e: DragEvent) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("dragstart", handleDragStart);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("dragstart", handleDragStart);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

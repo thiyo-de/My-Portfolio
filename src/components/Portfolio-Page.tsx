@@ -33,7 +33,7 @@ const projects = [
     slug: "montfort-school-ai-chatbot-system",
     category: "Admin System / SaaS",
     liveUrl: "https://montfort-chatbot-admin-panel.netlify.app/",
-    githubUrl: "#",
+    githubUrl: "https://github.com/thiyo-de/Chatbot-with-admin-panel-AI-Intergration-",
     featured: true,
     role: "Lead Architect & Developer",
     stats: [
@@ -130,7 +130,7 @@ const projects = [
     slug: "vowel-quest",
     category: "Educational Game / Web App",
     liveUrl: "https://vowel-shooting.netlify.app/",
-    githubUrl: "#",
+    githubUrl: "https://github.com/thiyo-de/Vowel-Typing-Game.git",
     featured: true,
     role: "Full Stack Developer & Game Designer",
     stats: [
@@ -291,8 +291,8 @@ const projects = [
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
     slug: "remote-access-app",
     category: "Android Framework",
-    liveUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
-    githubUrl: "https://github.com/JCodeX-Dev/Remote-Access-App",
+    liveUrl: "https://github.com/thiyo-de/remote-app.git",
+    githubUrl: "https://github.com/thiyo-de/remote-app.git",
     featured: true,
     role: "Lead Android Developer",
     stats: [
@@ -323,11 +323,11 @@ const Portfolio = () => {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((project) => 
-          project.category.toLowerCase().includes(activeFilter.toLowerCase()) ||
-          (activeFilter === "Mobile" && project.category.toLowerCase().includes("android")) ||
-          (activeFilter === "Frontend" && (project.category.toLowerCase().includes("web") || project.category.toLowerCase().includes("ui")))
-        );
+      : projects.filter((project) =>
+        project.category.toLowerCase().includes(activeFilter.toLowerCase()) ||
+        (activeFilter === "Mobile" && project.category.toLowerCase().includes("android")) ||
+        (activeFilter === "Frontend" && (project.category.toLowerCase().includes("web") || project.category.toLowerCase().includes("ui")))
+      );
 
   const displayedProjects = filteredProjects.slice(0, visibleProjects);
 
@@ -438,11 +438,10 @@ const Portfolio = () => {
               <motion.button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-5 py-2.5 rounded-xl font-grotesk text-sm font-medium transition-all duration-300 border backdrop-blur-sm ${
-                  activeFilter === category
-                    ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105"
-                    : "bg-card/60 border-border/60 hover:border-primary/40 hover:bg-primary/5 text-foreground/80"
-                }`}
+                className={`px-5 py-2.5 rounded-xl font-grotesk text-sm font-medium transition-all duration-300 border backdrop-blur-sm ${activeFilter === category
+                  ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105"
+                  : "bg-card/60 border-border/60 hover:border-primary/40 hover:bg-primary/5 text-foreground/80"
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}

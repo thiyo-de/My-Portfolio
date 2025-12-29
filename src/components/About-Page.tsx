@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import profile_Pic from "../assets/Profile Pic.jfif";
+import resumePdf from "../assets/thiyoplus f_Resume.pdf";
 import { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -67,10 +68,9 @@ const About = () => {
 
   // Memoized handlers for better performance
   const handleDownloadResume = useCallback(() => {
-    const resumeUrl = "/resume.pdf";
     const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Your_Name_Resume.pdf";
+    link.href = resumePdf;
+    link.download = "Thiyoplus_F_Resume.pdf";
     link.setAttribute("data-testid", "resume-download-link");
     document.body.appendChild(link);
     link.click();
@@ -432,9 +432,8 @@ const TiltCard = ({
                   alt="Professional profile picture"
                   width={600}
                   height={600}
-                  className={`w-full h-full object-cover transition-opacity duration-500 ${
-                    isImageLoaded ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${isImageLoaded ? "opacity-100" : "opacity-0"
+                    }`}
                   onLoad={onImageLoad}
                   loading="lazy"
                 />

@@ -166,16 +166,15 @@ const Portfolio = () => {
               Featured Projects
             </h2>
           </div>
-          
+
           <div className="flex gap-2 self-start lg:self-auto">
             <motion.button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
-              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${
-                !canScrollLeft 
-                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed" 
-                  : "border-border hover:border-primary hover:bg-primary/10"
-              }`}
+              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${!canScrollLeft
+                ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
+                : "border-border hover:border-primary hover:bg-primary/10"
+                }`}
               whileHover={!canScrollLeft ? {} : { scale: 1.1 }}
               whileTap={!canScrollLeft ? {} : { scale: 0.95 }}
             >
@@ -184,11 +183,10 @@ const Portfolio = () => {
             <motion.button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
-              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${
-                !canScrollRight
-                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed" 
-                  : "border-border hover:border-primary hover:bg-primary/10"
-              }`}
+              className={`p-3 sm:p-4 rounded-full border-2 transition-all ${!canScrollRight
+                ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
+                : "border-border hover:border-primary hover:bg-primary/10"
+                }`}
               whileHover={!canScrollRight ? {} : { scale: 1.1 }}
               whileTap={!canScrollRight ? {} : { scale: 0.95 }}
             >
@@ -240,7 +238,7 @@ const Portfolio = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
                       <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                        <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/20">
+                        <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/75">
                           {number}
                         </span>
                       </div>
@@ -287,54 +285,53 @@ const Portfolio = () => {
         {/* Navigation Dots */}
         <div className="flex justify-center mt-8">
           <div className="flex gap-2">
-            {Array.from({ 
-              length: Math.ceil(projects.length / visibleCards) 
+            {Array.from({
+              length: Math.ceil(projects.length / visibleCards)
             }).map((_, index) => {
               const totalPages = Math.ceil(projects.length / visibleCards);
               // Calculate effective max index for scrolling
               const maxScrollIndex = Math.max(0, projects.length - visibleCards);
-              
+
               // Determine active dot
               // If we are at the end (or past it), activate the last dot
-              const activeDotIndex = currentIndex >= maxScrollIndex 
-                ? totalPages - 1 
+              const activeDotIndex = currentIndex >= maxScrollIndex
+                ? totalPages - 1
                 : Math.floor(currentIndex / visibleCards);
 
               const isActive = index === activeDotIndex;
 
               return (
-              <button
-                key={index}
-                onClick={() => {
-                  // Clamp the new index to valid bounds to prevent whitespace
-                  const newIndex = Math.min(
-                    index * visibleCards, 
-                    maxScrollIndex
-                  );
-                  
-                  setCurrentIndex(newIndex);
-                  
-                  if (scrollContainerRef.current) {
-                    const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
-                    const gap = 24;
-                    // We need to calculate scroll position based on the new index
-                    // However, we should be careful about the "clamped" index vs visual calculation
-                    // Using the same logic as the scroll function helps consistency
-                    const scrollAmount = (cardWidth + gap) * newIndex;
-                    
-                    scrollContainerRef.current.scrollTo({
-                      left: scrollAmount,
-                      behavior: "smooth"
-                    });
-                  }
-                }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  isActive
+                <button
+                  key={index}
+                  onClick={() => {
+                    // Clamp the new index to valid bounds to prevent whitespace
+                    const newIndex = Math.min(
+                      index * visibleCards,
+                      maxScrollIndex
+                    );
+
+                    setCurrentIndex(newIndex);
+
+                    if (scrollContainerRef.current) {
+                      const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
+                      const gap = 24;
+                      // We need to calculate scroll position based on the new index
+                      // However, we should be careful about the "clamped" index vs visual calculation
+                      // Using the same logic as the scroll function helps consistency
+                      const scrollAmount = (cardWidth + gap) * newIndex;
+
+                      scrollContainerRef.current.scrollTo({
+                        left: scrollAmount,
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${isActive
                     ? "bg-primary w-8"
                     : "bg-border hover:bg-primary/50"
-                }`}
-              />
-            );
+                    }`}
+                />
+              );
             })}
           </div>
         </div>

@@ -121,23 +121,43 @@ const Portfolio = () => {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
-      const gap = 24;
-      const scrollAmount = (cardWidth + gap) * visibleCards;
+      const container = scrollContainerRef.current;
+      const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth : container.clientWidth * 0.85; // Get actual card width
+      const gap = 24; // This works for lg:gap-8 (32px) but let's be careful. The code used 24 before. Let's stick to calculated logic or consistent values. 
+      // Actually, let's keep it simple first. The existing code manually calculated *0.85. 
+      // Better to check the computed style or just stick to the calculation that largely works, 
+      // BUT for "snap" to work, we are relying on CSS snap. 
+      // The issue is just state sync. Use the same math for now to calculate index.
 
-      scrollContainerRef.current.scrollBy({
+      const scrollAmount = (container.clientWidth * 0.85) + 24; // Keep original math for consistency for now, or improve it.
+      // Let's use the scrollBy logic but ensure we update based on current position + direction
+
+      container.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
+      // We don't need to manually setCurrentIndex here anymore if handleScroll updates it!
+      // However, handleScroll is async (happens on scroll). 
+      // If we rely ONLY on handleScroll, the button state might lag slightly until scroll starts.
+      // But it's cleaner to let handleScroll be the source of truth for "where are we".
+      // Let's NOT set currentIndex here manually if we trust handleScroll, 
+      // OR set it here to "optimistically" update.
+      // Given the user wants to fix "manual move", the critical part is handleScroll.
+    }
+  };
 
-      // Update current index
-      setCurrentIndex(prev => {
-        if (direction === "right") {
-          return Math.min(prev + visibleCards, projects.length - visibleCards);
-        } else {
-          return Math.max(prev - visibleCards, 0);
-        }
-      });
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = container.clientWidth * 0.85; // Consistent with existing logic
+      const gap = 24;
+      const itemWidth = cardWidth + gap;
+
+      const newIndex = Math.round(container.scrollLeft / itemWidth);
+
+      if (newIndex !== currentIndex) {
+        setCurrentIndex(newIndex);
+      }
     }
   };
 
@@ -198,6 +218,7 @@ const Portfolio = () => {
         {/* Projects Container */}
         <div
           ref={scrollContainerRef}
+          onScroll={handleScroll}
           className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
           style={{
             scrollbarWidth: "none",

@@ -341,16 +341,18 @@ const Contact = () => {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      
+
                       // Start sending process
                       setIsSending(true);
 
                       const templateParams = {
-                        from_name: formData.name,
-                        from_email: formData.email,
+                        name: formData.name,
+                        email: formData.email,
                         subject: formData.subject,
                         message: formData.message,
                         to_name: "Thiyo",
+                        time: new Date().toLocaleString(),
+                        year: new Date().getFullYear(),
                       };
 
                       emailjs
@@ -364,15 +366,15 @@ const Contact = () => {
                           () => {
                             toast.success("Message sent successfully!");
                             setFormData({
-                                name: "",
-                                email: "",
-                                subject: "",
-                                message: "",
+                              name: "",
+                              email: "",
+                              subject: "",
+                              message: "",
                             });
                             // Small delay before redirect
                             setTimeout(() => {
-                                setIsSending(false);
-                                navigate("/thank-you");
+                              setIsSending(false);
+                              navigate("/thank-you");
                             }, 500);
                           },
                           (error) => {
@@ -494,7 +496,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

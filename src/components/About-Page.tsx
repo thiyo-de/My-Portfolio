@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/lib/animations";
-import profile_Pic from "../assets/Thiyo-f.jpg";
+import profile_Pic from "../assets/Thiyo-f.png";
 import resumePdf from "../assets/thiyoplus f_Resume.pdf";
 import { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";

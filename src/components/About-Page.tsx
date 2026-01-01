@@ -7,35 +7,14 @@ import {
   Download,
   ExternalLink,
   LucideIcon,
-  X,
-  Maximize2,
-  Minimize2,
 } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import profile_Pic from "../assets/Thiyo-f.png";
 import resumePdf from "../assets/thiyoplus f_Resume.pdf";
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Document, Page, pdfjs } from "react-pdf";
-
-// Configure PDF worker
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url,
-).toString();
 
 // Types for better type safety
 interface SocialLink {
@@ -51,27 +30,7 @@ interface Stat {
 
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [pageWidth, setPageWidth] = useState<number>(600);
-  const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  // Handle resizing for responsive PDF
-  useEffect(() => {
-    if (!isResumeOpen) return;
-
-    const updateWidth = () => {
-      if (containerRef.current) {
-        setPageWidth(containerRef.current.clientWidth - 48); // Subtract padding
-      }
-    };
-
-    // Initial measure
-    setTimeout(updateWidth, 100);
-
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, [isResumeOpen]);
 
   const socialLinks: SocialLink[] = [
     {
@@ -109,13 +68,10 @@ const About = () => {
 
   // Memoized handlers for better performance
   const handleDownloadResume = useCallback(() => {
-    setIsResumeOpen(true);
-  }, []);
-
-  const downloadFile = useCallback(() => {
     const link = document.createElement("a");
     link.href = resumePdf;
     link.download = "Thiyoplus_F_Resume.pdf";
+    link.setAttribute("data-testid", "resume-download-link");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -373,77 +329,6 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-      <Dialog open={isResumeOpen} onOpenChange={setIsResumeOpen}>
-        <DialogContent className="max-w-4xl w-[90vw] h-[85vh] p-0 overflow-hidden bg-background/95 backdrop-blur-xl border-primary/20 [&>button]:hidden">
-          <div className="flex flex-col h-full">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between py-4 px-6 border-b border-border/40 bg-muted/20">
-              <DialogTitle className="flex items-center gap-3 font-clash text-xl tracking-wide">
-                <span className="text-primary font-bold">Resume</span> Preview
-              </DialogTitle>
-              <div className="flex items-center gap-3">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="font-grotesk text-xs sm:text-sm h-9 gap-2 rounded-full hover:bg-primary/10 hover:text-primary hover:border-primary/50 transition-all duration-300"
-                  onClick={downloadFile}
-                  title="Download PDF"
-                >
-                  <Download className="h-4 w-4" />
-                  <span className="hidden sm:inline">Download</span>
-                </Button>
-                <div className="w-px h-6 bg-border/60 mx-1" />
-                <DialogClose asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-9 w-9 rounded-full hover:bg-destructive/10 hover:text-destructive transition-colors duration-300"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
-                </DialogClose>
-              </div>
-            </div>
-
-            {/* Modal Body - PDF Preview */}
-            <div
-              ref={containerRef}
-              className="flex-1 overflow-y-auto overflow-x-hidden bg-muted/20 relative group scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent hover:scrollbar-thumb-primary/40 scroll-smooth p-6 flex justify-center"
-            >
-              <Document
-                file={resumePdf}
-                className="shadow-2xl rounded-sm"
-                loading={
-                  <div className="flex items-center justify-center h-full min-h-[400px]">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                  </div>
-                }
-                error={
-                  <div className="flex flex-col items-center justify-center h-full text-destructive gap-2">
-                    <p>Failed to load resume preview.</p>
-                    <Button onClick={downloadFile} variant="outline" size="sm">
-                      Download PDF instead
-                    </Button>
-                  </div>
-                }
-              >
-                <Page
-                  pageNumber={1}
-                  width={pageWidth}
-                  renderTextLayer={true}
-                  renderAnnotationLayer={true}
-                  className="bg-white shadow-lg"
-                  loading=""
-                />
-              </Document>
-
-
-            </div>
-
-            {/* Mobile-only Download Footer (visible only on small screens if needed, but the header button covers it) */}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

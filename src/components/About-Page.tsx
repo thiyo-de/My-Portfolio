@@ -24,8 +24,14 @@ import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import profile_Pic from "../assets/Thiyo-f.png";
 import resumePdf from "../assets/thiyoplus f_Resume.pdf";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Document, Page, pdfjs } from "react-pdf";
+
+// Configure PDF worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 
 // Types for better type safety
 interface SocialLink {
@@ -42,7 +48,26 @@ interface Stat {
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [pageWidth, setPageWidth] = useState<number>(600);
+  const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Handle resizing for responsive PDF
+  useEffect(() => {
+    if (!isResumeOpen) return;
+
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setPageWidth(containerRef.current.clientWidth - 48); // Subtract padding
+      }
+    };
+
+    // Initial measure
+    setTimeout(updateWidth, 100);
+
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [isResumeOpen]);
 
   const socialLinks: SocialLink[] = [
     {
@@ -377,12 +402,36 @@ const About = () => {
             </div>
 
             {/* Modal Body - PDF Preview */}
-            <div className="flex-1 overflow-hidden bg-muted/20 relative group">
-              <iframe
-                src={`${resumePdf}#toolbar=0&navpanes=0&scrollbar=0`}
-                className="w-full h-full border-0"
-                title="Resume Preview"
-              />
+            <div
+              ref={containerRef}
+              className="flex-1 overflow-y-auto overflow-x-hidden bg-muted/20 relative group scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent hover:scrollbar-thumb-primary/40 scroll-smooth p-6 flex justify-center"
+            >
+              <Document
+                file={resumePdf}
+                className="shadow-2xl rounded-sm"
+                loading={
+                  <div className="flex items-center justify-center h-full min-h-[400px]">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                  </div>
+                }
+                error={
+                  <div className="flex flex-col items-center justify-center h-full text-destructive gap-2">
+                    <p>Failed to load resume preview.</p>
+                    <Button onClick={downloadFile} variant="outline" size="sm">
+                      Download PDF instead
+                    </Button>
+                  </div>
+                }
+              >
+                <Page
+                  pageNumber={1}
+                  width={pageWidth}
+                  renderTextLayer={true}
+                  renderAnnotationLayer={true}
+                  className="bg-white shadow-lg"
+                  loading=""
+                />
+              </Document>
 
 
             </div>

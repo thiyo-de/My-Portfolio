@@ -52,6 +52,10 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_DroneMerge/1.png";
+import Img2 from "@/assets/ProjectDetails_DroneMerge/2.png";
+import Img3 from "@/assets/ProjectDetails_DroneMerge/3.png";
+import Thumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.png";
 
 const projectDetails = {
     "drone-footage-merge-tool": {
@@ -66,9 +70,10 @@ const projectDetails = {
     `,
         tags: ["Electron", "Node.js", "Desktop App", "Automation", "File Manipulation"],
         images: [
-            "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop", // Drone placeholder
-            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=800&fit=crop", // Tech placeholder
-            "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop" // Chip placeholder
+            Thumbnail,
+            Img1,
+            Img2,
+            Img3
         ],
         slug: "drone-footage-merge-tool",
         category: "Desktop Application",

@@ -1,8 +1,18 @@
-import { ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowLeft, ArrowRight, Construction } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import MontfortThumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.png";
+import MontfortICSEThumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.png";
+import DSFounderThumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.png";
+import DroneMergeThumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.png";
+import VowelQuestThumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.png";
+import RuthramThumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.png";
+import VRTourThumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.png";
+import GamifyThumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.png";
+import QRCodeThumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.png";
+import RemoteAccessThumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.png";
 
 const projects = [
   {
@@ -11,7 +21,7 @@ const projects = [
       "A powerful, no-code admin interface for managing the Montfort AI Chatbot's knowledge base.",
     tags: ["Admin Panel", "Dashboard", "CMS"],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+      MontfortThumbnail,
     slug: "montfort-school-ai-chatbot-system",
   },
   {
@@ -19,7 +29,7 @@ const projects = [
     description: "Advanced Gemini-Powered AI with 3D Navigation",
     tags: ["AI/ML", "Gemini API", "RAG"],
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
+      MontfortICSEThumbnail,
     slug: "montfort-icse-ai-chatbot",
   },
   {
@@ -28,7 +38,7 @@ const projects = [
       "Interactive platform for collecting and displaying birthday wishes",
     tags: ["React", "Supabase", "Cloudinary"],
     image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=800&fit=crop&auto=format",
+      DSFounderThumbnail,
     slug: "ds-founder-birthday-wishes",
   },
   {
@@ -37,7 +47,7 @@ const projects = [
       "Automated Footage Organization for Production Teams",
     tags: ["Electron", "Node.js", "Automation"],
     image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop",
+      DroneMergeThumbnail,
     slug: "drone-footage-merge-tool",
   },
   {
@@ -46,7 +56,7 @@ const projects = [
       "Educational space shooter game for vowel recognition learning",
     tags: ["HTML5 Canvas", "JavaScript", "Game Dev"],
     image:
-      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&h=800&fit=crop&auto=format",
+      VowelQuestThumbnail,
     slug: "vowel-quest",
   },
   {
@@ -54,7 +64,7 @@ const projects = [
     description: "Transforming Spaces into Immersive Digital Experiences",
     tags: ["React 18", "360° Virtual Tours", "Google Street View"],
     image:
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/1.png",
+      RuthramThumbnail,
     slug: "ruthram360",
   },
   {
@@ -63,7 +73,7 @@ const projects = [
       "Interactive user photo upload feature for immersive VR experiences",
     tags: ["VR Integration", "Flask", "React"],
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
+      VRTourThumbnail,
     slug: "vr-tour-gallery",
   },
   {
@@ -72,7 +82,7 @@ const projects = [
       "Dynamic, gamified navigation menu with sound effects",
     tags: ["UI/UX Design", "Sound Design", "React"],
     image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&auto=format",
+      GamifyThumbnail,
     slug: "gamify-menu",
   },
   {
@@ -80,7 +90,7 @@ const projects = [
     description: "Generate, save, and manage QR codes with ease",
     tags: ["JavaScript", "QR Codes", "Local Storage"],
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
+      QRCodeThumbnail,
     slug: "qr-code-generator",
   },
   {
@@ -89,8 +99,9 @@ const projects = [
       "24/7 Foreground Service with Persistent Notification",
     tags: ["Android", "Kotlin", "Foreground Service"],
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
+      RemoteAccessThumbnail,
     slug: "remote-access-app",
+    isUnderDevelopment: true,
   },
 ];
 
@@ -272,10 +283,15 @@ const Portfolio = () => {
                           {number}
                         </span>
                       </div>
+                      {(project as any).isUnderDevelopment && (
+                        <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+                          <Badge variant="destructive" className="font-grotesk text-xs px-2 py-1 bg-yellow-500/10 text-yellow-500 border-yellow-500/20 hover:bg-yellow-500/20 border backdrop-blur-sm">
+                            <Construction className="w-3 h-3 mr-1" /> Under Development
+                          </Badge>
+                        </div>
+                      )}
                       <motion.div
                         className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
                       >
                         <div className="text-center">
                           <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />

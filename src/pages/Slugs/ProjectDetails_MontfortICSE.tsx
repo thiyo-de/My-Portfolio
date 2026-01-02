@@ -67,6 +67,8 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_MontfortICSE/1.png";
+import Thumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.png";
 
 const projectDetails = {
   "montfort-icse-ai-chatbot": {
@@ -82,9 +84,8 @@ const projectDetails = {
     `,
     tags: ["AI/ML", "Gemini API", "RAG", "Node.js", "3D Vista", "Semantic Search", "Vector Embeddings", "Express.js"],
     images: [
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop"
+      Thumbnail,
+      Img1
     ],
     slug: "montfort-icse-ai-chatbot",
     category: "AI / Full Stack",

@@ -120,10 +120,12 @@ import {
   KeyRound,
   LockIcon,
   CheckSquare,
-  Power
+  Power,
+  Construction
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Thumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.png";
 
 const projectDetails = {
   "remote-access-app": {
@@ -151,13 +153,14 @@ const projectDetails = {
       "24/7 Operation",
     ],
     images: [
+      Thumbnail,
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&auto=format",
     ],
     slug: "remote-access-app",
     category: "Android Framework",
-    liveUrl: "https://github.com/thiyo-de/remote-app.git",
+    liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/remote-app.git",
     featured: true,
     role: "Lead Android Developer",
@@ -563,15 +566,15 @@ const ProjectDetail_RemoteAccessApp = () => {
             </Button>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
             {/* Hero Text */}
-            <div className="space-y-8">
+            <div className="space-y-8 w-full">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-6 justify-center">
                   <Badge variant="outline" className="font-grotesk text-sm py-1 px-3 border-primary/20 bg-primary/5 text-primary">
                     {project.category}
                   </Badge>
@@ -580,13 +583,16 @@ const ProjectDetail_RemoteAccessApp = () => {
                       <Sparkles className="w-3 h-3 mr-1" /> Featured Project
                     </Badge>
                   )}
+                  <Badge variant="destructive" className="font-grotesk text-sm py-1 px-3 bg-yellow-500/10 text-yellow-500 border-yellow-500/20 hover:bg-yellow-500/20 border">
+                    <Construction className="w-3 h-3 mr-1" /> Project Under Development
+                  </Badge>
                 </div>
 
                 <h1 className="font-clash font-black text-4xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight mb-6 break-words">
                   {project.title}
                 </h1>
 
-                <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                <p className="font-satoshi text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
                   {project.tagline}
                 </p>
               </motion.div>
@@ -595,7 +601,7 @@ const ProjectDetail_RemoteAccessApp = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -647,35 +653,7 @@ const ProjectDetail_RemoteAccessApp = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Glass overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <div className="flex gap-2">
-                    {project.techStack.slice(0, 3).map((tech, i) => (
-                      <div key={i} className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50 flex items-center gap-1">
-                        <tech.icon className="w-3 h-3" /> {tech.name}
-                      </div>
-                    ))}
-                    <span className="bg-background/80 backdrop-blur text-xs px-2 py-1 rounded border border-border/50">+{project.techStack.length - 3} more</span>
-                  </div>
-                </div>
               </div>
-
-              {/* Floating elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute -bottom-6 -right-6 bg-card border border-border p-4 rounded-xl shadow-xl hidden sm:block"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-500/20 rounded-lg">
-                    <ShieldCheck className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground font-grotesk uppercase">Status</div>
-                    <div className="font-bold font-clash">Protected</div>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>

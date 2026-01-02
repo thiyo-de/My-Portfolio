@@ -82,6 +82,9 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_VowelQuest/1.png";
+import Img2 from "@/assets/ProjectDetails_VowelQuest/2.png";
+import Thumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.png";
 
 const projectDetails = {
   "vowel-quest": {
@@ -97,10 +100,9 @@ const projectDetails = {
     `,
     tags: ["HTML5 Canvas", "CSS3", "JavaScript", "Educational Game", "Responsive Design", "60fps", "Mobile-Optimized"],
     images: [
-      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&auto=format"
+      Thumbnail,
+      Img1,
+      Img2
     ],
     slug: "vowel-quest",
     category: "Educational Game / Web App",

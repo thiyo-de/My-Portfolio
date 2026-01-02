@@ -36,6 +36,12 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_Ruthram360/1.png";
+import Img2 from "@/assets/ProjectDetails_Ruthram360/2.png";
+import Img3 from "@/assets/ProjectDetails_Ruthram360/3.png";
+import Img4 from "@/assets/ProjectDetails_Ruthram360/4.png";
+import Img5 from "@/assets/ProjectDetails_Ruthram360/5.png";
+import Thumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.png";
 
 const projectDetails = {
   "ruthram360": {
@@ -53,11 +59,12 @@ const projectDetails = {
     `,
     tags: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "360° Virtual Tours", "Google Street View", "Digital Preservation"],
     images: [
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/1.png",
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/2.png",
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/3.png",
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/4.png",
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/5.png"
+      Thumbnail,
+      Img1,
+      Img2,
+      Img3,
+      Img4,
+      Img5
     ],
     slug: "ruthram360",
     category: "Virtual Tours / Digital Media",

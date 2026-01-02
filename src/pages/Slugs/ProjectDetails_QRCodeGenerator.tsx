@@ -113,6 +113,8 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_QRCodeGenerator/1.png";
+import Thumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.png";
 
 const projectDetails = {
   "qr-code-generator": {
@@ -138,13 +140,12 @@ const projectDetails = {
       "Web App",
     ],
     images: [
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop&auto=format",
+      Thumbnail,
+      Img1
     ],
     slug: "qr-code-generator",
     category: "Web Application",
-    liveUrl: "https://thiyo-de.github.io/QR-Code-Generator/",
+    liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/QR-Code-Generator",
     featured: true,
     role: "Full Stack Developer",

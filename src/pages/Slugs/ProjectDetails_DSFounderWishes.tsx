@@ -67,6 +67,11 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_DSFounderWishes/1.png";
+import Img2 from "@/assets/ProjectDetails_DSFounderWishes/2.png";
+import Img3 from "@/assets/ProjectDetails_DSFounderWishes/3.png";
+import Img4 from "@/assets/ProjectDetails_DSFounderWishes/4.png";
+import Thumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.png";
 
 const projectDetails = {
   "ds-founder-birthday-wishes": {
@@ -82,10 +87,11 @@ const projectDetails = {
     `,
     tags: ["React", "TypeScript", "Supabase", "Cloudinary", "Tailwind CSS", "Framer Motion", "Netlify", "Full Stack"],
     images: [
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=1200&h=800&fit=crop&auto=format"
+      Thumbnail,
+      Img1,
+      Img2,
+      Img3,
+      Img4
     ],
     slug: "ds-founder-birthday-wishes",
     category: "Full Stack / Community Platform",

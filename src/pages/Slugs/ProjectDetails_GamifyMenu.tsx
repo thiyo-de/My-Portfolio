@@ -114,6 +114,8 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_GamifyMenu/1.png";
+import Thumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.png";
 
 const projectDetails = {
   "gamify-menu": {
@@ -141,13 +143,12 @@ const projectDetails = {
       "Interactive",
     ],
     images: [
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1614036634955-8d26fb04c606?w=1200&h=800&fit=crop&auto=format",
+      Thumbnail,
+      Img1
     ],
     slug: "gamify-menu",
     category: "UI Component / Web Application",
-    liveUrl: "https://gammifymenu.netlify.app/",
+    liveUrl: "https://superb-gecko-26b001.netlify.app/",
     githubUrl: "https://github.com/thiyo-de/Gamify_Menu",
     featured: true,
     role: "Frontend Developer & UI Designer",

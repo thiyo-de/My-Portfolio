@@ -11,8 +11,19 @@ import {
   Eye,
   Calendar,
   Users,
+  Construction,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import MontfortThumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.png";
+import MontfortICSEThumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.png";
+import DSFounderThumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.png";
+import DroneMergeThumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.png";
+import VowelQuestThumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.png";
+import RuthramThumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.png";
+import VRTourThumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.png";
+import GamifyThumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.png";
+import QRCodeThumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.png";
+import RemoteAccessThumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.png";
 
 const projects = [
   {
@@ -29,7 +40,7 @@ const projects = [
       "Analytics"
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+      MontfortThumbnail,
     slug: "montfort-school-ai-chatbot-system",
     category: "Admin System / SaaS",
     liveUrl: "https://montfort-chatbot-admin-panel.netlify.app/",
@@ -61,7 +72,7 @@ const projects = [
       "Express.js",
     ],
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
+      MontfortICSEThumbnail,
     slug: "montfort-icse-ai-chatbot",
     category: "AI/ML / Full Stack",
     liveUrl: "https://montfort-chatbot.netlify.app/",
@@ -94,7 +105,7 @@ const projects = [
       "Full Stack",
     ],
     image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&h=800&fit=crop&auto=format",
+      DSFounderThumbnail,
     slug: "ds-founder-birthday-wishes",
     category: "Full Stack / Community Platform",
     liveUrl: "https://ds-founder-birth-day-wish.netlify.app/",
@@ -125,7 +136,7 @@ const projects = [
       "Cross-Platform"
     ],
     image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop",
+      DroneMergeThumbnail,
     slug: "drone-footage-merge-tool",
     category: "Desktop Application / Automation",
     liveUrl: "#",
@@ -157,7 +168,7 @@ const projects = [
       "Mobile-Optimized",
     ],
     image:
-      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&h=800&fit=crop&auto=format",
+      VowelQuestThumbnail,
     slug: "vowel-quest",
     category: "Educational Game / Web App",
     liveUrl: "https://vowel-shooting.netlify.app/",
@@ -188,7 +199,7 @@ const projects = [
       "Digital Preservation",
     ],
     image:
-      "https://github.com/thiyo-de/Ruthram-360/raw/main/Web%20UI/1.png",
+      RuthramThumbnail,
     slug: "ruthram360",
     category: "Virtual Tours / Digital Media",
     liveUrl: "https://ruthram360.netlify.app/",
@@ -222,7 +233,7 @@ const projects = [
       "Cross-Platform",
     ],
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h-800&fit=crop&auto=format",
+      VRTourThumbnail,
     slug: "vr-tour-gallery",
     category: "VR / Web App",
     liveUrl: "https://vrgallery.netlify.app/",
@@ -254,10 +265,10 @@ const projects = [
       "Interactive",
     ],
     image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&auto=format",
+      GamifyThumbnail,
     slug: "gamify-menu",
     category: "UI Component / Web Application",
-    liveUrl: "https://gammifymenu.netlify.app/",
+    liveUrl: "https://superb-gecko-26b001.netlify.app/",
     githubUrl: "https://github.com/thiyo-de/Gamify_Menu",
     featured: true,
     role: "Frontend Developer & UI Designer",
@@ -286,10 +297,10 @@ const projects = [
       "Web App",
     ],
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&auto=format",
+      QRCodeThumbnail,
     slug: "qr-code-generator",
     category: "Web Application",
-    liveUrl: "https://thiyo-de.github.io/QR-Code-Generator/",
+    liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/QR-Code-Generator",
     featured: true,
     role: "Full Stack Developer",
@@ -319,10 +330,11 @@ const projects = [
       "24/7 Operation",
     ],
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop&auto=format",
+      RemoteAccessThumbnail,
     slug: "remote-access-app",
     category: "Android Framework",
-    liveUrl: "https://github.com/thiyo-de/remote-app.git",
+    isUnderDevelopment: true,
+    liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/remote-app.git",
     featured: true,
     role: "Lead Android Developer",
@@ -592,13 +604,18 @@ const ProjectCard = ({
               >
                 {project.category}
               </Badge>
+              {(project as any).isUnderDevelopment && (
+                <Badge variant="destructive" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20 px-3 py-1.5 font-grotesk font-medium backdrop-blur-sm hover:bg-yellow-500/20">
+                  <Construction className="w-3 h-3 mr-1" />
+                  Under Development
+                </Badge>
+              )}
             </div>
           </div>
 
           {/* Hover Actions */}
           <motion.div
             className="absolute inset-0 bg-primary/95 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
-            whileHover={{ opacity: 1 }}
           >
             <motion.a
               href={project.liveUrl}

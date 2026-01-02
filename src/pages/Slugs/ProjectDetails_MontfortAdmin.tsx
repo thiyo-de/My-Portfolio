@@ -38,6 +38,11 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/montfort-school-ai-chatbot-system/1.png";
+import Img2 from "@/assets/montfort-school-ai-chatbot-system/2.png";
+import Img3 from "@/assets/montfort-school-ai-chatbot-system/3.png";
+import Img4 from "@/assets/montfort-school-ai-chatbot-system/4.png";
+import Thumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.png";
 
 const projectDetails = {
   "montfort-school-ai-chatbot-system": {
@@ -52,9 +57,11 @@ const projectDetails = {
     `,
     tags: ["Admin Panel", "Dashboard", "CMS", "Supabase", "React", "Analytics"],
     images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop", // Dashboard/Analytics
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop", // Data/Charts
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop"  // Control/Database
+      Thumbnail,
+      Img1,
+      Img2,
+      Img3,
+      Img4
     ],
     slug: "montfort-school-ai-chatbot-system",
     category: "Admin System / SaaS",

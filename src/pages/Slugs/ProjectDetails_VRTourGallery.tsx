@@ -112,6 +112,8 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import Img1 from "@/assets/ProjectDetails_VRTourGallery/1.png";
+import Thumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.png";
 
 const projectDetails = {
   "vr-tour-gallery": {
@@ -143,10 +145,8 @@ const projectDetails = {
       "Cross-Platform",
     ],
     images: [
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h-800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=800&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&auto=format",
+      Thumbnail,
+      Img1
     ],
     slug: "vr-tour-gallery",
     category: "VR Platform Enhancement / Web Application",

@@ -309,7 +309,7 @@ const projectDetails = {
   }
 };
 
-const ProjectDetail_3 = () => {
+const ProjectDetail_VowelQuest = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
@@ -545,12 +545,12 @@ const ProjectDetail_3 = () => {
                 </div>
 
                 <div className="p-6 rounded-2xl bg-secondary/30 border border-border">
-                  <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                  <h4 className="font-clash font-bold text-sm mb-3 flex items-center gap-2">
                     <Download className="w-4 h-4" /> Download Package
                   </h4>
                   <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
                   <Button size="sm" variant="outline" className="w-full" asChild>
-                    <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download>Download ZIP</a>
+                    <a href={`${project.githubUrl}/archive/refs/heads/main.zip`} download className="font-clash">Download ZIP</a>
                   </Button>
                 </div>
               </div>
@@ -561,7 +561,7 @@ const ProjectDetail_3 = () => {
 
               {/* Mobile Download Package (Visible on < lg screens) */}
               <div className="lg:hidden p-6 rounded-2xl bg-secondary/30 border border-border mb-8">
-                <h4 className="font-bold text-sm mb-3 flex items-center gap-2">
+                <h4 className="font-clash font-bold text-sm mb-3 flex items-center gap-2">
                   <Download className="w-4 h-4" /> Download Package
                 </h4>
                 <p className="text-xs text-muted-foreground mb-4">Get the full project source code and assets.</p>
@@ -790,4 +790,4 @@ const ProjectDetail_3 = () => {
   );
 };
 
-export default ProjectDetail_3;
+export default ProjectDetail_VowelQuest;

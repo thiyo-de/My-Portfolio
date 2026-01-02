@@ -32,6 +32,15 @@ const projects = [
     slug: "ds-founder-birthday-wishes",
   },
   {
+    title: "Drone Footage Merge Tool",
+    description:
+      "Automated Footage Organization for Production Teams",
+    tags: ["Electron", "Node.js", "Automation"],
+    image:
+      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop",
+    slug: "drone-footage-merge-tool",
+  },
+  {
     title: "Vowel Quest – Space Shooter",
     description:
       "Educational space shooter game for vowel recognition learning",

@@ -111,6 +111,37 @@ const projects = [
     ],
   },
   {
+    id: "10",
+    title: "Drone Footage Merge Tool",
+    description: "Automated merging of drone footage from multiple cards into organized folders.",
+    shortDescription: "Automated Footage Organization for Production Teams",
+    tags: [
+      "Electron",
+      "Node.js",
+      "Desktop App",
+      "Automation",
+      "File System",
+      "React",
+      "Cross-Platform"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop",
+    slug: "drone-footage-merge-tool",
+    category: "Desktop Application / Automation",
+    liveUrl: "#",
+    githubUrl: "https://github.com/thiyo-de/Drone-Footage-Merge-Tool",
+    featured: false,
+    role: "Lead Developer",
+    stats: [
+      { value: "40+ min", label: "Time Saved/Day" },
+      { value: "0%", label: "Overwrite Risk" },
+      { value: "100%", label: "Accuracy" },
+      { value: "1000+", label: "Files/Batch" },
+      { value: "Win/Mac", label: "Platform" },
+      { value: "Local", label: "Processing" },
+    ],
+  },
+  {
     id: "3",
     title: "Vowel Quest – Space Shooter Edition",
     description:

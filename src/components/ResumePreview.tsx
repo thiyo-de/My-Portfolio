@@ -70,7 +70,7 @@ const ResumePreview = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-6xl h-[90vh] p-0 overflow-hidden flex flex-col bg-zinc-950 border-zinc-800 [&>button]:hidden">
+            <DialogContent className="w-[95vw] max-w-6xl h-[90vh] p-0 overflow-hidden flex flex-col bg-zinc-950 border-zinc-800 rounded-xl sm:rounded-2xl [&>button]:hidden">
                 <div className="sr-only">
                     <DialogTitle>Resume Preview</DialogTitle>
                     <DialogDescription>Preview of the resume details</DialogDescription>

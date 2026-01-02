@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import thiyo from "../assets/Profile-Thiyo.png";
+// import thiyo from "../assets/Profile-Thiyo.png";
+import thiyo from "../assets/img.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();

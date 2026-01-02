@@ -11,10 +11,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/lib/animations";
-import profile_Pic from "../assets/Thiyo-f.png";
+// import profile_Pic from "../assets/Thiyo-f.png";
+import profile_Pic from "../assets/img.jpg";
 import resumePdf from "../assets/thiyoplus f_Resume.pdf";
 import { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import ResumePreview from "./ResumePreview";
 
 // Types for better type safety
 interface SocialLink {
@@ -30,6 +32,7 @@ interface Stat {
 
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const navigate = useNavigate();
 
   const socialLinks: SocialLink[] = [
@@ -67,14 +70,8 @@ const About = () => {
   ];
 
   // Memoized handlers for better performance
-  const handleDownloadResume = useCallback(() => {
-    const link = document.createElement("a");
-    link.href = resumePdf;
-    link.download = "Thiyoplus_F_Resume.pdf";
-    link.setAttribute("data-testid", "resume-download-link");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handlePreviewResume = useCallback(() => {
+    setIsResumeOpen(true);
   }, []);
 
   const handleGetInTouch = useCallback(() => {
@@ -230,10 +227,10 @@ const About = () => {
                     size="lg"
                     variant="outline"
                     className="font-grotesk text-sm sm:text-base lg:text-lg w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 rounded-full border-2 border-border hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                    onClick={handleDownloadResume}
+                    onClick={handlePreviewResume}
                   >
                     <Download className="mr-1 sm:mr-1 h-4 w-4 lg:h-5 lg:w-5" />
-                    Download Resume
+                    Preview Resume
                   </Button>
                 </motion.div>
               </motion.div>
@@ -329,6 +326,11 @@ const About = () => {
           </motion.div>
         </div>
       </div>
+      <ResumePreview
+        isOpen={isResumeOpen}
+        onOpenChange={setIsResumeOpen}
+        resumeUrl={resumePdf}
+      />
     </section>
   );
 };

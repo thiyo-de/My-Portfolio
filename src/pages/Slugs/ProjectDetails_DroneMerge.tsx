@@ -562,51 +562,7 @@ const ProjectDetails_DroneMerge = () => {
                             </div>
 
                             {/* Gallery Slider */}
-                            <div id="gallery" className="space-y-8">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="font-clash font-bold text-3xl sm:text-4xl">Interface Gallery</h2>
-                                    <div className="flex gap-2">
-                                        <Button size="icon" variant="outline" onClick={() => setActiveImage((prev) => (prev - 1 + project.images.length) % project.images.length)}>
-                                            <ArrowLeft className="w-4 h-4" />
-                                        </Button>
-                                        <Button size="icon" variant="outline" onClick={() => setActiveImage((prev) => (prev + 1) % project.images.length)}>
-                                            <ArrowLeft className="w-4 h-4 rotate-180" />
-                                        </Button>
-                                    </div>
-                                </div>
 
-                                <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-2xl cursor-zoom-in group" onClick={() => openLightbox(project.images[activeImage])}>
-                                    <div className="absolute inset-0 z-20 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
-                                        <div className="bg-background/80 backdrop-blur-md px-4 py-2 rounded-full border border-border/50 flex items-center gap-2 font-satoshi font-medium">
-                                            <ZoomIn className="w-4 h-4" /> View Fullscreen
-                                        </div>
-                                    </div>
-                                    <AnimatePresence mode="wait">
-                                        <motion.img
-                                            key={activeImage}
-                                            src={project.images[activeImage]}
-                                            initial={{ opacity: 0, scale: 1.05 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.5 }}
-                                            className="absolute inset-0 w-full h-full object-cover"
-                                            alt="Project screenshot"
-                                        />
-                                    </AnimatePresence>
-                                    <div className="absolute bottom-6 left-6 right-6 flex justify-center gap-2">
-                                        {project.images.map((_, i) => (
-                                            <div
-                                                key={i}
-                                                onClick={() => setActiveImage(i)}
-                                                className={cn(
-                                                    "w-2 h-2 rounded-full cursor-pointer transition-all",
-                                                    i === activeImage ? "bg-white w-8" : "bg-white/50 hover:bg-white"
-                                                )}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
 
                             {/* API / Usage Section */}
                             <div id="usage" className="space-y-8">

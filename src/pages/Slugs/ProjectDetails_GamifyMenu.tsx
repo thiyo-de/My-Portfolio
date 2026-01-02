@@ -636,16 +636,7 @@ const ProjectDetail_GamifyMenu = () => {
                 <p className="font-satoshi text-lg leading-relaxed text-muted-foreground">
                   {project.fullDescription}
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                  {project.coreFeatures.slice(0, 2).map((feature, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-muted/30 border border-border/50">
-                      <h4 className="font-bold mb-2 flex items-center gap-2">
-                        <feature.icon className="w-4 h-4 text-primary" /> {feature.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
+
               </div>
 
               {/* Bento Grid Features */}

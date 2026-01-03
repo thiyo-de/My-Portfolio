@@ -9,8 +9,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import thiyo from "../assets/Profile-Thiyo.png";
-// import thiyo from "../assets/img.jpg";
+// import thiyo from "../assets/Profile-Thiyo.png";
+import thiyo from "../assets/img.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-14 md:pt-18 lg:pt-24 flex items-center justify-center bg-background text-foreground overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen pt-28 md:pt-32 lg:pt-24 flex items-center justify-center bg-background text-foreground overflow-hidden px-4 sm:px-6 lg:px-8">
 
       {/* Enhanced Background Textures */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -51,7 +51,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-4 sm:py-6 lg:py-8 pt-24"
+        className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between min-h-[85vh] py-4 sm:py-6 lg:py-8"
       >
         {/* Mobile & Tablet Layout */}
         <div className="lg:hidden flex flex-col items-center justify-center text-center min-h-[85vh] w-full">
@@ -95,7 +95,7 @@ const Hero = () => {
 
           {/* Image Container with Bottom Fade */}
           <motion.div
-            className="relative w-full flex justify-center mb-6 sm:mb-8"
+            className="relative w-full flex justify-center mb-6 sm:mb-8 -mt-[25px]"
             initial={{ opacity: 0, y: 100, scale: 0.3 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
@@ -114,7 +114,7 @@ const Hero = () => {
               <img
                 src={thiyo}
                 alt="Thiyoplus F - Full Stack Developer"
-                className="h-auto max-h-[45vh] sm:max-h-[50vh] md:max-h-[55vh] w-auto object-contain"
+                className="h-auto max-h-[40vh] sm:max-h-[45vh] md:max-h-[50vh] w-auto object-contain"
                 style={{
                   mixBlendMode: "normal",
                   filter: "none",
@@ -270,7 +270,7 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 1 }}
           >
             <motion.div
-              className="relative"
+              className="relative mb-[50px]"
               initial={{
                 y: "100%",
                 opacity: 0,
@@ -294,7 +294,7 @@ const Hero = () => {
               <img
                 src={thiyo}
                 alt="Thiyoplus F - Full Stack Developer"
-                className="h-auto max-h-[60vh] sm:max-h-[70vh] lg:max-h-[75vh] xl:max-h-[80vh] w-auto object-contain object-bottom"
+                className="h-auto max-h-[50vh] sm:max-h-[60vh] lg:max-h-[65vh] xl:max-h-[70vh] w-auto object-contain object-bottom"
                 style={{
                   mixBlendMode: "normal",
                   filter: "none",

@@ -38,11 +38,11 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/montfort-school-ai-chatbot-system/1.png";
-import Img2 from "@/assets/montfort-school-ai-chatbot-system/2.png";
-import Img3 from "@/assets/montfort-school-ai-chatbot-system/3.png";
-import Img4 from "@/assets/montfort-school-ai-chatbot-system/4.png";
-import Thumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.png";
+import Img1 from "@/assets/montfort-school-ai-chatbot-system/1.webp";
+import Img2 from "@/assets/montfort-school-ai-chatbot-system/2.webp";
+import Img3 from "@/assets/montfort-school-ai-chatbot-system/3.webp";
+import Img4 from "@/assets/montfort-school-ai-chatbot-system/4.webp";
+import Thumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.webp";
 
 const projectDetails = {
   "montfort-school-ai-chatbot-system": {

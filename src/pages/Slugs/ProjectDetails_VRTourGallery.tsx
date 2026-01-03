@@ -112,8 +112,8 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_VRTourGallery/1.png";
-import Thumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_VRTourGallery/1.webp";
+import Thumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.webp";
 
 const projectDetails = {
   "vr-tour-gallery": {

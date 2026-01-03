@@ -3,16 +3,16 @@ import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import MontfortThumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.png";
-import MontfortICSEThumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.png";
-import DSFounderThumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.png";
-import DroneMergeThumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.png";
-import VowelQuestThumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.png";
-import RuthramThumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.png";
-import VRTourThumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.png";
-import GamifyThumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.png";
-import QRCodeThumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.png";
-import RemoteAccessThumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.png";
+import MontfortThumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.webp";
+import MontfortICSEThumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.webp";
+import DSFounderThumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.webp";
+import DroneMergeThumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.webp";
+import VowelQuestThumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.webp";
+import RuthramThumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.webp";
+import VRTourThumbnail from "@/assets/ProjectDetails_VRTourGallery/Thumnail.webp";
+import GamifyThumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.webp";
+import QRCodeThumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.webp";
+import RemoteAccessThumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.webp";
 
 const projects = [
   {

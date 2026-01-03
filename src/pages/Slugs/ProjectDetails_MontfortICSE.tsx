@@ -67,8 +67,8 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_MontfortICSE/1.png";
-import Thumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_MontfortICSE/1.webp";
+import Thumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.webp";
 
 const projectDetails = {
   "montfort-icse-ai-chatbot": {

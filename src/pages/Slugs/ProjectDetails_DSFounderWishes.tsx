@@ -67,11 +67,11 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_DSFounderWishes/1.png";
-import Img2 from "@/assets/ProjectDetails_DSFounderWishes/2.png";
-import Img3 from "@/assets/ProjectDetails_DSFounderWishes/3.png";
-import Img4 from "@/assets/ProjectDetails_DSFounderWishes/4.png";
-import Thumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_DSFounderWishes/1.webp";
+import Img2 from "@/assets/ProjectDetails_DSFounderWishes/2.webp";
+import Img3 from "@/assets/ProjectDetails_DSFounderWishes/3.webp";
+import Img4 from "@/assets/ProjectDetails_DSFounderWishes/4.webp";
+import Thumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.webp";
 
 const projectDetails = {
   "ds-founder-birthday-wishes": {

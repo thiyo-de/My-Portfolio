@@ -113,8 +113,8 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_QRCodeGenerator/1.png";
-import Thumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_QRCodeGenerator/1.webp";
+import Thumbnail from "@/assets/ProjectDetails_QRCodeGenerator/Thumnail.webp";
 
 const projectDetails = {
   "qr-code-generator": {

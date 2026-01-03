@@ -125,7 +125,7 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Thumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.png";
+import Thumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumnail.webp";
 
 const projectDetails = {
   "remote-access-app": {

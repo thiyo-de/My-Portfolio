@@ -82,9 +82,9 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_VowelQuest/1.png";
-import Img2 from "@/assets/ProjectDetails_VowelQuest/2.png";
-import Thumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_VowelQuest/1.webp";
+import Img2 from "@/assets/ProjectDetails_VowelQuest/2.webp";
+import Thumbnail from "@/assets/ProjectDetails_VowelQuest/Thumnail.webp";
 
 const projectDetails = {
   "vowel-quest": {

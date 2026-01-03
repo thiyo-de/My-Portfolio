@@ -52,10 +52,10 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_DroneMerge/1.png";
-import Img2 from "@/assets/ProjectDetails_DroneMerge/2.png";
-import Img3 from "@/assets/ProjectDetails_DroneMerge/3.png";
-import Thumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_DroneMerge/1.webp";
+import Img2 from "@/assets/ProjectDetails_DroneMerge/2.webp";
+import Img3 from "@/assets/ProjectDetails_DroneMerge/3.webp";
+import Thumbnail from "@/assets/ProjectDetails_DroneMerge/Thumnail.webp";
 
 const projectDetails = {
     "drone-footage-merge-tool": {

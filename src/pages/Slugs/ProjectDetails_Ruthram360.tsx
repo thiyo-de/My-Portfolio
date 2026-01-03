@@ -36,12 +36,12 @@ import {
 import ImageViewer from "@/components/ImageViewer";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_Ruthram360/1.png";
-import Img2 from "@/assets/ProjectDetails_Ruthram360/2.png";
-import Img3 from "@/assets/ProjectDetails_Ruthram360/3.png";
-import Img4 from "@/assets/ProjectDetails_Ruthram360/4.png";
-import Img5 from "@/assets/ProjectDetails_Ruthram360/5.png";
-import Thumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_Ruthram360/1.webp";
+import Img2 from "@/assets/ProjectDetails_Ruthram360/2.webp";
+import Img3 from "@/assets/ProjectDetails_Ruthram360/3.webp";
+import Img4 from "@/assets/ProjectDetails_Ruthram360/4.webp";
+import Img5 from "@/assets/ProjectDetails_Ruthram360/5.webp";
+import Thumbnail from "@/assets/ProjectDetails_Ruthram360/Thumnail.webp";
 
 const projectDetails = {
   "ruthram360": {

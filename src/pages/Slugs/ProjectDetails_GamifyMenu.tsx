@@ -114,8 +114,8 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import Img1 from "@/assets/ProjectDetails_GamifyMenu/1.png";
-import Thumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.png";
+import Img1 from "@/assets/ProjectDetails_GamifyMenu/1.webp";
+import Thumbnail from "@/assets/ProjectDetails_GamifyMenu/Thumnail.webp";
 
 const projectDetails = {
   "gamify-menu": {

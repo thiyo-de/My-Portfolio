@@ -3,20 +3,20 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
 
 import MainLayout from "@/layouts/MainLayout";
-import Index from "@/pages/Index";
-import About_Page from "@/pages/About-Page";
-import Services_Page from "@/pages/Services-Page";
-import Work_Page from "@/pages/Work-Page";
-import Skills_Page from "@/pages/Skills-Page";
-import Contact_Page from "@/pages/Contact-Page";
-import ProjectDetail from "@/pages/Slugs/ProjectDetails";
-import NotFound from "@/pages/NotFound";
-import ThankYou from "@/pages/ThankYou";
 
-
-import { useEffect } from "react";
+// Lazy load pages
+const Index = React.lazy(() => import("@/pages/Index"));
+const About_Page = React.lazy(() => import("@/pages/About-Page"));
+const Services_Page = React.lazy(() => import("@/pages/Services-Page"));
+const Work_Page = React.lazy(() => import("@/pages/Work-Page"));
+const Skills_Page = React.lazy(() => import("@/pages/Skills-Page"));
+const Contact_Page = React.lazy(() => import("@/pages/Contact-Page"));
+const ProjectDetail = React.lazy(() => import("@/pages/Slugs/ProjectDetails"));
+const NotFound = React.lazy(() => import("@/pages/NotFound"));
+const ThankYou = React.lazy(() => import("@/pages/ThankYou"));
 
 const queryClient = new QueryClient();
 
@@ -76,7 +76,6 @@ const App = () => {
               <Route path="/skills-Page" element={<Skills_Page />} />
               <Route path="/contact-Page" element={<Contact_Page />} />
               <Route path="/portfolio/:slug" element={<ProjectDetail />} />
-
             </Route>
 
             {/* Catch-all for undefined routes */}

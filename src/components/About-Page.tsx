@@ -14,9 +14,11 @@ import { staggerContainer, staggerItem } from "@/lib/animations";
 import profile_Pic from "../assets/Thiyo-f.webp";
 // import profile_Pic from "../assets/img.jpg";
 import resumePdf from "../assets/thiyoplus f_Resume.pdf";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
-import ResumePreview from "./ResumePreview";
+
+// Lazy load the ResumePreview component to save ~460KB on initial load
+const ResumePreview = lazy(() => import("./ResumePreview"));
 
 // Types for better type safety
 interface SocialLink {
@@ -105,92 +107,73 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <motion.header
-            className="text-center mb-12 sm:mb-16 lg:mb-20"
+            className="text-center mb-16 sm:mb-20 lg:mb-24"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-grotesk text-xs tracking-[0.3em] text-muted-foreground uppercase">
-              About Me
+            <span className="font-grotesk text-xs lg:text-sm tracking-[0.4em] text-primary/80 uppercase font-medium">
+              Introduction
             </span>
             <h1
               id="about-heading"
-              className="font-clash font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-4 sm:mt-6 mb-4 sm:mb-6 leading-tight"
+              className="font-clash font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-6 mb-8 leading-[1.1]"
             >
               Crafting Digital
               <br />
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Excellence
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/50 bg-clip-text text-transparent">
+                Experiences
               </span>
             </h1>
-            <p className="font-satoshi text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-              Transforming ideas into exceptional digital solutions through
-              design and development.
+            <p className="font-satoshi text-lg sm:text-xl text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed px-4 font-light">
+              I bridge the gap between design and engineering, building products that look beautiful and perform flawlessly.
             </p>
           </motion.header>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Column - Text Content */}
 
             <motion.div
-              className="space-y-6 lg:space-y-8 order-2 lg:order-1"
+              className="space-y-8 lg:space-y-10 order-2 lg:order-1"
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <motion.p
-                variants={staggerItem}
-                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
-              >
-                I'm a{" "}
-                <span className="font-semibold text-foreground">
-                  designer & MERN stack developer
-                </span>{" "}
-                passionate about building digital experiences that feel clean,
-                intuitive, and beautifully crafted. I love turning ideas into
-                polished products through thoughtful design and solid
-                engineering.
-              </motion.p>
+              <div className="space-y-6">
+                <motion.p
+                  variants={staggerItem}
+                  className="font-satoshi text-lg lg:text-xl text-muted-foreground leading-relaxed"
+                >
+                  My journey started with a simple curiosity: <span className="text-primary font-medium">how do things work?</span> That curiosity evolved into a passion for building software that not only functions perfectly but also delights the user.
+                </motion.p>
 
-              <motion.p
-                variants={staggerItem}
-                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
-              >
-                Beyond development, I enjoy{" "}
-                <span className="font-semibold text-foreground">
-                  solving client challenges using the power of AI
-                </span>
-                — automating workflows, debugging issues faster, and creating
-                smart solutions that deliver real value. For me, technology is
-                not just a tool but a creative problem-solving partner.
-              </motion.p>
+                <motion.p
+                  variants={staggerItem}
+                  className="font-satoshi text-lg lg:text-xl text-muted-foreground leading-relaxed"
+                >
+                  As a <span className="text-primary font-medium border-b border-primary/20 pb-0.5">Designer & Developer</span>, I don't just write code; I design systems. Whether it's architecting a scalable backend or fine-tuning a micro-interaction, I obsess over the details that make a product feel "right".
+                </motion.p>
 
-              <motion.p
-                variants={staggerItem}
-                className="font-satoshi text-base lg:text-lg text-muted-foreground leading-relaxed"
-              >
-                I also work on{" "}
-                <span className="font-semibold text-foreground">
-                  fun side projects
-                </span>{" "}
-                as a hobby — experiments, micro-apps, UI ideas, and quirky tools
-                that help me learn, explore, and stay curious. Based in
-                Tiruchirappalli, I’m open to collaborating with teams and
-                clients worldwide to create meaningful digital solutions.
-              </motion.p>
+                <motion.p
+                  variants={staggerItem}
+                  className="font-satoshi text-lg lg:text-xl text-muted-foreground leading-relaxed"
+                >
+                  I'm deeply invested in <span className="text-primary font-medium">AI and automation</span>, constantly betting on new technologies to solve old problems in smarter ways. For me, the future of web development is about efficiency, intelligence, and human-centric design.
+                </motion.p>
+              </div>
 
               {/* Skills */}
               <motion.div
-                className="flex flex-wrap gap-2 lg:gap-3 pt-4"
+                className="flex flex-wrap gap-2 lg:gap-3 pt-6"
                 variants={staggerItem}
               >
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 lg:px-4 py-2 bg-muted rounded-full text-xs lg:text-sm font-medium text-foreground border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default select-none"
+                    className="px-4 lg:px-5 py-2 bg-secondary/30 rounded-full text-xs lg:text-sm font-medium text-secondary-foreground border border-border/40 hover:border-primary/30 hover:bg-secondary/50 transition-all duration-300 cursor-default select-none"
                     aria-label={`Skill: ${skill}`}
                   >
                     {skill}
@@ -326,11 +309,15 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-      <ResumePreview
-        isOpen={isResumeOpen}
-        onOpenChange={setIsResumeOpen}
-        resumeUrl={resumePdf}
-      />
+      <Suspense fallback={null}>
+        {isResumeOpen && (
+          <ResumePreview
+            isOpen={isResumeOpen}
+            onOpenChange={setIsResumeOpen}
+            resumeUrl={resumePdf}
+          />
+        )}
+      </Suspense>
     </section>
   );
 };

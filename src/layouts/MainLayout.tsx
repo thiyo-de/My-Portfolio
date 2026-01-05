@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Outlet } from "react-router-dom";
+import { PageLoader } from "@/components/PageLoader";
 
 const MainLayout = () => {
   return (
@@ -10,7 +12,9 @@ const MainLayout = () => {
 
       {/* Page Content */}
       <main className="flex-grow">
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
 
       {/* Persistent Footer */}

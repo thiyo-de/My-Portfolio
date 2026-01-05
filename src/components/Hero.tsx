@@ -337,7 +337,7 @@ const Hero = () => {
             {/* About + Socials */}
             <div className="flex-1 w-full lg:max-w-sm order-1 lg:order-2">
               <motion.p
-                className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 text-center lg:text-right font-grotesk px-2 sm:px-0"
+                className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 text-center lg:text-right font-grotesk px-2 sm:px-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}

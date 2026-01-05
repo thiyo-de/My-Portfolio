@@ -159,7 +159,7 @@ const projectDetails = {
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&auto=format",
     ],
     slug: "remote-access-app",
-    category: "Android Framework",
+    category: "Android",
     liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/remote-app.git",
     featured: true,
@@ -548,7 +548,7 @@ const ProjectDetail_RemoteAccessApp = () => {
       <div className="fixed inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-[85vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
+      <section className="relative z-10 min-h-[40vh] flex flex-col justify-center pt-20 md:pt-32 pb-12 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -584,7 +584,7 @@ const ProjectDetail_RemoteAccessApp = () => {
                     </Badge>
                   )}
                   <Badge variant="destructive" className="font-grotesk text-sm py-1 px-3 bg-yellow-500/10 text-yellow-500 border-yellow-500/20 hover:bg-yellow-500/20 border">
-                    <Construction className="w-3 h-3 mr-1" /> Project Under Development
+                    <Construction className="w-3 h-3 mr-1" /> Project Development
                   </Badge>
                 </div>
 
@@ -640,21 +640,7 @@ const ProjectDetail_RemoteAccessApp = () => {
             </div>
 
             {/* Hero Visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 50 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[100px] rounded-full opacity-50" />
-              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card/10 backdrop-blur-xl group aspect-video">
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-            </motion.div>
+
           </div>
         </div>
       </section>

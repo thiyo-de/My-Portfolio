@@ -1,8 +1,9 @@
 import { ExternalLink, ArrowLeft, ArrowRight, Construction } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 import MontfortThumbnail from "@/assets/montfort-school-ai-chatbot-system/Thumnail.webp";
 import MontfortICSEThumbnail from "@/assets/ProjectDetails_MontfortICSE/Thumnail.webp";
 import DSFounderThumbnail from "@/assets/ProjectDetails_DSFounderWishes/Thumnail.webp";
@@ -17,117 +18,116 @@ import RemoteAccessThumbnail from "@/assets/ProjectDetails_RemoteAccessApp/Thumn
 const projects = [
   {
     title: "Montfort AI Admin Dashboard",
-    description:
-      "A powerful, no-code admin interface for managing the Montfort AI Chatbot's knowledge base.",
+    description: "A powerful, no-code admin interface for managing the Montfort AI Chatbot's knowledge base.",
     tags: ["Admin Panel", "Dashboard", "CMS"],
-    image:
-      MontfortThumbnail,
+    image: MontfortThumbnail,
     slug: "montfort-school-ai-chatbot-system",
   },
   {
     title: "Montfort ICSE AI Chatbot",
     description: "Advanced Gemini-Powered AI with 3D Navigation",
     tags: ["AI/ML", "Gemini API", "RAG"],
-    image:
-      MontfortICSEThumbnail,
+    image: MontfortICSEThumbnail,
     slug: "montfort-icse-ai-chatbot",
   },
   {
     title: "DS Founder Birthday Wishes",
-    description:
-      "Interactive platform for collecting and displaying birthday wishes",
+    description: "Interactive platform for collecting and displaying birthday wishes",
     tags: ["React", "Supabase", "Cloudinary"],
-    image:
-      DSFounderThumbnail,
+    image: DSFounderThumbnail,
     slug: "ds-founder-birthday-wishes",
   },
   {
     title: "Drone Footage Merge Tool",
-    description:
-      "Automated Footage Organization for Production Teams",
+    description: "Automated Footage Organization for Production Teams",
     tags: ["Electron", "Node.js", "Automation"],
-    image:
-      DroneMergeThumbnail,
+    image: DroneMergeThumbnail,
     slug: "drone-footage-merge-tool",
   },
   {
     title: "Vowel Quest – Space Shooter",
-    description:
-      "Educational space shooter game for vowel recognition learning",
+    description: "Educational space shooter game for vowel recognition learning",
     tags: ["HTML5 Canvas", "JavaScript", "Game Dev"],
-    image:
-      VowelQuestThumbnail,
+    image: VowelQuestThumbnail,
     slug: "vowel-quest",
   },
   {
     title: "Ruthram360°",
     description: "Transforming Spaces into Immersive Digital Experiences",
     tags: ["React 18", "360° Virtual Tours", "Google Street View"],
-    image:
-      RuthramThumbnail,
+    image: RuthramThumbnail,
     slug: "ruthram360",
   },
   {
     title: "VR Tour Gallery Uploader",
-    description:
-      "Interactive user photo upload feature for immersive VR experiences",
+    description: "Interactive user photo upload feature for immersive VR experiences",
     tags: ["VR Integration", "Flask", "React"],
-    image:
-      VRTourThumbnail,
+    image: VRTourThumbnail,
     slug: "vr-tour-gallery",
   },
   {
     title: "Gamified Menu",
-    description:
-      "Dynamic, gamified navigation menu with sound effects",
+    description: "Dynamic, gamified navigation menu with sound effects",
     tags: ["UI/UX Design", "Sound Design", "React"],
-    image:
-      GamifyThumbnail,
+    image: GamifyThumbnail,
     slug: "gamify-menu",
   },
   {
     title: "QR Code Generator",
     description: "Generate, save, and manage QR codes with ease",
     tags: ["JavaScript", "QR Codes", "Local Storage"],
-    image:
-      QRCodeThumbnail,
+    image: QRCodeThumbnail,
     slug: "qr-code-generator",
   },
   {
     title: "RemoteAccessApp",
-    description:
-      "24/7 Foreground Service with Persistent Notification",
+    description: "24/7 Foreground Service with Persistent Notification",
     tags: ["Android", "Kotlin", "Foreground Service"],
-    image:
-      RemoteAccessThumbnail,
+    image: RemoteAccessThumbnail,
     slug: "remote-access-app",
     isUnderDevelopment: true,
   },
 ];
 
 const Portfolio = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [visibleCards, setVisibleCards] = useState<number>(3);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+    containScroll: "trimSnaps",
+    dragFree: true
+  });
+
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const navigate = useNavigate();
 
-  // Calculate visible cards based on screen size
-  useEffect(() => {
-    const updateVisibleCards = () => {
-      const width = window.innerWidth;
-      if (width < 768) {
-        setVisibleCards(1);
-      } else if (width < 1024) {
-        setVisibleCards(2);
-      } else {
-        setVisibleCards(3);
-      }
-    };
+  const updateScrollState = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollLeft(emblaApi.canScrollPrev());
+    setCanScrollRight(emblaApi.canScrollNext());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
-    updateVisibleCards();
-    window.addEventListener("resize", updateVisibleCards);
-    return () => window.removeEventListener("resize", updateVisibleCards);
-  }, []);
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    updateScrollState();
+    setScrollSnaps(emblaApi.scrollSnapList());
+
+    emblaApi.on("select", updateScrollState);
+    emblaApi.on("reInit", updateScrollState);
+
+    return () => {
+      emblaApi.off("select", updateScrollState);
+      emblaApi.off("reInit", updateScrollState);
+    };
+  }, [emblaApi, updateScrollState]);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
 
   const handleProjectClick = (route: string) => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -139,56 +139,8 @@ const Portfolio = () => {
     navigate("/work-Page");
   };
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = container.firstElementChild ? (container.firstElementChild as HTMLElement).offsetWidth : container.clientWidth * 0.85; // Get actual card width
-      const gap = 24; // This works for lg:gap-8 (32px) but let's be careful. The code used 24 before. Let's stick to calculated logic or consistent values. 
-      // Actually, let's keep it simple first. The existing code manually calculated *0.85. 
-      // Better to check the computed style or just stick to the calculation that largely works, 
-      // BUT for "snap" to work, we are relying on CSS snap. 
-      // The issue is just state sync. Use the same math for now to calculate index.
-
-      const scrollAmount = (container.clientWidth * 0.85) + 24; // Keep original math for consistency for now, or improve it.
-      // Let's use the scrollBy logic but ensure we update based on current position + direction
-
-      container.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-      // We don't need to manually setCurrentIndex here anymore if handleScroll updates it!
-      // However, handleScroll is async (happens on scroll). 
-      // If we rely ONLY on handleScroll, the button state might lag slightly until scroll starts.
-      // But it's cleaner to let handleScroll be the source of truth for "where are we".
-      // Let's NOT set currentIndex here manually if we trust handleScroll, 
-      // OR set it here to "optimistically" update.
-      // Given the user wants to fix "manual move", the critical part is handleScroll.
-    }
-  };
-
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = container.clientWidth * 0.85; // Consistent with existing logic
-      const gap = 24;
-      const itemWidth = cardWidth + gap;
-
-      const newIndex = Math.round(container.scrollLeft / itemWidth);
-
-      if (newIndex !== currentIndex) {
-        setCurrentIndex(newIndex);
-      }
-    }
-  };
-
-  const canScrollLeft = currentIndex > 0;
-  const canScrollRight = currentIndex < projects.length - visibleCards;
-
   return (
-    <section
-      id="portfolio"
-      className="py-20 sm:py-32 bg-background overflow-hidden"
-    >
+    <section id="portfolio" className="py-20 sm:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.div
@@ -208,177 +160,125 @@ const Portfolio = () => {
           </div>
 
           <div className="flex gap-2 self-start lg:self-auto">
-            <motion.button
-              onClick={() => scroll("left")}
+            <button
+              onClick={scrollPrev}
               disabled={!canScrollLeft}
               className={`p-3 sm:p-4 rounded-full border-2 transition-all ${!canScrollLeft
-                ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
-                : "border-border hover:border-primary hover:bg-primary/10"
+                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
+                  : "border-border hover:border-primary hover:bg-primary/10"
                 }`}
-              whileHover={!canScrollLeft ? {} : { scale: 1.1 }}
-              whileTap={!canScrollLeft ? {} : { scale: 0.95 }}
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-            </motion.button>
-            <motion.button
-              onClick={() => scroll("right")}
+            </button>
+            <button
+              onClick={scrollNext}
               disabled={!canScrollRight}
               className={`p-3 sm:p-4 rounded-full border-2 transition-all ${!canScrollRight
-                ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
-                : "border-border hover:border-primary hover:bg-primary/10"
+                  ? "border-border/30 text-muted-foreground/30 cursor-not-allowed"
+                  : "border-border hover:border-primary hover:bg-primary/10"
                 }`}
-              whileHover={!canScrollRight ? {} : { scale: 1.1 }}
-              whileTap={!canScrollRight ? {} : { scale: 0.95 }}
             >
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </motion.button>
+            </button>
           </div>
         </motion.div>
 
-        {/* Projects Container */}
-        <div
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-          className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            scrollPadding: "0px 16px",
-          }}
-        >
-          {projects.map((project, index) => {
-            const number = (index + 1).toString().padStart(2, "0");
-            const route = `/portfolio/${project.slug}`;
+        {/* Embla Carousel viewport */}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-6 lg:gap-8 touch-pan-y">
+            {projects.map((project, index) => {
+              const number = (index + 1).toString().padStart(2, "0");
+              const route = `/portfolio/${project.slug}`;
 
-            return (
-              <motion.div
-                key={index}
-                className="group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[30vw] xl:w-[28vw] 2xl:w-[400px] snap-start"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                <button
-                  onClick={() => handleProjectClick(route)}
-                  className="block h-full w-full text-left"
+              return (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[30vw] xl:w-[28vw] 2xl:w-[400px] min-w-0"
                 >
                   <motion.div
-                    className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col"
-                    whileHover={{ y: -4 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="h-full"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
                   >
-                    <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
-                      <motion.img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.4 }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
-                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                        <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/75">
-                          {number}
-                        </span>
-                      </div>
-                      {(project as any).isUnderDevelopment && (
-                        <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
-                          <Badge variant="destructive" className="font-grotesk text-xs px-2 py-1 bg-yellow-500/10 text-yellow-500 border-yellow-500/20 hover:bg-yellow-500/20 border backdrop-blur-sm">
-                            <Construction className="w-3 h-3 mr-1" /> Under Development
-                          </Badge>
+                    <button
+                      onClick={() => handleProjectClick(route)}
+                      className="block h-full w-full text-left group"
+                    >
+                      <div className="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
+                        <div className="relative overflow-hidden aspect-[4/3] flex-shrink-0">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
+                          <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                            <span className="font-clash text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/75">
+                              {number}
+                            </span>
+                          </div>
+                          {(project as any).isUnderDevelopment && (
+                            <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+                              <Badge variant="destructive" className="font-grotesk text-xs px-2 py-1 bg-yellow-500/10 text-yellow-500 border-yellow-500/20 hover:bg-yellow-500/20 border backdrop-blur-sm">
+                                <Construction className="w-3 h-3 mr-1" /> Development
+                              </Badge>
+                            </div>
+                          )}
+                          <div className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="text-center">
+                              <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />
+                              <span className="font-satoshi text-primary-foreground text-sm sm:text-base">
+                                View Project
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                      )}
-                      <motion.div
-                        className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      >
-                        <div className="text-center">
-                          <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary-foreground mb-2 mx-auto" />
-                          <span className="font-satoshi text-primary-foreground text-sm sm:text-base">
-                            View Project
-                          </span>
-                        </div>
-                      </motion.div>
-                    </div>
 
-                    <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
-                      <h3 className="font-clash font-bold text-2xl sm:text-3xl group-hover:text-primary transition-colors line-clamp-2">
-                        {project.title}
-                      </h3>
-                      <p className="font-satoshi text-muted-foreground text-base sm:text-lg leading-relaxed flex-1 line-clamp-3">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <Badge
-                            key={tagIndex}
-                            variant="secondary"
-                            className="font-grotesk text-xs sm:text-sm px-3 sm:px-4 py-1"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
+                        <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col">
+                          <h3 className="font-clash font-bold text-2xl sm:text-3xl group-hover:text-primary transition-colors line-clamp-2">
+                            {project.title}
+                          </h3>
+                          <p className="font-satoshi text-muted-foreground text-base sm:text-lg leading-relaxed flex-1 line-clamp-3">
+                            {project.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                              <Badge
+                                key={tagIndex}
+                                variant="secondary"
+                                className="font-grotesk text-xs sm:text-sm px-3 sm:px-4 py-1"
+                              >
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    </button>
                   </motion.div>
-                </button>
-              </motion.div>
-            );
-          })}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Navigation Dots */}
         <div className="flex justify-center mt-8">
           <div className="flex gap-2">
-            {Array.from({
-              length: Math.ceil(projects.length / visibleCards)
-            }).map((_, index) => {
-              const totalPages = Math.ceil(projects.length / visibleCards);
-              // Calculate effective max index for scrolling
-              const maxScrollIndex = Math.max(0, projects.length - visibleCards);
-
-              // Determine active dot
-              // If we are at the end (or past it), activate the last dot
-              const activeDotIndex = currentIndex >= maxScrollIndex
-                ? totalPages - 1
-                : Math.floor(currentIndex / visibleCards);
-
-              const isActive = index === activeDotIndex;
-
-              return (
-                <button
-                  key={index}
-                  onClick={() => {
-                    // Clamp the new index to valid bounds to prevent whitespace
-                    const newIndex = Math.min(
-                      index * visibleCards,
-                      maxScrollIndex
-                    );
-
-                    setCurrentIndex(newIndex);
-
-                    if (scrollContainerRef.current) {
-                      const cardWidth = scrollContainerRef.current.clientWidth * 0.85;
-                      const gap = 24;
-                      // We need to calculate scroll position based on the new index
-                      // However, we should be careful about the "clamped" index vs visual calculation
-                      // Using the same logic as the scroll function helps consistency
-                      const scrollAmount = (cardWidth + gap) * newIndex;
-
-                      scrollContainerRef.current.scrollTo({
-                        left: scrollAmount,
-                        behavior: "smooth"
-                      });
-                    }
-                  }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${isActive
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex
                     ? "bg-primary w-8"
                     : "bg-border hover:bg-primary/50"
-                    }`}
-                />
-              );
-            })}
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -415,9 +315,6 @@ const Portfolio = () => {
       </div>
 
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
         .line-clamp-2 {
           display: -webkit-box;
           -webkit-line-clamp: 2;

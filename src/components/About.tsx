@@ -47,52 +47,49 @@ const About = () => {
             {/* Main Description */}
 
             <motion.div
-              className="lg:col-span-2 space-y-6"
+              className="lg:col-span-2 space-y-8"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
+              <p className="font-satoshi text-lg sm:text-xl text-muted-foreground leading-relaxed">
                 I'm a{" "}
-                <span className="text-foreground font-medium">
-                  designer and MERN stack developer
+                <span className="text-primary font-medium border-b border-primary/20 pb-0.5 hover:border-primary/50 transition-colors">
+                  Designer and MERN Stack Developer
                 </span>{" "}
-                passionate about crafting digital products that balance
-                creativity, usability, and performance.
+                who believes in the power of digital products to solve real-world problems.
+                I craft interfaces that are not just visually stunning but also
+                <span className="text-primary"> intuitively functional</span>.
               </p>
 
-              <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
-                I love{" "}
-                <span className="text-foreground font-medium">
-                  solving complex problems and building client solutions
-                </span>{" "}
-                using the power of AI and modern web technologies — turning
-                ideas into intelligent, user-friendly experiences.
+              <p className="font-satoshi text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                My approach combines{" "}
+                <span className="text-primary font-medium">technical expertise</span>{" "}
+                with a deep understanding of user behavior. I love leveraging AI and modern tech stacks to build
+                scalable solutions that leave a lasting impact.
               </p>
 
-              <p className="font-satoshi text-lg text-muted-foreground leading-relaxed">
-                Beyond my professional work, I enjoy exploring{" "}
-                <span className="text-foreground font-medium">
-                  fun side projects
-                </span>{" "}
-                that blend creativity, experimentation, and technology — fueling
-                my passion for continuous learning.
+              <p className="font-satoshi text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                When I'm not coding, I'm exploring{" "}
+                <span className="text-primary font-medium">new creative frontiers</span>{" "}
+                — experimenting with side projects that challenge my skills and keep
+                my passion for innovation alive.
               </p>
 
               {/* Skills Pill */}
-              <div className="flex flex-wrap gap-3 pt-4">
+              <div className="flex flex-wrap gap-3 pt-6">
                 {[
                   "UI/UX Design",
                   "MERN Stack",
-                  "React/Next.js",
+                  "React & Next.js",
                   "AI Integration",
-                  "Problem Solving",
-                  "Creative Projects",
+                  "System Architecture",
+                  "Creative Dev",
                 ].map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-muted/50 rounded-full font-grotesk text-xs text-muted-foreground border border-border/50"
+                    className="px-4 py-1.5 bg-secondary/30 rounded-full font-grotesk text-sm text-secondary-foreground border border-border/40 hover:border-primary/20 hover:bg-secondary/50 transition-all duration-300 cursor-default"
                   >
                     {skill}
                   </span>

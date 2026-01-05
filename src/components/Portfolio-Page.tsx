@@ -332,7 +332,7 @@ const projects = [
     image:
       RemoteAccessThumbnail,
     slug: "remote-access-app",
-    category: "Android Framework",
+    category: "Android",
     isUnderDevelopment: true,
     liveUrl: "/project/coming-soon",
     githubUrl: "https://github.com/thiyo-de/remote-app.git",
@@ -607,7 +607,7 @@ const ProjectCard = ({
               {(project as any).isUnderDevelopment && (
                 <Badge variant="destructive" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20 px-3 py-1.5 font-grotesk font-medium backdrop-blur-sm hover:bg-yellow-500/20">
                   <Construction className="w-3 h-3 mr-1" />
-                  Under Development
+                  Development
                 </Badge>
               )}
             </div>

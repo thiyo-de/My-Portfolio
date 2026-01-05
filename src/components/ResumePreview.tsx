@@ -129,19 +129,19 @@ const ResumePreview = ({
                 </div>
 
                 {/* PDF Viewer Content */}
-                <div className="flex-1 overflow-auto bg-zinc-950/50 flex justify-center p-4 sm:p-8 custom-scrollbar relative">
+                <div className="flex-1 overflow-auto bg-zinc-950/50 flex flex-col items-center p-4 sm:p-8 custom-scrollbar relative">
                     <Document
                         file={resumeUrl}
                         onLoadSuccess={onDocumentLoadSuccess}
                         onLoadError={(error) => console.error("PDF Load Error:", error)}
                         loading={
-                            <div className="flex flex-col items-center justify-center h-full gap-3">
+                            <div className="flex flex-col items-center justify-center py-20 gap-3">
                                 <Loader2 className="h-8 w-8 animate-spin text-green-500" />
                                 <p className="text-zinc-500 text-sm">Loading resume...</p>
                             </div>
                         }
                         error={
-                            <div className="flex flex-col items-center justify-center h-full gap-4 p-4 text-center">
+                            <div className="flex flex-col items-center justify-center py-20 gap-4 p-4 text-center">
                                 <div className="bg-red-500/10 p-4 rounded-full">
                                     <Download className="h-8 w-8 text-red-500" />
                                 </div>
@@ -156,7 +156,7 @@ const ResumePreview = ({
                                 </Button>
                             </div>
                         }
-                        className="shadow-2xl shadow-black/50"
+                        className="shadow-2xl shadow-black/50 my-auto"
                     >
                         <Page
                             pageNumber={pageNumber}
